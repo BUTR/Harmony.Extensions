@@ -34,15 +34,15 @@ class Build : NukeBuild
         .GetFiles(IsExternalInitProject.Directory, "*.cs", SearchOption.AllDirectories)
         .Select(path => new FileInfo(path));
 
-    FileInfo NuspecFile => new FileInfo(RootDirectory / "src" / "Harmony.Extensions.nuspec");
+    FileInfo NuspecFile => new(RootDirectory / "src" / "Harmony.Extensions.nuspec");
 
-    DirectoryInfo ArtifactsDirectory => new DirectoryInfo(RootDirectory / "artifacts");
+    DirectoryInfo ArtifactsDirectory => new(RootDirectory / "artifacts");
 
-    DirectoryInfo OutDirectory => new DirectoryInfo(TemporaryDirectory / "out");
+    DirectoryInfo OutDirectory => new(TemporaryDirectory / "out");
 
-    DirectoryInfo ExcludeFromCodeCoverageOutDirectory => new DirectoryInfo(TemporaryDirectory / "out" / "ExcludeFromCodeCoverage");
+    DirectoryInfo ExcludeFromCodeCoverageOutDirectory => new(TemporaryDirectory / "out" / "ExcludeFromCodeCoverage");
 
-    DirectoryInfo NoExcludeFromCodeCoverageOutDirectory => new DirectoryInfo(TemporaryDirectory / "out" / "NoExcludeFromCodeCoverage");
+    DirectoryInfo NoExcludeFromCodeCoverageOutDirectory => new(TemporaryDirectory / "out" / "NoExcludeFromCodeCoverage");
 
     Target Clean => _ => _
         .Executes(() =>
