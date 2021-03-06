@@ -40,7 +40,7 @@
 #nullable enable
 #pragma warning disable
 
-namespace Harmony.Extensions
+namespace HarmonyLib.BUTR.Extensions
 {
     using global::HarmonyLib;
 

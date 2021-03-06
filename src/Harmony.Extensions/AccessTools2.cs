@@ -40,11 +40,10 @@
 #nullable enable
 #pragma warning disable
 
-namespace Harmony.Extensions
+namespace HarmonyLib.BUTR.Extensions
 {
     using global::HarmonyLib;
 
-    using global::System.Diagnostics;
     using global::System.Diagnostics.CodeAnalysis;
     using global::System;
     using global::System.Collections.Generic;
