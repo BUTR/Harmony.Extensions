@@ -443,30 +443,59 @@ namespace HarmonyLib.BUTR.Extensions
 
         // Duplicate from BUTR.Shared
 
+        private static bool ParametersAreEqual(ParameterInfo[] delegateParameters, ParameterInfo[] methodParameters)
+        {
+            if (delegateParameters.Length - methodParameters.Length == 0)
+            {
+                for (var i = 0; i < methodParameters.Length; i++)
+                {
+                    if (!delegateParameters[i].ParameterType.IsAssignableFrom(methodParameters[i].ParameterType))
+                        return false;
+                }
+                return true;
+            }
+            else if (delegateParameters.Length - methodParameters.Length == 1)
+            {
+                for (var i = 0; i < methodParameters.Length; i++)
+                {
+                    if (!delegateParameters[i + 1].ParameterType.IsAssignableFrom(methodParameters[i].ParameterType))
+                        return false;
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public static TDelegate? GetDelegate<TDelegate>(ConstructorInfo? constructorInfo) where TDelegate : Delegate
         {
             if (constructorInfo is null) return null;
             
             if (typeof(TDelegate).GetMethod("Invoke") is not { } delegateInvoke) return null;
 
+            if (delegateInvoke.ReturnType.IsAssignableFrom(constructorInfo.DeclaringType)) return null;
+
             var delegateParameters = delegateInvoke.GetParameters();
             var constructorParameters = constructorInfo.GetParameters();
 
-            if (delegateParameters.Length != constructorParameters.Length) return null;
+            if (delegateParameters.Length - constructorParameters.Length != 0 && !ParametersAreEqual(delegateParameters, constructorParameters)) return null;
+
+            var instance = Expression.Parameter(typeof(object), "instance");
+
+            var returnParameters = delegateParameters
+                .Select((pi, i) => Expression.Parameter(pi.ParameterType, $"p{i}"))
+                .ToList();
+            var inputParameters = returnParameters
+                .Select((pe, i) => Expression.Convert(pe, constructorParameters[i].ParameterType))
+                .ToList();
+
+            Expression @new = Expression.New(constructorInfo, inputParameters);
+            var body = Expression.Convert(@new, constructorInfo.DeclaringType);
 
             try
             {
-                var instance = Expression.Parameter(typeof(object), "instance");
-                var returnParameters = delegateParameters
-                    .Select((pi, i) => Expression.Parameter(pi.ParameterType, $"p{i}"))
-                    .ToList();
-                var inputParameters = returnParameters
-                    .Select((pe, i) => Expression.Convert(pe, constructorParameters[i].ParameterType))
-                    .ToList();
-
-                Expression body = Expression.New(constructorInfo, inputParameters);
-                if (delegateInvoke.ReturnType != constructorInfo.DeclaringType) body = Expression.Convert(body, constructorInfo.DeclaringType);
-
                 return Expression.Lambda<TDelegate>(body, returnParameters).Compile();
             }
             catch (Exception)
@@ -475,39 +504,6 @@ namespace HarmonyLib.BUTR.Extensions
             }
         }
 
-        /// <summary>Get a delegate for a method described by <paramref name="methodInfo"/>.</summary>
-        /// <param name="methodInfo">The method's <see cref="MethodInfo"/>.</param>
-        /// <returns>A delegate or <see langword="null"/> when <paramref name="methodInfo"/> is <see langword="null"/>.</returns>
-        public static TDelegate? GetDelegate<TDelegate>(MethodInfo? methodInfo) where TDelegate : Delegate
-        {
-            if (methodInfo is null) return null;
-            
-            if (typeof(TDelegate).GetMethod("Invoke") is not { } delegateInvoke) return null;
-
-            var delegateParameters = delegateInvoke.GetParameters();
-            var methodParameters = methodInfo.GetParameters();
-
-            if (delegateParameters.Length != methodParameters.Length) return null;
-
-            try
-            {
-                var returnParameters = delegateParameters
-                    .Select((pi, i) => Expression.Parameter(pi.ParameterType, $"p{i}"))
-                    .ToList();
-                var inputParameters = returnParameters
-                    .Select((pe, i) => Expression.Convert(pe, methodParameters[i].ParameterType))
-                    .ToList();
-
-                Expression body = Expression.Call(methodInfo, inputParameters);
-                if (delegateInvoke.ReturnType != methodInfo.ReturnType) body = Expression.Convert(body, methodInfo.ReturnType);
-
-                return Expression.Lambda<TDelegate>(body, returnParameters).Compile();
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
 
         /// <summary>
         /// Get a delegate for an instance method described by <paramref name="methodInfo"/> and bound to <paramref name="instance"/>.
@@ -524,64 +520,62 @@ namespace HarmonyLib.BUTR.Extensions
 
             if (typeof(TDelegate).GetMethod("Invoke") is not { } delegateInvoke) return null;
 
+            if (delegateInvoke.ReturnType.IsAssignableFrom(methodInfo.ReturnType)) return null;
+
             var delegateParameters = delegateInvoke.GetParameters();
             var methodParameters = methodInfo.GetParameters();
 
-            if (delegateParameters.Length != methodParameters.Length) return null;
+            var hasSameParameters = delegateParameters.Length - methodParameters.Length == 0 && ParametersAreEqual(delegateParameters, methodParameters);
+            var hasInstance = instance is not null;
+            var hasInstanceType = delegateParameters.Length - methodParameters.Length == 1 && delegateParameters[0].ParameterType.IsAssignableFrom(methodInfo.DeclaringType);
+
+            if (hasSameParameters && hasInstanceType) return null;
+            if (hasInstance && (hasInstanceType || !hasSameParameters)) return null;
+            if (hasInstanceType && (hasInstance || hasSameParameters)) return null;
+
+            var instanceParameter = hasInstanceType
+                ? Expression.Parameter(delegateParameters[0].ParameterType, "instance")
+                : null;
+            var returnParameters = delegateParameters
+                .Skip(hasInstanceType ? 1 : 0)
+                .Select((pi, i) => Expression.Parameter(pi.ParameterType, $"p{i}"))
+                .ToList();
+            var inputParameters = returnParameters
+                .Select((pe, i) => Expression.Convert(pe, methodParameters[i].ParameterType))
+                .ToList();
+
+            var call = hasSameParameters
+                ? Expression.Call(methodInfo, inputParameters)
+                : hasInstance
+                    ? Expression.Call(Expression.Constant(instance), methodInfo, inputParameters)
+                    : hasInstanceType
+                        ? Expression.Call(Expression.Convert(instanceParameter, methodInfo.DeclaringType!), methodInfo, inputParameters)
+                        : null;
+
+            if (call is null) return null;
+
+            var body = Expression.Convert(call, methodInfo.ReturnType);
 
             try
             {
-                var returnParameters = delegateParameters
-                    .Select((pi, i) => Expression.Parameter(pi.ParameterType, $"p{i}"))
-                    .ToList();
-                var inputParameters = returnParameters
-                    .Select((pe, i) => Expression.Convert(pe, methodParameters[i].ParameterType))
-                    .ToList();
-
-                Expression body = Expression.Call(Expression.Constant(instance), methodInfo, inputParameters);
-                if (delegateInvoke.ReturnType != methodInfo.ReturnType) body = Expression.Convert(body, methodInfo.ReturnType);
-
-                return Expression.Lambda<TDelegate>(body, returnParameters).Compile();
+                return Expression.Lambda<TDelegate>(body, hasInstanceType
+                    ? new List<ParameterExpression> { instanceParameter }.Concat(returnParameters)
+                    : returnParameters).Compile();
             }
             catch (Exception)
             {
                 return null;
             }
         }
+
+        /// <summary>Get a delegate for a method described by <paramref name="methodInfo"/>.</summary>
+        /// <param name="methodInfo">The method's <see cref="MethodInfo"/>.</param>
+        /// <returns>A delegate or <see langword="null"/> when <paramref name="methodInfo"/> is <see langword="null"/>.</returns>
+        public static TDelegate? GetDelegate<TDelegate>(MethodInfo? methodInfo) where TDelegate : Delegate
+            => GetDelegate<TDelegate>(null, methodInfo);
 
         public static TDelegate? GetDelegateObjectInstance<TDelegate>(MethodInfo? methodInfo) where TDelegate : Delegate
-        {
-            if (methodInfo is null) return null;
-            
-            if (typeof(TDelegate).GetMethod("Invoke") is not { } delegateInvoke) return null;
-
-            var delegateParameters = delegateInvoke.GetParameters();
-            if (delegateParameters.Length == 0) return null;
-            var methodParameters = methodInfo.GetParameters();
-
-            if (delegateParameters.Length != (methodParameters.Length + 1)) return null;
-
-            try
-            {
-                var instance = Expression.Parameter(typeof(object), "instance");
-                var returnParameters = delegateParameters
-                    .Skip(1)
-                    .Select((pi, i) => Expression.Parameter(pi.ParameterType, $"p{i}"))
-                    .ToList();
-                var inputParameters = returnParameters
-                    .Select((pe, i) => Expression.Convert(pe, methodParameters[i].ParameterType))
-                    .ToList();
-
-                Expression body = Expression.Call(Expression.Convert(instance, methodInfo.DeclaringType), methodInfo, inputParameters);
-                if (delegateInvoke.ReturnType != methodInfo.ReturnType) body = Expression.Convert(body, methodInfo.ReturnType);
-
-                return Expression.Lambda<TDelegate>(body, new List<ParameterExpression> { instance }.Concat(returnParameters)).Compile();
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
+            => GetDelegate<TDelegate>(methodInfo);
     }
 }
 
