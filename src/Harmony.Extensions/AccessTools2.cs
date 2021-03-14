@@ -544,10 +544,10 @@ namespace HarmonyLib.BUTR.Extensions
                 .Select((pe, i) => Expression.Convert(pe, methodParameters[i].ParameterType))
                 .ToList();
 
-            var call = hasSameParameters
-                ? Expression.Call(methodInfo, inputParameters)
-                : hasInstance
-                    ? Expression.Call(Expression.Constant(instance), methodInfo, inputParameters)
+            var call = hasInstance
+                ? Expression.Call(Expression.Constant(instance), methodInfo, inputParameters)
+                : hasSameParameters
+                    ? Expression.Call(methodInfo, inputParameters)
                     : hasInstanceType
                         ? Expression.Call(Expression.Convert(instanceParameter, methodInfo.DeclaringType!), methodInfo, inputParameters)
                         : null;
