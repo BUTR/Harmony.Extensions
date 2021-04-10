@@ -32,19 +32,23 @@ Contains extension code for Harmony.
     <file src="ExcludeFromCodeCoverage/AccessTools2.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/SymbolExtensions2.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/Reflect.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/Reflect.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/HarmonyExtensions.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/HarmonyExtensions.cs.pp"/>
 
     <file src="ExcludeFromCodeCoverage/AccessTools2.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/SymbolExtensions2.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/Reflect.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/Reflect.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/HarmonyExtensions.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/HarmonyExtensions.cs.pp"/>
 
 
     <file src="ExcludeFromCodeCoverage/AccessTools2.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/SymbolExtensions2.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/SymbolExtensions2.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/Reflect.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/Reflect.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/HarmonyExtensions.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/HarmonyExtensions.cs.pp"/>
 
     <file src="ExcludeFromCodeCoverage/AccessTools2.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/SymbolExtensions2.cs.pp" target="content/cs/net472/Harmony.Extensions/SymbolExtensions2.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/Reflect.cs.pp" target="content/cs/net472/Harmony.Extensions/Reflect.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/HarmonyExtensions.cs.pp" target="content/cs/net472/Harmony.Extensions/HarmonyExtensions.cs.pp"/>
 
 
     <!-- Package icon. -->

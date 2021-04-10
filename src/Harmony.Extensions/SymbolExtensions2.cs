@@ -48,7 +48,7 @@ namespace HarmonyLib.BUTR.Extensions
     using global::System.Linq.Expressions;
     using global::System.Reflection;
 
-    public static class SymbolExtensions2
+    internal static class SymbolExtensions2
     {
         public static AccessTools.FieldRef<TObject, TField>? FieldRefAccess<TObject, TField>(
             Expression<Func<TObject, TField>> expression)
