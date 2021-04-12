@@ -38,7 +38,7 @@ jobs:
 
     - name: Run _build
       run: >-
-        dotnet run -p build/_build.csproj --configuration Release;
+        dotnet run -p build/cake/_build.csproj --configuration Release;
       shell: pwsh
 
     - name: Push to NuGet

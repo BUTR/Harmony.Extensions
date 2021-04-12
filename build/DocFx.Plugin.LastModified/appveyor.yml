@@ -1,0 +1,9 @@
+image: Visual Studio 2017
+version: 1.2.3-{build}
+build:
+  verbosity: minimal
+before_build:
+- cmd: dotnet restore
+after_build:
+- ps: dotnet build -c Release -o "..\output"
+- ps: Get-ChildItem -Recurse | Where-Object { $_.Name -match "LibGit2Sharp" -or $_.Name -match "LastModified" } | ForEach-Object { Push-AppveyorArtifact $_.FullName }

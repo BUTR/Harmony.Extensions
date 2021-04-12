@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Config", ".Config", "{CA94
 		..\.github\workflows\publish.yml = ..\.github\workflows\publish.yml
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "..\build\_build.csproj", "{012F7F51-BEC6-4FCC-BF9A-87BDECFAEDC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "..\build\cake\_build.csproj", "{012F7F51-BEC6-4FCC-BF9A-87BDECFAEDC4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harmony.Extensions", "Harmony.Extensions\Harmony.Extensions.csproj", "{AF81D675-8017-44AF-841F-74D4EC7C083B}"
 EndProject
