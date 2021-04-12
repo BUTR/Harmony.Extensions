@@ -50,73 +50,181 @@ namespace HarmonyLib.BUTR.Extensions
 
     internal static class SymbolExtensions2
     {
-        public static AccessTools.FieldRef<TObject, TField>? FieldRefAccess<TObject, TField>(
-            Expression<Func<TObject, TField>> expression)
+        public static AccessTools.FieldRef<TField>? StaticFieldRefAccess<TField>(Expression<Func<TField>> expression)
         {
-            return FieldRefAccess<TObject, TField>((LambdaExpression) expression);
+            if (expression is LambdaExpression lambdaExpression)
+                return StaticFieldRefAccess<TField>(lambdaExpression);
+
+            return null;
         }
 
-        public static AccessTools.FieldRef<TObject, TField>? FieldRefAccess<TObject, TField>(
-            LambdaExpression expression)
+        public static AccessTools.FieldRef<TField>? StaticFieldRefAccess<TField>(LambdaExpression expression)
+        {
+            if (expression.Body is MemberExpression { Member: FieldInfo fieldInfo })
+                return fieldInfo == null ? null : AccessTools.StaticFieldRefAccess<TField>(fieldInfo);
+
+            return null;
+        }
+
+
+        public static AccessTools.FieldRef<object, TField>? FieldRefAccess<TField>(Expression<Func<TField>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return FieldRefAccess<TField>(lambdaExpression);
+
+            return null;
+        }
+
+        public static AccessTools.FieldRef<object, TField>? FieldRefAccess<TField>(LambdaExpression expression)
+        {
+            if (expression.Body is MemberExpression { Member: FieldInfo fieldInfo })
+                return fieldInfo == null ? null : AccessTools.FieldRefAccess<object, TField>(fieldInfo);
+
+            return null;
+        }
+
+
+        public static AccessTools.FieldRef<TObject, TField>? FieldRefAccess<TObject, TField>(Expression<Func<TObject, TField>> expression)
+            where TObject : class
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return FieldRefAccess<TObject, TField>(lambdaExpression);
+
+            return null;
+        }
+
+        public static AccessTools.FieldRef<TObject, TField>? FieldRefAccess<TObject, TField>(LambdaExpression expression)
+            where TObject : class
         {
             if (expression.Body is MemberExpression { Member: FieldInfo fieldInfo })
                 return fieldInfo == null ? null : AccessTools.FieldRefAccess<TObject, TField>(fieldInfo);
 
-            throw new ArgumentException("Invalid Expression. Expression should consist of a Field return only.");
+            return null;
         }
 
 
-        public static ConstructorInfo GetConstructorInfo<T>(Expression<Func<T>> expression)
+        public static ConstructorInfo? GetConstructorInfo<T>(Expression<Func<T>> expression)
         {
-            return GetConstructorInfo((LambdaExpression) expression);
+            if (expression is LambdaExpression lambdaExpression)
+                return GetConstructorInfo(lambdaExpression);
+
+            return null;
         }
 
-        public static ConstructorInfo GetConstructorInfo<T, TResult>(Expression<Func<T, TResult>> expression)
+        public static ConstructorInfo? GetConstructorInfo<T, TResult>(Expression<Func<T, TResult>> expression)
         {
-            return GetConstructorInfo((LambdaExpression) expression);
+            if (expression is LambdaExpression lambdaExpression)
+                return GetConstructorInfo(lambdaExpression);
+
+            return null;
         }
 
-        public static ConstructorInfo GetConstructorInfo(LambdaExpression expression)
+        public static ConstructorInfo? GetConstructorInfo(LambdaExpression expression)
         {
             if (expression.Body is NewExpression { Constructor: { } } body)
                 return body.Constructor;
 
-            throw new ArgumentException("Invalid Expression. Expression should consist of a Field return only.");
+            return null;
         }
 
-        public static FieldInfo GetFieldInfo<T>(Expression<Func<T>> expression)
+
+        public static FieldInfo? GetFieldInfo<T>(Expression<Func<T>> expression)
         {
-            return GetFieldInfo((LambdaExpression) expression);
+            if (expression is LambdaExpression lambdaExpression)
+                return GetFieldInfo(lambdaExpression);
+
+            return null;
         }
 
-        public static FieldInfo GetFieldInfo<T, TResult>(Expression<Func<T, TResult>> expression)
+        public static FieldInfo? GetFieldInfo<T, TResult>(Expression<Func<T, TResult>> expression)
         {
-            return GetFieldInfo((LambdaExpression) expression);
+            if (expression is LambdaExpression lambdaExpression)
+                return GetFieldInfo(lambdaExpression);
+
+            return null;
         }
 
-        public static FieldInfo GetFieldInfo(LambdaExpression expression)
+        public static FieldInfo? GetFieldInfo(LambdaExpression expression)
         {
             if (expression.Body is MemberExpression { Member: FieldInfo fieldInfo })
                 return fieldInfo;
-            throw new ArgumentException("Invalid Expression. Expression should consist of a Field return only.");
+
+            return null;
         }
 
-        public static PropertyInfo GetPropertyInfo<T>(Expression<Func<T>> expression)
+
+        public static PropertyInfo? GetPropertyInfo<T>(Expression<Func<T>> expression)
         {
-            return GetPropertyInfo((LambdaExpression) expression);
+            if (expression is LambdaExpression lambdaExpression)
+                return GetPropertyInfo(lambdaExpression);
+
+            return null;
         }
 
-        public static PropertyInfo GetPropertyInfo<T, TResult>(Expression<Func<T, TResult>> expression)
+        public static PropertyInfo? GetPropertyInfo<T, TResult>(Expression<Func<T, TResult>> expression)
         {
-            return GetPropertyInfo((LambdaExpression) expression);
+            if (expression is LambdaExpression lambdaExpression)
+                return GetPropertyInfo(lambdaExpression);
+
+            return null;
         }
 
-        public static PropertyInfo GetPropertyInfo(LambdaExpression expression)
+        public static PropertyInfo? GetPropertyInfo(LambdaExpression expression)
         {
             if (expression.Body is MemberExpression { Member: PropertyInfo propertyInfo })
                 return propertyInfo;
 
-            throw new ArgumentException("Invalid Expression. Expression should consist of a Property return only.");
+            return null;
+        }
+
+
+        public static MethodInfo? GetPropertyGetter<T>(Expression<Func<T>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetPropertyGetter(lambdaExpression);
+
+            return null;
+        }
+
+        public static MethodInfo? GetPropertyGetter<T, TResult>(Expression<Func<T, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetPropertyGetter(lambdaExpression);
+
+            return null;
+        }
+
+        public static MethodInfo? GetPropertyGetter(LambdaExpression expression)
+        {
+            if (expression.Body is MemberExpression { Member: PropertyInfo propertyInfo })
+                return propertyInfo?.GetMethod;
+
+            return null;
+        }
+
+
+        public static MethodInfo? GetPropertySetter<T>(Expression<Func<T>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetPropertySetter(lambdaExpression);
+
+            return null;
+        }
+
+        public static MethodInfo? GetPropertySetter<T, TResult>(Expression<Func<T, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetPropertySetter(lambdaExpression);
+
+            return null;
+        }
+
+        public static MethodInfo? GetPropertySetter(LambdaExpression expression)
+        {
+            if (expression.Body is MemberExpression { Member: PropertyInfo propertyInfo })
+                return propertyInfo?.SetMethod;
+
+            return null;
         }
     }
 }

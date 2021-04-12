@@ -60,8 +60,18 @@ namespace HarmonyLib.BUTR.Extensions
         /// <typeparam name="TField">The type of the field</typeparam>
         /// <param name="fieldInfo">The field</param>
         /// <returns>A read and writable <see cref="T:HarmonyLib.AccessTools.FieldRef`1" /> delegate</returns>
-        public static FieldRef<TField>? StaticFieldRefAccess<TField>(FieldInfo? fieldInfo)
-            => fieldInfo is null ? null : AccessTools.StaticFieldRefAccess<TField>(fieldInfo);
+        public static FieldRef<TField>? StaticFieldRefAccess<TField>(Type type, string fieldName)
+        {
+            var fieldInfo = Field(type, fieldName);
+            return StaticFieldRefAccess<TField>(fieldInfo);
+        }
+
+        /// <summary>Creates a static field reference delegate</summary>
+        /// <typeparam name="TField">The type of the field</typeparam>
+        /// <param name="fieldInfo">The field</param>
+        /// <returns>A read and writable <see cref="T:HarmonyLib.AccessTools.FieldRef`1" /> delegate</returns>
+        public static FieldRef<TField>? StaticFieldRefAccess<TField>(FieldInfo? fieldInfo) => fieldInfo is null ? null : AccessTools.StaticFieldRefAccess<TField>(fieldInfo);
+
 
         /// <summary>Creates an instance field reference delegate for a private type</summary>
         /// <typeparam name="TField">The type of the field</typeparam>
@@ -70,9 +80,17 @@ namespace HarmonyLib.BUTR.Extensions
         /// <returns>A read and writable <see cref="T:HarmonyLib.AccessTools.FieldRef`2" /> delegate</returns>
         public static FieldRef<object, TField>? FieldRefAccess<TField>(Type type, string fieldName)
         {
-            var field = Field(type, fieldName);
-            return field is null ? null : AccessTools.FieldRefAccess<object, TField>(field);
+            var fieldInfo = Field(type, fieldName);
+            return FieldRefAccess<object, TField>(fieldInfo);
         }
+
+        /// <summary>Creates an instance field reference delegate for a private type</summary>
+        /// <typeparam name="TField">The type of the field</typeparam>
+        /// <param name="type">The class/type</param>
+        /// <param name="fieldName">The name of the field</param>
+        /// <returns>A read and writable <see cref="T:HarmonyLib.AccessTools.FieldRef`2" /> delegate</returns>
+        public static FieldRef<object, TField>? FieldRefAccess<TField>(FieldInfo? fieldInfo) => fieldInfo is null ? null : AccessTools.FieldRefAccess<object, TField>(fieldInfo);
+
 
         /// <summary>Creates an instance field reference</summary>
         /// <typeparam name="TObject">The class the field is defined in</typeparam>
@@ -81,9 +99,17 @@ namespace HarmonyLib.BUTR.Extensions
         /// <returns>A read and writable field reference delegate</returns>
         public static FieldRef<TObject, TField>? FieldRefAccess<TObject, TField>(string fieldName)
         {
-            var field = typeof(TObject).GetField(fieldName, BindingFlags.DeclaredOnly | BindingFlags.Instance | BindingFlags.NonPublic);
-            return field is null ? null : AccessTools.FieldRefAccess<TObject, TField>(field);
+            var fieldInfo = Field(typeof(TObject), fieldName);
+            return FieldRefAccess<TObject, TField>(fieldInfo);
         }
+
+        /// <summary>Creates an instance field reference delegate for a private type</summary>
+        /// <typeparam name="TField">The type of the field</typeparam>
+        /// <param name="type">The class/type</param>
+        /// <param name="fieldName">The name of the field</param>
+        /// <returns>A read and writable <see cref="T:HarmonyLib.AccessTools.FieldRef`2" /> delegate</returns>
+        public static FieldRef<TObject, TField>? FieldRefAccess<TObject, TField>(FieldInfo? fieldInfo) => fieldInfo is null ? null : AccessTools.FieldRefAccess<TObject, TField>(fieldInfo);
+
 
         public static TDelegate? GetConstructorDelegate<TDelegate>(Type type, Type[]? parameters = null) where TDelegate : Delegate
             => GetDelegate<TDelegate>(Constructor(type, parameters));
@@ -118,10 +144,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDelegateObjectInstance<TDelegate>(Type type,
-                                                                      string method,
-                                                                      Type[]? parameters,
-                                                                      Type[]? generics = null) where TDelegate : Delegate
+        public static TDelegate? GetDelegateObjectInstance<TDelegate>(Type type, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
             => GetDelegateObjectInstance<TDelegate>(Method(type, method, parameters, generics));
 
         /// <summary>
@@ -175,10 +198,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDeclaredDelegateObjectInstance<TDelegate>(Type type,
-                                                                              string method,
-                                                                              Type[]? parameters,
-                                                                              Type[]? generics = null) where TDelegate : Delegate
+        public static TDelegate? GetDeclaredDelegateObjectInstance<TDelegate>(Type type, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
             => GetDelegateObjectInstance<TDelegate>(DeclaredMethod(type, method, parameters, generics));
 
         /// <summary>
@@ -231,10 +251,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDelegate<TDelegate>(Type type,
-                                                        string method,
-                                                        Type[]? parameters,
-                                                        Type[]? generics = null) where TDelegate : Delegate
+        public static TDelegate? GetDelegate<TDelegate>(Type type, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
             => GetDelegate<TDelegate>(Method(type, method, parameters, generics));
 
         /// <summary>
@@ -286,10 +303,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDeclaredDelegate<TDelegate>(Type type,
-                                                                string method,
-                                                                Type[]? parameters,
-                                                                Type[]? generics = null) where TDelegate : Delegate
+        public static TDelegate? GetDeclaredDelegate<TDelegate>(Type type, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
             => GetDelegate<TDelegate>(DeclaredMethod(type, method, parameters, generics));
 
         /// <summary>
@@ -340,10 +354,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance,
-                                                                   string method,
-                                                                   Type[]? parameters,
-                                                                   Type[]? generics = null) where TDelegate : Delegate
+        public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
             => instance is null ? null : GetDelegate<TDelegate, TInstance>(instance, Method(instance.GetType(), method, parameters, generics));
 
         /// <summary>
@@ -380,8 +391,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDeclaredDelegate<TDelegate, TInstance>(TInstance instance,
-                                                                           string method) where TDelegate : Delegate
+        public static TDelegate? GetDeclaredDelegate<TDelegate, TInstance>(TInstance instance, string method) where TDelegate : Delegate
             => instance is null ? null : GetDelegate<TDelegate, TInstance>(instance, DeclaredMethod(instance.GetType(), method));
 
         /// <summary>
@@ -397,10 +407,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDeclaredDelegate<TDelegate, TInstance>(TInstance instance,
-                                                                           string method,
-                                                                           Type[]? parameters,
-                                                                           Type[]? generics = null) where TDelegate : Delegate
+        public static TDelegate? GetDeclaredDelegate<TDelegate, TInstance>(TInstance instance, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
             => instance is null ? null : GetDelegate<TDelegate, TInstance>(instance, DeclaredMethod(instance.GetType(), method, parameters, generics));
 
         /// <summary>
@@ -571,11 +578,9 @@ namespace HarmonyLib.BUTR.Extensions
         /// <summary>Get a delegate for a method described by <paramref name="methodInfo"/>.</summary>
         /// <param name="methodInfo">The method's <see cref="MethodInfo"/>.</param>
         /// <returns>A delegate or <see langword="null"/> when <paramref name="methodInfo"/> is <see langword="null"/>.</returns>
-        public static TDelegate? GetDelegate<TDelegate>(MethodInfo? methodInfo) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(null, methodInfo);
+        public static TDelegate? GetDelegate<TDelegate>(MethodInfo? methodInfo) where TDelegate : Delegate => GetDelegate<TDelegate>(null, methodInfo);
 
-        public static TDelegate? GetDelegateObjectInstance<TDelegate>(MethodInfo? methodInfo) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(methodInfo);
+        public static TDelegate? GetDelegateObjectInstance<TDelegate>(MethodInfo? methodInfo) where TDelegate : Delegate => GetDelegate<TDelegate>(methodInfo);
     }
 }
 
