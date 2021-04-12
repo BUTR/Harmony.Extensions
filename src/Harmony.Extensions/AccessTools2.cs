@@ -36,6 +36,8 @@
 // SOFTWARE.
 #endregion
 
+using System.Diagnostics;
+
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
 #pragma warning disable
@@ -54,533 +56,132 @@ namespace HarmonyLib.BUTR.Extensions
     using static global::HarmonyLib.AccessTools;
 
     /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
-    internal static class AccessTools2
+    internal static partial class AccessTools2
     {
-        /// <summary>Creates a static field reference delegate</summary>
-        /// <typeparam name="TField">The type of the field</typeparam>
-        /// <param name="fieldInfo">The field</param>
-        /// <returns>A read and writable <see cref="T:HarmonyLib.AccessTools.FieldRef`1" /> delegate</returns>
-        public static FieldRef<TField>? StaticFieldRefAccess<TField>(Type type, string fieldName)
+        /// <summary>Enumerates all assemblies in the current app domain, excluding visual studio assemblies</summary>
+        /// <returns>An enumeration of <see cref="Assembly"/></returns>
+        public static IEnumerable<Assembly> AllAssemblies() => 
+            AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName.StartsWith("Microsoft.VisualStudio") is false);
+
+        /// <summary>Enumerates all successfully loaded types in the current app domain, excluding visual studio assemblies</summary>
+        /// <returns>An enumeration of all <see cref="Type"/> in all assemblies, excluding visual studio assemblies</returns>
+        public static IEnumerable<Type> AllTypes() => AllAssemblies().SelectMany(a => GetTypesFromAssembly(a));
+
+        /// <summary>Gets a type by name. Prefers a full name with namespace but falls back to the first type matching the name otherwise</summary>
+        /// <param name="name">The name</param>
+        /// <returns>A type or null if not found</returns>
+        ///
+        public static Type TypeByName(string name)
         {
-            var fieldInfo = Field(type, fieldName);
-            return StaticFieldRefAccess<TField>(fieldInfo);
+            var type = Type.GetType(name, false);
+            if (type is null)
+                type = AllTypes().FirstOrDefault(t => t.FullName == name);
+            if (type is null)
+                type = AllTypes().FirstOrDefault(t => t.Name == name);
+            if (type is null)
+                Trace.TraceError($"AccessTools2.TypeByName: Could not find type named {name}");
+            return type;
         }
 
-        /// <summary>Creates a static field reference delegate</summary>
-        /// <typeparam name="TField">The type of the field</typeparam>
-        /// <param name="fieldInfo">The field</param>
-        /// <returns>A read and writable <see cref="T:HarmonyLib.AccessTools.FieldRef`1" /> delegate</returns>
-        public static FieldRef<TField>? StaticFieldRefAccess<TField>(FieldInfo? fieldInfo) => fieldInfo is null ? null : AccessTools.StaticFieldRefAccess<TField>(fieldInfo);
-
-
-        /// <summary>Creates an instance field reference delegate for a private type</summary>
-        /// <typeparam name="TField">The type of the field</typeparam>
-        /// <param name="type">The class/type</param>
-        /// <param name="fieldName">The name of the field</param>
-        /// <returns>A read and writable <see cref="T:HarmonyLib.AccessTools.FieldRef`2" /> delegate</returns>
-        public static FieldRef<object, TField>? FieldRefAccess<TField>(Type type, string fieldName)
+        /// <summary>Applies a function going up the type hierarchy and stops at the first non-<c>null</c> result</summary>
+        /// <typeparam name="T">Result type of func()</typeparam>
+        /// <param name="type">The class/type to start with</param>
+        /// <param name="func">The evaluation function returning T</param>
+        /// <returns>The first non-<c>null</c> result, or <c>null</c> if no match</returns>
+        /// <remarks>
+        /// The type hierarchy of a class or value type (including struct) does NOT include implemented interfaces,
+        /// and the type hierarchy of an interface is only itself (regardless of whether that interface implements other interfaces).
+        /// The top-most type in the type hierarchy of all non-interface types (including value types) is <see cref="object"/>.
+        /// </remarks>
+        ///
+        public static T FindIncludingBaseTypes<T>(Type type, Func<Type, T> func) where T : class
         {
-            var fieldInfo = Field(type, fieldName);
-            return FieldRefAccess<object, TField>(fieldInfo);
-        }
-
-        /// <summary>Creates an instance field reference delegate for a private type</summary>
-        /// <typeparam name="TField">The type of the field</typeparam>
-        /// <param name="type">The class/type</param>
-        /// <param name="fieldName">The name of the field</param>
-        /// <returns>A read and writable <see cref="T:HarmonyLib.AccessTools.FieldRef`2" /> delegate</returns>
-        public static FieldRef<object, TField>? FieldRefAccess<TField>(FieldInfo? fieldInfo) => fieldInfo is null ? null : AccessTools.FieldRefAccess<object, TField>(fieldInfo);
-
-
-        /// <summary>Creates an instance field reference</summary>
-        /// <typeparam name="TObject">The class the field is defined in</typeparam>
-        /// <typeparam name="TField">The type of the field</typeparam>
-        /// <param name="fieldName">The name of the field</param>
-        /// <returns>A read and writable field reference delegate</returns>
-        public static FieldRef<TObject, TField>? FieldRefAccess<TObject, TField>(string fieldName)
-        {
-            var fieldInfo = Field(typeof(TObject), fieldName);
-            return FieldRefAccess<TObject, TField>(fieldInfo);
-        }
-
-        /// <summary>Creates an instance field reference delegate for a private type</summary>
-        /// <typeparam name="TField">The type of the field</typeparam>
-        /// <param name="type">The class/type</param>
-        /// <param name="fieldName">The name of the field</param>
-        /// <returns>A read and writable <see cref="T:HarmonyLib.AccessTools.FieldRef`2" /> delegate</returns>
-        public static FieldRef<TObject, TField>? FieldRefAccess<TObject, TField>(FieldInfo? fieldInfo) => fieldInfo is null ? null : AccessTools.FieldRefAccess<TObject, TField>(fieldInfo);
-
-
-        public static TDelegate? GetConstructorDelegate<TDelegate>(Type type, Type[]? parameters = null) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(Constructor(type, parameters));
-
-        public static TDelegate? GetDeclaredConstructorDelegate<TDelegate>(Type type, Type[]? parameters = null) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(DeclaredConstructor(type, parameters));
-
-        /// <summary>
-        /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/> or any of its base types,
-        /// and then bind it to an instance type of <see cref="object"/>.
-        /// </summary>
-        /// <param name="type">The type where the method is declared.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDelegateObjectInstance<TDelegate>(Type type, string method) where TDelegate : Delegate
-            => GetDelegateObjectInstance<TDelegate>(Method(type, method));
-
-        /// <summary>
-        /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/> or any of its base types,
-        /// and then bind it to an instance type of <see cref="object"/>.
-        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
-        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
-        /// </summary>
-        /// <param name="type">The type from which to start searching for the method's definition.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
-        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDelegateObjectInstance<TDelegate>(Type type, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
-            => GetDelegateObjectInstance<TDelegate>(Method(type, method, parameters, generics));
-
-        /// <summary>
-        /// Try to get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/> or any of its base types,
-        /// and then bind it to an instance type of <see cref="object"/>.
-        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
-        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
-        /// </summary>
-        /// <param name="outDelegate">
-        /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </param>
-        /// <param name="type">The type where the method is declared.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
-        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
-        /// <returns>
-        /// <see langword="true"/> if the delegate was successfully resolved and created, else <see langword="false"/>.
-        /// </returns>
-        internal static bool TryGetDelegateObjectInstance<TDelegate>([NotNullWhen(true)] out TDelegate? outDelegate,
-                                                                     Type type,
-                                                                     string method,
-                                                                     Type[]? parameters = null,
-                                                                     Type[]? generics = null) where TDelegate : Delegate
-            => (outDelegate = GetDelegateObjectInstance<TDelegate>(Method(type, method, parameters, generics))) is not null;
-
-        /// <summary>
-        /// Get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>,
-        /// and then bind it to an instance type of <see cref="object"/>.
-        /// </summary>
-        /// <param name="type">The type where the method is declared.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDeclaredDelegateObjectInstance<TDelegate>(Type type, string method) where TDelegate : Delegate
-            => GetDelegateObjectInstance<TDelegate>(DeclaredMethod(type, method));
-
-        /// <summary>
-        /// Get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>,
-        /// and then bind it to an instance type of <see cref="object"/>.
-        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
-        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
-        /// </summary>
-        /// <param name="type">The type from which to start searching for the method's definition.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
-        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDeclaredDelegateObjectInstance<TDelegate>(Type type, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
-            => GetDelegateObjectInstance<TDelegate>(DeclaredMethod(type, method, parameters, generics));
-
-        /// <summary>
-        /// Try to get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>,
-        /// and then bind it to an instance type of <see cref="object"/>.
-        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
-        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
-        /// </summary>
-        /// <param name="outDelegate">
-        /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </param>
-        /// <param name="type">The type where the method is declared.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
-        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
-        /// <returns>
-        /// <see langword="true"/> if the delegate was successfully resolved and created, else <see langword="false"/>.
-        /// </returns>
-        internal static bool TryGetDeclaredDelegateObjectInstance<TDelegate>([NotNullWhen(true)] out TDelegate? outDelegate,
-                                                                             Type type,
-                                                                             string method,
-                                                                             Type[]? parameters = null,
-                                                                             Type[]? generics = null) where TDelegate : Delegate
-            => (outDelegate = GetDelegateObjectInstance<TDelegate>(DeclaredMethod(type, method, parameters, generics))) is not null;
-
-        /// <summary>
-        /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/> or any of its base types.
-        /// </summary>
-        /// <param name="type">The type from which to start searching for the method's definition.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDelegate<TDelegate>(Type type, string method) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(Method(type, method));
-
-        /// <summary>
-        /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/>
-        /// or any of its base types.
-        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
-        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
-        /// </summary>
-        /// <param name="type">The type from which to start searching for the method's definition.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
-        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDelegate<TDelegate>(Type type, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(Method(type, method, parameters, generics));
-
-        /// <summary>
-        /// Try to get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/>
-        /// or any of its base types.
-        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
-        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
-        /// </summary>
-        /// <param name="outDelegate">
-        /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </param>
-        /// <param name="type">The type where the method is declared.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
-        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
-        /// <returns>
-        /// <see langword="true"/> if the delegate was successfully resolved and created, else <see langword="false"/>.
-        /// </returns>
-        internal static bool TryGetDelegate<TDelegate>([NotNullWhen(true)] out TDelegate? outDelegate,
-                                                       Type type,
-                                                       string method,
-                                                       Type[]? parameters = null,
-                                                       Type[]? generics = null) where TDelegate : Delegate
-            => (outDelegate = GetDelegate<TDelegate>(Method(type, method, parameters, generics))) is not null;
-
-        /// <summary>
-        /// Get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>.
-        /// </summary>
-        /// <param name="type">The type where the method is declared.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDeclaredDelegate<TDelegate>(Type type, string method) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(DeclaredMethod(type, method));
-
-        /// <summary>
-        /// Get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>.
-        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
-        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
-        /// </summary>
-        /// <param name="type">The type where the method is declared.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
-        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDeclaredDelegate<TDelegate>(Type type, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(DeclaredMethod(type, method, parameters, generics));
-
-        /// <summary>
-        /// Try to get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>.
-        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
-        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
-        /// </summary>
-        /// <param name="outDelegate">
-        /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </param>
-        /// <param name="type">The type where the method is declared.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
-        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
-        /// <returns>
-        /// <see langword="true"/> if the delegate was successfully resolved and created, else <see langword="false"/>.
-        /// </returns>
-        internal static bool TryGetDeclaredDelegate<TDelegate>([NotNullWhen(true)] out TDelegate? outDelegate,
-                                                               Type type,
-                                                               string method,
-                                                               Type[]? parameters = null,
-                                                               Type[]? generics = null) where TDelegate : Delegate
-            => (outDelegate = GetDelegate<TDelegate>(DeclaredMethod(type, method, parameters, generics))) is not null;
-
-        /// <summary>
-        /// Get a delegate for an instance method declared by <paramref name="instance"/>'s type or any of its base types.
-        /// </summary>
-        /// <param name="instance">The instance for which the method is defined.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, string method) where TDelegate : Delegate
-            => instance is null ? null : GetDelegate<TDelegate, TInstance>(instance, Method(instance.GetType(), method));
-
-        /// <summary>
-        /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="instance"/>'s type or any of its base types.
-        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
-        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
-        /// </summary>
-        /// <param name="instance">The instance for which the method is defined.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
-        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
-            => instance is null ? null : GetDelegate<TDelegate, TInstance>(instance, Method(instance.GetType(), method, parameters, generics));
-
-        /// <summary>
-        /// Try to get a delegate for an instance method named <paramref name="method"/>,
-        /// declared by <paramref name="instance"/>'s type or any of its base types.
-        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
-        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
-        /// </summary>
-        /// <param name="outDelegate">
-        /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </param>
-        /// <param name="instance">The instance for which the method is defined.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
-        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
-        /// <returns>
-        /// <see langword="true"/> if the delegate was successfully resolved and created, else <see langword="false"/>.
-        /// </returns>
-        internal static bool TryGetDelegate<TDelegate, TInstance>([NotNullWhen(true)] out TDelegate? outDelegate,
-                                                                  TInstance instance,
-                                                                  string method,
-                                                                  Type[]? parameters = null,
-                                                                  Type[]? generics = null) where TDelegate : Delegate
-            => (outDelegate = instance is null
-                ? null : GetDelegate<TDelegate, TInstance>(instance, Method(instance.GetType(), method, parameters, generics))) is not null;
-
-        /// <summary>
-        /// Get a delegate for an instance method directly declared by <paramref name="instance"/>'s type.
-        /// </summary>
-        /// <param name="instance">The instance for which the method is defined.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDeclaredDelegate<TDelegate, TInstance>(TInstance instance, string method) where TDelegate : Delegate
-            => instance is null ? null : GetDelegate<TDelegate, TInstance>(instance, DeclaredMethod(instance.GetType(), method));
-
-        /// <summary>
-        /// Get a delegate for an instance method named <paramref name="method"/>, directly declared by <paramref name="instance"/>'s type.
-        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
-        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
-        /// </summary>
-        /// <param name="instance">The instance for which the method is defined.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
-        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDeclaredDelegate<TDelegate, TInstance>(TInstance instance, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
-            => instance is null ? null : GetDelegate<TDelegate, TInstance>(instance, DeclaredMethod(instance.GetType(), method, parameters, generics));
-
-        /// <summary>
-        /// Try to get a delegate for an instance method named <paramref name="method"/>,
-        /// directly declared by <paramref name="instance"/>'s type.
-        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
-        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
-        /// </summary>
-        /// <param name="outDelegate">
-        /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </param>
-        /// <param name="instance">The instance for which the method is defined.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
-        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
-        /// <returns>
-        /// <see langword="true"/> if the delegate was successfully resolved and created, else <see langword="false"/>.
-        /// </returns>
-        internal static bool TryGetDeclaredDelegate<TDelegate, TInstance>([NotNullWhen(true)] out TDelegate? outDelegate,
-                                                                          TInstance instance,
-                                                                          string method,
-                                                                          Type[]? parameters = null,
-                                                                          Type[]? generics = null) where TDelegate : Delegate
-            => (outDelegate = instance is null
-                ? null : GetDelegate<TDelegate, TInstance>(instance, DeclaredMethod(instance.GetType(), method, parameters, generics))) is not null;
-
-        /// <summary>
-        /// Get a delegate for an instance method described by <paramref name="methodInfo"/> and bound to <paramref name="instance"/>.
-        /// </summary>
-        /// <param name="instance">The instance for which the method is defined.</param>
-        /// <param name="methodInfo">The method's <see cref="MethodInfo"/>.</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="methodInfo"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, MethodInfo? methodInfo) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(instance, methodInfo);
-
-
-        // Duplicate from BUTR.Shared
-
-        private static bool ParametersAreEqual(ParameterInfo[] delegateParameters, ParameterInfo[] methodParameters)
-        {
-            if (delegateParameters.Length - methodParameters.Length == 0)
+            while (true)
             {
-                for (var i = 0; i < methodParameters.Length; i++)
-                {
-                    if (!delegateParameters[i].ParameterType.IsAssignableFrom(methodParameters[i].ParameterType))
-                        return false;
-                }
-                return true;
+                var result = func(type);
+                if (result is object) return result;
+                type = type.BaseType;
+                if (type is null) return null;
             }
-            else if (delegateParameters.Length - methodParameters.Length == 1)
+        }
+
+        private static FieldInfo? GetInstanceField(Type type, string fieldName)
+        {
+            var fieldInfo = Field(type, fieldName);
+            if (fieldInfo is null)
+                return null;
+            if (fieldInfo.IsStatic)
             {
-                for (var i = 0; i < methodParameters.Length; i++)
+                return null;
+                Trace.TraceError("AccessTools2.GetInstanceField: Field must not be static");
+            }
+            return fieldInfo;
+        }
+
+        private static bool ValidateFieldType<F>(FieldInfo? fieldInfo)
+        {
+            if (fieldInfo is null)
+                return false;
+
+            var returnType = typeof(F);
+            var fieldType = fieldInfo.FieldType;
+            if (returnType == fieldType)
+                return false;
+
+            if (fieldType.IsEnum)
+            {
+                var underlyingType = Enum.GetUnderlyingType(fieldType);
+                if (returnType != underlyingType)
                 {
-                    if (!delegateParameters[i + 1].ParameterType.IsAssignableFrom(methodParameters[i].ParameterType))
-                        return false;
+                    Trace.TraceError($"FieldRefAccess return type must be the same as FieldType or FieldType's underlying integral type ({underlyingType}) for enum types");
+                    return false;
                 }
-                return true;
+            }
+            else if (fieldType.IsValueType)
+            {
+                // Boxing/unboxing is not allowed for ref values of value types.
+                Trace.TraceError("FieldRefAccess return type must be the same as FieldType for value types");
+                return false;
             }
             else
             {
+                if (returnType.IsAssignableFrom(fieldType) is false)
+                {
+                    Trace.TraceError("FieldRefAccess return type must be assignable from FieldType for reference types");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private static bool TryGetComponents(string typeColonName, out Type? type, out string? name)
+        {
+            if (string.IsNullOrWhiteSpace(typeColonName))
+            {
+                if (Harmony.DEBUG)
+                    FileLog.Log("AccessTools2.GetComponents: typeColonName is null or whitespace/empty");
+
+                type = null;
+                name = null;
                 return false;
             }
+
+            var parts = typeColonName.Split(':');
+            if (parts.Length != 2)
+            {
+                if (Harmony.DEBUG)
+                    FileLog.Log("AccessTools2.GetComponents: Name must be specified as 'Namespace.Type1.Type2:Name");
+
+                type = null;
+                name = null;
+                return false;
+            }
+
+            type = TypeByName(parts[0]);
+            name = parts[1];
+            return type is not null;
         }
-
-        public static TDelegate? GetDelegate<TDelegate>(ConstructorInfo? constructorInfo) where TDelegate : Delegate
-        {
-            if (constructorInfo is null) return null;
-            
-            if (typeof(TDelegate).GetMethod("Invoke") is not { } delegateInvoke) return null;
-
-            if (!delegateInvoke.ReturnType.IsAssignableFrom(constructorInfo.DeclaringType)) return null;
-
-            var delegateParameters = delegateInvoke.GetParameters();
-            var constructorParameters = constructorInfo.GetParameters();
-
-            if (delegateParameters.Length - constructorParameters.Length != 0 && !ParametersAreEqual(delegateParameters, constructorParameters)) return null;
-
-            var instance = Expression.Parameter(typeof(object), "instance");
-
-            var returnParameters = delegateParameters
-                .Select((pi, i) => Expression.Parameter(pi.ParameterType, $"p{i}"))
-                .ToList();
-            var inputParameters = returnParameters
-                .Select((pe, i) => Expression.Convert(pe, constructorParameters[i].ParameterType))
-                .ToList();
-
-            Expression @new = Expression.New(constructorInfo, inputParameters);
-            var body = Expression.Convert(@new, constructorInfo.DeclaringType);
-
-            try
-            {
-                return Expression.Lambda<TDelegate>(body, returnParameters).Compile();
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
-
-        /// <summary>
-        /// Get a delegate for an instance method described by <paramref name="methodInfo"/> and bound to <paramref name="instance"/>.
-        /// </summary>
-        /// <param name="instance">The instance for which the method is defined.</param>
-        /// <param name="methodInfo">The method's <see cref="MethodInfo"/>.</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="methodInfo"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDelegate<TDelegate>(object? instance, MethodInfo? methodInfo) where TDelegate : Delegate
-        {
-            if (methodInfo is null) return null;
-
-            if (typeof(TDelegate).GetMethod("Invoke") is not { } delegateInvoke) return null;
-
-            if (!delegateInvoke.ReturnType.IsAssignableFrom(methodInfo.ReturnType)) return null;
-
-            var delegateParameters = delegateInvoke.GetParameters();
-            var methodParameters = methodInfo.GetParameters();
-
-            var hasSameParameters = delegateParameters.Length - methodParameters.Length == 0 && ParametersAreEqual(delegateParameters, methodParameters);
-            var hasInstance = instance is not null;
-            var hasInstanceType = delegateParameters.Length - methodParameters.Length == 1 && delegateParameters[0].ParameterType.IsAssignableFrom(methodInfo.DeclaringType);
-
-            if (hasSameParameters && hasInstanceType) return null;
-            if (hasInstance && (hasInstanceType || !hasSameParameters)) return null;
-            if (hasInstanceType && (hasInstance || hasSameParameters)) return null;
-
-            var instanceParameter = hasInstanceType
-                ? Expression.Parameter(delegateParameters[0].ParameterType, "instance")
-                : null;
-            var returnParameters = delegateParameters
-                .Skip(hasInstanceType ? 1 : 0)
-                .Select((pi, i) => Expression.Parameter(pi.ParameterType, $"p{i}"))
-                .ToList();
-            var inputParameters = returnParameters
-                .Select((pe, i) => Expression.Convert(pe, methodParameters[i].ParameterType))
-                .ToList();
-
-            var call = hasInstance
-                ? Expression.Call(Expression.Constant(instance), methodInfo, inputParameters)
-                : hasSameParameters
-                    ? Expression.Call(methodInfo, inputParameters)
-                    : hasInstanceType
-                        ? Expression.Call(Expression.Convert(instanceParameter, methodInfo.DeclaringType!), methodInfo, inputParameters)
-                        : null;
-
-            if (call is null) return null;
-
-            var body = Expression.Convert(call, methodInfo.ReturnType);
-
-            try
-            {
-                return Expression.Lambda<TDelegate>(body, hasInstanceType
-                    ? new List<ParameterExpression> { instanceParameter }.Concat(returnParameters)
-                    : returnParameters).Compile();
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
-        /// <summary>Get a delegate for a method described by <paramref name="methodInfo"/>.</summary>
-        /// <param name="methodInfo">The method's <see cref="MethodInfo"/>.</param>
-        /// <returns>A delegate or <see langword="null"/> when <paramref name="methodInfo"/> is <see langword="null"/>.</returns>
-        public static TDelegate? GetDelegate<TDelegate>(MethodInfo? methodInfo) where TDelegate : Delegate => GetDelegate<TDelegate>(null, methodInfo);
-
-        public static TDelegate? GetDelegateObjectInstance<TDelegate>(MethodInfo? methodInfo) where TDelegate : Delegate => GetDelegate<TDelegate>(methodInfo);
     }
 }
 

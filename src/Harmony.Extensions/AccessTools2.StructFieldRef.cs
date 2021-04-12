@@ -15,7 +15,7 @@
 #region License
 // MIT License
 //
-// Copyright (c) Bannerlord's Unofficial Tools & Resources
+// Copyright (c) Bannerlord's Unofficial Tools & Resources, Andreas Pardeike
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -36,46 +36,22 @@
 // SOFTWARE.
 #endregion
 
+using System.Diagnostics;
+
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
 #pragma warning disable
 
 namespace HarmonyLib.BUTR.Extensions
 {
+    using global::System;
     using global::System.Reflection;
+    using global::System.Reflection.Emit;
 
-    /// <summary>Extension class for working with Harmony.</summary>
-    internal static class HarmonyExtensions
+    /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
+    internal static partial class AccessTools2
     {
-        public static bool TryPatch(this Harmony harmony,
-            MethodBase? original,
-            MethodInfo? prefix = null,
-            MethodInfo? postfix = null,
-            MethodInfo? transpiler = null,
-            MethodInfo? finalizer = null)
-        {
-            if (original is null || (prefix is null && postfix is null && transpiler is null && finalizer is null))
-                return false;
 
-            var prefixMethod = prefix is null ? null : new HarmonyMethod(prefix);
-            var postfixMethod = postfix is null ? null : new HarmonyMethod(postfix);
-            var transpilerMethod = transpiler is null ? null : new HarmonyMethod(transpiler);
-            var finalizerMethod = finalizer is null ? null : new HarmonyMethod(finalizer);
-
-            harmony.Patch(original, prefixMethod, postfixMethod, transpilerMethod, finalizerMethod);
-
-            return true;
-        }
-
-        public static ReversePatcher? TryCreateReversePatcher(this Harmony harmony,
-            MethodBase? original = null,
-            MethodInfo? standin = null)
-        {
-            if (original is null || standin is null)
-                return null;
-
-            return harmony.CreateReversePatcher(original, new HarmonyMethod(standin));
-        }
     }
 }
 

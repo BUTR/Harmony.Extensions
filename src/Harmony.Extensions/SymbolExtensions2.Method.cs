@@ -15,7 +15,7 @@
 #region License
 // MIT License
 //
-// Copyright (c) Bannerlord's Unofficial Tools & Resources
+// Copyright (c) Bannerlord's Unofficial Tools & Resources, Andreas Pardeike
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -48,7 +48,52 @@ namespace HarmonyLib.BUTR.Extensions
 
     internal static partial class SymbolExtensions2
     {
+	    /// <summary>Given a lambda expression that calls a method, returns the method info</summary>
+		/// <param name="expression">The lambda expression using the method</param>
+		/// <returns>The method in the lambda expression</returns>
+        public static MethodInfo GetMethodInfo(Expression<Action> expression)
+		{
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
 
+            return null;
+		}
+
+		/// <summary>Given a lambda expression that calls a method, returns the method info</summary>
+		/// <typeparam name="T">The generic type</typeparam>
+		/// <param name="expression">The lambda expression using the method</param>
+		/// <returns>The method in the lambda expression</returns>
+        public static MethodInfo GetMethodInfo<T>(Expression<Action<T>> expression)
+		{
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+		}
+
+		/// <summary>Given a lambda expression that calls a method, returns the method info</summary>
+		/// <typeparam name="T">The generic type</typeparam>
+		/// <typeparam name="TResult">The generic result type</typeparam>
+		/// <param name="expression">The lambda expression using the method</param>
+		/// <returns>The method in the lambda expression</returns>
+        public static MethodInfo GetMethodInfo<T, TResult>(Expression<Func<T, TResult>> expression)
+		{
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+		}
+
+		/// <summary>Given a lambda expression that calls a method, returns the method info</summary>
+		/// <param name="expression">The lambda expression using the method</param>
+		/// <returns>The method in the lambda expression</returns>
+        public static MethodInfo GetMethodInfo(LambdaExpression expression)
+		{
+            if (expression.Body is MethodCallExpression { Method: MethodInfo methodInfo })
+                return methodInfo;
+
+            return null;
+        }
     }
 }
 
