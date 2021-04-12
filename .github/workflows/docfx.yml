@@ -1,0 +1,95 @@
+name: DocFX
+
+on:
+  push:
+    branches:
+      #- master
+      # documentation will cover the dev branch for now
+      - dev
+      - dev-docs
+    paths:
+      - '.github/workflows/docfx.yml'
+      - 'src/Harmony.Extensions/**.cs'
+      - 'docs/**'
+      - 'README.md'
+
+env:
+  # Disable the .NET logo in the console output.
+  DOTNET_NOLOGO: true
+  # Disable the .NET first time experience to skip caching NuGet packages and speed up the build.
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  # Disable sending .NET CLI telemetry to Microsoft.
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+jobs:
+  docfx:
+    name: DocFX documentation
+    runs-on: windows-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+        fetch-depth: 0
+
+    - name: Setup .NET Core 5.0.x
+      uses: actions/setup-dotnet@master
+      with:
+        dotnet-version: 5.0.x
+    - name: Setup .NET Core 3.1.x
+      uses: actions/setup-dotnet@master
+      with:
+        dotnet-version: 3.1.x
+    - name: Setup BUTR GPR
+      uses: actions/setup-dotnet@master
+      with:
+        source-url: https://nuget.pkg.github.com/BUTR/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+    - name: Ensure NuGet Source
+      uses: fabriciomurta/ensure-nuget-source@v1
+      with:
+        name: 'nuget.org'
+        url: 'https://api.nuget.org/v3/index.json'
+
+    - name: Setup NuGet
+      uses: nuget/setup-nuget@v1
+      with:
+        nuget-version: 'latest'
+
+    - name: Generating Newtonsoft.Json xref maps
+      run: >-
+        dotnet run -p build/SandcastleXrefGenerator -- `
+            Newtonsoft.Json 11.0.2 netstandard2.0 `
+            https://www.newtonsoft.com/json/help/html/ `
+            $PWD/docs/xrefs/Newtonsoft.Json-xrefmap.yml
+      shell: pwsh
+
+    - name: Build Harmony.Extensions and DocFx.Plugin.LastModified
+      run: >-
+        dotnet build src/Harmony.ExtensionsHarmony.Extensions.csproj;
+        dotnet build build/DocFx.Plugin.LastModified/DocFx.Plugin.LastModified --configuration Release --output docs/_template/last-modified/plugins;
+      shell: pwsh
+
+    - name: Run DocFX
+      run: >-
+        Copy-Item "README.md" -Destination "docs/index.md";
+        nuget install docfx.console -Version 2.56.7 -ExcludeVersion;
+        if ($${{runner.os == 'Windows'}}) {
+          docfx.console/tools/docfx.exe metadata docs/docfx.json;
+          docfx.console/tools/docfx.exe build docs/docfx.json;
+        }
+        else {
+          mono docfx.console/tools/docfx.exe metadata docs/docfx.json;
+          mono docfx.console/tools/docfx.exe build docs/docfx.json;
+        }
+      shell: pwsh
+
+    - name: Deploy DocFX
+      uses: crazy-max/ghaction-github-pages@v2
+      with:
+        target_branch: gh-pages
+        build_dir: docs/_site
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
