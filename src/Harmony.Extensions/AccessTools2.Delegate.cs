@@ -43,24 +43,11 @@
 namespace HarmonyLib.BUTR.Extensions
 {
     using global::System;
-    using global::System.Collections.Generic;
-    using global::System.Linq;
-    using global::System.Linq.Expressions;
     using global::System.Reflection;
 
     /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
     internal static partial class AccessTools2
     {
-        public static TDelegate? GetConstructorDelegate<TDelegate>(Type type, Type[]? parameters = null) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(Constructor(type, parameters));
-
-        public static TDelegate? GetDeclaredConstructorDelegate<TDelegate>(Type type, Type[]? parameters = null) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(DeclaredConstructor(type, parameters));
-
-        public static TDelegate? GetConstructorDelegate<TDelegate>(string typeString, Type[]? parameters = null) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(Constructor(typeString, parameters));
-
-
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/> or any of its base types,
         /// and then bind it to an instance type of <see cref="object"/>.
@@ -88,7 +75,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDelegateObjectInstance<TDelegate>(Type type, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
+        public static TDelegate? GetDelegateObjectInstance<TDelegate>(Type type, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
             => GetDelegateObjectInstance<TDelegate>(Method(type, method, parameters, generics));
 
         /// <summary>
@@ -118,7 +105,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDeclaredDelegateObjectInstance<TDelegate>(Type type, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
+        public static TDelegate? GetDeclaredDelegateObjectInstance<TDelegate>(Type type, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
             => GetDelegateObjectInstance<TDelegate>(DeclaredMethod(type, method, parameters, generics));
 
         /// <summary>
@@ -147,7 +134,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDelegate<TDelegate>(Type type, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
+        public static TDelegate? GetDelegate<TDelegate>(Type type, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
             => GetDelegate<TDelegate>(Method(type, method, parameters, generics));
 
         /// <summary>
@@ -175,7 +162,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDeclaredDelegate<TDelegate>(Type type, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
+        public static TDelegate? GetDeclaredDelegate<TDelegate>(Type type, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
             => GetDelegate<TDelegate>(DeclaredMethod(type, method, parameters, generics));
 
         /// <summary>
@@ -203,7 +190,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
+        public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
             => instance is null ? null : GetDelegate<TDelegate, TInstance>(instance, Method(instance.GetType(), method, parameters, generics));
 
         /// <summary>
@@ -231,7 +218,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDeclaredDelegate<TDelegate, TInstance>(TInstance instance, string method, Type[]? parameters, Type[]? generics = null) where TDelegate : Delegate
+        public static TDelegate? GetDeclaredDelegate<TDelegate, TInstance>(TInstance instance, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
             => instance is null ? null : GetDelegate<TDelegate, TInstance>(instance, DeclaredMethod(instance.GetType(), method, parameters, generics));
 
         /// <summary>
@@ -245,151 +232,6 @@ namespace HarmonyLib.BUTR.Extensions
         /// </returns>
         public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, MethodInfo? methodInfo) where TDelegate : Delegate
             => GetDelegate<TDelegate>(instance, methodInfo);
-
-
-        // Duplicate from BUTR.Shared
-
-        private static bool ParametersAreEqual(ParameterInfo[] delegateParameters, ParameterInfo[] methodParameters)
-        {
-            if (delegateParameters.Length - methodParameters.Length == 0)
-            {
-                for (var i = 0; i < methodParameters.Length; i++)
-                {
-                    if (!delegateParameters[i].ParameterType.IsAssignableFrom(methodParameters[i].ParameterType))
-                        return false;
-                }
-                return true;
-            }
-            else if (delegateParameters.Length - methodParameters.Length == 1)
-            {
-                for (var i = 0; i < methodParameters.Length; i++)
-                {
-                    if (!delegateParameters[i + 1].ParameterType.IsAssignableFrom(methodParameters[i].ParameterType))
-                        return false;
-                }
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public static TDelegate? GetDelegate<TDelegate>(ConstructorInfo? constructorInfo) where TDelegate : Delegate
-        {
-            if (constructorInfo is null) return null;
-            
-            if (typeof(TDelegate).GetMethod("Invoke") is not { } delegateInvoke) return null;
-
-            if (!delegateInvoke.ReturnType.IsAssignableFrom(constructorInfo.DeclaringType)) return null;
-
-            var delegateParameters = delegateInvoke.GetParameters();
-            var constructorParameters = constructorInfo.GetParameters();
-
-            if (delegateParameters.Length - constructorParameters.Length != 0 && !ParametersAreEqual(delegateParameters, constructorParameters)) return null;
-
-            var instance = Expression.Parameter(typeof(object), "instance");
-
-            var returnParameters = delegateParameters
-                .Select((pi, i) => Expression.Parameter(pi.ParameterType, $"p{i}"))
-                .ToList();
-            var inputParameters = returnParameters
-                .Select((pe, i) => Expression.Convert(pe, constructorParameters[i].ParameterType))
-                .ToList();
-
-            Expression @new = Expression.New(constructorInfo, inputParameters);
-            var body = Expression.Convert(@new, constructorInfo.DeclaringType);
-
-            try
-            {
-                return Expression.Lambda<TDelegate>(body, returnParameters).Compile();
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
-
-        /// <summary>
-        /// Get a delegate for an instance method described by <paramref name="methodInfo"/> and bound to <paramref name="instance"/>.
-        /// </summary>
-        /// <param name="instance">The instance for which the method is defined.</param>
-        /// <param name="methodInfo">The method's <see cref="MethodInfo"/>.</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="methodInfo"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDelegate<TDelegate>(object? instance, MethodInfo? methodInfo) where TDelegate : Delegate
-        {
-            if (methodInfo is null) return null;
-
-            if (typeof(TDelegate).GetMethod("Invoke") is not { } delegateInvoke) return null;
-
-            if (!delegateInvoke.ReturnType.IsAssignableFrom(methodInfo.ReturnType)) return null;
-
-            var delegateParameters = delegateInvoke.GetParameters();
-            var methodParameters = methodInfo.GetParameters();
-
-            var hasSameParameters = delegateParameters.Length - methodParameters.Length == 0 && ParametersAreEqual(delegateParameters, methodParameters);
-            var hasInstance = instance is not null;
-            var hasInstanceType = delegateParameters.Length - methodParameters.Length == 1 && delegateParameters[0].ParameterType.IsAssignableFrom(methodInfo.DeclaringType);
-
-            if (hasSameParameters && hasInstanceType) return null;
-            if (hasInstance && (hasInstanceType || !hasSameParameters)) return null;
-            if (hasInstanceType && (hasInstance || hasSameParameters)) return null;
-
-            var instanceParameter = hasInstanceType
-                ? Expression.Parameter(delegateParameters[0].ParameterType, "instance")
-                : null;
-            var returnParameters = delegateParameters
-                .Skip(hasInstanceType ? 1 : 0)
-                .Select((pi, i) => Expression.Parameter(pi.ParameterType, $"p{i}"))
-                .ToList();
-            var inputParameters = returnParameters
-                .Select((pe, i) => Expression.Convert(pe, methodParameters[i].ParameterType))
-                .ToList();
-
-            var call = hasInstance
-                ? Expression.Call(Expression.Constant(instance), methodInfo, inputParameters)
-                : hasSameParameters
-                    ? Expression.Call(methodInfo, inputParameters)
-                    : hasInstanceType
-                        ? Expression.Call(Expression.Convert(instanceParameter, methodInfo.DeclaringType!), methodInfo, inputParameters)
-                        : null;
-
-            if (call is null) return null;
-
-            var body = Expression.Convert(call, methodInfo.ReturnType);
-
-            try
-            {
-                return Expression.Lambda<TDelegate>(body, hasInstanceType
-                    ? new List<ParameterExpression> { instanceParameter }.Concat(returnParameters)
-                    : returnParameters).Compile();
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
-        /// <summary>Get a delegate for a method described by <paramref name="methodInfo"/>.</summary>
-        /// <param name="methodInfo">The method's <see cref="MethodInfo"/>.</param>
-        /// <returns>A delegate or <see langword="null"/> when <paramref name="methodInfo"/> is <see langword="null"/>.</returns>
-        public static TDelegate? GetDelegate<TDelegate>(MethodInfo? methodInfo) where TDelegate : Delegate => GetDelegate<TDelegate>(null, methodInfo);
-
-        public static TDelegate? GetDelegateObjectInstance<TDelegate>(MethodInfo? methodInfo) where TDelegate : Delegate => GetDelegate<TDelegate>(methodInfo);
-
-
-        public static TDelegate? GetDelegate<TDelegate>(object? instance, string typeColonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate =>
-            GetDelegate<TDelegate>(null, Method(typeColonMethod, parameters, generics));
-
-        public static TDelegate? GetDelegate<TDelegate>(string typeColonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate =>
-            GetDelegate<TDelegate>(null, typeColonMethod, parameters, generics);
-
-        public static TDelegate? GetDelegateObjectInstance<TDelegate>(string typeColonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate =>
-            GetDelegate<TDelegate>(typeColonMethod, parameters, generics);
     }
 }
 
