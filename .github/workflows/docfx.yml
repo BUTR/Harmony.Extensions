@@ -3,10 +3,7 @@ name: DocFX
 on:
   push:
     branches:
-      #- master
-      # documentation will cover the dev branch for now
-      - dev
-      - dev-docs
+      - master
     paths:
       - '.github/workflows/docfx.yml'
       - 'src/Harmony.Extensions/**.cs'
