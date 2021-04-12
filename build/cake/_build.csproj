@@ -5,8 +5,8 @@
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace></RootNamespace>
     <NoWarn>CS0649;CS0169</NoWarn>
-    <NukeRootDirectory>..</NukeRootDirectory>
-    <NukeScriptDirectory>..\src</NukeScriptDirectory>
+    <NukeRootDirectory>..\..</NukeRootDirectory>
+    <NukeScriptDirectory>..\..\src</NukeScriptDirectory>
   </PropertyGroup>
 
   <ItemGroup>
