@@ -70,9 +70,27 @@ namespace HarmonyLib.BUTR.Extensions
 				return null;
 			}
 
-            var result = parameters is null
-                ? type.GetMethod(name, AccessTools.allDeclared)
-                : type.GetMethod(name, AccessTools.allDeclared, null, parameters, Array.Empty<ParameterModifier>());
+            MethodInfo? result;
+            if (parameters is null)
+            {
+                try
+                {
+                    result = type.GetMethod(name, AccessTools.allDeclared);
+                }
+                catch (AmbiguousMatchException ex)
+                {
+                    result = type.GetMethod(name, AccessTools.allDeclared, null, Array.Empty<Type>(), Array.Empty<ParameterModifier>());
+                    if (result is null)
+                    {
+                        Trace.TraceError($"AccessTools2.DeclaredMethod: Ambiguous match for type '{type}' and name '{name}' and parameters '{parameters?.Description()}', '{ex}'");
+                        return null;
+                    }
+                }
+            }
+            else
+            {
+                result = type.GetMethod(name, AccessTools.allDeclared, null, parameters, Array.Empty<ParameterModifier>());
+            }
 
             if (result is null)
 			{
@@ -103,9 +121,27 @@ namespace HarmonyLib.BUTR.Extensions
 				return null;
 			}
 
-            var result = parameters is null
-                ? FindIncludingBaseTypes(type, t => t.GetMethod(name, AccessTools.all))
-                : FindIncludingBaseTypes(type, t => t.GetMethod(name, AccessTools.all, null, parameters, Array.Empty<ParameterModifier>()));
+            MethodInfo? result;
+            if (parameters is null)
+            {
+                try
+                {
+                    result = FindIncludingBaseTypes(type, t => t.GetMethod(name, AccessTools.all));
+                }
+                catch (AmbiguousMatchException ex)
+                {
+                    result = FindIncludingBaseTypes(type, t => t.GetMethod(name, AccessTools.all, null, Array.Empty<Type>(), Array.Empty<ParameterModifier>()));
+                    if (result is null)
+                    {
+                        Trace.TraceError($"AccessTools2.Method: Ambiguous match for type '{type}' and name '{name}' and parameters '{parameters?.Description()}', '{ex}'");
+                        return null;
+                    }
+                }
+            }
+            else
+            {
+                result = FindIncludingBaseTypes(type, t => t.GetMethod(name, AccessTools.all, null, parameters, Array.Empty<ParameterModifier>()));
+            }
 
             if (result is null)
 			{

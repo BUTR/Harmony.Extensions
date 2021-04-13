@@ -111,7 +111,8 @@ namespace HarmonyLib.BUTR.Extensions
             il.Emit(OpCodes.Ldsflda, fieldInfo);
             il.Emit(OpCodes.Ret);
 
-            return dm?.Generate() is { } methodInfo ? GetDelegate<AccessTools.FieldRef<F>>(methodInfo) : null;
+            //return dm?.Generate() is { } methodInfo ? GetDelegate<AccessTools.FieldRef<F>>(methodInfo) : null;
+            return dm?.Generate()?.CreateDelegate(typeof(AccessTools.FieldRef<F>)) as AccessTools.FieldRef<F>;
         }
     }
 }

@@ -102,7 +102,8 @@ namespace HarmonyLib.BUTR.Extensions
         
         private static AccessTools.StructFieldRef<T, F>? StructFieldRefAccessInternal<T, F>(FieldInfo fieldInfo) where T : struct
         {
-            ValidateFieldType<F>(fieldInfo);
+            if (!ValidateFieldType<F>(fieldInfo))
+                return null;
 
             var dm = DynamicMethodDefinitionHandle.Create(
                 $"__refget_{typeof(T).Name}_struct_fi_{fieldInfo.Name}", typeof(F).MakeByRefType(), new[] { typeof(T).MakeByRefType() });
@@ -114,7 +115,8 @@ namespace HarmonyLib.BUTR.Extensions
             il.Emit(OpCodes.Ldflda, fieldInfo);
             il.Emit(OpCodes.Ret);
 
-            return dm?.Generate() is { } methodInfo ? GetDelegate<AccessTools.StructFieldRef<T, F>>(methodInfo) : null;
+            //return dm?.Generate() is { } methodInfo ? GetDelegate<AccessTools.StructFieldRef<T, F>>(methodInfo) : null;
+            return dm?.Generate()?.CreateDelegate(typeof(AccessTools.StructFieldRef<T, F>)) as AccessTools.StructFieldRef<T, F>;
         }
 #endif
     }

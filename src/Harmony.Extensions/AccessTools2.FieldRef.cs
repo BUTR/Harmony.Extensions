@@ -93,7 +93,7 @@ namespace HarmonyLib.BUTR.Extensions
 		/// in e.g. <see cref="FieldRefAccess{T, F}(string)"/>.
 		/// </para>
         /// </remarks>
-        public static AccessTools.FieldRef<object, F>? FieldRefAccess<F>(Type type, string fieldName)
+        public static AccessTools.FieldRef<object, F> FieldRefAccess<F>(Type type, string fieldName)
         {
             if (type is null)
                 return null;
@@ -160,7 +160,7 @@ namespace HarmonyLib.BUTR.Extensions
                     return null;
                 }
 
-                FieldRefAccessInternal<T, F>(fieldInfo, needCastclass);
+                return FieldRefAccessInternal<T, F>(fieldInfo, needCastclass);
             }
 
             return null;
@@ -202,7 +202,8 @@ namespace HarmonyLib.BUTR.Extensions
             il.Emit(OpCodes.Ldflda, fieldInfo);
             il.Emit(OpCodes.Ret);
             
-            return dm?.Generate() is { } methodInfo ? GetDelegate<AccessTools.FieldRef<T, F>>(methodInfo) : null;
+            //return dm?.Generate() is { } methodInfo ? GetDelegate<AccessTools.FieldRef<T, F>>(methodInfo) : null;
+            return dm?.Generate()?.CreateDelegate(typeof(AccessTools.FieldRef<T, F>)) as AccessTools.FieldRef<T, F>;
 		}
 
         private static bool? FieldRefNeedsClasscast(Type delegateInstanceType, Type declaringType)

@@ -40,6 +40,8 @@
 #nullable enable
 #if !HARMONYEXTENSIONS_ENABLEWARNINGS
 #pragma warning disable
+#else
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("Harmony.Extensions.Tests")]
 #endif
 
 namespace HarmonyLib.BUTR.Extensions
@@ -55,7 +57,7 @@ namespace HarmonyLib.BUTR.Extensions
     /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
     internal static partial class AccessTools2
     {
-        public readonly struct DynamicMethodDefinitionHandle
+        private readonly struct DynamicMethodDefinitionHandle
         {
             public static DynamicMethodDefinitionHandle? Create(string name, Type returnType, Type[] parameterTypes) =>
                 Helper.DynamicMethodDefinitionCtor is null ? null : new(Helper.DynamicMethodDefinitionCtor(name, returnType, parameterTypes));
@@ -69,7 +71,7 @@ namespace HarmonyLib.BUTR.Extensions
             public MethodInfo? Generate() => Helper.Generate is null ? null : Helper.Generate(_dynamicMethodDefinition);
         }
 
-        public readonly struct ILGeneratorHandle
+        private readonly struct ILGeneratorHandle
         {
             private readonly object _ilGenerator;
 
@@ -98,12 +100,12 @@ namespace HarmonyLib.BUTR.Extensions
 
             static Helper()
             {
-                DynamicMethodDefinitionCtor = AccessTools2.GetConstructorDelegate<DynamicMethodDefinitionCtorDelegate>("MonoMod.Utils.DynamicMethodDefinition");
-                GetILGenerator = AccessTools2.GetDelegateObjectInstance<GetILGeneratorDelegate>("MonoMod.Utils.DynamicMethodDefinition:GetILGenerator");
+                DynamicMethodDefinitionCtor = AccessTools2.GetConstructorDelegate<DynamicMethodDefinitionCtorDelegate>("MonoMod.Utils.DynamicMethodDefinition", new[] { typeof(string), typeof(Type), typeof(Type[]) });
+                GetILGenerator = AccessTools2.GetDelegateObjectInstance<GetILGeneratorDelegate>("MonoMod.Utils.DynamicMethodDefinition:GetILGenerator", Array.Empty<Type>());
                 Emit1 = AccessTools2.GetDelegateObjectInstance<Emit1Delegate>("System.Reflection.Emit.ILGenerator:Emit", new[] { typeof(OpCode) });
                 Emit2 = AccessTools2.GetDelegateObjectInstance<Emit2Delegate>("System.Reflection.Emit.ILGenerator:Emit", new[] { typeof(OpCode), typeof(FieldInfo) });
                 Emit3 = AccessTools2.GetDelegateObjectInstance<Emit3Delegate>("System.Reflection.Emit.ILGenerator:Emit", new[] { typeof(OpCode), typeof(Type) });
-                Generate = AccessTools2.GetDelegateObjectInstance<GenerateDelegate>("System.Reflection.Emit.ILGenerator:Generate");
+                Generate = AccessTools2.GetDelegateObjectInstance<GenerateDelegate>("MonoMod.Utils.DynamicMethodDefinition:Generate");
             }
 
             public static bool IsValid()
@@ -246,7 +248,7 @@ namespace HarmonyLib.BUTR.Extensions
             var returnType = typeof(F);
             var fieldType = fieldInfo.FieldType;
             if (returnType == fieldType)
-                return false;
+                return true;
 
             if (fieldType.IsEnum)
             {
@@ -288,6 +290,7 @@ namespace HarmonyLib.BUTR.Extensions
             if (fieldInfo.DeclaringType != typeof(T))
             {
                 Trace.TraceError("AccessTools2.ValidateStructField: FieldDeclaringType must be T (StructFieldRefAccess instance type)");
+                return false;
             }
 
             return true;
