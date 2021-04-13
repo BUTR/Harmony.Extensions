@@ -36,15 +36,16 @@
 // SOFTWARE.
 #endregion
 
-using System.Diagnostics;
-
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
+#if !HARMONYEXTENSIONS_ENABLEWARNINGS
 #pragma warning disable
+#endif
 
 namespace HarmonyLib.BUTR.Extensions
 {
     using global::System;
+	using global::System.Diagnostics;
     using global::System.Reflection;
 
     /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
@@ -55,7 +56,7 @@ namespace HarmonyLib.BUTR.Extensions
 		/// <param name="parameters">Optional parameters to target a specific overload of the constructor</param>
 		/// <param name="searchForStatic">Optional parameters to only consider static constructors</param>
 		/// <returns>A constructor info or null when type is null or when the constructor cannot be found</returns>
-        public static ConstructorInfo? DeclaredConstructor(Type? type, Type[]? parameters = null, bool searchForStatic = false)
+        public static ConstructorInfo? DeclaredConstructor(Type type, Type[]? parameters = null, bool searchForStatic = false)
 		{
 			if (type is null)
 			{
@@ -74,7 +75,7 @@ namespace HarmonyLib.BUTR.Extensions
 		/// <param name="searchForStatic">Optional parameters to only consider static constructors</param>
 		/// <returns>A constructor info or null when type is null or when the method cannot be found</returns>
 		///
-		public static ConstructorInfo? Constructor(Type? type, Type[]? parameters = null, bool searchForStatic = false)
+		public static ConstructorInfo? Constructor(Type type, Type[]? parameters = null, bool searchForStatic = false)
 		{
 			if (type is null)
 			{
@@ -89,11 +90,11 @@ namespace HarmonyLib.BUTR.Extensions
 
 
         /// <summary>Gets the reflection information for a constructor by searching the type and all its super types</summary>
-        /// <param name="type">The class/type where the constructor is declared</param>
+        /// <param name="typeString">The class/type full name where the constructor is declared</param>
         /// <param name="parameters">Optional parameters to target a specific overload of the method</param>
         /// <param name="searchForStatic">Optional parameters to only consider static constructors</param>
         /// <returns>A constructor info or null when type is null or when the method cannot be found</returns>
-        public static ConstructorInfo? Constructor(string? typeString, Type[]? parameters = null, bool searchForStatic = false)
+        public static ConstructorInfo? Constructor(string typeString, Type[]? parameters = null, bool searchForStatic = false)
         {
             if (string.IsNullOrWhiteSpace(typeString))
             {
@@ -102,6 +103,9 @@ namespace HarmonyLib.BUTR.Extensions
             }
 
             var type = TypeByName(typeString);
+            if (type is null)
+                return null;
+
             return DeclaredConstructor(type, parameters, searchForStatic);
         }
     }

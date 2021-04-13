@@ -36,45 +36,22 @@
 // SOFTWARE.
 #endregion
 
-using System.Diagnostics;
-
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
+#if !HARMONYEXTENSIONS_ENABLEWARNINGS
 #pragma warning disable
+#endif
 
 namespace HarmonyLib.BUTR.Extensions
 {
     using global::System;
+    using global::System.Diagnostics;
     using global::System.Reflection;
     using global::System.Reflection.Emit;
 
     /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
     internal static partial class AccessTools2
     {
-        private static class StaticFieldRefHelper
-        {
-            public delegate object DynamicMethodDefinitionCtorDelegate(string name, Type returnType, Type[] parameterTypes);
-            public delegate object GetILGeneratorDelegate(object instance);
-            public delegate void Emit1Delegate(object instance, OpCode opcode);
-            public delegate void Emit2Delegate(object instance, OpCode opcode, FieldInfo field);
-            public delegate MethodInfo GenerateDelegate(object instance);
-
-            public static readonly DynamicMethodDefinitionCtorDelegate? DynamicMethodDefinitionCtor;
-            public static readonly GetILGeneratorDelegate? GetILGenerator;
-            public static readonly Emit1Delegate? Emit1;
-            public static readonly Emit2Delegate? Emit2;
-            public static readonly GenerateDelegate? Generate;
-
-            static StaticFieldRefHelper()
-            {
-                DynamicMethodDefinitionCtor = AccessTools2.GetConstructorDelegate<DynamicMethodDefinitionCtorDelegate>("MonoMod.Utils.DynamicMethodDefinition");
-                GetILGenerator = AccessTools2.GetDelegateObjectInstance<GetILGeneratorDelegate>("MonoMod.Utils.DynamicMethodDefinition:GetILGenerator");
-                Emit1 = AccessTools2.GetDelegateObjectInstance<Emit1Delegate>("System.Reflection.Emit.ILGenerator:Emit", new[] { typeof(OpCode) });
-                Emit2 = AccessTools2.GetDelegateObjectInstance<Emit2Delegate>("System.Reflection.Emit.ILGenerator:Emit", new[] { typeof(OpCode), typeof(FieldInfo) });
-                Generate = AccessTools2.GetDelegateObjectInstance<GenerateDelegate>("System.Reflection.Emit.ILGenerator:Generate");
-            }
-        }
-
         /// <summary>Creates a static field reference delegate</summary>
 		/// <typeparam name="F">
 		/// The type of the field; or if the field's type is a reference type (a class or interface, NOT a struct or other value type),
@@ -82,9 +59,9 @@ namespace HarmonyLib.BUTR.Extensions
 		/// either that type or the underlying integral type of that enum type
 		/// </typeparam>
 		/// <param name="fieldInfo">The field</param>
-		/// <returns>A readable/assignable <see cref="FieldRef{F}"/> delegate</returns>
+		/// <returns>A readable/assignable <see cref="AccessTools.FieldRef{F}"/> delegate</returns>
 		///
-		public static AccessTools.FieldRef<F>? StaticFieldRefAccess<F>(FieldInfo? fieldInfo)
+		public static AccessTools.FieldRef<F>? StaticFieldRefAccess<F>(FieldInfo fieldInfo)
         {
             if (fieldInfo is null)
                 return null;
@@ -94,44 +71,23 @@ namespace HarmonyLib.BUTR.Extensions
 
         /// <summary>Creates a static field reference delegate</summary>
         /// <typeparam name="TField">The type of the field</typeparam>
-        /// <param name="fieldInfo">The field</param>
+        /// <param name="type">The type holding the field field</param>
+        /// <param name="fieldName">The field name</param>
         /// <returns>A read and writable <see cref="T:HarmonyLib.AccessTools.FieldRef`1" /> delegate</returns>
-        public static AccessTools.FieldRef<TField>? StaticFieldRefAccess<TField>(Type? type, string? fieldName)
+        public static AccessTools.FieldRef<TField>? StaticFieldRefAccess<TField>(Type type, string fieldName)
         {
             var fieldInfo = Field(type, fieldName);
+            if (fieldInfo is null)
+                return null;
+
             return StaticFieldRefAccess<TField>(fieldInfo);
         }
 
 
         private static AccessTools.FieldRef<F>? StaticFieldRefAccessInternal<F>(FieldInfo fieldInfo)
         {
-            if (StaticFieldRefHelper.DynamicMethodDefinitionCtor is null)
+            if (!Helper.IsValid())
             {
-                Trace.TraceError("AccessTools2.StaticFieldRefAccessInternal: DynamicMethodDefinitionCtor is null");
-                return null;
-            }
-
-            if (StaticFieldRefHelper.GetILGenerator is null)
-            {
-                Trace.TraceError("AccessTools2.StaticFieldRefAccessInternal: GetILGenerator is null");
-                return null;
-            }
-
-            if (StaticFieldRefHelper.Emit1 is null)
-            {
-                Trace.TraceError("AccessTools2.StaticFieldRefAccessInternal: Emit1 is null");
-                return null;
-            }
-
-            if (StaticFieldRefHelper.Emit2 is null)
-            {
-                Trace.TraceError("AccessTools2.StaticFieldRefAccessInternal: Emit2 is null");
-                return null;
-            }
-
-            if (StaticFieldRefHelper.Generate is null)
-            {
-                Trace.TraceError("AccessTools2.StaticFieldRefAccessInternal: Generate is null");
                 return null;
             }
 
@@ -146,14 +102,16 @@ namespace HarmonyLib.BUTR.Extensions
                 return null;
             }
 
-            var dm = StaticFieldRefHelper.DynamicMethodDefinitionCtor(
+            var dm = DynamicMethodDefinitionHandle.Create(
                 $"__refget_{fieldInfo.DeclaringType?.Name ?? "null"}_static_fi_{fieldInfo.Name}", typeof(F).MakeByRefType(), new Type[0]);
 
-            var il = StaticFieldRefHelper.GetILGenerator(dm);
-            StaticFieldRefHelper.Emit2(il, OpCodes.Ldsflda, fieldInfo);
-            StaticFieldRefHelper.Emit1(il, OpCodes.Ret);
+            if (dm?.GetILGenerator() is not { } il)
+                return null;
 
-            return GetDelegate<AccessTools.FieldRef<F>>(StaticFieldRefHelper.Generate(dm));
+            il.Emit(OpCodes.Ldsflda, fieldInfo);
+            il.Emit(OpCodes.Ret);
+
+            return dm?.Generate() is { } methodInfo ? GetDelegate<AccessTools.FieldRef<F>>(methodInfo) : null;
         }
     }
 }

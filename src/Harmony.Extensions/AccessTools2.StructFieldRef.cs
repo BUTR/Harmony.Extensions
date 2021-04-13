@@ -36,11 +36,11 @@
 // SOFTWARE.
 #endregion
 
-using System.Diagnostics;
-
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
+#if !HARMONYEXTENSIONS_ENABLEWARNINGS
 #pragma warning disable
+#endif
 
 namespace HarmonyLib.BUTR.Extensions
 {
@@ -51,7 +51,72 @@ namespace HarmonyLib.BUTR.Extensions
     /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
     internal static partial class AccessTools2
     {
+#if HARMONYEXTENSIONS_2_0_4
+        /// <summary>Creates a field reference delegate for an instance field of a struct</summary>
+        /// <typeparam name="T">The struct that defines the instance field</typeparam>
+        /// <typeparam name="F">
+        /// The type of the field; or if the field's type is a reference type (a class or interface, NOT a struct or other value type),
+        /// a type that <see cref="Type.IsAssignableFrom(Type)">is assignable from</see> that type; or if the field's type is an enum type,
+        /// either that type or the underlying integral type of that enum type
+        /// </typeparam>
+        /// <param name="fieldName">The name of the field</param>
+        /// <returns>A readable/assignable <see cref="AccessTools.StructFieldRef{T,F}"/> delegate</returns>
+        public static AccessTools.StructFieldRef<T, F>? StructFieldRefAccess<T, F>(string fieldName) where T : struct
+        {
+            if (string.IsNullOrEmpty(fieldName))
+                return null;
 
+            var field = GetInstanceField(typeof(T), fieldName);
+            if (field is null)
+                return null;
+
+            return StructFieldRefAccessInternal<T, F>(field);
+        }
+
+        /// <summary>Creates a field reference delegate for an instance field of a struct</summary>
+        /// <typeparam name="T">The struct that defines the instance field</typeparam>
+        /// <typeparam name="F">
+        /// The type of the field; or if the field's type is a reference type (a class or interface, NOT a struct or other value type),
+        /// a type that <see cref="Type.IsAssignableFrom(Type)">is assignable from</see> that type; or if the field's type is an enum type,
+        /// either that type or the underlying integral type of that enum type
+        /// </typeparam>
+        /// <param name="fieldInfo">The field</param>
+        /// <returns>A readable/assignable <see cref="AccessTools.StructFieldRef{T,F}"/> delegate</returns>
+        /// <remarks>
+        /// <para>
+        /// This method is meant for cases where the field has already been obtained, avoiding the field searching cost in
+        /// e.g. <see cref="StructFieldRefAccess{T, F}(string)"/>.
+        /// </para>
+        /// </remarks>
+        public static AccessTools.StructFieldRef<T, F>? StructFieldRefAccess<T, F>(FieldInfo? fieldInfo) where T : struct
+        {
+            if (fieldInfo is null)
+                return null;
+
+            if (!ValidateStructField<T, F>(fieldInfo))
+                return null;
+
+            return StructFieldRefAccessInternal<T, F>(fieldInfo);
+        }
+
+        
+        private static AccessTools.StructFieldRef<T, F>? StructFieldRefAccessInternal<T, F>(FieldInfo fieldInfo) where T : struct
+        {
+            ValidateFieldType<F>(fieldInfo);
+
+            var dm = DynamicMethodDefinitionHandle.Create(
+                $"__refget_{typeof(T).Name}_struct_fi_{fieldInfo.Name}", typeof(F).MakeByRefType(), new[] { typeof(T).MakeByRefType() });
+
+            if (dm?.GetILGenerator() is not { } il)
+                return null;
+
+            il.Emit(OpCodes.Ldarg_0);
+            il.Emit(OpCodes.Ldflda, fieldInfo);
+            il.Emit(OpCodes.Ret);
+
+            return dm?.Generate() is { } methodInfo ? GetDelegate<AccessTools.StructFieldRef<T, F>>(methodInfo) : null;
+        }
+#endif
     }
 }
 

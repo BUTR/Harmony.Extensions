@@ -38,7 +38,9 @@
 
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
+#if !HARMONYEXTENSIONS_ENABLEWARNINGS
 #pragma warning disable
+#endif
 
 namespace HarmonyLib.BUTR.Extensions
 {
@@ -68,17 +70,17 @@ namespace HarmonyLib.BUTR.Extensions
 
             public Method(Type type, string name, Type[]? parameters = null, Type[]? generics = null)
             {
+                OwnerType = type;
                 Name = name;
                 Parameters = parameters;
                 Generics = generics;
-                OwnerType = type;
                 MethodInfo = ResolveMethodInfo();
             }
 
-            public TDelegate? GetDelegate<TDelegate>(object? instance) where TDelegate : Delegate => AccessTools2.GetDelegate<TDelegate>(instance, MethodInfo);
-            public TDelegate? GetOpenDelegate<TDelegate>() where TDelegate : Delegate => AccessTools2.GetDelegate<TDelegate>(MethodInfo);
-            public TDelegate? GetDelegate<TDelegate>() where TDelegate : Delegate => AccessTools2.GetDelegate<TDelegate>(MethodInfo);
-            public TDelegate? GetDelegateWithObjectAsInstance<TDelegate>() where TDelegate : Delegate => AccessTools2.GetDelegateObjectInstance<TDelegate>(MethodInfo);
+            public TDelegate? GetDelegate<TDelegate>(object? instance) where TDelegate : Delegate => MethodInfo is null ? null : AccessTools2.GetDelegate<TDelegate>(instance, MethodInfo);
+            public TDelegate? GetOpenDelegate<TDelegate>() where TDelegate : Delegate => MethodInfo is null ? null : AccessTools2.GetDelegate<TDelegate>(MethodInfo);
+            public TDelegate? GetDelegate<TDelegate>() where TDelegate : Delegate => MethodInfo is null ? null : AccessTools2.GetDelegate<TDelegate>(MethodInfo);
+            public TDelegate? GetDelegateWithObjectAsInstance<TDelegate>() where TDelegate : Delegate => MethodInfo is null ? null : AccessTools2.GetDelegateObjectInstance<TDelegate>(MethodInfo);
 
             protected string ParametersString => Parameters is null || Parameters.Length == 0
                 ? string.Empty

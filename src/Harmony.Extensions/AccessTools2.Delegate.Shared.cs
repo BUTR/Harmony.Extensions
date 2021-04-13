@@ -38,12 +38,15 @@
 
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
+#if !HARMONYEXTENSIONS_ENABLEWARNINGS
 #pragma warning disable
+#endif
 
 namespace HarmonyLib.BUTR.Extensions
 {
     using global::System;
     using global::System.Collections.Generic;
+    using global::System.Diagnostics;
     using global::System.Linq;
     using global::System.Linq.Expressions;
     using global::System.Reflection;
@@ -53,33 +56,7 @@ namespace HarmonyLib.BUTR.Extensions
     {
         // Duplicate from BUTR.Shared
 
-        private static bool ParametersAreEqual(ParameterInfo[] delegateParameters, ParameterInfo[] methodParameters)
-        {
-            if (delegateParameters.Length - methodParameters.Length == 0)
-            {
-                for (var i = 0; i < methodParameters.Length; i++)
-                {
-                    if (!delegateParameters[i].ParameterType.IsAssignableFrom(methodParameters[i].ParameterType))
-                        return false;
-                }
-                return true;
-            }
-            else if (delegateParameters.Length - methodParameters.Length == 1)
-            {
-                for (var i = 0; i < methodParameters.Length; i++)
-                {
-                    if (!delegateParameters[i + 1].ParameterType.IsAssignableFrom(methodParameters[i].ParameterType))
-                        return false;
-                }
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public static TDelegate? GetDelegate<TDelegate>(ConstructorInfo? constructorInfo) where TDelegate : Delegate
+        public static TDelegate? GetDelegate<TDelegate>(ConstructorInfo constructorInfo) where TDelegate : Delegate
         {
             if (constructorInfo is null) return null;
             
@@ -108,8 +85,9 @@ namespace HarmonyLib.BUTR.Extensions
             {
                 return Expression.Lambda<TDelegate>(body, returnParameters).Compile();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Trace.TraceError($"AccessTools2.GetDelegate: Error while compiling lambds expression '{ex}'");
                 return null;
             }
         }
@@ -124,7 +102,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="methodInfo"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDelegate<TDelegate>(object? instance, MethodInfo? methodInfo) where TDelegate : Delegate
+        public static TDelegate? GetDelegate<TDelegate>(object? instance, MethodInfo methodInfo) where TDelegate : Delegate
         {
             if (methodInfo is null) return null;
 
@@ -169,11 +147,12 @@ namespace HarmonyLib.BUTR.Extensions
             try
             {
                 return Expression.Lambda<TDelegate>(body, hasInstanceType
-                    ? new List<ParameterExpression> { instanceParameter }.Concat(returnParameters)
+                    ? new List<ParameterExpression> { instanceParameter! }.Concat(returnParameters)
                     : returnParameters).Compile();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Trace.TraceError($"AccessTools2.GetDelegate: Error while compiling lambds expression '{ex}'");
                 return null;
             }
         }
@@ -181,19 +160,46 @@ namespace HarmonyLib.BUTR.Extensions
         /// <summary>Get a delegate for a method described by <paramref name="methodInfo"/>.</summary>
         /// <param name="methodInfo">The method's <see cref="MethodInfo"/>.</param>
         /// <returns>A delegate or <see langword="null"/> when <paramref name="methodInfo"/> is <see langword="null"/>.</returns>
-        public static TDelegate? GetDelegate<TDelegate>(MethodInfo? methodInfo) where TDelegate : Delegate => GetDelegate<TDelegate>(null, methodInfo);
+        public static TDelegate? GetDelegate<TDelegate>(MethodInfo methodInfo) where TDelegate : Delegate => GetDelegate<TDelegate>(null, methodInfo);
 
-        public static TDelegate? GetDelegateObjectInstance<TDelegate>(MethodInfo? methodInfo) where TDelegate : Delegate => GetDelegate<TDelegate>(methodInfo);
+        public static TDelegate? GetDelegateObjectInstance<TDelegate>(MethodInfo methodInfo) where TDelegate : Delegate => GetDelegate<TDelegate>(methodInfo);
 
 
-        public static TDelegate? GetDelegate<TDelegate>(object? instance, string? typeColonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate =>
-            GetDelegate<TDelegate>(null, Method(typeColonMethod, parameters, generics));
+        public static TDelegate? GetDelegate<TDelegate>(object? instance, string typeColonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate =>
+            Method(typeColonMethod, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo) : null;
 
-        public static TDelegate? GetDelegate<TDelegate>(string? typeColonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate =>
-            GetDelegate<TDelegate>(null, typeColonMethod, parameters, generics);
+        public static TDelegate? GetDelegate<TDelegate>(string typeColonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate =>
+            GetDelegate<TDelegate>((object?) null, typeColonMethod, parameters, generics);
 
-        public static TDelegate? GetDelegateObjectInstance<TDelegate>(string? typeColonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate =>
+        public static TDelegate? GetDelegateObjectInstance<TDelegate>(string typeColonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate =>
             GetDelegate<TDelegate>(typeColonMethod, parameters, generics);
+
+
+        private static bool ParametersAreEqual(ParameterInfo[] delegateParameters, ParameterInfo[] methodParameters)
+        {
+            if (delegateParameters.Length - methodParameters.Length == 0)
+            {
+                for (var i = 0; i < methodParameters.Length; i++)
+                {
+                    if (!delegateParameters[i].ParameterType.IsAssignableFrom(methodParameters[i].ParameterType))
+                        return false;
+                }
+                return true;
+            }
+            else if (delegateParameters.Length - methodParameters.Length == 1)
+            {
+                for (var i = 0; i < methodParameters.Length; i++)
+                {
+                    if (!delegateParameters[i + 1].ParameterType.IsAssignableFrom(methodParameters[i].ParameterType))
+                        return false;
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
 

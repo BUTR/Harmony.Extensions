@@ -36,43 +36,160 @@
 // SOFTWARE.
 #endregion
 
-using System.Diagnostics;
-
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
+#if !HARMONYEXTENSIONS_ENABLEWARNINGS
 #pragma warning disable
+#endif
 
 namespace HarmonyLib.BUTR.Extensions
 {
-    using global::HarmonyLib;
-
-    using global::System.Diagnostics.CodeAnalysis;
     using global::System;
     using global::System.Collections.Generic;
+	using global::System.Diagnostics;
+	using global::System.Diagnostics.CodeAnalysis;
     using global::System.Linq;
-    using global::System.Linq.Expressions;
     using global::System.Reflection;
-
-    using static global::HarmonyLib.AccessTools;
+    using global::System.Reflection.Emit;
 
     /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
     internal static partial class AccessTools2
     {
+        public readonly struct DynamicMethodDefinitionHandle
+        {
+            public static DynamicMethodDefinitionHandle? Create(string name, Type returnType, Type[] parameterTypes) =>
+                Helper.DynamicMethodDefinitionCtor is null ? null : new(Helper.DynamicMethodDefinitionCtor(name, returnType, parameterTypes));
+
+            private readonly object _dynamicMethodDefinition;
+
+            public DynamicMethodDefinitionHandle(object dynamicMethodDefinition) => _dynamicMethodDefinition = dynamicMethodDefinition;
+
+            public ILGeneratorHandle? GetILGenerator() => Helper.GetILGenerator is null ? null : new(Helper.GetILGenerator(_dynamicMethodDefinition));
+
+            public MethodInfo? Generate() => Helper.Generate is null ? null : Helper.Generate(_dynamicMethodDefinition);
+        }
+
+        public readonly struct ILGeneratorHandle
+        {
+            private readonly object _ilGenerator;
+
+            public ILGeneratorHandle(object ilGenerator) => _ilGenerator = ilGenerator;
+
+            public void Emit(OpCode opcode) => Helper.Emit1?.Invoke(_ilGenerator, opcode);
+            public void Emit(OpCode opcode, FieldInfo field) => Helper.Emit2?.Invoke(_ilGenerator, opcode, field);
+            public void Emit(OpCode opcode, Type type) => Helper.Emit3?.Invoke(_ilGenerator, opcode, type);
+        }
+
+        private static class Helper
+        {
+            public delegate object DynamicMethodDefinitionCtorDelegate(string name, Type returnType, Type[] parameterTypes);
+            public delegate object GetILGeneratorDelegate(object instance);
+            public delegate void Emit1Delegate(object instance, OpCode opcode);
+            public delegate void Emit2Delegate(object instance, OpCode opcode, FieldInfo field);
+            public delegate void Emit3Delegate(object instance, OpCode opcode, Type type);
+            public delegate MethodInfo GenerateDelegate(object instance);
+
+            public static readonly DynamicMethodDefinitionCtorDelegate? DynamicMethodDefinitionCtor;
+            public static readonly GetILGeneratorDelegate? GetILGenerator;
+            public static readonly Emit1Delegate? Emit1;
+            public static readonly Emit2Delegate? Emit2;
+            public static readonly Emit3Delegate? Emit3;
+            public static readonly GenerateDelegate? Generate;
+
+            static Helper()
+            {
+                DynamicMethodDefinitionCtor = AccessTools2.GetConstructorDelegate<DynamicMethodDefinitionCtorDelegate>("MonoMod.Utils.DynamicMethodDefinition");
+                GetILGenerator = AccessTools2.GetDelegateObjectInstance<GetILGeneratorDelegate>("MonoMod.Utils.DynamicMethodDefinition:GetILGenerator");
+                Emit1 = AccessTools2.GetDelegateObjectInstance<Emit1Delegate>("System.Reflection.Emit.ILGenerator:Emit", new[] { typeof(OpCode) });
+                Emit2 = AccessTools2.GetDelegateObjectInstance<Emit2Delegate>("System.Reflection.Emit.ILGenerator:Emit", new[] { typeof(OpCode), typeof(FieldInfo) });
+                Emit3 = AccessTools2.GetDelegateObjectInstance<Emit3Delegate>("System.Reflection.Emit.ILGenerator:Emit", new[] { typeof(OpCode), typeof(Type) });
+                Generate = AccessTools2.GetDelegateObjectInstance<GenerateDelegate>("System.Reflection.Emit.ILGenerator:Generate");
+            }
+
+            public static bool IsValid()
+            {
+                if (DynamicMethodDefinitionCtor is null)
+                {
+                    Trace.TraceError("AccessTools2.Helper.IsValid: DynamicMethodDefinitionCtor is null");
+                    return false;
+                }
+
+                if (GetILGenerator is null)
+                {
+                    Trace.TraceError("AccessTools2.Helper.IsValid: GetILGenerator is null");
+                    return false;
+                }
+
+                if (Emit1 is null)
+                {
+                    Trace.TraceError("AccessTools2.Helper.IsValid: Emit1 is null");
+                    return false;
+                }
+
+                if (Emit2 is null)
+                {
+                    Trace.TraceError("AccessTools2.Helper.IsValid: Emit2 is null");
+                    return false;
+                }
+
+                if (Emit3 is null)
+                {
+                    Trace.TraceError("AccessTools2.Helper.IsValid: Emit3 is null");
+                    return false;
+                }
+
+                if (Generate is null)
+                {
+                    Trace.TraceError("AccessTools2.Helper.IsValid: Generate is null");
+                    return false;
+                }
+
+                return true;
+            }
+        }
+
+
         /// <summary>Enumerates all assemblies in the current app domain, excluding visual studio assemblies</summary>
         /// <returns>An enumeration of <see cref="Assembly"/></returns>
         public static IEnumerable<Assembly> AllAssemblies() => 
-            AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName.StartsWith("Microsoft.VisualStudio") is false);
+            AppDomain.CurrentDomain.GetAssemblies().Where(a => !a.FullName.StartsWith("Microsoft.VisualStudio"));
 
         /// <summary>Enumerates all successfully loaded types in the current app domain, excluding visual studio assemblies</summary>
         /// <returns>An enumeration of all <see cref="Type"/> in all assemblies, excluding visual studio assemblies</returns>
         public static IEnumerable<Type> AllTypes() => AllAssemblies().SelectMany(a => GetTypesFromAssembly(a));
 
+        /// <summary>Gets all successfully loaded types from a given assembly</summary>
+        /// <param name="assembly">The assembly</param>
+        /// <returns>An array of types</returns>
+        /// <remarks>
+        /// This calls and returns <see cref="Assembly.GetTypes"/>, while catching any thrown <see cref="ReflectionTypeLoadException"/>.
+        /// If such an exception is thrown, returns the successfully loaded types (<see cref="ReflectionTypeLoadException.Types"/>,
+        /// filtered for non-null values).
+        /// </remarks>
+        public static Type[] GetTypesFromAssembly(Assembly assembly)
+        {
+            try
+            {
+                return assembly.GetTypes();
+            }
+            catch (ReflectionTypeLoadException ex)
+            {
+                Trace.TraceError($"AccessTools2.GetTypesFromAssembly: assembly {assembly} => {ex}");
+                return ex.Types.Where(type => type is object).ToArray();
+            }
+        }
+
         /// <summary>Gets a type by name. Prefers a full name with namespace but falls back to the first type matching the name otherwise</summary>
         /// <param name="name">The name</param>
         /// <returns>A type or null if not found</returns>
-        ///
-        public static Type TypeByName(string name)
+        public static Type? TypeByName(string name)
         {
+            if (string.IsNullOrEmpty(name))
+            {
+                Trace.TraceError($"AccessTools2.TypeByName: 'name' is null or empty");
+                return null;
+            }
+
             var type = Type.GetType(name, false);
             if (type is null)
                 type = AllTypes().FirstOrDefault(t => t.FullName == name);
@@ -93,9 +210,10 @@ namespace HarmonyLib.BUTR.Extensions
         /// and the type hierarchy of an interface is only itself (regardless of whether that interface implements other interfaces).
         /// The top-most type in the type hierarchy of all non-interface types (including value types) is <see cref="object"/>.
         /// </remarks>
-        ///
-        public static T FindIncludingBaseTypes<T>(Type type, Func<Type, T> func) where T : class
+        public static T? FindIncludingBaseTypes<T>(Type type, Func<Type, T> func) where T : class
         {
+            if (type is null || func is null) return null;
+
             while (true)
             {
                 var result = func(type);
@@ -110,11 +228,13 @@ namespace HarmonyLib.BUTR.Extensions
             var fieldInfo = Field(type, fieldName);
             if (fieldInfo is null)
                 return null;
+
             if (fieldInfo.IsStatic)
             {
-                return null;
                 Trace.TraceError("AccessTools2.GetInstanceField: Field must not be static");
+                return null;
             }
+
             return fieldInfo;
         }
 
@@ -155,23 +275,39 @@ namespace HarmonyLib.BUTR.Extensions
             return true;
         }
 
-        private static bool TryGetComponents(string typeColonName, out Type? type, out string? name)
+        private static bool ValidateStructField<T, F>(FieldInfo? fieldInfo) where T : struct
+        {
+            if (fieldInfo is null)
+                return false;
+
+            if (fieldInfo.IsStatic)
+            {
+                Trace.TraceError("AccessTools2.ValidateStructField: Field must not be static");
+                return false;
+            }
+            if (fieldInfo.DeclaringType != typeof(T))
+            {
+                Trace.TraceError("AccessTools2.ValidateStructField: FieldDeclaringType must be T (StructFieldRefAccess instance type)");
+            }
+
+            return true;
+        }
+
+        private static bool TryGetComponents(string typeColonName, [NotNullWhen(true)] out Type? type, [NotNullWhen(true)] out string? name)
         {
             if (string.IsNullOrWhiteSpace(typeColonName))
             {
-                if (Harmony.DEBUG)
-                    FileLog.Log("AccessTools2.GetComponents: typeColonName is null or whitespace/empty");
+                Trace.TraceError("AccessTools2.TryGetComponents: 'typeColonName' is null or whitespace/empty");
 
                 type = null;
                 name = null;
                 return false;
             }
 
-            var parts = typeColonName.Split(':');
+            var parts = typeColonName!.Split(':');
             if (parts.Length != 2)
             {
-                if (Harmony.DEBUG)
-                    FileLog.Log("AccessTools2.GetComponents: Name must be specified as 'Namespace.Type1.Type2:Name");
+                Trace.TraceError("AccessTools2.TryGetComponents: Name must be specified as 'Namespace.Type1.Type2:Name");
 
                 type = null;
                 name = null;

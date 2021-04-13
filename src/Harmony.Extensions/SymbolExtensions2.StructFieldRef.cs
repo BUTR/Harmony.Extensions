@@ -38,7 +38,9 @@
 
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
+#if !HARMONYEXTENSIONS_ENABLEWARNINGS
 #pragma warning disable
+#endif
 
 namespace HarmonyLib.BUTR.Extensions
 {
@@ -48,7 +50,23 @@ namespace HarmonyLib.BUTR.Extensions
 
     internal static partial class SymbolExtensions2
     {
+#if HARMONYEXTENSIONS_2_0_4
+        public static AccessTools.StructFieldRef<TObject, TField>? StructFieldRefAccess<TObject, TField>(Expression<Func<TField>>? expression) where TObject : struct
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return StructFieldRefAccess<TObject, TField>(lambdaExpression);
 
+            return null;
+        }
+
+        public static AccessTools.StructFieldRef<TObject, TField>? StructFieldRefAccess<TObject, TField>(LambdaExpression? expression) where TObject : struct
+        {
+            if (expression?.Body is MemberExpression { Member: FieldInfo fieldInfo })
+                return fieldInfo == null ? null : AccessTools2.StructFieldRefAccess<TObject, TField>(fieldInfo);
+
+            return null;
+        }
+#endif
     }
 }
 

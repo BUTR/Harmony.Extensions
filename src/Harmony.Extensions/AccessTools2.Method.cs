@@ -36,15 +36,16 @@
 // SOFTWARE.
 #endregion
 
-using System.Diagnostics;
-
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
+#if !HARMONYEXTENSIONS_ENABLEWARNINGS
 #pragma warning disable
+#endif
 
 namespace HarmonyLib.BUTR.Extensions
 {
     using global::System;
+    using global::System.Diagnostics;
     using global::System.Reflection;
 
     /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
@@ -56,7 +57,7 @@ namespace HarmonyLib.BUTR.Extensions
 		/// <param name="parameters">Optional parameters to target a specific overload of the method</param>
 		/// <param name="generics">Optional list of types that define the generic version of the method</param>
 		/// <returns>A method or null when type/name is null or when the method cannot be found</returns>
-        public static MethodInfo? DeclaredMethod(Type? type, string? name, Type[]? parameters = null, Type[]? generics = null)
+        public static MethodInfo? DeclaredMethod(Type type, string name, Type[]? parameters = null, Type[]? generics = null)
 		{
 			if (type is null)
 			{
@@ -89,7 +90,7 @@ namespace HarmonyLib.BUTR.Extensions
 		/// <param name="parameters">Optional parameters to target a specific overload of the method</param>
 		/// <param name="generics">Optional list of types that define the generic version of the method</param>
 		/// <returns>A method or null when type/name is null or when the method cannot be found</returns>
-        public static MethodInfo? Method(Type? type, string? name, Type[]? parameters = null, Type[]? generics = null)
+        public static MethodInfo? Method(Type type, string name, Type[]? parameters = null, Type[]? generics = null)
 		{
 			if (type is null)
 			{
@@ -122,11 +123,11 @@ namespace HarmonyLib.BUTR.Extensions
 		/// <param name="parameters">Optional parameters to target a specific overload of the method</param>
 		/// <param name="generics">Optional list of types that define the generic version of the method</param>
 		/// <returns>A method or null when type/name is null or when the method cannot be found</returns>
-        public static MethodInfo? Method(string? typeColonMethodname, Type[]? parameters = null, Type[]? generics = null)
+        public static MethodInfo? Method(string typeColonMethodname, Type[]? parameters = null, Type[]? generics = null)
 		{
             if (!TryGetComponents(typeColonMethodname, out var type, out var name))
             {
-                Trace.TraceError($"AccessTools2.Property: Could not find type or property for '{typeColonMethodname}'");
+                Trace.TraceError($"AccessTools2.Method: Could not find type or property for '{typeColonMethodname}'");
                 return null;
             }
 			

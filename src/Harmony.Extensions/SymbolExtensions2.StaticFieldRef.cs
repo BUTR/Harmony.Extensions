@@ -38,7 +38,9 @@
 
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
+#if !HARMONYEXTENSIONS_ENABLEWARNINGS
 #pragma warning disable
+#endif
 
 namespace HarmonyLib.BUTR.Extensions
 {
@@ -58,8 +60,8 @@ namespace HarmonyLib.BUTR.Extensions
 
         public static AccessTools.FieldRef<TField>? StaticFieldRefAccess<TField>(LambdaExpression? expression)
         {
-            if (expression.Body is MemberExpression { Member: FieldInfo fieldInfo })
-                return fieldInfo == null ? null : AccessTools.StaticFieldRefAccess<TField>(fieldInfo);
+            if (expression?.Body is MemberExpression { Member: FieldInfo fieldInfo })
+                return fieldInfo == null ? null : AccessTools2.StaticFieldRefAccess<TField>(fieldInfo);
 
             return null;
         }

@@ -36,15 +36,16 @@
 // SOFTWARE.
 #endregion
 
-using System.Diagnostics;
-
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
+#if !HARMONYEXTENSIONS_ENABLEWARNINGS
 #pragma warning disable
+#endif
 
 namespace HarmonyLib.BUTR.Extensions
 {
     using global::System;
+    using global::System.Diagnostics;
     using global::System.Reflection;
 
     /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
@@ -55,7 +56,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// <param name="name">The name of the field</param>
         /// <returns>A field or null when type/name is null or when the field cannot be found</returns>
         ///
-        public static FieldInfo? DeclaredField(Type? type, string? name)
+        public static FieldInfo? DeclaredField(Type type, string name)
         {
             if (type is null)
             {
@@ -78,7 +79,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// <param name="name">The name of the field (case sensitive)</param>
         /// <returns>A field or null when type/name is null or when the field cannot be found</returns>
         ///
-        public static FieldInfo? Field(Type? type, string? name)
+        public static FieldInfo? Field(Type type, string name)
         {
             if (type is null)
             {

@@ -38,7 +38,9 @@
 
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
+#if !HARMONYEXTENSIONS_ENABLEWARNINGS
 #pragma warning disable
+#endif
 
 namespace HarmonyLib.BUTR.Extensions
 {
@@ -48,13 +50,13 @@ namespace HarmonyLib.BUTR.Extensions
     internal static partial class AccessTools2
     {
         public static TDelegate? GetConstructorDelegate<TDelegate>(Type type, Type[]? parameters = null) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(Constructor(type, parameters));
+            => Constructor(type, parameters) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo) : null;
 
         public static TDelegate? GetDeclaredConstructorDelegate<TDelegate>(Type type, Type[]? parameters = null) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(DeclaredConstructor(type, parameters));
+            => DeclaredConstructor(type, parameters) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo) : null;
 
         public static TDelegate? GetConstructorDelegate<TDelegate>(string typeString, Type[]? parameters = null) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(Constructor(typeString, parameters));
+            => Constructor(typeString, parameters) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo) : null;
     }
 }
 

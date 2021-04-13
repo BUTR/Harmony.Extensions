@@ -36,48 +36,22 @@
 // SOFTWARE.
 #endregion
 
-using System.Diagnostics;
-
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
+#if !HARMONYEXTENSIONS_ENABLEWARNINGS
 #pragma warning disable
+#endif
 
 namespace HarmonyLib.BUTR.Extensions
 {
     using global::System;
+    using global::System.Diagnostics;
     using global::System.Reflection;
     using global::System.Reflection.Emit;
 
     /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
     internal static partial class AccessTools2
     {
-        private static class FieldRefHelper
-        {
-            public delegate object DynamicMethodDefinitionCtorDelegate(string name, Type returnType, Type[] parameterTypes);
-            public delegate object GetILGeneratorDelegate(object instance);
-            public delegate void Emit1Delegate(object instance, OpCode opcode);
-            public delegate void Emit2Delegate(object instance, OpCode opcode, FieldInfo field);
-            public delegate void Emit3Delegate(object instance, OpCode opcode, Type type);
-            public delegate MethodInfo GenerateDelegate(object instance);
-
-            public static readonly DynamicMethodDefinitionCtorDelegate? DynamicMethodDefinitionCtor;
-            public static readonly GetILGeneratorDelegate? GetILGenerator;
-            public static readonly Emit1Delegate? Emit1;
-            public static readonly Emit2Delegate? Emit2;
-            public static readonly Emit3Delegate? Emit3;
-            public static readonly GenerateDelegate? Generate;
-
-            static FieldRefHelper()
-            {
-                DynamicMethodDefinitionCtor = AccessTools2.GetConstructorDelegate<DynamicMethodDefinitionCtorDelegate>("MonoMod.Utils.DynamicMethodDefinition");
-                GetILGenerator = AccessTools2.GetDelegateObjectInstance<GetILGeneratorDelegate>("MonoMod.Utils.DynamicMethodDefinition:GetILGenerator");
-                Emit1 = AccessTools2.GetDelegateObjectInstance<Emit1Delegate>("System.Reflection.Emit.ILGenerator:Emit", new[] { typeof(OpCode) });
-                Emit2 = AccessTools2.GetDelegateObjectInstance<Emit2Delegate>("System.Reflection.Emit.ILGenerator:Emit", new[] { typeof(OpCode), typeof(FieldInfo) });
-                Emit3 = AccessTools2.GetDelegateObjectInstance<Emit3Delegate>("System.Reflection.Emit.ILGenerator:Emit", new[] { typeof(OpCode), typeof(Type) });
-                Generate = AccessTools2.GetDelegateObjectInstance<GenerateDelegate>("System.Reflection.Emit.ILGenerator:Generate");
-            }
-        }
-
         /// <summary>Creates a field reference delegate for an instance field of a class</summary>
 		/// <typeparam name="T">The class that defines the instance field, or derived class of this type</typeparam>
 		/// <typeparam name="F">
@@ -86,13 +60,17 @@ namespace HarmonyLib.BUTR.Extensions
 		/// either that type or the underlying integral type of that enum type
 		/// </typeparam>
 		/// <param name="fieldName">The name of the field</param>
-		/// <returns>A readable/assignable <see cref="FieldRef{T,F}"/> delegate</returns>
-        public static AccessTools.FieldRef<T, F>? FieldRefAccess<T, F>(string? fieldName) where T : class
+		/// <returns>A readable/assignable <see cref="AccessTools.FieldRef{T,F}"/> delegate</returns>
+        public static AccessTools.FieldRef<T, F>? FieldRefAccess<T, F>(string fieldName) where T : class
         {
             if (fieldName is null)
                 return null;
 
-            return FieldRefAccessInternal<T, F>(GetInstanceField(typeof(T), fieldName), needCastclass: false);
+            var field = GetInstanceField(typeof(T), fieldName);
+            if (field is null)
+                return null;
+
+            return FieldRefAccessInternal<T, F>(field, needCastclass: false);
 		}
 
 		/// <summary>Creates a field reference delegate for an instance field of a class or static field (NOT an instance field of a struct)</summary>
@@ -106,7 +84,7 @@ namespace HarmonyLib.BUTR.Extensions
 		/// </param>
 		/// <param name="fieldName">The name of the field</param>
 		/// <returns>
-		/// A readable/assignable <see cref="FieldRef{T,F}"/> delegate with <c>T=object</c>
+		/// A readable/assignable <see cref="AccessTools.FieldRef{T,F}"/> delegate with <c>T=object</c>
 		/// (for static fields, the <c>instance</c> delegate parameter is ignored)
 		/// </returns>
 		/// <remarks>
@@ -115,7 +93,7 @@ namespace HarmonyLib.BUTR.Extensions
 		/// in e.g. <see cref="FieldRefAccess{T, F}(string)"/>.
 		/// </para>
         /// </remarks>
-        public static AccessTools.FieldRef<object, F>? FieldRefAccess<F>(Type? type, string? fieldName)
+        public static AccessTools.FieldRef<object, F>? FieldRefAccess<F>(Type type, string fieldName)
         {
             if (type is null)
                 return null;
@@ -155,14 +133,14 @@ namespace HarmonyLib.BUTR.Extensions
 		/// either that type or the underlying integral type of that enum type
 		/// </typeparam>
 		/// <param name="fieldInfo">The field</param>
-		/// <returns>A readable/assignable <see cref="FieldRef{T,F}"/> delegate</returns>
+		/// <returns>A readable/assignable <see cref="AccessTools.FieldRef{T,F}"/> delegate</returns>
 		/// <remarks>
 		/// <para>
 		/// This method is meant for cases where the field has already been obtained, avoiding the field searching cost in
 		/// e.g. <see cref="FieldRefAccess{T, F}(string)"/>.
 		/// </para>
         /// </remarks>
-        public static AccessTools.FieldRef<T, F>? FieldRefAccess<T, F>(FieldInfo? fieldInfo) where T : class
+        public static AccessTools.FieldRef<T, F>? FieldRefAccess<T, F>(FieldInfo fieldInfo) where T : class
         {
             if (fieldInfo is null)
                 return null;
@@ -188,41 +166,10 @@ namespace HarmonyLib.BUTR.Extensions
             return null;
 		}
 
-		private static AccessTools.FieldRef<T, F>? FieldRefAccessInternal<T, F>(FieldInfo? fieldInfo, bool needCastclass) where T : class
-		{
-            if (FieldRefHelper.DynamicMethodDefinitionCtor is null)
+		private static AccessTools.FieldRef<T, F>? FieldRefAccessInternal<T, F>(FieldInfo fieldInfo, bool needCastclass) where T : class
+        {
+            if (!Helper.IsValid())
             {
-                Trace.TraceError("AccessTools2.FieldRefAccessInternal: DynamicMethodDefinitionCtor is null");
-                return null;
-            }
-
-            if (FieldRefHelper.GetILGenerator is null)
-            {
-                Trace.TraceError("AccessTools2.FieldRefAccessInternal: GetILGenerator is null");
-                return null;
-            }
-
-            if (FieldRefHelper.Emit1 is null)
-            {
-                Trace.TraceError("AccessTools2.FieldRefAccessInternal: Emit1 is null");
-                return null;
-            }
-
-            if (FieldRefHelper.Emit2 is null)
-            {
-                Trace.TraceError("AccessTools2.FieldRefAccessInternal: Emit2 is null");
-                return null;
-            }
-
-            if (FieldRefHelper.Emit3 is null)
-            {
-                Trace.TraceError("AccessTools2.FieldRefAccessInternal: Emit3 is null");
-                return null;
-            }
-
-            if (FieldRefHelper.Generate is null)
-            {
-                Trace.TraceError("AccessTools2.FieldRefAccessInternal: Generate is null");
                 return null;
             }
 
@@ -240,20 +187,22 @@ namespace HarmonyLib.BUTR.Extensions
 			var delegateInstanceType = typeof(T);
 			var declaringType = fieldInfo.DeclaringType;
 
-			var dm = FieldRefHelper.DynamicMethodDefinitionCtor(
+			var dm = DynamicMethodDefinitionHandle.Create(
                 $"__refget_{delegateInstanceType.Name}_fi_{fieldInfo.Name}", typeof(F).MakeByRefType(), new[] { delegateInstanceType });
 
-			var il = FieldRefHelper.GetILGenerator(dm);
-            FieldRefHelper.Emit1(il, OpCodes.Ldarg_0);
+            if (dm?.GetILGenerator() is not { } il)
+                return null;
+
+            il.Emit(OpCodes.Ldarg_0);
             // The castclass is needed when T is a parent class or interface of declaring type (e.g. if T is object),
             // since there's no guarantee the instance passed to the delegate is actually of the declaring type.
             // In such a situation, the castclass will throw an InvalidCastException and thus prevent undefined behavior.
             if (needCastclass)
-                FieldRefHelper.Emit3(il, OpCodes.Castclass, declaringType);
-            FieldRefHelper.Emit2(il, OpCodes.Ldflda, fieldInfo);
-            FieldRefHelper.Emit1(il, OpCodes.Ret);
-
-            return GetDelegate<AccessTools.FieldRef<T, F>>(FieldRefHelper.Generate(dm));
+                il.Emit(OpCodes.Castclass, declaringType);
+            il.Emit(OpCodes.Ldflda, fieldInfo);
+            il.Emit(OpCodes.Ret);
+            
+            return dm?.Generate() is { } methodInfo ? GetDelegate<AccessTools.FieldRef<T, F>>(methodInfo) : null;
 		}
 
         private static bool? FieldRefNeedsClasscast(Type delegateInstanceType, Type declaringType)
@@ -274,10 +223,9 @@ namespace HarmonyLib.BUTR.Extensions
 
         /// <summary>Creates an instance field reference delegate for a private type</summary>
         /// <typeparam name="TField">The type of the field</typeparam>
-        /// <param name="type">The class/type</param>
-        /// <param name="fieldName">The name of the field</param>
+        /// <param name="fieldInfo">The field</param>
         /// <returns>A read and writable <see cref="T:HarmonyLib.AccessTools.FieldRef`2" /> delegate</returns>
-        public static AccessTools.FieldRef<object, TField>? FieldRefAccess<TField>(FieldInfo? fieldInfo) => fieldInfo is null ? null : AccessTools.FieldRefAccess<object, TField>(fieldInfo);
+        public static AccessTools.FieldRef<object, TField>? FieldRefAccess<TField>(FieldInfo fieldInfo) => fieldInfo is null ? null : AccessTools.FieldRefAccess<object, TField>(fieldInfo);
     }
 }
 

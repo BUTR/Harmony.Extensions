@@ -38,7 +38,9 @@
 
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
+#if !HARMONYEXTENSIONS_ENABLEWARNINGS
 #pragma warning disable
+#endif
 
 namespace HarmonyLib.BUTR.Extensions
 {
@@ -59,7 +61,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDelegateObjectInstance<TDelegate>(Type type, string method) where TDelegate : Delegate
-            => GetDelegateObjectInstance<TDelegate>(Method(type, method));
+            => Method(type, method) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo) : null;
 
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/> or any of its base types,
@@ -76,7 +78,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDelegateObjectInstance<TDelegate>(Type type, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
-            => GetDelegateObjectInstance<TDelegate>(Method(type, method, parameters, generics));
+            => Method(type, method, parameters, generics) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo) : null;
 
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>,
@@ -89,7 +91,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDeclaredDelegateObjectInstance<TDelegate>(Type type, string method) where TDelegate : Delegate
-            => GetDelegateObjectInstance<TDelegate>(DeclaredMethod(type, method));
+            => DeclaredMethod(type, method) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo) : null;
 
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>,
@@ -106,7 +108,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDeclaredDelegateObjectInstance<TDelegate>(Type type, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
-            => GetDelegateObjectInstance<TDelegate>(DeclaredMethod(type, method, parameters, generics));
+            => DeclaredMethod(type, method, parameters, generics) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo) : null;
 
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/> or any of its base types.
@@ -118,7 +120,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDelegate<TDelegate>(Type type, string method) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(Method(type, method));
+            => Method(type, method) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo) : null;
 
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/>
@@ -135,7 +137,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDelegate<TDelegate>(Type type, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(Method(type, method, parameters, generics));
+            => Method(type, method, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo) : null;
 
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>.
@@ -147,7 +149,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDeclaredDelegate<TDelegate>(Type type, string method) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(DeclaredMethod(type, method));
+            => DeclaredMethod(type, method) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo) : null;
 
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>.
@@ -163,7 +165,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDeclaredDelegate<TDelegate>(Type type, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(DeclaredMethod(type, method, parameters, generics));
+            => DeclaredMethod(type, method, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo) : null;
 
         /// <summary>
         /// Get a delegate for an instance method declared by <paramref name="instance"/>'s type or any of its base types.
@@ -175,7 +177,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, string method) where TDelegate : Delegate
-            => instance is null ? null : GetDelegate<TDelegate, TInstance>(instance, Method(instance.GetType(), method));
+            => instance is not null && Method(instance.GetType(), method) is { } methodInfo ? GetDelegate<TDelegate, TInstance>(instance, methodInfo) : null;
 
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="instance"/>'s type or any of its base types.
@@ -191,7 +193,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
-            => instance is null ? null : GetDelegate<TDelegate, TInstance>(instance, Method(instance.GetType(), method, parameters, generics));
+            => instance is not null && Method(instance.GetType(), method, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate, TInstance>(instance, methodInfo) : null;
 
         /// <summary>
         /// Get a delegate for an instance method directly declared by <paramref name="instance"/>'s type.
@@ -203,7 +205,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDeclaredDelegate<TDelegate, TInstance>(TInstance instance, string method) where TDelegate : Delegate
-            => instance is null ? null : GetDelegate<TDelegate, TInstance>(instance, DeclaredMethod(instance.GetType(), method));
+            => instance is not null && DeclaredMethod(instance.GetType(), method) is { } methodInfo ? GetDelegate<TDelegate, TInstance>(instance, methodInfo) : null;
 
         /// <summary>
         /// Get a delegate for an instance method named <paramref name="method"/>, directly declared by <paramref name="instance"/>'s type.
@@ -219,7 +221,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDeclaredDelegate<TDelegate, TInstance>(TInstance instance, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
-            => instance is null ? null : GetDelegate<TDelegate, TInstance>(instance, DeclaredMethod(instance.GetType(), method, parameters, generics));
+            => instance is not null && DeclaredMethod(instance.GetType(), method, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate, TInstance>(instance, methodInfo) : null ;
 
         /// <summary>
         /// Get a delegate for an instance method described by <paramref name="methodInfo"/> and bound to <paramref name="instance"/>.
@@ -230,7 +232,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="methodInfo"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, MethodInfo? methodInfo) where TDelegate : Delegate
+        public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, MethodInfo methodInfo) where TDelegate : Delegate
             => GetDelegate<TDelegate>(instance, methodInfo);
     }
 }

@@ -38,7 +38,9 @@
 
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
+#if !HARMONYEXTENSIONS_ENABLEWARNINGS
 #pragma warning disable
+#endif
 
 namespace HarmonyLib.BUTR.Extensions
 {
@@ -51,7 +53,7 @@ namespace HarmonyLib.BUTR.Extensions
 	    /// <summary>Given a lambda expression that calls a method, returns the method info</summary>
 		/// <param name="expression">The lambda expression using the method</param>
 		/// <returns>The method in the lambda expression</returns>
-        public static MethodInfo GetMethodInfo(Expression<Action> expression)
+        public static MethodInfo? GetMethodInfo(Expression<Action>? expression)
 		{
             if (expression is LambdaExpression lambdaExpression)
                 return GetMethodInfo(lambdaExpression);
@@ -63,7 +65,7 @@ namespace HarmonyLib.BUTR.Extensions
 		/// <typeparam name="T">The generic type</typeparam>
 		/// <param name="expression">The lambda expression using the method</param>
 		/// <returns>The method in the lambda expression</returns>
-        public static MethodInfo GetMethodInfo<T>(Expression<Action<T>> expression)
+        public static MethodInfo? GetMethodInfo<T>(Expression<Action<T>>? expression)
 		{
             if (expression is LambdaExpression lambdaExpression)
                 return GetMethodInfo(lambdaExpression);
@@ -76,7 +78,7 @@ namespace HarmonyLib.BUTR.Extensions
 		/// <typeparam name="TResult">The generic result type</typeparam>
 		/// <param name="expression">The lambda expression using the method</param>
 		/// <returns>The method in the lambda expression</returns>
-        public static MethodInfo GetMethodInfo<T, TResult>(Expression<Func<T, TResult>> expression)
+        public static MethodInfo? GetMethodInfo<T, TResult>(Expression<Func<T, TResult>>? expression)
 		{
             if (expression is LambdaExpression lambdaExpression)
                 return GetMethodInfo(lambdaExpression);
@@ -87,9 +89,9 @@ namespace HarmonyLib.BUTR.Extensions
 		/// <summary>Given a lambda expression that calls a method, returns the method info</summary>
 		/// <param name="expression">The lambda expression using the method</param>
 		/// <returns>The method in the lambda expression</returns>
-        public static MethodInfo GetMethodInfo(LambdaExpression expression)
+        public static MethodInfo? GetMethodInfo(LambdaExpression? expression)
 		{
-            if (expression.Body is MethodCallExpression { Method: MethodInfo methodInfo })
+            if (expression?.Body is MethodCallExpression { Method: MethodInfo methodInfo })
                 return methodInfo;
 
             return null;

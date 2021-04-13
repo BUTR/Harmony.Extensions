@@ -38,7 +38,9 @@
 
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
+#if !HARMONYEXTENSIONS_ENABLEWARNINGS
 #pragma warning disable
+#endif
 
 namespace HarmonyLib.BUTR.Extensions
 {
@@ -66,7 +68,7 @@ namespace HarmonyLib.BUTR.Extensions
 
         public static PropertyInfo? GetPropertyInfo(LambdaExpression? expression)
         {
-            if (expression.Body is MemberExpression { Member: PropertyInfo propertyInfo })
+            if (expression?.Body is MemberExpression { Member: PropertyInfo propertyInfo })
                 return propertyInfo;
 
             return null;
@@ -91,7 +93,7 @@ namespace HarmonyLib.BUTR.Extensions
 
         public static MethodInfo? GetPropertyGetter(LambdaExpression? expression)
         {
-            if (expression.Body is MemberExpression { Member: PropertyInfo propertyInfo })
+            if (expression?.Body is MemberExpression { Member: PropertyInfo propertyInfo })
                 return propertyInfo?.GetGetMethod(true);
 
             return null;
@@ -116,7 +118,7 @@ namespace HarmonyLib.BUTR.Extensions
 
         public static MethodInfo? GetPropertySetter(LambdaExpression? expression)
         {
-            if (expression.Body is MemberExpression { Member: PropertyInfo propertyInfo })
+            if (expression?.Body is MemberExpression { Member: PropertyInfo propertyInfo })
                 return propertyInfo?.GetSetMethod(true);
 
             return null;

@@ -38,7 +38,9 @@
 
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
+#if !HARMONYEXTENSIONS_ENABLEWARNINGS
 #pragma warning disable
+#endif
 
 namespace HarmonyLib.BUTR.Extensions
 {
@@ -66,7 +68,7 @@ namespace HarmonyLib.BUTR.Extensions
 
         public static FieldInfo? GetFieldInfo(LambdaExpression? expression)
         {
-            if (expression.Body is MemberExpression { Member: FieldInfo fieldInfo })
+            if (expression?.Body is MemberExpression { Member: FieldInfo fieldInfo })
                 return fieldInfo;
 
             return null;
