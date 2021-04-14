@@ -7,9 +7,6 @@
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
     <RootNamespace>System.Diagnostics.CodeAnalysis</RootNamespace>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>$(DefineConstants);HARMONYEXTENSIONS_ENABLEWARNINGS;</DefineConstants>
     <DefineConstants Condition="$(HarmonyVersion) &gt;= '2.0.4'">$(DefineConstants);HARMONYEXTENSIONS_2_0_4;</DefineConstants>
     <NoWarn>$(NoWarn);NU1701</NoWarn>
