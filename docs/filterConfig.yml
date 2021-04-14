@@ -1,13 +1,25 @@
 apiRules:
-- exclude:
-    uidRegex: ^HarmonyLib\.BUTR\.Extensions\.AccessTools2\.Helper
+#- exclude:
+#    uidRegex: ^HarmonyLib\.BUTR\.Extensions\.AccessTools2\.Helper
+#    type: Type
+#- exclude:
+#    uidRegex: ^HarmonyLib\.BUTR\.Extensions\.AccessTools2\.Helper\.[^.]+$
+#    type: Type
+#- exclude:
+#    uidRegex: ^HarmonyLib\.BUTR\.Extensions\.AccessTools2\.ILGeneratorHandle
+#    type: Type
+#- exclude:
+#    uidRegex: ^HarmonyLib\.BUTR\.Extensions\.AccessTools2\.DynamicMethodDefinitionHandle
+#    type: Type
+- include:
+    uidRegex: ^HarmonyLib\.BUTR\.Extensions\.AccessTools2
     type: Type
-- exclude:
-    uidRegex: ^HarmonyLib\.BUTR\.Extensions\.AccessTools2\.Helper\.[^.]+$
+- include:
+    uidRegex: ^HarmonyLib\.BUTR\.Extensions\.Reflect
     type: Type
-- exclude:
-    uidRegex: ^HarmonyLib\.BUTR\.Extensions\.AccessTools2\.ILGeneratorHandle
+- include:
+    uidRegex: ^HarmonyLib\.BUTR\.Extensions\.Reflect\.[^.]+$
     type: Type
-- exclude:
-    uidRegex: ^HarmonyLib\.BUTR\.Extensions\.AccessTools2\.DynamicMethodDefinitionHandle
+- include:
+    uidRegex: ^HarmonyLib\.BUTR\.Extensions\.SymbolExtensions2
     type: Type
