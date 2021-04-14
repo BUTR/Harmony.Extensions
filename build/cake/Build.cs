@@ -15,16 +15,23 @@ using static Nuke.Common.Tools.NuGet.NuGetTasks;
 [UnsetVisualStudioEnvironmentVariables]
 class Build : NukeBuild
 {
+    static string BinFolder = @"\src\Harmony.Extensions\bin\";
+    static string ObjFolder = @"\src\Harmony.Extensions\obj\";
+
     public static int Main () => Execute<Build>(x => x.Pack);
 
     string Version => $"2.0.0.{(Environment.GetEnvironmentVariable("GITHUB_RUN_NUMBER") is { } env && !string.IsNullOrEmpty(env) ? env : "0")}";
 
     [Solution] readonly Solution Solution;
 
-    Project IsExternalInitProject => Solution.GetProject("Harmony.Extensions");
+    Project Project => Solution.GetProject("Harmony.Extensions");
 
     IEnumerable<FileInfo> AttributeFiles => Directory
-        .GetFiles(IsExternalInitProject.Directory, "*.cs", SearchOption.AllDirectories)
+        .GetFiles(Project.Directory, "*.cs", SearchOption.AllDirectories)
+        .Where(p => !p.Contains(BinFolder.Replace(@"\", Path.DirectorySeparatorChar.ToString())) &&
+                    !p.Contains(BinFolder.Replace(@"\", Path.AltDirectorySeparatorChar.ToString())) &&
+                    !p.Contains(ObjFolder.Replace(@"\", Path.DirectorySeparatorChar.ToString())) &&
+                    !p.Contains(ObjFolder.Replace(@"\", Path.AltDirectorySeparatorChar.ToString())))
         .Select(path => new FileInfo(path));
 
     FileInfo NuspecFile => new(RootDirectory / "src" / "Harmony.Extensions.nuspec");
@@ -51,7 +58,7 @@ class Build : NukeBuild
             // We build once to verify that the sources don't contain errors.
             // Has no function apart from that since the build output is not used.
             DotNetBuild(s => s
-                .SetProjectFile(IsExternalInitProject.Path)
+                .SetProjectFile(Project.Path)
                 .SetIgnoreFailedSources(true));
         });
 
@@ -60,7 +67,7 @@ class Build : NukeBuild
         .DependsOn(Compile)
         .Executes(() =>
         {
-            // IsExternalInit uses the [ExcludeFromCodeCoverage] attribute.
+            // Project uses the [ExcludeFromCodeCoverage] attribute.
             // This is not available in certain target frameworks (e.g. .NET 2.0 and .NET Standard 1.0).
             // For this reason, we remove that attribute from the source code.
             // This results in two different file versions. These are temporarily stored in the output directories
