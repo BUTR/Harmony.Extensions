@@ -48,7 +48,12 @@ namespace HarmonyLib.BUTR.Extensions
     using global::System.Reflection;
 
     /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
-    internal static partial class AccessTools2
+#if !HARMONYEXTENSIONS_PUBLIC
+    internal
+#else
+    public
+#endif
+        static partial class AccessTools2
     {
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/> or any of its base types,

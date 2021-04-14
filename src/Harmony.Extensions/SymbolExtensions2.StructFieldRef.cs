@@ -48,7 +48,12 @@ namespace HarmonyLib.BUTR.Extensions
     using global::System.Linq.Expressions;
     using global::System.Reflection;
 
-    internal static partial class SymbolExtensions2
+#if !HARMONYEXTENSIONS_PUBLIC
+    internal
+#else
+    public
+#endif
+        static partial class SymbolExtensions2
     {
 #if !HARMONYEXTENSIONS_DISABLE_2_0_4
         public static AccessTools.StructFieldRef<TObject, TField>? StructFieldRefAccess<TObject, TField>(Expression<Func<TField>>? expression) where TObject : struct

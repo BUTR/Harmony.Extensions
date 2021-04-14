@@ -6,7 +6,7 @@
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
     <RootNamespace>System.Diagnostics.CodeAnalysis</RootNamespace>
-    <DefineConstants>$(DefineConstants);HARMONYEXTENSIONS_ENABLEWARNINGS;</DefineConstants>
+    <DefineConstants>$(DefineConstants);HARMONYEXTENSIONS_ENABLEWARNINGS;HARMONYEXTENSIONS_PUBLIC;</DefineConstants>
     <DefineConstants Condition="$(HarmonyVersion) &lt; '2.0.4'">$(DefineConstants);HARMONYEXTENSIONS_DISABLE_2_0_4;</DefineConstants>
     <NoWarn>$(NoWarn);NU1701</NoWarn>
   </PropertyGroup>

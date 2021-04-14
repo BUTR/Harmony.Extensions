@@ -47,7 +47,12 @@ namespace HarmonyLib.BUTR.Extensions
     using global::System;
 
     /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
-    internal static partial class AccessTools2
+#if !HARMONYEXTENSIONS_PUBLIC
+    internal
+#else
+    public
+#endif
+        static partial class AccessTools2
     {
         public static TDelegate? GetConstructorDelegate<TDelegate>(Type type, Type[]? parameters = null) where TDelegate : Delegate
             => Constructor(type, parameters) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo) : null;

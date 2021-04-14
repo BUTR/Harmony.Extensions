@@ -48,7 +48,12 @@ namespace HarmonyLib.BUTR.Extensions
     using global::System.Linq;
     using global::System.Reflection;
 
-    internal static class Reflect
+#if !HARMONYEXTENSIONS_PUBLIC
+    internal
+#else
+    public
+#endif
+        static class Reflect
     {
         public class Method
         {

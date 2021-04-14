@@ -48,7 +48,12 @@ namespace HarmonyLib.BUTR.Extensions
     using global::System.Linq.Expressions;
     using global::System.Reflection;
 
-    internal static partial class SymbolExtensions2
+#if !HARMONYEXTENSIONS_PUBLIC
+    internal
+#else
+    public
+#endif
+        static partial class SymbolExtensions2
     {
 	    /// <summary>Given a lambda expression that calls a method, returns the method info</summary>
 		/// <param name="expression">The lambda expression using the method</param>

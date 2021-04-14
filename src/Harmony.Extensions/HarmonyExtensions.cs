@@ -47,7 +47,12 @@ namespace HarmonyLib.BUTR.Extensions
     using global::System.Reflection;
 
     /// <summary>Extension class for working with Harmony.</summary>
-    internal static class HarmonyExtensions
+#if !HARMONYEXTENSIONS_PUBLIC
+    internal
+#else
+    public
+#endif
+        static class HarmonyExtensions
     {
         public static bool TryPatch(this Harmony harmony,
             MethodBase? original,

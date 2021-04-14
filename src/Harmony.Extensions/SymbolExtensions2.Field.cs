@@ -48,7 +48,12 @@ namespace HarmonyLib.BUTR.Extensions
     using global::System.Linq.Expressions;
     using global::System.Reflection;
 
-    internal static partial class SymbolExtensions2
+#if !HARMONYEXTENSIONS_PUBLIC
+    internal
+#else
+    public
+#endif
+        static partial class SymbolExtensions2
     {
         public static FieldInfo? GetFieldInfo<T>(Expression<Func<T>>? expression)
         {

@@ -50,7 +50,12 @@ namespace HarmonyLib.BUTR.Extensions
     using global::System.Reflection.Emit;
 
     /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
-    internal static partial class AccessTools2
+#if !HARMONYEXTENSIONS_PUBLIC
+    internal
+#else
+    public
+#endif
+        static partial class AccessTools2
     {
         /// <summary>Creates a field reference delegate for an instance field of a class</summary>
 		/// <typeparam name="T">The class that defines the instance field, or derived class of this type</typeparam>

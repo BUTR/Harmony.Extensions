@@ -48,7 +48,12 @@ namespace HarmonyLib.BUTR.Extensions
     using global::System.Reflection;
 
     /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
-    internal static partial class AccessTools2
+#if !HARMONYEXTENSIONS_PUBLIC
+    internal
+#else
+    public
+#endif
+        static partial class AccessTools2
     {
         /// <summary>Gets the reflection information for a directly declared property</summary>
 		/// <param name="type">The class/type where the property is declared</param>
