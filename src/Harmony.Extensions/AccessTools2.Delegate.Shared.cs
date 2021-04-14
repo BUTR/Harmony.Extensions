@@ -156,13 +156,13 @@ namespace HarmonyLib.BUTR.Extensions
                 .ToList();
 
             var call = hasInstance
-                ? instance.GetType().Equals(methodInfo.DeclaringType)
+                ? instance!.GetType().Equals(methodInfo.DeclaringType)
                     ? Expression.Call(Expression.Constant(instance), methodInfo, inputParameters)
                     : Expression.Call(Expression.Convert(Expression.Constant(instance), instance.GetType()), methodInfo, inputParameters)
                 : hasSameParameters
                     ? Expression.Call(methodInfo, inputParameters)
                     : hasInstanceType
-                        ? instanceParameter.Type.Equals(methodInfo.DeclaringType)
+                        ? instanceParameter!.Type.Equals(methodInfo.DeclaringType)
                             ? Expression.Call(instanceParameter, methodInfo, inputParameters)
                             : Expression.Call(Expression.Convert(instanceParameter, methodInfo.DeclaringType), methodInfo, inputParameters)
                         : null;

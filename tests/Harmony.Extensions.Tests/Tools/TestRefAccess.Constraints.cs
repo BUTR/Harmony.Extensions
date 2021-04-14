@@ -27,8 +27,6 @@ namespace HarmonyLibTests.Tools
 			TestTools.AssertImmediate(() => Assert.NotNull(field));
             var availableTestCases = Merge(
                 AvailableTestCases_StructFieldRefAccess<T, F>(field, field.Name)
-                //, AvailableTestCases_StaticFieldRefAccess_ByName<T, F>(field.Name)
-                //, AvailableTestCases_StaticFieldRefAccess_ByFieldInfo<T, F>(field)
             );
 			new ATestSuite<T, F>(typeof(T), field, testValue, expectedCaseToConstraint, availableTestCases).Run();
 		}
@@ -53,13 +51,8 @@ namespace HarmonyLibTests.Tools
 			return expectedCaseToConstraint.Merge(ReusableConstraints(new Dictionary<string, IResolveConstraint>
 			{
 				["StructFieldRefAccess<T, F>(fieldName)(ref instance)"] = Throws.InstanceOf<NullReferenceException>(),
-				//["StructFieldRefAccess<T, F>(ref instance, fieldName)"] = Throws.InstanceOf<ArgumentException>(),
-				//["FieldRefAccess<T, F>(fieldName)(instance)"] = Throws.InstanceOf<ArgumentException>(),
-				//["FieldRefAccess<T, F>(instance, fieldName)"] = Throws.InstanceOf<ArgumentException>(),
 				["FieldRefAccess<F>(typeof(T), fieldName)(instance)"] = Throws.InstanceOf<NullReferenceException>(),
 				["FieldRefAccess<F>(typeof(T), fieldName)()"] = Throws.InstanceOf<NullReferenceException>(),
-				//["StaticFieldRefAccess<T, F>(fieldName)"] = Throws.InstanceOf<ArgumentException>(),
-				//["StaticFieldRefAccess<F>(typeof(T), fieldName)"] = Throws.InstanceOf<ArgumentException>(),
 			}).Where(pair => expectedCaseToConstraint.ContainsKey(pair.Key)));
 		}
 
@@ -70,13 +63,11 @@ namespace HarmonyLibTests.Tools
 			var newExpectedCaseToConstraint = FieldMissingOnTypeT(expectedCaseToConstraint).Merge(ReusableConstraints(new Dictionary<string, IResolveConstraint>
 			{
 				["StructFieldRefAccess<T, F>(field)(ref instance)"] = Throws.InstanceOf<NullReferenceException>(),
-				//["StructFieldRefAccess<T, F>(ref instance, field)"] = Throws.InstanceOf<ArgumentException>(),
-				//["FieldRefAccess<T, F>(instance, field)"] = Throws.InstanceOf<ArgumentException>(),
 			}).Where(pair => expectedCaseToConstraint.ContainsKey(pair.Key)));
 			// Only override Throws.Nothing constraint with InvalidCastException for these test cases,
 			// since other Throws constraints should have precedence over InvalidCastException:
-			// - ArgumentException is only thrown from FieldRefAccess
-			// - NullReferenceException is only thrown when invoking FieldRefAccess-returned delegate with null instance
+			// - Null is thrown from FieldRefAccess
+			// - Null is thrown when invoking FieldRefAccess-returned delegate with null instance
 			// - InvalidCastException is only thrown when invoking FieldRefAccess-returned delegate with an instance of incompatible type
 			return newExpectedCaseToConstraint.Merge(ReusableConstraints(new Dictionary<string, IResolveConstraint>
 			{
@@ -116,61 +107,35 @@ namespace HarmonyLibTests.Tools
         static readonly Dictionary<string, ReusableConstraint> expectedCaseToConstraint_ClassInstance =
 			ReusableConstraints(new Dictionary<string, IResolveConstraint>
 			{
-				//["FieldRefAccess<T, F>(fieldName)(instance)"] = Throws.Nothing,
-				//["FieldRefAccess<T, F>(instance, fieldName)"] = Throws.Nothing,
-				["FieldRefAccess<F>(typeof(T), fieldName)(instance)"] = Throws.Nothing,
+                ["FieldRefAccess<F>(typeof(T), fieldName)(instance)"] = Throws.Nothing,
 				["FieldRefAccess<F>(typeof(T), fieldName)()"] = Throws.TypeOf<NullReferenceException>(),
 				["FieldRefAccess<T, F>(field)(instance)"] = Throws.Nothing,
 				["FieldRefAccess<T, F>(field)()"] = Throws.TypeOf<NullReferenceException>(),
-				//["FieldRefAccess<T, F>(instance, field)"] = Throws.Nothing,
-				//["StaticFieldRefAccess<T, F>(fieldName)"] = Throws.InstanceOf<ArgumentException>(),
-				//["StaticFieldRefAccess<F>(typeof(T), fieldName)"] = Throws.InstanceOf<ArgumentException>(),
 				["StaticFieldRefAccess<F>(field)()"] = Throws.InstanceOf<NullReferenceException>(),
-				//["StaticFieldRefAccess<T, F>(field)"] = Throws.InstanceOf<ArgumentException>(),
 			});
 
 		static readonly Dictionary<string, ReusableConstraint> expectedCaseToConstraint_ClassStatic =
 			ReusableConstraints(new Dictionary<string, IResolveConstraint>
 			{
-				//["FieldRefAccess<T, F>(fieldName)(instance)"] = Throws.InstanceOf<ArgumentException>(),
-				//["FieldRefAccess<T, F>(instance, fieldName)"] = Throws.InstanceOf<ArgumentException>(),
-				["FieldRefAccess<F>(typeof(T), fieldName)(instance)"] = Throws.TypeOf<NullReferenceException>(),
+                ["FieldRefAccess<F>(typeof(T), fieldName)(instance)"] = Throws.TypeOf<NullReferenceException>(),
 				["FieldRefAccess<F>(typeof(T), fieldName)()"] = Throws.TypeOf<NullReferenceException>(),
 				["FieldRefAccess<T, F>(field)(instance)"] = Throws.TypeOf<NullReferenceException>(),
 				["FieldRefAccess<T, F>(field)()"] = Throws.TypeOf<NullReferenceException>(),
-				//["FieldRefAccess<T, F>(instance, field)"] = Throws.InstanceOf<ArgumentException>(),
-				//["StaticFieldRefAccess<T, F>(fieldName)"] = Throws.Nothing,
-				//["StaticFieldRefAccess<F>(typeof(T), fieldName)"] = Throws.Nothing,
 				["StaticFieldRefAccess<F>(field)()"] = Throws.Nothing,
-				//["StaticFieldRefAccess<T, F>(field)"] = Throws.Nothing, // T is ignored
 			});
 
 		static readonly Dictionary<string, ReusableConstraint> expectedCaseToConstraint_StructInstance =
 			ReusableConstraints(new Dictionary<string, IResolveConstraint>
 			{
 				["StructFieldRefAccess<T, F>(fieldName)(ref instance)"] = Throws.Nothing,
-				//["StructFieldRefAccess<T, F>(ref instance, fieldName)"] = Throws.Nothing,
 				["StructFieldRefAccess<T, F>(field)(ref instance)"] = Throws.Nothing,
-				//["StructFieldRefAccess<T, F>(ref instance, field)"] = Throws.Nothing,
-                //["StaticFieldRefAccess<T, F>(fieldName)"] = Throws.InstanceOf<ArgumentException>(),
-				//["StaticFieldRefAccess<F>(typeof(T), fieldName)"] = Throws.InstanceOf<ArgumentException>(),
-				//["StaticFieldRefAccess<F>(field)()"] = Throws.InstanceOf<NullReferenceException>(),
-				//["StaticFieldRefAccess<T, F>(field)"] = Throws.InstanceOf<ArgumentException>(),
 			});
 
 		static readonly Dictionary<string, ReusableConstraint> expectedCaseToConstraint_StructStatic =
 			ReusableConstraints(new Dictionary<string, IResolveConstraint>
 			{
 				["StructFieldRefAccess<T, F>(fieldName)(ref instance)"] = Throws.InstanceOf<NullReferenceException>(),
-				//["StructFieldRefAccess<T, F>(ref instance, fieldName)"] = Throws.InstanceOf<ArgumentException>(),
-				["StructFieldRefAccess<T, F>(field)(ref instance)"] =
-                    //Throws.Nothing, // T is ignored
-                    Throws.InstanceOf<NullReferenceException>(),
-				//["StructFieldRefAccess<T, F>(ref instance, field)"] = Throws.InstanceOf<ArgumentException>(),
-                //["StaticFieldRefAccess<T, F>(fieldName)"] = Throws.Nothing,
-				//["StaticFieldRefAccess<F>(typeof(T), fieldName)"] = Throws.Nothing,
-				//["StaticFieldRefAccess<F>(field)()"] = Throws.Nothing,
-				//["StaticFieldRefAccess<T, F>(field)"] = Throws.Nothing, // T is ignored
+				["StructFieldRefAccess<T, F>(field)(ref instance)"] = Throws.InstanceOf<NullReferenceException>(),
 			});
 
 		// AccessToolsClass/AccessToolsSubClass are incompatible with all value types (including structs), so using IncompatibleTypeT here.
@@ -186,7 +151,6 @@ namespace HarmonyLibTests.Tools
 			{
 				["FieldRefAccess<T, F>(field)(instance)"] = Throws.InstanceOf<NullReferenceException>(),
 				["FieldRefAccess<T, F>(field)()"] = Throws.InstanceOf<NullReferenceException>(),
-				//["FieldRefAccess<T, F>(instance, field)"] = Throws.InstanceOf<ArgumentException>(),
 			}));
 
 		static readonly Dictionary<string, ReusableConstraint> expectedCaseToConstraint_StructStatic_ClassT =
