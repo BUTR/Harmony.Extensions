@@ -34,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Harmony.Extensions\Harmony.Extensions.csproj" />
+    <ProjectReference Include="..\..\src\Harmony.Extensions\Harmony.Extensions.csproj" />
   </ItemGroup>
 
 </Project>

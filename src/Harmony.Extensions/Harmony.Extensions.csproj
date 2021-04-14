@@ -3,7 +3,6 @@
   <PropertyGroup>
     <!-- We should have a target file that sets HARMONYEXTENSIONS_2_0_4 depending on the Lib.Harmony package version installed-->
     <HarmonyVersion>2.0.4</HarmonyVersion>
-    <TargetFrameworks>net35;net45;netstandard2.0</TargetFrameworks>
     <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
