@@ -8,7 +8,6 @@
         }
       ],
       "dest": "api",
-      "disableDefaultFilter": true,
       "filter": "filterConfig.yml"
     }
   ],
