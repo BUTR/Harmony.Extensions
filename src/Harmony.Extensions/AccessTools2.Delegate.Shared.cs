@@ -75,11 +75,19 @@ namespace HarmonyLib.BUTR.Extensions
                 .Select((pi, i) => Expression.Parameter(pi.ParameterType, $"p{i}"))
                 .ToList();
             var inputParameters = returnParameters
-                .Select((pe, i) => Expression.Convert(pe, constructorParameters[i].ParameterType))
+                .Select((pe, i) =>
+                {
+                    if (pe.IsByRef || pe.Type.Equals(constructorParameters[i].ParameterType)) // TODO: Convert?
+                        return (Expression) pe;
+                    else
+                        return (Expression) Expression.Convert(pe, constructorParameters[i].ParameterType);
+                })
                 .ToList();
 
             Expression @new = Expression.New(constructorInfo, inputParameters);
-            var body = Expression.Convert(@new, constructorInfo.DeclaringType);
+            var body = @new.Type.Equals(constructorInfo.DeclaringType) 
+                ? @new 
+                : Expression.Convert(@new, constructorInfo.DeclaringType);
 
             try
             {
@@ -109,40 +117,61 @@ namespace HarmonyLib.BUTR.Extensions
             if (typeof(TDelegate).GetMethod("Invoke") is not { } delegateInvoke) return null;
 
             if (!delegateInvoke.ReturnType.IsAssignableFrom(methodInfo.ReturnType)) return null;
-
+            
             var delegateParameters = delegateInvoke.GetParameters();
             var methodParameters = methodInfo.GetParameters();
 
             var hasSameParameters = delegateParameters.Length - methodParameters.Length == 0 && ParametersAreEqual(delegateParameters, methodParameters);
             var hasInstance = instance is not null;
-            var hasInstanceType = delegateParameters.Length - methodParameters.Length == 1 && delegateParameters[0].ParameterType.IsAssignableFrom(methodInfo.DeclaringType);
+            var hasInstanceType = delegateParameters.Length - methodParameters.Length == 1 &&
+                                  (delegateParameters[0].ParameterType.IsAssignableFrom(methodInfo.DeclaringType) || methodInfo.DeclaringType.IsAssignableFrom(delegateParameters[0].ParameterType));
 
+            if (hasInstance && methodInfo.IsStatic) return null;
+            if (hasInstance && !methodInfo.IsStatic && !methodInfo.DeclaringType.IsAssignableFrom(instance!.GetType())) return null;
+            //if (hasInstanceType && !delegateParameters[0].ParameterType.IsAssignableFrom(methodInfo.DeclaringType)) return null;
+            
             if (hasSameParameters && hasInstanceType) return null;
             if (hasInstance && (hasInstanceType || !hasSameParameters)) return null;
             if (hasInstanceType && (hasInstance || hasSameParameters)) return null;
+            if (!hasInstanceType && !hasInstance && !hasSameParameters) return null;
 
             var instanceParameter = hasInstanceType
                 ? Expression.Parameter(delegateParameters[0].ParameterType, "instance")
+                  //delegateParameters[0].ParameterType.Equals(methodInfo.DeclaringType)
+                  //  ? Expression.Parameter(delegateParameters[0].ParameterType, "instance")
+                  //  : Expression.Parameter(methodInfo.DeclaringType, "instance")
                 : null;
             var returnParameters = delegateParameters
                 .Skip(hasInstanceType ? 1 : 0)
                 .Select((pi, i) => Expression.Parameter(pi.ParameterType, $"p{i}"))
                 .ToList();
             var inputParameters = returnParameters
-                .Select((pe, i) => Expression.Convert(pe, methodParameters[i].ParameterType))
+                .Select((pe, i) =>
+                {
+                    if (pe.IsByRef || pe.Type.Equals(methodParameters[i].ParameterType)) // TODO: Convert?
+                        return (Expression) pe;
+                    else
+                        return (Expression) Expression.Convert(pe, methodParameters[i].ParameterType);
+                })
                 .ToList();
 
             var call = hasInstance
-                ? Expression.Call(Expression.Constant(instance), methodInfo, inputParameters)
+                ? instance.GetType().Equals(methodInfo.DeclaringType)
+                    ? Expression.Call(Expression.Constant(instance), methodInfo, inputParameters)
+                    : Expression.Call(Expression.Convert(Expression.Constant(instance), instance.GetType()), methodInfo, inputParameters)
                 : hasSameParameters
                     ? Expression.Call(methodInfo, inputParameters)
                     : hasInstanceType
-                        ? Expression.Call(Expression.Convert(instanceParameter, methodInfo.DeclaringType!), methodInfo, inputParameters)
+                        ? instanceParameter.Type.Equals(methodInfo.DeclaringType)
+                            ? Expression.Call(instanceParameter, methodInfo, inputParameters)
+                            : Expression.Call(Expression.Convert(instanceParameter, methodInfo.DeclaringType), methodInfo, inputParameters)
                         : null;
 
             if (call is null) return null;
 
-            var body = Expression.Convert(call, methodInfo.ReturnType);
+            var body = call.Type.Equals(methodInfo.ReturnType) 
+                ? (Expression) call
+                : (Expression) Expression.Convert(call, methodInfo.ReturnType);
 
             try
             {
@@ -181,6 +210,9 @@ namespace HarmonyLib.BUTR.Extensions
             {
                 for (var i = 0; i < methodParameters.Length; i++)
                 {
+                    if (delegateParameters[i].ParameterType.IsByRef != methodParameters[i].ParameterType.IsByRef)
+                        return false;
+
                     if (!delegateParameters[i].ParameterType.IsAssignableFrom(methodParameters[i].ParameterType))
                         return false;
                 }
@@ -190,6 +222,9 @@ namespace HarmonyLib.BUTR.Extensions
             {
                 for (var i = 0; i < methodParameters.Length; i++)
                 {
+                    if (delegateParameters[i + 1].ParameterType.IsByRef != methodParameters[i].ParameterType.IsByRef)
+                        return false;
+
                     if (!delegateParameters[i + 1].ParameterType.IsAssignableFrom(methodParameters[i].ParameterType))
                         return false;
                 }

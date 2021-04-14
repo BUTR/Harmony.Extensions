@@ -64,9 +64,9 @@ namespace HarmonyLib.BUTR.Extensions
 				return null;
 			}
 
-			if (parameters is null) parameters = Array.Empty<Type>();
+			if (parameters is null) parameters = Type.EmptyTypes;
 			var flags = searchForStatic ? AccessTools.allDeclared & ~BindingFlags.Instance : AccessTools.allDeclared & ~BindingFlags.Static;
-			return type.GetConstructor(flags, null, parameters, Array.Empty<ParameterModifier>());
+			return type.GetConstructor(flags, null, parameters, new ParameterModifier[0]);
 		}
 
 		/// <summary>Gets the reflection information for a constructor by searching the type and all its super types</summary>
@@ -83,9 +83,9 @@ namespace HarmonyLib.BUTR.Extensions
 				return null;
 			}
 
-			if (parameters is null) parameters = Array.Empty<Type>();
+			if (parameters is null) parameters = Type.EmptyTypes;
 			var flags = searchForStatic ? AccessTools.all & ~BindingFlags.Instance : AccessTools.all & ~BindingFlags.Static;
-			return FindIncludingBaseTypes(type, t => t.GetConstructor(flags, null, parameters, Array.Empty<ParameterModifier>()));
+			return FindIncludingBaseTypes(type, t => t.GetConstructor(flags, null, parameters, new ParameterModifier[0]));
 		}
 
 

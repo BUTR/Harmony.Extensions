@@ -93,7 +93,7 @@ namespace HarmonyLib.BUTR.Extensions
 		/// in e.g. <see cref="FieldRefAccess{T, F}(string)"/>.
 		/// </para>
         /// </remarks>
-        public static AccessTools.FieldRef<object, F> FieldRefAccess<F>(Type type, string fieldName)
+        public static AccessTools.FieldRef<object, F>? FieldRefAccess<F>(Type type, string fieldName)
         {
             if (type is null)
                 return null;

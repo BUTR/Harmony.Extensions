@@ -7,8 +7,9 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Loader;
 #endif
-using HarmonyLib;
+
 using HarmonyLib.BUTR.Extensions;
+
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
 using NUnit.Framework.Interfaces;
@@ -16,7 +17,7 @@ using NUnit.Framework.Internal;
 
 namespace HarmonyLibTests
 {
-	public interface ITestIsolationContext
+    public interface ITestIsolationContext
 	{
 		void AssemblyLoad(string name);
 
