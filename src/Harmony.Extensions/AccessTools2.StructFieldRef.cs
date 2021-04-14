@@ -51,7 +51,7 @@ namespace HarmonyLib.BUTR.Extensions
     /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
     internal static partial class AccessTools2
     {
-#if HARMONYEXTENSIONS_2_0_4
+#if !HARMONYEXTENSIONS_DISABLE_2_0_4
         /// <summary>Creates a field reference delegate for an instance field of a struct</summary>
         /// <typeparam name="T">The struct that defines the instance field</typeparam>
         /// <typeparam name="F">
