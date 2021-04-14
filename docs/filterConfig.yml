@@ -1,0 +1,10 @@
+apiRules:
+- exclude:
+    uidRegex: ^HarmonyLib\.BUTR\.Extensions\.AccessTools2\.Helper\.[^.]+$
+    type: Type
+- exclude:
+    uidRegex: ^HarmonyLib\.BUTR\.Extensions\.AccessTools2\.ILGeneratorHandle
+    type: Type
+- exclude:
+    uidRegex: ^HarmonyLib\.BUTR\.Extensions\.AccessTools2\.DynamicMethodDefinitionHandle
+    type: Type
