@@ -7,7 +7,7 @@
 //   Consider migrating to PackageReferences instead:
 //   https://docs.microsoft.com/en-us/nuget/consume-packages/migrate-packages-config-to-package-reference
 //   Migrating brings the following benefits:
-//   * The "Harmony.Extensions" folder and the "AccessTools2.cs" file don't appear in your project.
+//   * The "Harmony.Extensions" folder and the "SymbolExtensions2.cs" file don't appear in your project.
 //   * The added file is immutable and can therefore not be modified by coincidence.
 //   * Updating/Uninstalling the package will work flawlessly.
 // </auto-generated>
@@ -44,39 +44,34 @@
 
 namespace HarmonyLib.BUTR.Extensions
 {
+    using global::System;
+    using global::System.Linq.Expressions;
     using global::System.Reflection;
 
-    /// <summary>Extension class for working with Harmony.</summary>
-    internal static class HarmonyExtensions
+    internal static partial class SymbolExtensions2
     {
-        public static bool TryPatch(this Harmony harmony,
-            MethodBase? original,
-            MethodInfo? prefix = null,
-            MethodInfo? postfix = null,
-            MethodInfo? transpiler = null,
-            MethodInfo? finalizer = null)
+        public static FieldInfo? GetFieldInfo<T>(Expression<Func<T>>? expression)
         {
-            if (original is null || (prefix is null && postfix is null && transpiler is null && finalizer is null))
-                return false;
+            if (expression is LambdaExpression lambdaExpression)
+                return GetFieldInfo(lambdaExpression);
 
-            var prefixMethod = prefix is null ? null : new HarmonyMethod(prefix);
-            var postfixMethod = postfix is null ? null : new HarmonyMethod(postfix);
-            var transpilerMethod = transpiler is null ? null : new HarmonyMethod(transpiler);
-            var finalizerMethod = finalizer is null ? null : new HarmonyMethod(finalizer);
-
-            harmony.Patch(original, prefixMethod, postfixMethod, transpilerMethod, finalizerMethod);
-
-            return true;
+            return null;
         }
 
-        public static ReversePatcher? TryCreateReversePatcher(this Harmony harmony,
-            MethodBase? original = null,
-            MethodInfo? standin = null)
+        public static FieldInfo? GetFieldInfo<T, TResult>(Expression<Func<T, TResult>>? expression)
         {
-            if (original is null || standin is null)
-                return null;
+            if (expression is LambdaExpression lambdaExpression)
+                return GetFieldInfo(lambdaExpression);
 
-            return harmony.CreateReversePatcher(original, new HarmonyMethod(standin));
+            return null;
+        }
+
+        public static FieldInfo? GetFieldInfo(LambdaExpression? expression)
+        {
+            if (expression?.Body is MemberExpression { Member: FieldInfo fieldInfo })
+                return fieldInfo;
+
+            return null;
         }
     }
 }

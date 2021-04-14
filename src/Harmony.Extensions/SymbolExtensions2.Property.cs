@@ -50,7 +50,79 @@ namespace HarmonyLib.BUTR.Extensions
 
     internal static partial class SymbolExtensions2
     {
+        public static PropertyInfo? GetPropertyInfo<T>(Expression<Func<T>>? expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetPropertyInfo(lambdaExpression);
 
+            return null;
+        }
+
+        public static PropertyInfo? GetPropertyInfo<T, TResult>(Expression<Func<T, TResult>>? expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetPropertyInfo(lambdaExpression);
+
+            return null;
+        }
+
+        public static PropertyInfo? GetPropertyInfo(LambdaExpression? expression)
+        {
+            if (expression?.Body is MemberExpression { Member: PropertyInfo propertyInfo })
+                return propertyInfo;
+
+            return null;
+        }
+
+
+        public static MethodInfo? GetPropertyGetter<T>(Expression<Func<T>>? expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetPropertyGetter(lambdaExpression);
+
+            return null;
+        }
+
+        public static MethodInfo? GetPropertyGetter<T, TResult>(Expression<Func<T, TResult>>? expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetPropertyGetter(lambdaExpression);
+
+            return null;
+        }
+
+        public static MethodInfo? GetPropertyGetter(LambdaExpression? expression)
+        {
+            if (expression?.Body is MemberExpression { Member: PropertyInfo propertyInfo })
+                return propertyInfo?.GetGetMethod(true);
+
+            return null;
+        }
+
+
+        public static MethodInfo? GetPropertySetter<T>(Expression<Func<T>>? expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetPropertySetter(lambdaExpression);
+
+            return null;
+        }
+
+        public static MethodInfo? GetPropertySetter<T, TResult>(Expression<Func<T, TResult>>? expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetPropertySetter(lambdaExpression);
+
+            return null;
+        }
+
+        public static MethodInfo? GetPropertySetter(LambdaExpression? expression)
+        {
+            if (expression?.Body is MemberExpression { Member: PropertyInfo propertyInfo })
+                return propertyInfo?.GetSetMethod(true);
+
+            return null;
+        }
     }
 }
 

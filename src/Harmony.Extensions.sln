@@ -3,15 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29318.209
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Config", ".Config", "{CA94F8B9-B786-4737-B21A-FD4D2AE5D9E0}"
-	ProjectSection(SolutionItems) = preProject
-		Harmony.Extensions.nuspec = Harmony.Extensions.nuspec
-		..\.github\workflows\publish.yml = ..\.github\workflows\publish.yml
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "..\build\cake\_build.csproj", "{012F7F51-BEC6-4FCC-BF9A-87BDECFAEDC4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harmony.Extensions", "Harmony.Extensions\Harmony.Extensions.csproj", "{AF81D675-8017-44AF-841F-74D4EC7C083B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BFAE8F5D-C97B-46F6-B4B3-EA9CF8DBB84F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{EACECBA3-74F1-4F6D-8010-DFE3A5CAE4D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{9131E015-3CCD-49D2-BDCD-E39C05BE348A}"
+	ProjectSection(SolutionItems) = preProject
+		Harmony.Extensions.nuspec = Harmony.Extensions.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{92E7411E-F7C4-4037-B3FB-2AC80E8F54B4}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\docfx.yml = ..\.github\workflows\docfx.yml
+		..\.github\workflows\publish.yml = ..\.github\workflows\publish.yml
+		..\.github\workflows\test.yml = ..\.github\workflows\test.yml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harmony.Extensions.Tests", "..\tests\Harmony.Extensions.Tests\Harmony.Extensions.Tests.csproj", "{8623D3FE-C0CF-47E6-A748-9D2AE4482E5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,9 +58,26 @@ Global
 		{AF81D675-8017-44AF-841F-74D4EC7C083B}.Release|x64.Build.0 = Release|Any CPU
 		{AF81D675-8017-44AF-841F-74D4EC7C083B}.Release|x86.ActiveCfg = Release|Any CPU
 		{AF81D675-8017-44AF-841F-74D4EC7C083B}.Release|x86.Build.0 = Release|Any CPU
+		{8623D3FE-C0CF-47E6-A748-9D2AE4482E5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8623D3FE-C0CF-47E6-A748-9D2AE4482E5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8623D3FE-C0CF-47E6-A748-9D2AE4482E5D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8623D3FE-C0CF-47E6-A748-9D2AE4482E5D}.Debug|x64.Build.0 = Debug|Any CPU
+		{8623D3FE-C0CF-47E6-A748-9D2AE4482E5D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8623D3FE-C0CF-47E6-A748-9D2AE4482E5D}.Debug|x86.Build.0 = Debug|Any CPU
+		{8623D3FE-C0CF-47E6-A748-9D2AE4482E5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8623D3FE-C0CF-47E6-A748-9D2AE4482E5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8623D3FE-C0CF-47E6-A748-9D2AE4482E5D}.Release|x64.ActiveCfg = Release|Any CPU
+		{8623D3FE-C0CF-47E6-A748-9D2AE4482E5D}.Release|x64.Build.0 = Release|Any CPU
+		{8623D3FE-C0CF-47E6-A748-9D2AE4482E5D}.Release|x86.ActiveCfg = Release|Any CPU
+		{8623D3FE-C0CF-47E6-A748-9D2AE4482E5D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{012F7F51-BEC6-4FCC-BF9A-87BDECFAEDC4} = {9131E015-3CCD-49D2-BDCD-E39C05BE348A}
+		{AF81D675-8017-44AF-841F-74D4EC7C083B} = {BFAE8F5D-C97B-46F6-B4B3-EA9CF8DBB84F}
+		{8623D3FE-C0CF-47E6-A748-9D2AE4482E5D} = {EACECBA3-74F1-4F6D-8010-DFE3A5CAE4D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {27D11FC7-55AA-470D-B2AB-255B7B1D3BDC}

@@ -30,23 +30,91 @@ Contains extension code for Harmony.
   <files>
     <!-- TFMs not supporting IsExternalInit and supporting ExcludeFromCodeCoverage. -->
     <file src="ExcludeFromCodeCoverage/AccessTools2.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Constructor.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Constructor.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Constructor.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Delegate.Constructor.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Delegate.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Shared.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Delegate.Shared.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Field.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Field.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.FieldRef.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.FieldRef.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Method.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Method.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Property.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Property.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.StaticFieldRef.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.StaticFieldRef.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.StructFieldRef.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.StructFieldRef.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/SymbolExtensions2.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.Constructor.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.Constructor.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.Field.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.Field.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.FieldRef.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.FieldRef.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.Method.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.Method.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.Property.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.Property.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.StaticFieldRef.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.StaticFieldRef.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.StructFieldRef.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.StructFieldRef.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/Reflect.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/Reflect.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/HarmonyExtensions.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/HarmonyExtensions.cs.pp"/>
 
     <file src="ExcludeFromCodeCoverage/AccessTools2.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Constructor.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Constructor.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Constructor.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Delegate.Constructor.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Delegate.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Shared.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Delegate.Shared.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Field.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Field.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.FieldRef.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.FieldRef.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Method.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Method.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Property.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Property.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.StaticFieldRef.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.StaticFieldRef.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.StructFieldRef.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.StructFieldRef.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/SymbolExtensions2.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.Constructor.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.Constructor.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.Field.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.Field.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.FieldRef.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.FieldRef.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.Method.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.Method.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.Property.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.Property.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.StaticFieldRef.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.StaticFieldRef.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.StructFieldRef.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/SymbolExtensions2.StructFieldRef.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/Reflect.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/Reflect.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/HarmonyExtensions.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/HarmonyExtensions.cs.pp"/>
 
 
     <file src="ExcludeFromCodeCoverage/AccessTools2.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Constructor.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.Constructor.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Constructor.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.Delegate.Constructor.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.Delegate.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Shared.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.Delegate.Shared.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Field.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.Field.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.FieldRef.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.FieldRef.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Method.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.Method.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Property.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.Property.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.StaticFieldRef.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.StaticFieldRef.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.StructFieldRef.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.StructFieldRef.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/SymbolExtensions2.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/SymbolExtensions2.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.Constructor.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/SymbolExtensions2.Constructor.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.Field.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/SymbolExtensions2.Field.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.FieldRef.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/SymbolExtensions2.FieldRef.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.Method.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/SymbolExtensions2.Method.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.Property.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/SymbolExtensions2.Property.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.StaticFieldRef.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/SymbolExtensions2.StaticFieldRef.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.StructFieldRef.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/SymbolExtensions2.StructFieldRef.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/Reflect.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/Reflect.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/HarmonyExtensions.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/HarmonyExtensions.cs.pp"/>
 
     <file src="ExcludeFromCodeCoverage/AccessTools2.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Constructor.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.Constructor.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Constructor.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.Delegate.Constructor.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.Delegate.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Shared.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.Delegate.Shared.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Field.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.Field.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.FieldRef.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.FieldRef.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Method.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.Method.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Property.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.Property.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.StaticFieldRef.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.StaticFieldRef.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.StructFieldRef.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.StructFieldRef.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/SymbolExtensions2.cs.pp" target="content/cs/net472/Harmony.Extensions/SymbolExtensions2.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.Constructor.cs.pp" target="content/cs/net472/Harmony.Extensions/SymbolExtensions2.Constructor.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.Field.cs.pp" target="content/cs/net472/Harmony.Extensions/SymbolExtensions2.Field.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.FieldRef.cs.pp" target="content/cs/net472/Harmony.Extensions/SymbolExtensions2.FieldRef.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.Method.cs.pp" target="content/cs/net472/Harmony.Extensions/SymbolExtensions2.Method.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.Property.cs.pp" target="content/cs/net472/Harmony.Extensions/SymbolExtensions2.Property.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.StaticFieldRef.cs.pp" target="content/cs/net472/Harmony.Extensions/SymbolExtensions2.StaticFieldRef.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/SymbolExtensions2.StructFieldRef.cs.pp" target="content/cs/net472/Harmony.Extensions/SymbolExtensions2.StructFieldRef.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/Reflect.cs.pp" target="content/cs/net472/Harmony.Extensions/Reflect.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/HarmonyExtensions.cs.pp" target="content/cs/net472/Harmony.Extensions/HarmonyExtensions.cs.pp"/>
 

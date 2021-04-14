@@ -17,14 +17,7 @@ class Build : NukeBuild
 {
     public static int Main () => Execute<Build>(x => x.Pack);
 
-    string Version
-    {
-        get
-        {
-            var env = Environment.GetEnvironmentVariable("GITHUB_RUN_NUMBER");
-            return $"2.0.0.{(string.IsNullOrEmpty(env) ? "0" : env)}";
-        }
-    }
+    string Version => $"2.0.0.{(Environment.GetEnvironmentVariable("GITHUB_RUN_NUMBER") is { } env && !string.IsNullOrEmpty(env) ? env : "0")}";
 
     [Solution] readonly Solution Solution;
 

@@ -44,40 +44,19 @@
 
 namespace HarmonyLib.BUTR.Extensions
 {
-    using global::System.Reflection;
+    using global::System;
 
-    /// <summary>Extension class for working with Harmony.</summary>
-    internal static class HarmonyExtensions
+    /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
+    internal static partial class AccessTools2
     {
-        public static bool TryPatch(this Harmony harmony,
-            MethodBase? original,
-            MethodInfo? prefix = null,
-            MethodInfo? postfix = null,
-            MethodInfo? transpiler = null,
-            MethodInfo? finalizer = null)
-        {
-            if (original is null || (prefix is null && postfix is null && transpiler is null && finalizer is null))
-                return false;
+        public static TDelegate? GetConstructorDelegate<TDelegate>(Type type, Type[]? parameters = null) where TDelegate : Delegate
+            => Constructor(type, parameters) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo) : null;
 
-            var prefixMethod = prefix is null ? null : new HarmonyMethod(prefix);
-            var postfixMethod = postfix is null ? null : new HarmonyMethod(postfix);
-            var transpilerMethod = transpiler is null ? null : new HarmonyMethod(transpiler);
-            var finalizerMethod = finalizer is null ? null : new HarmonyMethod(finalizer);
+        public static TDelegate? GetDeclaredConstructorDelegate<TDelegate>(Type type, Type[]? parameters = null) where TDelegate : Delegate
+            => DeclaredConstructor(type, parameters) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo) : null;
 
-            harmony.Patch(original, prefixMethod, postfixMethod, transpilerMethod, finalizerMethod);
-
-            return true;
-        }
-
-        public static ReversePatcher? TryCreateReversePatcher(this Harmony harmony,
-            MethodBase? original = null,
-            MethodInfo? standin = null)
-        {
-            if (original is null || standin is null)
-                return null;
-
-            return harmony.CreateReversePatcher(original, new HarmonyMethod(standin));
-        }
+        public static TDelegate? GetConstructorDelegate<TDelegate>(string typeString, Type[]? parameters = null) where TDelegate : Delegate
+            => Constructor(typeString, parameters) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo) : null;
     }
 }
 
