@@ -2,10 +2,10 @@
 <p align="center">
   <a href="https://github.com/BUTR/Harmony.Extensions" alt="Lines Of Code">
   <img src="https://tokei.rs/b1/github/BUTR/Harmony.Extensions?category=code" /></a>
-  <a href="https://www.codefactor.io/repository/github/butr/harmony.extensions"><img src="https://www.codefactor.io/repository/github/butrharmony.extensions/badge" alt="CodeFactor" /></a>
+  <a href="https://www.codefactor.io/repository/github/butr/harmony.extensions"><img src="https://www.codefactor.io/repository/github/butr/harmony.extensions/badge" alt="CodeFactor" /></a>
   </br>
   <a href="https://github.com/BUTR/Harmony.Extensions/actions?query=workflow%3ATest"><img src="https://github.com/BUTR/Harmony.Extensions/workflows/Test/badge.svg?branch=master&event=push" alt="Test" /></a>
-  <a href="https://codecov.io/gh/BUTR/Bannerlord.UIExtenderEx"><img src="https://codecov.io/gh/BUTR/Harmony.Extensions/branch/dev/graph/badge.svg" />
+  <a href="https://codecov.io/gh/BUTR/Bannerlord.UIExtenderEx"><img src="https://codecov.io/gh/BUTR/Harmony.Extensions/branch/master/graph/badge.svg" />
    </a>
   </br>
   <a href="https://www.nuget.org/packages/Harmony.Extensions" alt="NuGet Harmony.Extensions">
