@@ -104,7 +104,7 @@ namespace HarmonyLib.BUTR.Extensions
 
 
         public static FieldInfo? Field(string typeColonFieldname)
-		{
+        {
             if (!TryGetComponents(typeColonFieldname, out var type, out var name))
             {
                 Trace.TraceError($"AccessTools2.Field: Could not find type or field for '{typeColonFieldname}'");
@@ -112,7 +112,7 @@ namespace HarmonyLib.BUTR.Extensions
             }
 
             return DeclaredField(type, name);
-		}
+        }
     }
 }
 

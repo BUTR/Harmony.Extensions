@@ -58,15 +58,15 @@ namespace HarmonyLib.BUTR.Extensions
         static partial class AccessTools2
     {
         /// <summary>Creates a static field reference delegate</summary>
-		/// <typeparam name="F">
-		/// The type of the field; or if the field's type is a reference type (a class or interface, NOT a struct or other value type),
-		/// a type that <see cref="Type.IsAssignableFrom(Type)">is assignable from</see> that type; or if the field's type is an enum type,
-		/// either that type or the underlying integral type of that enum type
-		/// </typeparam>
-		/// <param name="fieldInfo">The field</param>
-		/// <returns>A readable/assignable <see cref="AccessTools.FieldRef{F}"/> delegate</returns>
-		///
-		public static AccessTools.FieldRef<F>? StaticFieldRefAccess<F>(FieldInfo fieldInfo)
+        /// <typeparam name="F">
+        /// The type of the field; or if the field's type is a reference type (a class or interface, NOT a struct or other value type),
+        /// a type that <see cref="Type.IsAssignableFrom(Type)">is assignable from</see> that type; or if the field's type is an enum type,
+        /// either that type or the underlying integral type of that enum type
+        /// </typeparam>
+        /// <param name="fieldInfo">The field</param>
+        /// <returns>A readable/assignable <see cref="AccessTools.FieldRef{F}"/> delegate</returns>
+        ///
+        public static AccessTools.FieldRef<F>? StaticFieldRefAccess<F>(FieldInfo fieldInfo)
         {
             if (fieldInfo is null)
                 return null;

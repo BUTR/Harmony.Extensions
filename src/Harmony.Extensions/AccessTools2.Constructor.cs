@@ -45,7 +45,7 @@
 namespace HarmonyLib.BUTR.Extensions
 {
     using global::System;
-	using global::System.Diagnostics;
+    using global::System.Diagnostics;
     using global::System.Reflection;
 
     /// <summary>An extension of Harmony's helper class for reflection related functions</summary>
@@ -57,41 +57,41 @@ namespace HarmonyLib.BUTR.Extensions
         static partial class AccessTools2
     {
         /// <summary>Gets the reflection information for a directly declared constructor</summary>
-		/// <param name="type">The class/type where the constructor is declared</param>
-		/// <param name="parameters">Optional parameters to target a specific overload of the constructor</param>
-		/// <param name="searchForStatic">Optional parameters to only consider static constructors</param>
-		/// <returns>A constructor info or null when type is null or when the constructor cannot be found</returns>
+        /// <param name="type">The class/type where the constructor is declared</param>
+        /// <param name="parameters">Optional parameters to target a specific overload of the constructor</param>
+        /// <param name="searchForStatic">Optional parameters to only consider static constructors</param>
+        /// <returns>A constructor info or null when type is null or when the constructor cannot be found</returns>
         public static ConstructorInfo? DeclaredConstructor(Type type, Type[]? parameters = null, bool searchForStatic = false)
-		{
-			if (type is null)
-			{
+        {
+            if (type is null)
+            {
                 Trace.TraceError("AccessTools2.DeclaredConstructor: 'type' is null");
-				return null;
-			}
+                return null;
+            }
 
-			if (parameters is null) parameters = Type.EmptyTypes;
-			var flags = searchForStatic ? AccessTools.allDeclared & ~BindingFlags.Instance : AccessTools.allDeclared & ~BindingFlags.Static;
-			return type.GetConstructor(flags, null, parameters, new ParameterModifier[0]);
-		}
+            if (parameters is null) parameters = Type.EmptyTypes;
+            var flags = searchForStatic ? AccessTools.allDeclared & ~BindingFlags.Instance : AccessTools.allDeclared & ~BindingFlags.Static;
+            return type.GetConstructor(flags, null, parameters, new ParameterModifier[0]);
+        }
 
-		/// <summary>Gets the reflection information for a constructor by searching the type and all its super types</summary>
-		/// <param name="type">The class/type where the constructor is declared</param>
-		/// <param name="parameters">Optional parameters to target a specific overload of the method</param>
-		/// <param name="searchForStatic">Optional parameters to only consider static constructors</param>
-		/// <returns>A constructor info or null when type is null or when the method cannot be found</returns>
-		///
-		public static ConstructorInfo? Constructor(Type type, Type[]? parameters = null, bool searchForStatic = false)
-		{
-			if (type is null)
-			{
+        /// <summary>Gets the reflection information for a constructor by searching the type and all its super types</summary>
+        /// <param name="type">The class/type where the constructor is declared</param>
+        /// <param name="parameters">Optional parameters to target a specific overload of the method</param>
+        /// <param name="searchForStatic">Optional parameters to only consider static constructors</param>
+        /// <returns>A constructor info or null when type is null or when the method cannot be found</returns>
+        ///
+        public static ConstructorInfo? Constructor(Type type, Type[]? parameters = null, bool searchForStatic = false)
+        {
+            if (type is null)
+            {
                 Trace.TraceError("AccessTools2.ConstructorInfo: 'type' is null");
-				return null;
-			}
+                return null;
+            }
 
-			if (parameters is null) parameters = Type.EmptyTypes;
-			var flags = searchForStatic ? AccessTools.all & ~BindingFlags.Instance : AccessTools.all & ~BindingFlags.Static;
-			return FindIncludingBaseTypes(type, t => t.GetConstructor(flags, null, parameters, new ParameterModifier[0]));
-		}
+            if (parameters is null) parameters = Type.EmptyTypes;
+            var flags = searchForStatic ? AccessTools.all & ~BindingFlags.Instance : AccessTools.all & ~BindingFlags.Static;
+            return FindIncludingBaseTypes(type, t => t.GetConstructor(flags, null, parameters, new ParameterModifier[0]));
+        }
 
 
         /// <summary>Gets the reflection information for a constructor by searching the type and all its super types</summary>

@@ -55,7 +55,7 @@ namespace HarmonyLib.BUTR.Extensions
 #endif
         static partial class SymbolExtensions2
     {
-        public static AccessTools.FieldRef<object, TField>? FieldRefAccess<TField>(Expression<Func<TField>>? expression)
+        public static AccessTools.FieldRef<object, TField>? FieldRefAccess<TField>(Expression<Func<TField>> expression)
         {
             if (expression is LambdaExpression lambdaExpression)
                 return FieldRefAccess<TField>(lambdaExpression);
@@ -63,7 +63,7 @@ namespace HarmonyLib.BUTR.Extensions
             return null;
         }
 
-        public static AccessTools.FieldRef<object, TField>? FieldRefAccess<TField>(LambdaExpression? expression)
+        public static AccessTools.FieldRef<object, TField>? FieldRefAccess<TField>(LambdaExpression expression)
         {
             if (expression?.Body is MemberExpression { Member: FieldInfo fieldInfo })
                 return fieldInfo == null ? null : AccessTools2.FieldRefAccess<object, TField>(fieldInfo);
@@ -72,7 +72,7 @@ namespace HarmonyLib.BUTR.Extensions
         }
 
 
-        public static AccessTools.FieldRef<TObject, TField>? FieldRefAccess<TObject, TField>(Expression<Func<TObject, TField>>? expression) where TObject : class
+        public static AccessTools.FieldRef<TObject, TField>? FieldRefAccess<TObject, TField>(Expression<Func<TObject, TField>> expression) where TObject : class
         {
             if (expression is LambdaExpression lambdaExpression)
                 return FieldRefAccess<TObject, TField>(lambdaExpression);
@@ -80,7 +80,7 @@ namespace HarmonyLib.BUTR.Extensions
             return null;
         }
 
-        public static AccessTools.FieldRef<TObject, TField>? FieldRefAccess<TObject, TField>(LambdaExpression? expression) where TObject : class
+        public static AccessTools.FieldRef<TObject, TField>? FieldRefAccess<TObject, TField>(LambdaExpression expression) where TObject : class
         {
             if (expression?.Body is MemberExpression { Member: FieldInfo fieldInfo })
                 return fieldInfo == null ? null : AccessTools2.FieldRefAccess<TObject, TField>(fieldInfo);

@@ -55,7 +55,7 @@ namespace HarmonyLib.BUTR.Extensions
 #endif
         static partial class SymbolExtensions2
     {
-        public static FieldInfo? GetFieldInfo<T>(Expression<Func<T>>? expression)
+        public static FieldInfo? GetFieldInfo<T>(Expression<Func<T>> expression)
         {
             if (expression is LambdaExpression lambdaExpression)
                 return GetFieldInfo(lambdaExpression);
@@ -63,7 +63,7 @@ namespace HarmonyLib.BUTR.Extensions
             return null;
         }
 
-        public static FieldInfo? GetFieldInfo<T, TResult>(Expression<Func<T, TResult>>? expression)
+        public static FieldInfo? GetFieldInfo<T, TResult>(Expression<Func<T, TResult>> expression)
         {
             if (expression is LambdaExpression lambdaExpression)
                 return GetFieldInfo(lambdaExpression);
@@ -71,7 +71,7 @@ namespace HarmonyLib.BUTR.Extensions
             return null;
         }
 
-        public static FieldInfo? GetFieldInfo(LambdaExpression? expression)
+        public static FieldInfo? GetFieldInfo(LambdaExpression expression)
         {
             if (expression?.Body is MemberExpression { Member: FieldInfo fieldInfo })
                 return fieldInfo;

@@ -56,24 +56,24 @@ namespace HarmonyLib.BUTR.Extensions
 #endif
         static partial class AccessTools2
     {
-		/// <summary>Gets the reflection information for a directly declared method</summary>
-		/// <param name="type">The class/type where the method is declared</param>
-		/// <param name="name">The name of the method (case sensitive)</param>
-		/// <param name="parameters">Optional parameters to target a specific overload of the method</param>
-		/// <param name="generics">Optional list of types that define the generic version of the method</param>
-		/// <returns>A method or null when type/name is null or when the method cannot be found</returns>
+        /// <summary>Gets the reflection information for a directly declared method</summary>
+        /// <param name="type">The class/type where the method is declared</param>
+        /// <param name="name">The name of the method (case sensitive)</param>
+        /// <param name="parameters">Optional parameters to target a specific overload of the method</param>
+        /// <param name="generics">Optional list of types that define the generic version of the method</param>
+        /// <returns>A method or null when type/name is null or when the method cannot be found</returns>
         public static MethodInfo? DeclaredMethod(Type type, string name, Type[]? parameters = null, Type[]? generics = null)
-		{
-			if (type is null)
-			{
-				Trace.TraceError("AccessTools2.DeclaredMethod: 'type' is null");
-				return null;
-			}
-			if (name is null)
-			{
+        {
+            if (type is null)
+            {
+                Trace.TraceError("AccessTools2.DeclaredMethod: 'type' is null");
+                return null;
+            }
+            if (name is null)
+            {
                 Trace.TraceError("AccessTools2.DeclaredMethod: 'name' is null");
-				return null;
-			}
+                return null;
+            }
 
             MethodInfo? result;
             if (parameters is null)
@@ -98,33 +98,33 @@ namespace HarmonyLib.BUTR.Extensions
             }
 
             if (result is null)
-			{
+            {
                 Trace.TraceError($"AccessTools2.DeclaredMethod: Could not find method for type '{type}' and name '{name}' and parameters '{parameters?.Description()}'");
-				return null;
-			}
+                return null;
+            }
 
-			if (generics is object) result = result.MakeGenericMethod(generics);
-			return result;
-		}
+            if (generics is object) result = result.MakeGenericMethod(generics);
+            return result;
+        }
 
-		/// <summary>Gets the reflection information for a method by searching the type and all its super types</summary>
-		/// <param name="type">The class/type where the method is declared</param>
-		/// <param name="name">The name of the method (case sensitive)</param>
-		/// <param name="parameters">Optional parameters to target a specific overload of the method</param>
-		/// <param name="generics">Optional list of types that define the generic version of the method</param>
-		/// <returns>A method or null when type/name is null or when the method cannot be found</returns>
+        /// <summary>Gets the reflection information for a method by searching the type and all its super types</summary>
+        /// <param name="type">The class/type where the method is declared</param>
+        /// <param name="name">The name of the method (case sensitive)</param>
+        /// <param name="parameters">Optional parameters to target a specific overload of the method</param>
+        /// <param name="generics">Optional list of types that define the generic version of the method</param>
+        /// <returns>A method or null when type/name is null or when the method cannot be found</returns>
         public static MethodInfo? Method(Type type, string name, Type[]? parameters = null, Type[]? generics = null)
-		{
-			if (type is null)
-			{
+        {
+            if (type is null)
+            {
                 Trace.TraceError("AccessTools2.Method: 'type' is null");
-				return null;
-			}
-			if (name is null)
-			{
+                return null;
+            }
+            if (name is null)
+            {
                 Trace.TraceError("AccessTools2.Method: 'name' is null");
-				return null;
-			}
+                return null;
+            }
 
             MethodInfo? result;
             if (parameters is null)
@@ -149,31 +149,31 @@ namespace HarmonyLib.BUTR.Extensions
             }
 
             if (result is null)
-			{
+            {
                 Trace.TraceError($"AccessTools2.Method: Could not find method for type '{type}' and name '{name}' and parameters '{parameters?.Description()}'");
-				return null;
-			}
+                return null;
+            }
 
-			if (generics is object) result = result.MakeGenericMethod(generics);
-			return result;
-		}
+            if (generics is object) result = result.MakeGenericMethod(generics);
+            return result;
+        }
 
 
-		/// <summary>Gets the reflection information for a method by searching the type and all its super types</summary>
-		/// <param name="typeColonMethodname">The target method in the form <c>TypeFullName:MethodName</c>, where the type name matches a form recognized by <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type.gettype">Type.GetType</a> like <c>Some.Namespace.Type</c>.</param>
-		/// <param name="parameters">Optional parameters to target a specific overload of the method</param>
-		/// <param name="generics">Optional list of types that define the generic version of the method</param>
-		/// <returns>A method or null when type/name is null or when the method cannot be found</returns>
+        /// <summary>Gets the reflection information for a method by searching the type and all its super types</summary>
+        /// <param name="typeColonMethodname">The target method in the form <c>TypeFullName:MethodName</c>, where the type name matches a form recognized by <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type.gettype">Type.GetType</a> like <c>Some.Namespace.Type</c>.</param>
+        /// <param name="parameters">Optional parameters to target a specific overload of the method</param>
+        /// <param name="generics">Optional list of types that define the generic version of the method</param>
+        /// <returns>A method or null when type/name is null or when the method cannot be found</returns>
         public static MethodInfo? Method(string typeColonMethodname, Type[]? parameters = null, Type[]? generics = null)
-		{
+        {
             if (!TryGetComponents(typeColonMethodname, out var type, out var name))
             {
                 Trace.TraceError($"AccessTools2.Method: Could not find type or property for '{typeColonMethodname}'");
                 return null;
             }
-			
-			return DeclaredMethod(type, name, parameters, generics);
-		}
+            
+            return DeclaredMethod(type, name, parameters, generics);
+        }
     }
 }
 

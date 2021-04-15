@@ -55,7 +55,7 @@ namespace HarmonyLib.BUTR.Extensions
 #endif
         static partial class SymbolExtensions2
     {
-        public static ConstructorInfo? GetConstructorInfo<T>(Expression<Func<T>>? expression)
+        public static ConstructorInfo? GetConstructorInfo<T>(Expression<Func<T>> expression)
         {
             if (expression is LambdaExpression lambdaExpression)
                 return GetConstructorInfo(lambdaExpression);
@@ -63,7 +63,7 @@ namespace HarmonyLib.BUTR.Extensions
             return null;
         }
 
-        public static ConstructorInfo? GetConstructorInfo<T, TResult>(Expression<Func<T, TResult>>? expression)
+        public static ConstructorInfo? GetConstructorInfo<T, TResult>(Expression<Func<T, TResult>> expression)
         {
             if (expression is LambdaExpression lambdaExpression)
                 return GetConstructorInfo(lambdaExpression);
@@ -71,7 +71,7 @@ namespace HarmonyLib.BUTR.Extensions
             return null;
         }
 
-        public static ConstructorInfo? GetConstructorInfo(LambdaExpression? expression)
+        public static ConstructorInfo? GetConstructorInfo(LambdaExpression expression)
         {
             if (expression?.Body is NewExpression { Constructor: { } } body)
                 return body.Constructor;

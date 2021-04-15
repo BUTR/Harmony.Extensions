@@ -55,7 +55,7 @@ namespace HarmonyLib.BUTR.Extensions
 #endif
         static partial class SymbolExtensions2
     {
-        public static AccessTools.FieldRef<TField>? StaticFieldRefAccess<TField>(Expression<Func<TField>>? expression)
+        public static AccessTools.FieldRef<TField>? StaticFieldRefAccess<TField>(Expression<Func<TField>> expression)
         {
             if (expression is LambdaExpression lambdaExpression)
                 return StaticFieldRefAccess<TField>(lambdaExpression);
@@ -63,7 +63,7 @@ namespace HarmonyLib.BUTR.Extensions
             return null;
         }
 
-        public static AccessTools.FieldRef<TField>? StaticFieldRefAccess<TField>(LambdaExpression? expression)
+        public static AccessTools.FieldRef<TField>? StaticFieldRefAccess<TField>(LambdaExpression expression)
         {
             if (expression?.Body is MemberExpression { Member: FieldInfo fieldInfo })
                 return fieldInfo == null ? null : AccessTools2.StaticFieldRefAccess<TField>(fieldInfo);

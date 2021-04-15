@@ -58,14 +58,14 @@ namespace HarmonyLib.BUTR.Extensions
         static partial class AccessTools2
     {
         /// <summary>Creates a field reference delegate for an instance field of a class</summary>
-		/// <typeparam name="T">The class that defines the instance field, or derived class of this type</typeparam>
-		/// <typeparam name="F">
-		/// The type of the field; or if the field's type is a reference type (a class or interface, NOT a struct or other value type),
-		/// a type that <see cref="Type.IsAssignableFrom(Type)">is assignable from</see> that type; or if the field's type is an enum type,
-		/// either that type or the underlying integral type of that enum type
-		/// </typeparam>
-		/// <param name="fieldName">The name of the field</param>
-		/// <returns>A readable/assignable <see cref="AccessTools.FieldRef{T,F}"/> delegate</returns>
+        /// <typeparam name="T">The class that defines the instance field, or derived class of this type</typeparam>
+        /// <typeparam name="F">
+        /// The type of the field; or if the field's type is a reference type (a class or interface, NOT a struct or other value type),
+        /// a type that <see cref="Type.IsAssignableFrom(Type)">is assignable from</see> that type; or if the field's type is an enum type,
+        /// either that type or the underlying integral type of that enum type
+        /// </typeparam>
+        /// <param name="fieldName">The name of the field</param>
+        /// <returns>A readable/assignable <see cref="AccessTools.FieldRef{T,F}"/> delegate</returns>
         public static AccessTools.FieldRef<T, F>? FieldRefAccess<T, F>(string fieldName) where T : class
         {
             if (fieldName is null)
@@ -76,34 +76,34 @@ namespace HarmonyLib.BUTR.Extensions
                 return null;
 
             return FieldRefAccessInternal<T, F>(field, needCastclass: false);
-		}
+        }
 
-		/// <summary>Creates a field reference delegate for an instance field of a class or static field (NOT an instance field of a struct)</summary>
-		/// <typeparam name="F">
-		/// The type of the field; or if the field's type is a reference type (a class or interface, NOT a struct or other value type),
-		/// a type that <see cref="Type.IsAssignableFrom(Type)">is assignable from</see> that type; or if the field's type is an enum type,
-		/// either that type or the underlying integral type of that enum type
-		/// </typeparam>
-		/// <param name="type">
-		/// The type that defines the field, or derived class of this type; must not be a struct type unless the field is static
-		/// </param>
-		/// <param name="fieldName">The name of the field</param>
-		/// <returns>
-		/// A readable/assignable <see cref="AccessTools.FieldRef{T,F}"/> delegate with <c>T=object</c>
-		/// (for static fields, the <c>instance</c> delegate parameter is ignored)
-		/// </returns>
-		/// <remarks>
-		/// <para>
-		/// This method is meant for cases where the given type is only known at runtime and thus can't be used as a type parameter <c>T</c>
-		/// in e.g. <see cref="FieldRefAccess{T, F}(string)"/>.
-		/// </para>
+        /// <summary>Creates a field reference delegate for an instance field of a class or static field (NOT an instance field of a struct)</summary>
+        /// <typeparam name="F">
+        /// The type of the field; or if the field's type is a reference type (a class or interface, NOT a struct or other value type),
+        /// a type that <see cref="Type.IsAssignableFrom(Type)">is assignable from</see> that type; or if the field's type is an enum type,
+        /// either that type or the underlying integral type of that enum type
+        /// </typeparam>
+        /// <param name="type">
+        /// The type that defines the field, or derived class of this type; must not be a struct type unless the field is static
+        /// </param>
+        /// <param name="fieldName">The name of the field</param>
+        /// <returns>
+        /// A readable/assignable <see cref="AccessTools.FieldRef{T,F}"/> delegate with <c>T=object</c>
+        /// (for static fields, the <c>instance</c> delegate parameter is ignored)
+        /// </returns>
+        /// <remarks>
+        /// <para>
+        /// This method is meant for cases where the given type is only known at runtime and thus can't be used as a type parameter <c>T</c>
+        /// in e.g. <see cref="FieldRefAccess{T, F}(string)"/>.
+        /// </para>
         /// </remarks>
         public static AccessTools.FieldRef<object, F>? FieldRefAccess<F>(Type type, string fieldName)
         {
             if (type is null)
                 return null;
 
-			if (fieldName is null)
+            if (fieldName is null)
                 return null;
 
             var fieldInfo = Field(type, fieldName);
@@ -127,23 +127,23 @@ namespace HarmonyLib.BUTR.Extensions
             return null;
         }
 
-		/// <summary>Creates a field reference delegate for an instance field of a class or static field (NOT an instance field of a struct)</summary>
-		/// <typeparam name="T">
-		/// An arbitrary type if the field is static; otherwise the class that defines the field, or a parent class (including <see cref="object"/>),
-		/// implemented interface, or derived class of this type ("<c>instanceOfT is FieldDeclaringType</c>" must be possible)
-		/// </typeparam>
-		/// <typeparam name="F">
-		/// The type of the field; or if the field's type is a reference type (a class or interface, NOT a struct or other value type),
-		/// a type that <see cref="Type.IsAssignableFrom(Type)">is assignable from</see> that type; or if the field's type is an enum type,
-		/// either that type or the underlying integral type of that enum type
-		/// </typeparam>
-		/// <param name="fieldInfo">The field</param>
-		/// <returns>A readable/assignable <see cref="AccessTools.FieldRef{T,F}"/> delegate</returns>
-		/// <remarks>
-		/// <para>
-		/// This method is meant for cases where the field has already been obtained, avoiding the field searching cost in
-		/// e.g. <see cref="FieldRefAccess{T, F}(string)"/>.
-		/// </para>
+        /// <summary>Creates a field reference delegate for an instance field of a class or static field (NOT an instance field of a struct)</summary>
+        /// <typeparam name="T">
+        /// An arbitrary type if the field is static; otherwise the class that defines the field, or a parent class (including <see cref="object"/>),
+        /// implemented interface, or derived class of this type ("<c>instanceOfT is FieldDeclaringType</c>" must be possible)
+        /// </typeparam>
+        /// <typeparam name="F">
+        /// The type of the field; or if the field's type is a reference type (a class or interface, NOT a struct or other value type),
+        /// a type that <see cref="Type.IsAssignableFrom(Type)">is assignable from</see> that type; or if the field's type is an enum type,
+        /// either that type or the underlying integral type of that enum type
+        /// </typeparam>
+        /// <param name="fieldInfo">The field</param>
+        /// <returns>A readable/assignable <see cref="AccessTools.FieldRef{T,F}"/> delegate</returns>
+        /// <remarks>
+        /// <para>
+        /// This method is meant for cases where the field has already been obtained, avoiding the field searching cost in
+        /// e.g. <see cref="FieldRefAccess{T, F}(string)"/>.
+        /// </para>
         /// </remarks>
         public static AccessTools.FieldRef<T, F>? FieldRefAccess<T, F>(FieldInfo fieldInfo) where T : class
         {
@@ -169,9 +169,9 @@ namespace HarmonyLib.BUTR.Extensions
             }
 
             return null;
-		}
+        }
 
-		private static AccessTools.FieldRef<T, F>? FieldRefAccessInternal<T, F>(FieldInfo fieldInfo, bool needCastclass) where T : class
+        private static AccessTools.FieldRef<T, F>? FieldRefAccessInternal<T, F>(FieldInfo fieldInfo, bool needCastclass) where T : class
         {
             if (!Helper.IsValid())
             {
@@ -189,10 +189,10 @@ namespace HarmonyLib.BUTR.Extensions
                 return null;
             }
             
-			var delegateInstanceType = typeof(T);
-			var declaringType = fieldInfo.DeclaringType;
+            var delegateInstanceType = typeof(T);
+            var declaringType = fieldInfo.DeclaringType;
 
-			var dm = DynamicMethodDefinitionHandle.Create(
+            var dm = DynamicMethodDefinitionHandle.Create(
                 $"__refget_{delegateInstanceType.Name}_fi_{fieldInfo.Name}", typeof(F).MakeByRefType(), new[] { delegateInstanceType });
 
             if (dm?.GetILGenerator() is not { } il)
@@ -209,7 +209,7 @@ namespace HarmonyLib.BUTR.Extensions
             
             //return dm?.Generate() is { } methodInfo ? GetDelegate<AccessTools.FieldRef<T, F>>(methodInfo) : null;
             return dm?.Generate()?.CreateDelegate(typeof(AccessTools.FieldRef<T, F>)) as AccessTools.FieldRef<T, F>;
-		}
+        }
 
         private static bool? FieldRefNeedsClasscast(Type delegateInstanceType, Type declaringType)
         {
