@@ -7,8 +7,7 @@ using System.Reflection;
 
 namespace HarmonyLibTests.Tools
 {
-    [TestFixture]
-    public partial class TestNull : TestLogger
+    public partial class TestNull
     {
         private class TestClass
         {

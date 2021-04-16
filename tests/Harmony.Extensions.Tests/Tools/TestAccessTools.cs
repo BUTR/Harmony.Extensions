@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 using HarmonyLib.BUTR.Extensions;
-using HarmonyLibTests.Assets;
+using HarmonyLibTests.Tools.Assets;
 
 using NUnit.Framework;
 

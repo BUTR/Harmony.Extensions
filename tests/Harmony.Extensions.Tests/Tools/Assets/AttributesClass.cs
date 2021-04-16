@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-namespace HarmonyLibTests.Assets
+namespace HarmonyLibTests.Tools.Assets
 {
     [HarmonyPatch]
     public class NoAttributesClass
