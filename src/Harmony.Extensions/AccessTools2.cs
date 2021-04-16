@@ -175,6 +175,9 @@ namespace HarmonyLib.BUTR.Extensions
         /// </remarks>
         public static Type[] GetTypesFromAssembly(Assembly assembly)
         {
+            if (assembly is null)
+                return Type.EmptyTypes;
+
             try
             {
                 return assembly.GetTypes();
