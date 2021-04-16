@@ -44,6 +44,7 @@
 
 namespace HarmonyLib.BUTR.Extensions
 {
+#if false
     using global::System;
     using global::System.Linq;
     using global::System.Reflection;
@@ -55,6 +56,7 @@ namespace HarmonyLib.BUTR.Extensions
 #endif
         static class Reflect
     {
+
         public class Method
         {
             public Type OwnerType { get; }
@@ -164,6 +166,7 @@ namespace HarmonyLib.BUTR.Extensions
             public DeclaredSetter(string name) : base(typeof(T), name) { }
         }
     }
+#endif
 }
 
 #pragma warning restore

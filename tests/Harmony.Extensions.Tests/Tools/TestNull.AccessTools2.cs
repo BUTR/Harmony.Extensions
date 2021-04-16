@@ -12,12 +12,12 @@ namespace HarmonyLibTests.Tools
     {
         private class TestClass
         {
-            private TestDelegate TestMember;
+            private readonly TestDelegate TestMember;
         }
 
         private struct TestStruct
         {
-            private TestDelegate TestMember;
+            private readonly TestDelegate TestMember;
         }
 
         private delegate void TestDelegate();
