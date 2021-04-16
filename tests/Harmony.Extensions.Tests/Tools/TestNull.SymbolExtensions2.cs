@@ -55,6 +55,8 @@ namespace HarmonyLibTests.Tools
         public void Test_SymbolExtensions2_FieldRef()
         {
             Assert.IsNull(SymbolExtensions2.FieldRefAccess<TestClass, TestDelegate>(((Expression<Func<TestClass, TestDelegate>>) null)!));
+            Assert.IsNull(SymbolExtensions2.FieldRefAccess<TestClass, TestDelegate>(((LambdaExpression) null)!));
+            Assert.IsNull(SymbolExtensions2.FieldRefAccess<TestClass>(((Expression<Func<TestClass>>) null)!));
             Assert.IsNull(SymbolExtensions2.FieldRefAccess<TestClass>(((LambdaExpression) null)!));
             Assert.IsNull(SymbolExtensions2.FieldRefAccess<TestDelegate>(((Expression<Func<TestDelegate>>) null)!));
             Assert.IsNull(SymbolExtensions2.FieldRefAccess<TestDelegate>(((LambdaExpression) null)!));
