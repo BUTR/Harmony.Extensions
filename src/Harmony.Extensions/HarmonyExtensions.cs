@@ -36,6 +36,7 @@
 // SOFTWARE.
 #endregion
 
+
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
 #if !HARMONYEXTENSIONS_ENABLEWARNINGS
@@ -44,6 +45,8 @@
 
 namespace HarmonyLib.BUTR.Extensions
 {
+    using global::System;
+    using global::System.Diagnostics;
     using global::System.Reflection;
 
     /// <summary>Extension class for working with Harmony.</summary>
@@ -54,12 +57,7 @@ namespace HarmonyLib.BUTR.Extensions
 #endif
         static class HarmonyExtensions
     {
-        public static bool TryPatch(this Harmony harmony,
-            MethodBase? original,
-            MethodInfo? prefix = null,
-            MethodInfo? postfix = null,
-            MethodInfo? transpiler = null,
-            MethodInfo? finalizer = null)
+        public static bool TryPatch(this Harmony harmony, MethodBase? original, MethodInfo? prefix = null, MethodInfo? postfix = null, MethodInfo? transpiler = null, MethodInfo? finalizer = null)
         {
             if (original is null || (prefix is null && postfix is null && transpiler is null && finalizer is null))
                 return false;
@@ -69,19 +67,33 @@ namespace HarmonyLib.BUTR.Extensions
             var transpilerMethod = transpiler is null ? null : new HarmonyMethod(transpiler);
             var finalizerMethod = finalizer is null ? null : new HarmonyMethod(finalizer);
 
-            harmony.Patch(original, prefixMethod, postfixMethod, transpilerMethod, finalizerMethod);
+            try
+            {
+                harmony.Patch(original, prefixMethod, postfixMethod, transpilerMethod, finalizerMethod);
+            }
+            catch (Exception e)
+            {
+                Trace.TraceError($"HarmonyExtensions.TryPatch: Execption occurred: {e}");
+                return false;
+            }
 
             return true;
         }
 
-        public static ReversePatcher? TryCreateReversePatcher(this Harmony harmony,
-            MethodBase? original = null,
-            MethodInfo? standin = null)
+        public static ReversePatcher? TryCreateReversePatcher(this Harmony harmony, MethodBase? original = null, MethodInfo? standin = null)
         {
             if (original is null || standin is null)
                 return null;
 
-            return harmony.CreateReversePatcher(original, new HarmonyMethod(standin));
+            try
+            {
+                return harmony.CreateReversePatcher(original, new HarmonyMethod(standin));
+            }
+            catch (Exception e)
+            {
+                Trace.TraceError($"HarmonyExtensions.TryCreateReversePatcher: Execption occurred: {e}");
+                return null;
+            }
         }
     }
 }
