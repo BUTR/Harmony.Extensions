@@ -34,6 +34,7 @@ Contains extension code for Harmony.
     <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Constructor.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Delegate.Constructor.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Delegate.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Shared.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Delegate.Shared.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Property.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Delegate.Property.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.Field.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Field.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.FieldRef.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.FieldRef.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.Method.cs.pp" target="contentFiles/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Method.cs.pp"/>
@@ -56,6 +57,7 @@ Contains extension code for Harmony.
     <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Constructor.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Delegate.Constructor.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Delegate.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Shared.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Delegate.Shared.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Property.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Delegate.Property.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.Field.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Field.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.FieldRef.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.FieldRef.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.Method.cs.pp" target="content/cs/netstandard2.0/Harmony.Extensions/AccessTools2.Method.cs.pp"/>
@@ -79,6 +81,7 @@ Contains extension code for Harmony.
     <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Constructor.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.Delegate.Constructor.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.Delegate.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Shared.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.Delegate.Shared.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Property.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.Delegate.Property.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.Field.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.Field.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.FieldRef.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.FieldRef.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.Method.cs.pp" target="contentFiles/cs/net472/Harmony.Extensions/AccessTools2.Method.cs.pp"/>
@@ -101,6 +104,7 @@ Contains extension code for Harmony.
     <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Constructor.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.Delegate.Constructor.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.Delegate.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Shared.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.Delegate.Shared.cs.pp"/>
+    <file src="ExcludeFromCodeCoverage/AccessTools2.Delegate.Property.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.Delegate.Property.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.Field.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.Field.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.FieldRef.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.FieldRef.cs.pp"/>
     <file src="ExcludeFromCodeCoverage/AccessTools2.Method.cs.pp" target="content/cs/net472/Harmony.Extensions/AccessTools2.Method.cs.pp"/>
