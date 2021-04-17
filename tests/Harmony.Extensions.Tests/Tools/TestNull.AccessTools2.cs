@@ -111,6 +111,8 @@ namespace HarmonyLibTests.Tools
 
             Assert.IsNull(AccessTools2.GetPropertyGetterDelegate<TestDelegate>(((PropertyInfo) null)!));
             Assert.IsNull(AccessTools2.GetPropertySetterDelegate<TestDelegate>(((PropertyInfo) null)!));
+            Assert.IsNull(AccessTools2.GetPropertyGetterDelegate<TestDelegate>(null, ((PropertyInfo) null)!));
+            Assert.IsNull(AccessTools2.GetPropertySetterDelegate<TestDelegate>(null, ((PropertyInfo) null)!));
             Assert.IsNull(AccessTools2.GetPropertyGetterDelegate<TestDelegate>(((string) null)!));
             Assert.IsNull(AccessTools2.GetPropertySetterDelegate<TestDelegate>(((string) null)!));
             Assert.IsNull(AccessTools2.GetPropertyGetterDelegate<TestDelegate>(null!, null!));
