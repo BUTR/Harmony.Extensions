@@ -57,10 +57,10 @@ namespace HarmonyLib.BUTR.Extensions
         static partial class AccessTools2
     {
         public static TDelegate? GetPropertyGetterDelegate<TDelegate>(PropertyInfo propertyInfo) where TDelegate : Delegate
-            => propertyInfo.GetGetMethod(true) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo) : null;
+            => propertyInfo?.GetGetMethod(true) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo) : null;
 
         public static TDelegate? GetPropertySetterDelegate<TDelegate>(PropertyInfo propertyInfo) where TDelegate : Delegate
-            => propertyInfo.GetSetMethod(true) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo) : null;
+            => propertyInfo?.GetSetMethod(true) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo) : null;
 
 
         public static TDelegate? GetPropertyGetterDelegate<TDelegate>(Type type, string name) where TDelegate : Delegate
