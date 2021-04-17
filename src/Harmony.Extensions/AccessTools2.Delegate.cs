@@ -239,6 +239,10 @@ namespace HarmonyLib.BUTR.Extensions
         /// </returns>
         public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, MethodInfo methodInfo) where TDelegate : Delegate
             => GetDelegate<TDelegate>(instance, methodInfo);
+
+
+        public static TDelegate? GetDelegate<TDelegate>(object? instance, Type type, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
+            => Method(type, method, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo) : null;
     }
 }
 
