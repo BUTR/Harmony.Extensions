@@ -81,6 +81,13 @@ namespace HarmonyLib.BUTR.Extensions
 
         public static TDelegate? GetPropertySetterDelegate<TDelegate>(string typeColonPropertyName) where TDelegate : Delegate
             => PropertySetter(typeColonPropertyName) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo) : null;
+
+
+        public static TDelegate? GetPropertyGetterDelegate<TDelegate>(object? instance, Type type, string method) where TDelegate : Delegate
+            => PropertyGetter(type, method) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo) : null;
+
+        public static TDelegate? GetPropertySetterDelegate<TDelegate>(object? instance, Type type, string method) where TDelegate : Delegate
+            => PropertySetter(type, method) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo) : null;
     }
 }
 
