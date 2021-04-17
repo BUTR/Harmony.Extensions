@@ -106,6 +106,16 @@ namespace HarmonyLibTests.Tools
             Assert.IsNull(AccessTools2.GetConstructorDelegate<TestDelegate>(((Type) null)!));
             Assert.IsNull(AccessTools2.GetConstructorDelegate<TestDelegate>(((string) null)!));
 
+            Assert.IsNull(AccessTools2.GetDeclaredPropertyGetterDelegate<TestDelegate>(null!, null!));
+            Assert.IsNull(AccessTools2.GetDeclaredPropertySetterDelegate<TestDelegate>(null!, null!));
+
+            Assert.IsNull(AccessTools2.GetPropertyGetterDelegate<TestDelegate>(((PropertyInfo) null)!));
+            Assert.IsNull(AccessTools2.GetPropertySetterDelegate<TestDelegate>(((PropertyInfo) null)!));
+            Assert.IsNull(AccessTools2.GetPropertyGetterDelegate<TestDelegate>(((string) null)!));
+            Assert.IsNull(AccessTools2.GetPropertySetterDelegate<TestDelegate>(((string) null)!));
+            Assert.IsNull(AccessTools2.GetPropertyGetterDelegate<TestDelegate>(null!, null!));
+            Assert.IsNull(AccessTools2.GetPropertySetterDelegate<TestDelegate>(null!, null!));
+
             Assert.IsNull(AccessTools2.GetDeclaredDelegate<TestDelegate>(typeof(TestClass), null!));
             Assert.IsNull(AccessTools2.GetDeclaredDelegate<TestDelegate>(typeof(TestClass), "NonExistingDelegateMethod"));
             Assert.IsNull(AccessTools2.GetDeclaredDelegate<TestDelegate>(((Type) null)!, null!));
