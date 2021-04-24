@@ -25,11 +25,11 @@
 
   <ItemGroup>
     <PackageFile Include="**/*.cs"
-                 PackagePath="content\$(TargetFramework)\$(ProjectName)\%(RelativeDir)%(Filename)%(Extension).pp"
-                 Exclude="$(BaseIntermediateOutputPath)/**/*$(DefaultLanguageSourceExtension)" />
+                 PackagePath="content\cs\$(TargetFramework)\$(ProjectName)\%(RelativeDir)%(Filename).cs.pp"
+                 Exclude="$(BaseIntermediateOutputPath)/**/*.cs" />
     <PackageFile Include="**/*.cs"
-                 PackagePath="contentFiles\$(TargetFramework)\$(ProjectName)\%(RelativeDir)%(Filename)%(Extension).pp"
-                 Exclude="$(BaseIntermediateOutputPath)/**/*$(DefaultLanguageSourceExtension)" />
+                 PackagePath="contentFiles\cs\$(TargetFramework)\$(ProjectName)\%(RelativeDir)%(Filename).cs.pp"
+                 Exclude="$(BaseIntermediateOutputPath)/**/*.cs" />
     <PackageFile Include="../../assets/Icon128x128.png" PackagePath="icon.png" />
   </ItemGroup>
 
