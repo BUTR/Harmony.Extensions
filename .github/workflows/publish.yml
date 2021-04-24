@@ -38,7 +38,7 @@ jobs:
 
     - name: Run _build
       run: >-
-        dotnet run -p build/cake/_build.csproj --configuration Release;
+        dotnet pack src/Harmony.Extensions.sln --configuration Release -o "./packages";
       shell: pwsh
 
     - name: Push to NuGet
