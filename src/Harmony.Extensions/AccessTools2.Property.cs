@@ -7,7 +7,7 @@
 //   Consider migrating to PackageReferences instead:
 //   https://docs.microsoft.com/en-us/nuget/consume-packages/migrate-packages-config-to-package-reference
 //   Migrating brings the following benefits:
-//   * The "Harmony.Extensions" folder and the "AccessTools2.cs" file don't appear in your project.
+//   * The "Harmony.Extensions" folder and the "AccessTools2.Property.cs" file don't appear in your project.
 //   * The added file is immutable and can therefore not be modified by coincidence.
 //   * Updating/Uninstalling the package will work flawlessly.
 // </auto-generated>
