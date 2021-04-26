@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace HarmonyLibTests.Tools.Assets
 {
-    public interface IAccessToolsType
+    public interface IAccessTools2Type
     {
         int Property1 { get; }
 
@@ -17,7 +17,7 @@ namespace HarmonyLibTests.Tools.Assets
     public interface IInner { }
 
 #pragma warning disable CS0169, CS0414, IDE0044, IDE0051, IDE0052
-    public class AccessToolsClass : IAccessToolsType
+    public class AccessTools2Class : IAccessTools2Type
     {
         private class Inner : IInner
         {
@@ -114,13 +114,13 @@ namespace HarmonyLibTests.Tools.Assets
         }
     }
 
-    public class AccessToolsSubClass : AccessToolsClass
+    public class AccessTools2SubClass : AccessTools2Class
     {
         private string subclassField1 = "subclassField1orig";
         internal static int subclassField2 = -321;
     }
 
-    public struct AccessToolsStruct : IAccessToolsType
+    public struct AccessTools2Struct : IAccessTools2Type
     {
         private enum InnerEnum : byte
         {
@@ -153,7 +153,7 @@ namespace HarmonyLibTests.Tools.Assets
         // Structs don't allow default constructor (and even a constructor with all default parameters won't be called with 'new AccessToolsStruct()'),
         // but we need to assign some values to instance fields that aren't simply the default value for their types
         // (so that ref value can be checked against orig value).
-        public AccessToolsStruct(object _)
+        public AccessTools2Struct(object _)
         {
             structField1 = "structField1orig";
             structField2 = -666;
@@ -169,7 +169,7 @@ namespace HarmonyLibTests.Tools.Assets
     }
 #pragma warning restore CS0169, CS0414, IDE0044, IDE0051, IDE0052
 
-    public static class AccessToolsCreateInstance
+    public static class AccessTools2CreateInstance
     {
         // Has default public parameterless constructor.
         public class NoConstructor
@@ -206,7 +206,7 @@ namespace HarmonyLibTests.Tools.Assets
         }
     }
 
-    public static class AccessToolsMethodDelegate
+    public static class AccessTools2MethodDelegate
     {
         public interface IInterface
         {
@@ -249,7 +249,7 @@ namespace HarmonyLibTests.Tools.Assets
         }
     }
 
-    public static class AccessToolsHarmonyDelegate
+    public static class AccessTools2HarmonyDelegate
     {
         public class Foo
         {

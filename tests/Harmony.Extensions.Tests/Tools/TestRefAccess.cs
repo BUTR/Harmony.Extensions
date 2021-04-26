@@ -52,9 +52,9 @@ namespace HarmonyLibTests.Tools
 
         static readonly Dictionary<Type, object> instancePrototypes = new()
         {
-            [typeof(AccessToolsClass)] = new AccessToolsClass(),
-            [typeof(AccessToolsSubClass)] = new AccessToolsSubClass(),
-            [typeof(AccessToolsStruct)] = new AccessToolsStruct(null),
+            [typeof(AccessTools2Class)] = new AccessTools2Class(),
+            [typeof(AccessTools2SubClass)] = new AccessTools2SubClass(),
+            [typeof(AccessTools2Struct)] = new AccessTools2Struct(null),
             [typeof(string)] = "a string instance", // sample "invalid" class instance
             [typeof(int)] = -123, // sample "invalid" struct instance
         };

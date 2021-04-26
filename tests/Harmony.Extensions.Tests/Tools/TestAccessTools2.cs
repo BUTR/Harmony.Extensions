@@ -158,7 +158,7 @@ namespace HarmonyLibTests.Tools
         [Test]
         public void Test_AccessTools2_Field1()
         {
-            var type = typeof(AccessToolsClass);
+            var type = typeof(AccessTools2Class);
 
             Assert.Null(AccessTools2.DeclaredField(null!, null!));
             Assert.Null(AccessTools2.DeclaredField(type, null!));
@@ -174,25 +174,25 @@ namespace HarmonyLibTests.Tools
         [Test]
         public void Test_AccessTools2_Field2()
         {
-            var classType = typeof(AccessToolsClass);
+            var classType = typeof(AccessTools2Class);
             Assert.NotNull(AccessTools2.Field(classType, "field1"));
             Assert.NotNull(AccessTools2.DeclaredField(classType, "field1"));
             Assert.Null(AccessTools2.Field(classType, "unknown"));
             Assert.Null(AccessTools2.DeclaredField(classType, "unknown"));
 
-            var subclassType = typeof(AccessToolsSubClass);
+            var subclassType = typeof(AccessTools2SubClass);
             Assert.NotNull(AccessTools2.Field(subclassType, "field1"));
             Assert.Null(AccessTools2.DeclaredField(subclassType, "field1"));
             Assert.Null(AccessTools2.Field(subclassType, "unknown"));
             Assert.Null(AccessTools2.DeclaredField(subclassType, "unknown"));
 
-            var structType = typeof(AccessToolsStruct);
+            var structType = typeof(AccessTools2Struct);
             Assert.NotNull(AccessTools2.Field(structType, "structField1"));
             Assert.NotNull(AccessTools2.DeclaredField(structType, "structField1"));
             Assert.Null(AccessTools2.Field(structType, "unknown"));
             Assert.Null(AccessTools2.DeclaredField(structType, "unknown"));
 
-            var interfaceType = typeof(IAccessToolsType);
+            var interfaceType = typeof(IAccessTools2Type);
             Assert.Null(AccessTools2.Field(interfaceType, "unknown"));
             Assert.Null(AccessTools2.DeclaredField(interfaceType, "unknown"));
         }
@@ -200,7 +200,7 @@ namespace HarmonyLibTests.Tools
         [Test]
         public void Test_AccessTools2_Property1()
         {
-            var type = typeof(AccessToolsClass);
+            var type = typeof(AccessTools2Class);
 
             Assert.Null(AccessTools2.Property(null!, null!));
             Assert.Null(AccessTools2.Property(type, null!));
@@ -216,25 +216,25 @@ namespace HarmonyLibTests.Tools
         [Test]
         public void Test_AccessTools2_Property2()
         {
-            var classType = typeof(AccessToolsClass);
+            var classType = typeof(AccessTools2Class);
             Assert.NotNull(AccessTools2.Property(classType, "Property1"));
             Assert.NotNull(AccessTools2.DeclaredProperty(classType, "Property1"));
             Assert.Null(AccessTools2.Property(classType, "unknown"));
             Assert.Null(AccessTools2.DeclaredProperty(classType, "unknown"));
 
-            var subclassType = typeof(AccessToolsSubClass);
+            var subclassType = typeof(AccessTools2SubClass);
             Assert.NotNull(AccessTools2.Property(subclassType, "Property1"));
             Assert.Null(AccessTools2.DeclaredProperty(subclassType, "Property1"));
             Assert.Null(AccessTools2.Property(subclassType, "unknown"));
             Assert.Null(AccessTools2.DeclaredProperty(subclassType, "unknown"));
 
-            var structType = typeof(AccessToolsStruct);
+            var structType = typeof(AccessTools2Struct);
             Assert.NotNull(AccessTools2.Property(structType, "Property1"));
             Assert.NotNull(AccessTools2.DeclaredProperty(structType, "Property1"));
             Assert.Null(AccessTools2.Property(structType, "unknown"));
             Assert.Null(AccessTools2.DeclaredProperty(structType, "unknown"));
 
-            var interfaceType = typeof(IAccessToolsType);
+            var interfaceType = typeof(IAccessTools2Type);
             Assert.NotNull(AccessTools2.Property(interfaceType, "Property1"));
             Assert.NotNull(AccessTools2.DeclaredProperty(interfaceType, "Property1"));
             Assert.Null(AccessTools2.Property(interfaceType, "unknown"));
@@ -244,19 +244,19 @@ namespace HarmonyLibTests.Tools
         [Test]
         public void Test_AccessTools2_PropertyIndexer()
         {
-            var classType = typeof(AccessToolsClass);
+            var classType = typeof(AccessTools2Class);
             Assert.NotNull(AccessTools2.Property(classType, "Item"));
             Assert.NotNull(AccessTools2.DeclaredProperty(classType, "Item"));
 
-            var subclassType = typeof(AccessToolsSubClass);
+            var subclassType = typeof(AccessTools2SubClass);
             Assert.NotNull(AccessTools2.Property(subclassType, "Item"));
             Assert.Null(AccessTools2.DeclaredProperty(subclassType, "Item"));
 
-            var structType = typeof(AccessToolsStruct);
+            var structType = typeof(AccessTools2Struct);
             Assert.NotNull(AccessTools2.Property(structType, "Item"));
             Assert.NotNull(AccessTools2.DeclaredProperty(structType, "Item"));
 
-            var interfaceType = typeof(IAccessToolsType);
+            var interfaceType = typeof(IAccessTools2Type);
             Assert.NotNull(AccessTools2.Property(interfaceType, "Item"));
             Assert.NotNull(AccessTools2.DeclaredProperty(interfaceType, "Item"));
         }
@@ -264,7 +264,7 @@ namespace HarmonyLibTests.Tools
         [Test]
         public void Test_AccessTools2_Method1()
         {
-            var type = typeof(AccessToolsClass);
+            var type = typeof(AccessTools2Class);
 
             Assert.Null(AccessTools2.Method(null!));
             Assert.Null(AccessTools2.Method(type, null!));
@@ -291,25 +291,25 @@ namespace HarmonyLibTests.Tools
         [Test]
         public void Test_AccessTools2_Method2()
         {
-            var classType = typeof(AccessToolsClass);
+            var classType = typeof(AccessTools2Class);
             Assert.NotNull(AccessTools2.Method(classType, "Method1"));
             Assert.NotNull(AccessTools2.DeclaredMethod(classType, "Method1"));
             Assert.Null(AccessTools2.Method(classType, "unknown"));
             Assert.Null(AccessTools2.DeclaredMethod(classType, "unknown"));
 
-            var subclassType = typeof(AccessToolsSubClass);
+            var subclassType = typeof(AccessTools2SubClass);
             Assert.NotNull(AccessTools2.Method(subclassType, "Method1"));
             Assert.Null(AccessTools2.DeclaredMethod(subclassType, "Method1"));
             Assert.Null(AccessTools2.Method(subclassType, "unknown"));
             Assert.Null(AccessTools2.DeclaredMethod(subclassType, "unknown"));
 
-            var structType = typeof(AccessToolsStruct);
+            var structType = typeof(AccessTools2Struct);
             Assert.NotNull(AccessTools2.Method(structType, "Method1"));
             Assert.NotNull(AccessTools2.DeclaredMethod(structType, "Method1"));
             Assert.Null(AccessTools2.Method(structType, "unknown"));
             Assert.Null(AccessTools2.DeclaredMethod(structType, "unknown"));
 
-            var interfaceType = typeof(IAccessToolsType);
+            var interfaceType = typeof(IAccessTools2Type);
             Assert.NotNull(AccessTools2.Method(interfaceType, "Method1"));
             Assert.NotNull(AccessTools2.DeclaredMethod(interfaceType, "Method1"));
             Assert.Null(AccessTools2.Method(interfaceType, "unknown"));
