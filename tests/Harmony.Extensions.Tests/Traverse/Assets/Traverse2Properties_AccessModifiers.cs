@@ -1,72 +1,22 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 namespace HarmonyLibTests.Traverse.Assets
 {
 #pragma warning disable CS0414
 #pragma warning disable IDE0052
 
-    public class TraverseProperties
+    public class Traverse2Properties
 	{
 		public static string[] testStrings = new string[] { "test01", "test02", "test03", "test04", "test05", "test06", "test07" };
 		public static string[] propertyNames = new string[] { "PublicProperty", "PublicPrivateProperty", "AutoProperty", "BaseProperty1", "BaseProperty2", "BaseProperty3", "ImmediateProperty" };
 	}
 
-	public class Traverse_ExtraClass
-	{
-		public readonly string someString = "-";
-		public readonly Traverse_BaseClass baseClass = new Traverse_BaseClass();
-
-		public Traverse_ExtraClass(string val)
-		{
-			someString = val;
-		}
-	}
-
-	public class Traverse_BaseClass
-	{
-		string _basePropertyField1;
-		protected virtual string BaseProperty1
-		{
-			get => _basePropertyField1;
-			set => _basePropertyField1 = value;
-		}
-
-		string _basePropertyField2;
-		protected virtual string BaseProperty2
-		{
-			get => _basePropertyField2;
-			set => _basePropertyField2 = value;
-		}
-
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1065:DoNotRaiseExceptionsInUnexpectedLocations")]
-		public string BaseProperty3
-		{
-			get => throw new Exception();
-			set => throw new Exception();
-		}
-
-		static readonly string staticField = "test1";
-		private readonly string baseField = "base-field";
-
-		static string StaticProperty => "test1";
-		private string BaseProperty => "base-property";
-
-		private string BaseMethod() { return "base-method"; }
-	}
-
-	public static class TraverseFields_Static
-	{
-		static readonly string staticField = "test2";
-		public static readonly Traverse_ExtraClass extraClassInstance = new Traverse_ExtraClass("test2");
-	}
-
-	public static class TraverseProperties_Static
+    public static class Traverse2Properties_Static
 	{
 		static string StaticProperty => "test2";
 	}
 
-	public class TraverseProperties_AccessModifiers : Traverse_BaseClass
+	public class Traverse2Properties_AccessModifiers : Traverse2_BaseClass
 	{
 		string _publicPropertyField;
 		public string PublicProperty
@@ -99,11 +49,11 @@ namespace HarmonyLibTests.Traverse.Assets
 			set => _basePropertyField3 = value;
 		}
 
-		string ImmediateProperty => TraverseProperties.testStrings.Last();
+		string ImmediateProperty => Traverse2Properties.testStrings.Last();
 
 		// TODO: should this really be suppressed?
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-		public TraverseProperties_AccessModifiers(string[] s)
+		public Traverse2Properties_AccessModifiers(string[] s)
 		{
 			PublicProperty = s[0];
 			PublicPrivateProperty = s[1];
@@ -171,7 +121,7 @@ namespace HarmonyLibTests.Traverse.Assets
 		}
 	}
 
-	public class TraverseProperties_SubClass : Traverse_BaseClass
+	public class Traverse2Properties_SubClass : Traverse2_BaseClass
 	{
 	}
 

@@ -4,7 +4,50 @@ using System.Linq;
 
 namespace HarmonyLibTests.Traverse.Assets
 {
-    public class TraverseTypes<T> where T : new()
+    public class Traverse2_ExtraClass
+    {
+        public readonly string someString = "-";
+        public readonly Traverse2_BaseClass baseClass = new Traverse2_BaseClass();
+
+        public Traverse2_ExtraClass(string val)
+        {
+            someString = val;
+        }
+    }
+
+    public class Traverse2_BaseClass
+    {
+        string _basePropertyField1;
+        protected virtual string BaseProperty1
+        {
+            get => _basePropertyField1;
+            set => _basePropertyField1 = value;
+        }
+
+        string _basePropertyField2;
+        protected virtual string BaseProperty2
+        {
+            get => _basePropertyField2;
+            set => _basePropertyField2 = value;
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1065:DoNotRaiseExceptionsInUnexpectedLocations")]
+        public string BaseProperty3
+        {
+            get => throw new Exception();
+            set => throw new Exception();
+        }
+
+        static readonly string staticField = "test1";
+        private readonly string baseField = "base-field";
+
+        static string StaticProperty => "test1";
+        private string BaseProperty => "base-property";
+
+        private string BaseMethod() { return "base-method"; }
+    }
+
+    public class Traverse2Types<T> where T : new()
 	{
 #pragma warning disable IDE0052
 #pragma warning disable CS0414
@@ -18,7 +61,7 @@ namespace HarmonyLibTests.Traverse.Assets
 
 		public T key;
 
-		public TraverseTypes()
+		public Traverse2Types()
 		{
 			IntField = 100;
 			StringField = "hello";
@@ -33,7 +76,7 @@ namespace HarmonyLibTests.Traverse.Assets
 		}
 	}
 
-	public class TraverseNestedTypes
+	public class Traverse2NestedTypes
 	{
 		class InnerClass1
 		{
@@ -88,7 +131,7 @@ namespace HarmonyLibTests.Traverse.Assets
 		static InnerStaticFieldClass1 innerStatic = new InnerStaticFieldClass1();
 #pragma warning restore IDE0052
 
-		public TraverseNestedTypes(string staticValue)
+		public Traverse2NestedTypes(string staticValue)
 		{
 			innerInstance = new InnerClass1();
 			InnerStaticClass1.InnerStaticClass2.field = staticValue;

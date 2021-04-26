@@ -13,10 +13,10 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_Field_ToString()
 		{
-			var instance = new TraverseFields_AccessModifiers(TraverseFields.testStrings);
+			var instance = new Traverse2Fields_AccessModifiers(Traverse2Fields.testStrings);
 
-			var trv = Traverse2.Create(instance).Field(TraverseFields.fieldNames[0]);
-			Assert.AreEqual(TraverseFields.testStrings[0], trv.ToString());
+			var trv = Traverse2.Create(instance).Field(Traverse2Fields.fieldNames[0]);
+			Assert.AreEqual(Traverse2Fields.testStrings[0], trv.ToString());
 		}
 
 		// Traverse2.GetValue() should return the value of a Traverse2d field
@@ -25,17 +25,17 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_Field_GetValue()
 		{
-			var instance = new TraverseFields_AccessModifiers(TraverseFields.testStrings);
+			var instance = new Traverse2Fields_AccessModifiers(Traverse2Fields.testStrings);
 			var trv = Traverse2.Create(instance);
 
-			for (var i = 0; i < TraverseFields.testStrings.Length; i++)
+			for (var i = 0; i < Traverse2Fields.testStrings.Length; i++)
 			{
-				var name = TraverseFields.fieldNames[i];
+				var name = Traverse2Fields.fieldNames[i];
 				var ftrv = trv.Field(name);
 				Assert.NotNull(ftrv);
 
-				Assert.AreEqual(TraverseFields.testStrings[i], ftrv.GetValue());
-				Assert.AreEqual(TraverseFields.testStrings[i], ftrv.GetValue<string>());
+				Assert.AreEqual(Traverse2Fields.testStrings[i], ftrv.GetValue());
+				Assert.AreEqual(Traverse2Fields.testStrings[i], ftrv.GetValue<string>());
 			}
 		}
 
@@ -44,13 +44,13 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_Field_Static()
 		{
-			var instance = new Traverse_BaseClass();
+			var instance = new Traverse2_BaseClass();
 
 			var trv1 = Traverse2.Create(instance).Field("staticField");
 			Assert.AreEqual("test1", trv1.GetValue());
 
 
-			var trv2 = Traverse2.Create(typeof(TraverseFields_Static)).Field("staticField");
+			var trv2 = Traverse2.Create(typeof(Traverse2Fields_Static)).Field("staticField");
 			Assert.AreEqual("test2", trv2.GetValue());
 		}
 
@@ -59,14 +59,14 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_Static_Field_Instance_Field()
 		{
-			var extra = new Traverse_ExtraClass("test1");
+			var extra = new Traverse2_ExtraClass("test1");
 			Assert.AreEqual("test1", Traverse2.Create(extra).Field("someString").GetValue());
 
-			Assert.AreEqual("test2", TraverseFields_Static.extraClassInstance.someString, "direct");
+			Assert.AreEqual("test2", Traverse2Fields_Static.extraClassInstance.someString, "direct");
 
-			var trv = Traverse2.Create(typeof(TraverseFields_Static));
+			var trv = Traverse2.Create(typeof(Traverse2Fields_Static));
 			var trv2 = trv.Field("extraClassInstance");
-			Assert.AreEqual(typeof(Traverse_ExtraClass), trv2.GetValue().GetType());
+			Assert.AreEqual(typeof(Traverse2_ExtraClass), trv2.GetValue().GetType());
 			Assert.AreEqual("test2", trv2.Field("someString").GetValue(), "Traverse2");
 		}
 
@@ -75,8 +75,8 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_Instance_Field_Static_Field()
 		{
-			var instance = new Traverse_ExtraClass("test3");
-			Assert.AreEqual(typeof(Traverse_BaseClass), instance.baseClass.GetType());
+			var instance = new Traverse2_ExtraClass("test3");
+			Assert.AreEqual(typeof(Traverse2_BaseClass), instance.baseClass.GetType());
 
 			var trv1 = Traverse2.Create(instance);
 			Assert.NotNull(trv1, "trv1");
@@ -86,7 +86,7 @@ namespace HarmonyLibTests.Traverse
 
 			var val = trv2.GetValue();
 			Assert.NotNull(val, "val");
-			Assert.AreEqual(typeof(Traverse_BaseClass), val.GetType());
+			Assert.AreEqual(typeof(Traverse2_BaseClass), val.GetType());
 
 			var trv3 = trv2.Field("baseField");
 			Assert.NotNull(trv3, "trv3");
@@ -99,17 +99,17 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_Field_SetValue()
 		{
-			var instance = new TraverseFields_AccessModifiers(TraverseFields.testStrings);
+			var instance = new Traverse2Fields_AccessModifiers(Traverse2Fields.testStrings);
 			var trv = Traverse2.Create(instance);
 
-			for (var i = 0; i < TraverseFields.testStrings.Length; i++)
+			for (var i = 0; i < Traverse2Fields.testStrings.Length; i++)
 			{
 				var newValue = "newvalue" + i;
 
 				// before
-				Assert.AreEqual(TraverseFields.testStrings[i], instance.GetTestField(i));
+				Assert.AreEqual(Traverse2Fields.testStrings[i], instance.GetTestField(i));
 
-				var name = TraverseFields.fieldNames[i];
+				var name = Traverse2Fields.fieldNames[i];
 				var ftrv = trv.Field(name);
 				_ = ftrv.SetValue(newValue);
 

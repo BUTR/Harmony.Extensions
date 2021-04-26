@@ -19,10 +19,10 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Test_Instantiate_Traverse2Fields_AccessModifiers()
 		{
-			var instance = new TraverseFields_AccessModifiers(TraverseFields.testStrings);
+			var instance = new Traverse2Fields_AccessModifiers(Traverse2Fields.testStrings);
 
-			for (var i = 0; i < TraverseFields.testStrings.Length; i++)
-				Assert.AreEqual(TraverseFields.testStrings[i], instance.GetTestField(i));
+			for (var i = 0; i < Traverse2Fields.testStrings.Length; i++)
+				Assert.AreEqual(Traverse2Fields.testStrings[i], instance.GetTestField(i));
 		}
 
 		[Test]
@@ -118,7 +118,7 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Test_Traverse2_Create_Instance_ToString()
 		{
-			var instance = new TraverseFields_AccessModifiers(TraverseFields.testStrings);
+			var instance = new Traverse2Fields_AccessModifiers(Traverse2Fields.testStrings);
 
 			var trv = Traverse2.Create(instance);
 			Assert.AreEqual(instance.ToString(), trv.ToString());
@@ -129,10 +129,10 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Test_Traverse2_Create_Type_ToString()
 		{
-			var instance = new TraverseFields_AccessModifiers(TraverseFields.testStrings);
+			var instance = new Traverse2Fields_AccessModifiers(Traverse2Fields.testStrings);
 			Assert.NotNull(instance);
 
-			var type = typeof(TraverseFields_AccessModifiers);
+			var type = typeof(Traverse2Fields_AccessModifiers);
 			var trv = Traverse2.Create(type);
 			Assert.AreEqual(type.ToString(), trv.ToString());
 		}

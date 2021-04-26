@@ -13,10 +13,10 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_Property_ToString()
 		{
-			var instance = new TraverseProperties_AccessModifiers(TraverseProperties.testStrings);
+			var instance = new Traverse2Properties_AccessModifiers(Traverse2Properties.testStrings);
 
-			var trv = Traverse2.Create(instance).Property(TraverseProperties.propertyNames[0]);
-			Assert.AreEqual(TraverseProperties.testStrings[0], trv.ToString());
+			var trv = Traverse2.Create(instance).Property(Traverse2Properties.propertyNames[0]);
+			Assert.AreEqual(Traverse2Properties.testStrings[0], trv.ToString());
 		}
 
 		// Traverse2.Property() should return static properties
@@ -24,13 +24,13 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_Property_Static()
 		{
-			var instance = new Traverse_BaseClass();
+			var instance = new Traverse2_BaseClass();
 
 			var trv1 = Traverse2.Create(instance).Property("StaticProperty");
 			Assert.AreEqual("test1", trv1.GetValue());
 
 
-			var trv2 = Traverse2.Create(typeof(TraverseProperties_Static)).Property("StaticProperty");
+			var trv2 = Traverse2.Create(typeof(Traverse2Properties_Static)).Property("StaticProperty");
 			Assert.AreEqual("test2", trv2.GetValue());
 		}
 
@@ -40,16 +40,16 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_Property_GetValue()
 		{
-			var instance = new TraverseProperties_AccessModifiers(TraverseProperties.testStrings);
+			var instance = new Traverse2Properties_AccessModifiers(Traverse2Properties.testStrings);
 			var trv = Traverse2.Create(instance);
 
-			for (var i = 0; i < TraverseProperties.testStrings.Length; i++)
+			for (var i = 0; i < Traverse2Properties.testStrings.Length; i++)
 			{
-				var name = TraverseProperties.propertyNames[i];
+				var name = Traverse2Properties.propertyNames[i];
 				var ptrv = trv.Property(name);
 				Assert.NotNull(ptrv);
-				Assert.AreEqual(TraverseProperties.testStrings[i], ptrv.GetValue());
-				Assert.AreEqual(TraverseProperties.testStrings[i], ptrv.GetValue<string>());
+				Assert.AreEqual(Traverse2Properties.testStrings[i], ptrv.GetValue());
+				Assert.AreEqual(Traverse2Properties.testStrings[i], ptrv.GetValue<string>());
 			}
 		}
 
@@ -59,17 +59,17 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_Property_SetValue()
 		{
-			var instance = new TraverseProperties_AccessModifiers(TraverseProperties.testStrings);
+			var instance = new Traverse2Properties_AccessModifiers(Traverse2Properties.testStrings);
 			var trv = Traverse2.Create(instance);
 
-			for (var i = 0; i < TraverseProperties.testStrings.Length - 1; i++)
+			for (var i = 0; i < Traverse2Properties.testStrings.Length - 1; i++)
 			{
 				var newValue = "newvalue" + i;
 
 				// before
-				Assert.AreEqual(TraverseProperties.testStrings[i], instance.GetTestProperty(i));
+				Assert.AreEqual(Traverse2Properties.testStrings[i], instance.GetTestProperty(i));
 
-				var name = TraverseProperties.propertyNames[i];
+				var name = Traverse2Properties.propertyNames[i];
 				var ptrv = trv.Property(name);
 				Assert.NotNull(ptrv);
 				_ = ptrv.SetValue(newValue);

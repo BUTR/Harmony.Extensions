@@ -1,19 +1,25 @@
 ﻿namespace HarmonyLibTests.Traverse.Assets
 {
-    public class TraverseFields
+    public class Traverse2Fields
     {
         public static string[] testStrings = new string[] { "test01", "test02", "test03", "test04" };
         public static string[] fieldNames = new string[] { "publicField", "privateField", "protectedField", "internalField" };
     }
 
-    public class TraverseFields_AccessModifiers
+    public static class Traverse2Fields_Static
+    {
+        static readonly string staticField = "test2";
+        public static readonly Traverse2_ExtraClass extraClassInstance = new Traverse2_ExtraClass("test2");
+    }
+
+    public class Traverse2Fields_AccessModifiers
     {
         public string publicField;
         readonly string privateField;
         protected string protectedField;
         internal string internalField;
 
-        public TraverseFields_AccessModifiers(string[] s)
+        public Traverse2Fields_AccessModifiers(string[] s)
         {
             publicField = s[0];
             privateField = s[1];

@@ -2,7 +2,7 @@
 
 namespace HarmonyLibTests.Traverse.Assets
 {
-    public class TraverseMethods_Instance
+    public class Traverse2Methods_Instance
     {
         public bool Method1_called;
 
@@ -19,7 +19,7 @@ namespace HarmonyLibTests.Traverse.Assets
 #pragma warning restore IDE0051
     }
 
-    public static class TraverseMethods_Static
+    public static class Traverse2Methods_Static
     {
 #pragma warning disable IDE0051
         static int StaticMethod(int a, int b)
@@ -29,7 +29,7 @@ namespace HarmonyLibTests.Traverse.Assets
 #pragma warning restore IDE0051
     }
 
-    public static class TraverseMethods_VarArgs
+    public static class Traverse2Methods_VarArgs
     {
 #pragma warning disable IDE0051
         static int Test1(int a, int b)
@@ -48,7 +48,7 @@ namespace HarmonyLibTests.Traverse.Assets
 #pragma warning restore IDE0051
     }
 
-    public static class TraverseMethods_Parameter
+    public static class Traverse2Methods_Parameter
     {
 #pragma warning disable IDE0051
         static string WithRefParameter(ref string refParameter)
@@ -70,7 +70,7 @@ namespace HarmonyLibTests.Traverse.Assets
 #pragma warning restore IDE0051
     }
 
-    public class TraverseMethods_Overloads
+    public class Traverse2Methods_Overloads
     {
         public bool SomeMethod(string p1, bool p2 = true)
         {

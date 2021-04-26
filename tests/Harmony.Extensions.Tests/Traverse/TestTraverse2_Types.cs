@@ -16,7 +16,7 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_Types()
 		{
-			var instance = new TraverseTypes<InnerClass>();
+			var instance = new Traverse2Types<InnerClass>();
 			var trv = Traverse2.Create(instance);
 
 			Assert.AreEqual(
@@ -46,7 +46,7 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_InnerInstance()
 		{
-			var instance = new TraverseNestedTypes(null);
+			var instance = new Traverse2NestedTypes(null);
 
 			var trv1 = Traverse2.Create(instance);
 			var field1 = trv1.Field("innerInstance").Field("inner2").Field("field");
@@ -61,17 +61,17 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_InnerStatic()
 		{
-			var trv1 = Traverse2.Create(typeof(TraverseNestedTypes));
+			var trv1 = Traverse2.Create(typeof(Traverse2NestedTypes));
 			var field1 = trv1.Field("innerStatic").Field("inner2").Field("field");
 			_ = field1.SetValue("somevalue1");
 
-			var trv2 = Traverse2.Create(typeof(TraverseNestedTypes));
+			var trv2 = Traverse2.Create(typeof(Traverse2NestedTypes));
 			var field2 = trv2.Field("innerStatic").Field("inner2").Field("field");
 			Assert.AreEqual("somevalue1", field2.GetValue());
 
-			_ = new TraverseNestedTypes("somevalue2");
+			_ = new Traverse2NestedTypes("somevalue2");
 			var value = Traverse2
-				.Create(typeof(TraverseNestedTypes))
+				.Create(typeof(Traverse2NestedTypes))
 				.Type("InnerStaticClass1")
 				.Type("InnerStaticClass2")
 				.Field("field")

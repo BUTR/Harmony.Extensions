@@ -13,7 +13,7 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_Method_Instance()
 		{
-			var instance = new TraverseMethods_Instance();
+			var instance = new Traverse2Methods_Instance();
 			var trv = Traverse2.Create(instance);
 
 			instance.Method1_called = false;
@@ -28,7 +28,7 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_Method_Static()
 		{
-			var trv = Traverse2.Create(typeof(TraverseMethods_Static));
+			var trv = Traverse2.Create(typeof(Traverse2Methods_Static));
 			var mtrv = trv.Method("StaticMethod", new object[] { 6, 7 });
 			Assert.AreEqual(42, mtrv.GetValue<int>());
 		}
@@ -36,7 +36,7 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_Method_VariableArguments()
 		{
-			var trv = Traverse2.Create(typeof(TraverseMethods_VarArgs));
+			var trv = Traverse2.Create(typeof(Traverse2Methods_VarArgs));
 
 			Assert.AreEqual(30, trv.Method("Test1", 10, 20).GetValue<int>());
 			Assert.AreEqual(60, trv.Method("Test2", 10, 20, 30).GetValue<int>());
@@ -49,7 +49,7 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_Method_RefParameters()
 		{
-			var trv = Traverse2.Create(typeof(TraverseMethods_Parameter));
+			var trv = Traverse2.Create(typeof(Traverse2Methods_Parameter));
 
 			string result = null;
 			var parameters = new object[] { result };
@@ -62,7 +62,7 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_Method_OutParameters()
 		{
-			var trv = Traverse2.Create(typeof(TraverseMethods_Parameter));
+			var trv = Traverse2.Create(typeof(Traverse2Methods_Parameter));
 
 			string result = null;
 			var parameters = new object[] { result };
@@ -75,7 +75,7 @@ namespace HarmonyLibTests.Traverse
 		[Test]
 		public void Traverse2_Method_Overloads()
 		{
-			var instance = new TraverseMethods_Overloads();
+			var instance = new Traverse2Methods_Overloads();
 			var trv = Traverse2.Create(instance);
 
 			var mtrv1 = trv.Method("SomeMethod", new Type[] { typeof(string), typeof(bool) });
