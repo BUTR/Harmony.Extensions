@@ -276,7 +276,7 @@ namespace HarmonyLibTests.Tools
             Assert.AreEqual(type, m1.DeclaringType);
             Assert.AreEqual("Method1", m1.Name);
 
-            var m2 = AccessTools2.Method("HarmonyLibTests.Tools.Assets.AccessToolsClass:Method1");
+            var m2 = AccessTools2.Method($"{typeof(AccessTools2Class).FullName}:Method1");
             Assert.NotNull(m2);
             Assert.AreEqual(type, m2.DeclaringType);
             Assert.AreEqual("Method1", m2.Name);
