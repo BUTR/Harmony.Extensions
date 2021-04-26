@@ -76,12 +76,6 @@ jobs:
         pathSource: opencover.4.7.922.zip
         pathTarget: opencover
 
-    #- name: Tests
-    #  run: >-
-    #    dotnet test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Debug;
-    #    dotnet test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Release;
-    #  shell: pwsh
-
     - name: Build
       run: >-
         dotnet build tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Debug;
@@ -145,6 +139,12 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
+    - name: Build
+      run: >-
+        dotnet build tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Debug;
+        dotnet build tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Release;
+      shell: pwsh
+
     - name: Tests
       run: >-
         dotnet test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Debug;
@@ -179,6 +179,12 @@ jobs:
         source-url: https://nuget.pkg.github.com/BUTR/index.json
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+    - name: Build
+      run: >-
+        dotnet build tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Debug;
+        dotnet build tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Release;
+      shell: pwsh
 
     - name: Tests
       run: >-
