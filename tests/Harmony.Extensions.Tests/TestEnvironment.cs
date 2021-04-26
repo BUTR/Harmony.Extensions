@@ -41,7 +41,7 @@ namespace HarmonyLibTests
             TestTools.Log("Executing Assembly's ImageRuntimeVersion: " + executingAssembly.ImageRuntimeVersion);
             TestTools.Log("Executing Assembly's TargetFrameworkAttribute: " + (executingAssembly.GetCustomAttributes(true)
                 .Where(attr => attr.GetType().Name is "TargetFrameworkAttribute")
-                .Select(attr => Traverse.Create(attr).Property("FrameworkName").GetValue<string>())
+                .Select(attr => Traverse2.Create(attr).Property("FrameworkName").GetValue<string>())
                 .FirstOrDefault() ?? "null"));
         }
 
