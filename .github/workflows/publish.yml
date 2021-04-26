@@ -38,16 +38,16 @@ jobs:
 
     - name: Run _build
       run: >-
-        dotnet run -p build/cake/_build.csproj --configuration Release;
+        dotnet pack src/Harmony.Extensions.sln --configuration Release -o "./packages";
       shell: pwsh
 
     - name: Push to NuGet
-      run: dotnet nuget push "./artifacts/*.nupkg" -k ${{secrets.NUGET_API_KEY}} -s https://www.nuget.org
+      run: dotnet nuget push "./packages/*.nupkg" -k ${{secrets.NUGET_API_KEY}} -s https://www.nuget.org
       shell: pwsh
 
     - name: Push to GPR
       run: |
-           for f in ./artifacts/*.nupkg
+           for f in ./packages/*.nupkg
            do
              curl -vX PUT -u "vslee:${{secrets.GITHUB_TOKEN}}" -F package=@$f https://nuget.pkg.github.com/BUTR/
            done

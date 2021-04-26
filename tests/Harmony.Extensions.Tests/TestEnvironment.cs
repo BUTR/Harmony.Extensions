@@ -2,7 +2,6 @@
 using HarmonyLib.BUTR.Extensions;
 
 using NUnit.Framework;
-using NUnit.Framework.Internal;
 
 using System;
 using System.Diagnostics;

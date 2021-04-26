@@ -7,8 +7,7 @@ using System.Linq.Expressions;
 
 namespace HarmonyLibTests.Tools
 {
-    [TestFixture]
-    public partial class TestNull : TestLogger
+    public partial class TestNull
     {
         [Test]
         public void Test_SymbolExtensions2_Constructors()

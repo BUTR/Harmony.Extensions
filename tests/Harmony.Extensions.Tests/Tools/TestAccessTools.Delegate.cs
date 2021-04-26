@@ -1,5 +1,5 @@
 ﻿using HarmonyLib.BUTR.Extensions;
-using HarmonyLibTests.Assets;
+using HarmonyLibTests.Tools.Assets;
 
 using NUnit.Framework;
 
@@ -8,8 +8,7 @@ using System.Reflection;
 
 namespace HarmonyLibTests.Tools
 {
-    [TestFixture]
-    public partial class Test_AccessTools2 : TestLogger
+    public partial class Test_AccessTools2
     {
         delegate string MethodDel(int n, ref float f);
         delegate string OpenMethodDel<T>(T instance, int n, ref float f);

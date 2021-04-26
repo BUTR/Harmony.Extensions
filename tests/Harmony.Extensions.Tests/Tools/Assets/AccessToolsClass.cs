@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace HarmonyLibTests.Assets
+namespace HarmonyLibTests.Tools.Assets
 {
     public interface IAccessToolsType
     {

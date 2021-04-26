@@ -1,14 +1,11 @@
-﻿using HarmonyLib;
-using HarmonyLib.BUTR.Extensions;
-using HarmonyLibTests.Assets;
+﻿using HarmonyLib.BUTR.Extensions;
+using HarmonyLibTests.Tools.Assets;
 
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 
 namespace HarmonyLibTests.Tools

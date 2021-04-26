@@ -7,17 +7,16 @@ using System.Reflection;
 
 namespace HarmonyLibTests.Tools
 {
-    [TestFixture]
-    public partial class TestNull : TestLogger
+    public partial class TestNull
     {
         private class TestClass
         {
-            private TestDelegate TestMember;
+            private readonly TestDelegate TestMember;
         }
 
         private struct TestStruct
         {
-            private TestDelegate TestMember;
+            private readonly TestDelegate TestMember;
         }
 
         private delegate void TestDelegate();
@@ -107,6 +106,20 @@ namespace HarmonyLibTests.Tools
             Assert.IsNull(AccessTools2.GetConstructorDelegate<TestDelegate>(((Type) null)!));
             Assert.IsNull(AccessTools2.GetConstructorDelegate<TestDelegate>(((string) null)!));
 
+            Assert.IsNull(AccessTools2.GetDeclaredPropertyGetterDelegate<TestDelegate>(null!, null!));
+            Assert.IsNull(AccessTools2.GetDeclaredPropertySetterDelegate<TestDelegate>(null!, null!));
+
+            Assert.IsNull(AccessTools2.GetPropertyGetterDelegate<TestDelegate>(((PropertyInfo) null)!));
+            Assert.IsNull(AccessTools2.GetPropertySetterDelegate<TestDelegate>(((PropertyInfo) null)!));
+            Assert.IsNull(AccessTools2.GetPropertyGetterDelegate<TestDelegate>(null, ((PropertyInfo) null)!));
+            Assert.IsNull(AccessTools2.GetPropertySetterDelegate<TestDelegate>(null, ((PropertyInfo) null)!));
+            Assert.IsNull(AccessTools2.GetPropertyGetterDelegate<TestDelegate>(((string) null)!));
+            Assert.IsNull(AccessTools2.GetPropertySetterDelegate<TestDelegate>(((string) null)!));
+            Assert.IsNull(AccessTools2.GetPropertyGetterDelegate<TestDelegate>(null!, null!));
+            Assert.IsNull(AccessTools2.GetPropertySetterDelegate<TestDelegate>(null!, null!));
+            Assert.IsNull(AccessTools2.GetPropertyGetterDelegate<TestDelegate>(null!, null!, null));
+            Assert.IsNull(AccessTools2.GetPropertySetterDelegate<TestDelegate>(null!, null!, null));
+
             Assert.IsNull(AccessTools2.GetDeclaredDelegate<TestDelegate>(typeof(TestClass), null!));
             Assert.IsNull(AccessTools2.GetDeclaredDelegate<TestDelegate>(typeof(TestClass), "NonExistingDelegateMethod"));
             Assert.IsNull(AccessTools2.GetDeclaredDelegate<TestDelegate>(((Type) null)!, null!));
@@ -185,15 +198,19 @@ namespace HarmonyLibTests.Tools
             Assert.IsNull(AccessTools2.GetDelegate<TestDelegate>(null!, "NonExistingDelegateMethod", null!, null!));
             Assert.IsNull(AccessTools2.GetDelegate<TestDelegate>(new object(), null!));
             Assert.IsNull(AccessTools2.GetDelegate<TestDelegate, object>(new object(), ((string) null)!));
-            Assert.IsNull(AccessTools2.GetDelegate<TestDelegate, object>(new object(), ((string) null)!, null!));
+            Assert.IsNull(AccessTools2.GetDelegate<TestDelegate, object>(new object(), ((string) null)!, null, null));
             Assert.IsNull(AccessTools2.GetDelegate<TestDelegate, object>(new object(), ((MethodInfo) null)!));
             Assert.IsNull(AccessTools2.GetDelegate<TestDelegate>((object) null, null!));
             Assert.IsNull(AccessTools2.GetDelegate<TestDelegate>(new object(), null!, null!, null!));
-            Assert.IsNull(AccessTools2.GetDelegate<TestDelegate>(new object(), "NonExistingDelegateMethod", null!, null!));
+            Assert.IsNull(AccessTools2.GetDelegate<TestDelegate>(new object(), "NonExistingDelegateMethod", null, null));
             Assert.IsNull(AccessTools2.GetDelegate<TestDelegate>((object) null, null!, null!, null!));
-            Assert.IsNull(AccessTools2.GetDelegate<TestDelegate>((object) null, "NonExistingDelegateMethod", null!, null!));
+            Assert.IsNull(AccessTools2.GetDelegate<TestDelegate>((object) null, "NonExistingDelegateMethod", null, null));
             Assert.IsNull(AccessTools2.GetDelegate<TestDelegate>(((string) null)!));
             Assert.IsNull(AccessTools2.GetDelegate<TestDelegate>("NonExistingDelegateMethod"));
+            Assert.IsNull(AccessTools2.GetDelegate<TestDelegate>(new object(), null!, null!, null, null));
+            Assert.IsNull(AccessTools2.GetDelegate<TestDelegate>(null, typeof(TestClass), null!, null, null));
+            Assert.IsNull(AccessTools2.GetDelegate<TestDelegate>(null, null!, "NonExistingDelegateMethod", null, null));
+            Assert.IsNull(AccessTools2.GetDelegate<TestDelegate>(null!, null!, null!, null, null));
         }
 
         [Test]

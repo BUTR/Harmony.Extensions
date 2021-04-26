@@ -1,0 +1,54 @@
+<!--EXTERNAL_PROPERTIES: GITHUB_RUN_NUMBER;GITHUB_ACTIONS;MSBuildThisFileDirectory;TargetFramework-->
+<Project>
+
+  <!--Development Variables-->
+  <PropertyGroup>
+    <GITHUB_RUN_NUMBER Condition="$(GITHUB_RUN_NUMBER) == ''">0</GITHUB_RUN_NUMBER>
+    <Version>1.0.0.$(GITHUB_RUN_NUMBER)</Version>
+    <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>enable</Nullable>
+
+    <Authors>BUTR Team, Andreas Pardeike, Lib.Harmony Contributors</Authors>
+    <Owners>BUTR</Owners>
+
+    <DefineConstants>$(DefineConstants);HARMONYEXTENSIONS_ENABLEWARNINGS;HARMONYEXTENSIONS_PUBLIC;</DefineConstants>
+
+    <NoWarn>$(NoWarn);NU1701</NoWarn>
+  </PropertyGroup>
+
+  <!--NuGetizer-->
+  <PropertyGroup>
+    <BuildProjectReferences>false</BuildProjectReferences>
+    <BuildOnPack>false</BuildOnPack>
+    <PackOnBuild>false</PackOnBuild>
+    <PackBuildOutput>false</PackBuildOutput>
+    <PackCompile>true</PackCompile>
+    <PackEmbeddedResource>true</PackEmbeddedResource>
+    <EnablePackCleanup>false</EnablePackCleanup>
+    <EnablePackInference>false</EnablePackInference>
+
+    <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)' == ''">obj</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <!--GitHub Actions-->
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+  <!--NuGet SorceLink-->
+  <PropertyGroup>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+  </PropertyGroup>
+  <!--SorceLink-->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
+  </ItemGroup>
+  <!--CI Builds-->
+  <ItemGroup Condition="$(TargetFramework) == 'net45' AND $(OS) != 'Windows_NT'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
