@@ -82,6 +82,12 @@ jobs:
     #    dotnet test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Release;
     #  shell: pwsh
 
+    - name: Build
+      run: >-
+        dotnet build tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Debug;
+        dotnet build tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Release;
+      shell: pwsh
+
     - name: Tests with Coverage
       run: >-
           opencover/OpenCover.Console.exe -register -target:"dotnet.exe" -targetargs:"test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Debug --no-build" -filter:"+[Harmony.Extensions*]* -[Harmony.Extensions*.Tests]*" -output:coverage_debug.xml -mergebyhash;
