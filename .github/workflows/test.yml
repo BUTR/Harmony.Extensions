@@ -76,13 +76,13 @@ jobs:
         pathSource: opencover.4.7.922.zip
         pathTarget: opencover
 
-    - name: Tests
-      run: >-
-        dotnet test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Debug;
-        dotnet test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Release;
-      shell: pwsh
+    #- name: Tests
+    #  run: >-
+    #    dotnet test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Debug;
+    #    dotnet test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Release;
+    #  shell: pwsh
 
-    - name: Test Coverage
+    - name: Tests with Coverage
       run: >-
           opencover/OpenCover.Console.exe -register -target:"dotnet.exe" -targetargs:"test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Debug --no-build" -filter:"+[Harmony.Extensions*]* -[Harmony.Extensions*.Tests]*" -output:coverage_debug.xml -mergebyhash;
           opencover/OpenCover.Console.exe -register -target:"dotnet.exe" -targetargs:"test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --configuration Release --no-build" -filter:"+[Harmony.Extensions*]* -[Harmony.Extensions*.Tests]*" -output:coverage_release.xml -mergebyhash;
