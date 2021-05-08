@@ -4,7 +4,7 @@
   <!--Development Variables-->
   <PropertyGroup>
     <GITHUB_RUN_NUMBER Condition="$(GITHUB_RUN_NUMBER) == ''">0</GITHUB_RUN_NUMBER>
-    <Version>1.0.0.$(GITHUB_RUN_NUMBER)</Version>
+    <Version>2.0.0.$(GITHUB_RUN_NUMBER)</Version>
     <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
