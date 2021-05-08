@@ -12,12 +12,20 @@ namespace HarmonyLibTests.Tools
     {
         delegate string MethodDel(int n, ref float f);
         delegate string OpenMethodDel<T>(T instance, int n, ref float f);
+        delegate string WithoutInstanceMethodDel(int n, ref float f);
 
         static readonly MethodInfo interfaceTest = typeof(AccessTools2MethodDelegate.IInterface).GetMethod("Test");
         static readonly MethodInfo baseTest = typeof(AccessTools2MethodDelegate.Base).GetMethod("Test");
         static readonly MethodInfo derivedTest = typeof(AccessTools2MethodDelegate.Derived).GetMethod("Test");
         static readonly MethodInfo structTest = typeof(AccessTools2MethodDelegate.Struct).GetMethod("Test");
         static readonly MethodInfo staticTest = typeof(AccessTools2MethodDelegate).GetMethod("Test");
+
+        [Test]
+        public void Test_AccessTools2_GetDelegate_InstanceMethodWithoutInstance()
+        {
+            var f = 789f;
+            Assert.IsNull(AccessTools2.GetDelegate<WithoutInstanceMethodDel>(baseTest)?.Invoke(456, ref f));
+        }
 
         [Test]
         public void Test_AccessTools2_GetDelegate_ClosedInstanceDelegates()

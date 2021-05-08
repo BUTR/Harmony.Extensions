@@ -131,6 +131,7 @@ namespace HarmonyLib.BUTR.Extensions
             var hasInstanceType = delegateParameters.Length - methodParameters.Length == 1 &&
                                   (delegateParameters[0].ParameterType.IsAssignableFrom(methodInfo.DeclaringType) || methodInfo.DeclaringType.IsAssignableFrom(delegateParameters[0].ParameterType));
 
+            if (!hasInstance && !hasInstanceType && !methodInfo.IsStatic) return null;
             if (hasInstance && methodInfo.IsStatic) return null;
             if (hasInstance && !methodInfo.IsStatic && !methodInfo.DeclaringType.IsAssignableFrom(instance!.GetType())) return null;
             //if (hasInstanceType && !delegateParameters[0].ParameterType.IsAssignableFrom(methodInfo.DeclaringType)) return null;
