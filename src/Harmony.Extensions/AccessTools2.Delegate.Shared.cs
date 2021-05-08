@@ -90,9 +90,9 @@ namespace HarmonyLib.BUTR.Extensions
                 .ToList();
 
             Expression @new = Expression.New(constructorInfo, inputParameters);
-            var body = @new.Type.Equals(constructorInfo.DeclaringType) 
+            var body = @new.Type.Equals(delegateInvoke.ReturnType) 
                 ? @new 
-                : Expression.Convert(@new, constructorInfo.DeclaringType);
+                : Expression.Convert(@new, delegateInvoke.ReturnType);
 
             try
             {

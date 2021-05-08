@@ -111,7 +111,7 @@ namespace HarmonyLib.BUTR.Extensions
 		/// <summary>Creates a new traverse instance from a class/type</summary>
 		/// <param name="type">The class/type</param>
 		/// <returns>A <see cref="Traverse"/> instance</returns>
-        public static Traverse2 Create(Type type) => new(type);
+        public static Traverse2 Create(Type? type) => new(type);
 
         /// <summary>Creates a new traverse instance from a class T</summary>
 		/// <typeparam name="T">The class</typeparam>
@@ -121,7 +121,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// <summary>Creates a new traverse instance from an instance</summary>
 		/// <param name="root">The object</param>
 		/// <returns>A <see cref="Traverse"/> instance</returns>
-        public static Traverse2 Create(object root) => new(root);
+        public static Traverse2 Create(object? root) => new(root);
 
         /// <summary>Creates a new traverse instance from a named type</summary>
 		/// <param name="name">The type name, for format see <see cref="AccessTools.TypeByName"/></param>
