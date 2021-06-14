@@ -67,7 +67,7 @@ jobs:
     - name: Build Harmony.Extensions and DocFx.Plugin.LastModified
       run: >-
         dotnet build src/Harmony.Extensions/Harmony.Extensions.csproj;
-        dotnet build build/DocFx.Plugin.LastModified/DocFx.Plugin.LastModified --configuration Release --output docs/_template/last-modified/plugins;
+        #dotnet build build/DocFx.Plugin.LastModified/DocFx.Plugin.LastModified --configuration Release --output docs/_template/last-modified/plugins;
       shell: pwsh
 
     - name: Run DocFX
