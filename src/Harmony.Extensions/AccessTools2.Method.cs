@@ -71,7 +71,7 @@ namespace HarmonyLib.BUTR.Extensions
             }
             if (name is null)
             {
-                Trace.TraceError("AccessTools2.DeclaredMethod: 'name' is null");
+                Trace.TraceError($"AccessTools2.DeclaredMethod: type '{type}', 'name' is null");
                 return null;
             }
 
@@ -122,7 +122,7 @@ namespace HarmonyLib.BUTR.Extensions
             }
             if (name is null)
             {
-                Trace.TraceError("AccessTools2.Method: 'name' is null");
+                Trace.TraceError($"AccessTools2.Method: type '{type}', 'name' is null");
                 return null;
             }
 

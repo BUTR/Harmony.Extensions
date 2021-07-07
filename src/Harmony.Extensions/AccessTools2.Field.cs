@@ -70,12 +70,15 @@ namespace HarmonyLib.BUTR.Extensions
             }
             if (name is null)
             {
-                Trace.TraceError("AccessTools2.DeclaredField: 'name' is null");
+                Trace.TraceError($"AccessTools2.DeclaredField: type '{type}', 'name' is null");
                 return null;
             }
             var fieldInfo = type.GetField(name, AccessTools.allDeclared);
             if (fieldInfo is null)
+            {
                 Trace.TraceError($"AccessTools2.DeclaredField: Could not find field for type '{type}' and name '{name}'");
+                return null;
+            }
             return fieldInfo;
         }
 
@@ -93,7 +96,7 @@ namespace HarmonyLib.BUTR.Extensions
             }
             if (name is null)
             {
-                Trace.TraceError("AccessTools2.Field: 'name' is null");
+                Trace.TraceError($"AccessTools2.Field: type '{type}', 'name' is null");
                 return null;
             }
             var fieldInfo = FindIncludingBaseTypes(type, t => t.GetField(name, AccessTools.all));

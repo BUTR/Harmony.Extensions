@@ -68,7 +68,7 @@ namespace HarmonyLib.BUTR.Extensions
             }
             if (name is null)
             {
-                Trace.TraceError("AccessTools2.DeclaredProperty: 'name' is null");
+                Trace.TraceError($"AccessTools2.DeclaredProperty: type '{type}', 'name' is null");
                 return null;
             }
             var property = type.GetProperty(name, AccessTools.allDeclared);
@@ -102,7 +102,7 @@ namespace HarmonyLib.BUTR.Extensions
             }
             if (name is null)
             {
-                Trace.TraceError("AccessTools2.Property: 'name' is null");
+                Trace.TraceError($"AccessTools2.Property: type '{type}', 'name' is null");
                 return null;
             }
             var property = FindIncludingBaseTypes(type, t => t.GetProperty(name, AccessTools.all));

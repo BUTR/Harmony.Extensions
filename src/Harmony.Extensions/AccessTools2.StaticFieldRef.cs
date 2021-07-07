@@ -98,7 +98,7 @@ namespace HarmonyLib.BUTR.Extensions
 
             if (!fieldInfo.IsStatic)
             {
-                Trace.TraceError("AccessTools2.StaticFieldRefAccessInternal: Field must be static");
+                Trace.TraceError($"AccessTools2.StaticFieldRefAccessInternal<{typeof(F).FullName}>: Field must be static");
                 return null;
             }
 

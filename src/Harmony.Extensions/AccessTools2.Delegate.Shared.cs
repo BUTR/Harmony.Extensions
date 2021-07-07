@@ -100,7 +100,7 @@ namespace HarmonyLib.BUTR.Extensions
             }
             catch (Exception ex)
             {
-                Trace.TraceError($"AccessTools2.GetDelegate: Error while compiling lambds expression '{ex}'");
+                Trace.TraceError($"AccessTools2.GetDelegate<{typeof(TDelegate).FullName}>: Error while compiling lambds expression '{ex}'");
                 return null;
             }
         }
@@ -187,7 +187,7 @@ namespace HarmonyLib.BUTR.Extensions
             }
             catch (Exception ex)
             {
-                Trace.TraceError($"AccessTools2.GetDelegate: Error while compiling lambds expression '{ex}'");
+                Trace.TraceError($"AccessTools2.GetDelegate<{typeof(TDelegate).FullName}>: Error while compiling lambds expression '{ex}'");
                 return null;
             }
         }

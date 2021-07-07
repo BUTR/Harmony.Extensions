@@ -60,7 +60,10 @@ namespace HarmonyLib.BUTR.Extensions
         public static bool TryPatch(this Harmony harmony, MethodBase? original, MethodInfo? prefix = null, MethodInfo? postfix = null, MethodInfo? transpiler = null, MethodInfo? finalizer = null)
         {
             if (original is null || (prefix is null && postfix is null && transpiler is null && finalizer is null))
+            {
+                Trace.TraceError($"HarmonyExtensions.TryPatch: 'original' or all methods are null");
                 return false;
+            }
 
             var prefixMethod = prefix is null ? null : new HarmonyMethod(prefix);
             var postfixMethod = postfix is null ? null : new HarmonyMethod(postfix);
@@ -73,17 +76,20 @@ namespace HarmonyLib.BUTR.Extensions
             }
             catch (Exception e)
             {
-                Trace.TraceError($"HarmonyExtensions.TryPatch: Execption occurred: {e}");
+                Trace.TraceError($"HarmonyExtensions.TryPatch: Exception occurred: {e}, original '{original}'");
                 return false;
             }
 
             return true;
         }
 
-        public static ReversePatcher? TryCreateReversePatcher(this Harmony harmony, MethodBase? original = null, MethodInfo? standin = null)
+        public static ReversePatcher? TryCreateReversePatcher(this Harmony harmony, MethodBase? original, MethodInfo? standin)
         {
             if (original is null || standin is null)
+            {
+                Trace.TraceError($"HarmonyExtensions.TryCreateReversePatcher: 'original' or 'standin' is null");
                 return null;
+            }
 
             try
             {
@@ -91,8 +97,30 @@ namespace HarmonyLib.BUTR.Extensions
             }
             catch (Exception e)
             {
-                Trace.TraceError($"HarmonyExtensions.TryCreateReversePatcher: Execption occurred: {e}");
+                Trace.TraceError($"HarmonyExtensions.TryCreateReversePatcher: Exception occurred: {e}, original '{original}'");
                 return null;
+            }
+        }
+
+        public static bool TryCreateReversePatcher(this Harmony harmony, MethodBase? original, MethodInfo? standin, out ReversePatcher? result)
+        {
+            if (original is null || standin is null)
+            {
+                Trace.TraceError($"HarmonyExtensions.TryCreateReversePatcher: 'original' or 'standin' is null");
+                result = null;
+                return false;
+            }
+
+            try
+            {
+                result = harmony.CreateReversePatcher(original, new HarmonyMethod(standin));
+                return true;
+            }
+            catch (Exception e)
+            {
+                Trace.TraceError($"HarmonyExtensions.TryCreateReversePatcher: Exception occurred: {e}, original '{original}'");
+                result = null;
+                return false;
             }
         }
     }

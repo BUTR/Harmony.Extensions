@@ -209,7 +209,7 @@ namespace HarmonyLib.BUTR.Extensions
             if (type is null)
                 type = AllTypes().FirstOrDefault(t => t.Name == name);
             if (type is null)
-                Trace.TraceError($"AccessTools2.TypeByName: Could not find type named {name}");
+                Trace.TraceError($"AccessTools2.TypeByName: Could not find type named '{name}'");
             return type;
         }
 
@@ -244,7 +244,7 @@ namespace HarmonyLib.BUTR.Extensions
 
             if (fieldInfo.IsStatic)
             {
-                Trace.TraceError("AccessTools2.GetInstanceField: Field must not be static");
+                Trace.TraceError($"AccessTools2.GetInstanceField: Field must not be static, type '{type}', fieldName '{fieldName}'");
                 return null;
             }
 
@@ -254,7 +254,10 @@ namespace HarmonyLib.BUTR.Extensions
         private static bool ValidateFieldType<F>(FieldInfo? fieldInfo)
         {
             if (fieldInfo is null)
+            {
+                Trace.TraceError($"AccessTools2.ValidateFieldType<{typeof(F).FullName}>: 'fieldInfo' is null");
                 return false;
+            }
 
             var returnType = typeof(F);
             var fieldType = fieldInfo.FieldType;
@@ -266,21 +269,21 @@ namespace HarmonyLib.BUTR.Extensions
                 var underlyingType = Enum.GetUnderlyingType(fieldType);
                 if (returnType != underlyingType)
                 {
-                    Trace.TraceError($"FieldRefAccess return type must be the same as FieldType or FieldType's underlying integral type ({underlyingType}) for enum types");
+                    Trace.TraceError($"AccessTools2.ValidateFieldType<{typeof(F).FullName}>: FieldRefAccess return type must be the same as FieldType or FieldType's underlying integral type ({underlyingType}) for enum types, fieldInfo '{fieldInfo}'");
                     return false;
                 }
             }
             else if (fieldType.IsValueType)
             {
                 // Boxing/unboxing is not allowed for ref values of value types.
-                Trace.TraceError("FieldRefAccess return type must be the same as FieldType for value types");
+                Trace.TraceError($"AccessTools2.ValidateFieldType<{typeof(F).FullName}>: FieldRefAccess return type must be the same as FieldType for value types, fieldInfo '{fieldInfo}'");
                 return false;
             }
             else
             {
                 if (returnType.IsAssignableFrom(fieldType) is false)
                 {
-                    Trace.TraceError("FieldRefAccess return type must be assignable from FieldType for reference types");
+                    Trace.TraceError($"AccessTools2.ValidateFieldType<{typeof(F).FullName}>: FieldRefAccess return type must be assignable from FieldType for reference types");
                     return false;
                 }
             }
@@ -295,12 +298,12 @@ namespace HarmonyLib.BUTR.Extensions
 
             if (fieldInfo.IsStatic)
             {
-                Trace.TraceError("AccessTools2.ValidateStructField: Field must not be static");
+                Trace.TraceError($"AccessTools2.ValidateStructField<{typeof(T).FullName}, {typeof(F).FullName}>: Field must not be static");
                 return false;
             }
             if (fieldInfo.DeclaringType != typeof(T))
             {
-                Trace.TraceError("AccessTools2.ValidateStructField: FieldDeclaringType must be T (StructFieldRefAccess instance type)");
+                Trace.TraceError($"AccessTools2.ValidateStructField<{typeof(T).FullName}, {typeof(F).FullName}>: FieldDeclaringType must be T (StructFieldRefAccess instance type)");
                 return false;
             }
 
@@ -321,7 +324,7 @@ namespace HarmonyLib.BUTR.Extensions
             var parts = typeColonName!.Split(':');
             if (parts.Length != 2)
             {
-                Trace.TraceError("AccessTools2.TryGetComponents: Name must be specified as 'Namespace.Type1.Type2:Name");
+                Trace.TraceError($"AccessTools2.TryGetComponents: typeColonName '{typeColonName}', name must be specified as 'Namespace.Type1.Type2:Name");
 
                 type = null;
                 name = null;

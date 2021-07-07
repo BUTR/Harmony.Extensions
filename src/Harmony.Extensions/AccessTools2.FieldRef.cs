@@ -116,7 +116,7 @@ namespace HarmonyLib.BUTR.Extensions
                 // the field is not a struct instance field, since T could be object, ValueType, or an interface that the struct implements.
                 if (declaringType.IsValueType)
                 {
-                    Trace.TraceError("AccessTools2.FieldRefAccess: FieldDeclaringType must be a class");
+                    Trace.TraceError($"AccessTools2.FieldRefAccess<object, {typeof(F).FullName}>: FieldDeclaringType must be a class");
                     return null;
                 }
 
@@ -156,7 +156,7 @@ namespace HarmonyLib.BUTR.Extensions
                 // the field is not a struct instance field, since T could be object, ValueType, or an interface that the struct implements.
                 if (declaringType.IsValueType)
                 {
-                    Trace.TraceError("AccessTools2.FieldRefAccess: FieldDeclaringType must be a class");
+                    Trace.TraceError($"AccessTools2.FieldRefAccess<{typeof(T).FullName}, {typeof(F).FullName}>: FieldDeclaringType must be a class");
                     return null;
                 }
 
@@ -180,7 +180,7 @@ namespace HarmonyLib.BUTR.Extensions
 
             if (fieldInfo.IsStatic)
             {
-                Trace.TraceError("AccessTools2.FieldRefAccessInternal: Field must not be static");
+                Trace.TraceError($"AccessTools2.FieldRefAccessInternal<{typeof(T).FullName}, {typeof(F).FullName}>: Field must not be static");
                 return null;
             }
 
@@ -219,7 +219,7 @@ namespace HarmonyLib.BUTR.Extensions
                 needCastclass = delegateInstanceType.IsAssignableFrom(declaringType);
                 if (needCastclass is false && declaringType.IsAssignableFrom(delegateInstanceType) is false)
                 {
-                    Trace.TraceError("FieldDeclaringType must be assignable from or to T (FieldRefAccess instance type) - \"instanceOfT is FieldDeclaringType\" must be possible");
+                    Trace.TraceError($"AccessTools2.FieldRefNeedsClasscast: FieldDeclaringType must be assignable from or to T (FieldRefAccess instance type) - 'instanceOfT is FieldDeclaringType' must be possible, delegateInstanceType '{delegateInstanceType}', declaringType '{declaringType}'");
                     return null;
                 }
             }
