@@ -36,6 +36,8 @@
 // SOFTWARE.
 #endregion
 
+using FastExpressionCompiler;
+
 #if !HARMONYEXTENSIONS_DISABLE
 #nullable enable
 #if !HARMONYEXTENSIONS_ENABLEWARNINGS
@@ -94,13 +96,15 @@ namespace HarmonyLib.BUTR.Extensions
                 ? @new 
                 : Expression.Convert(@new, delegateInvoke.ReturnType);
 
-            try
+            var @delegate = Expression.Lambda<TDelegate>(body, returnParameters).TryCompile<TDelegate>(CompilerFlags.EnableDelegateDebugInfo);
+
+            if (@delegate is not null)
             {
-                return Expression.Lambda<TDelegate>(body, returnParameters).Compile();
+                return @delegate;
             }
-            catch (Exception ex)
+            else
             {
-                Trace.TraceError($"AccessTools2.GetDelegate: Error while compiling lambds expression '{ex}'");
+                Trace.TraceError($"AccessTools2.GetDelegate<{typeof(TDelegate).FullName}>: Failed to compile the lambda expression");
                 return null;
             }
         }
@@ -179,15 +183,21 @@ namespace HarmonyLib.BUTR.Extensions
                 ? (Expression) call
                 : (Expression) Expression.Convert(call, methodInfo.ReturnType);
 
-            try
+            var @delegate = Expression.Lambda<TDelegate>(body, hasInstanceType
+                ? new List<ParameterExpression> {instanceParameter!}.Concat(returnParameters)
+                : returnParameters).TryCompileWithoutClosure<TDelegate>(CompilerFlags.EnableDelegateDebugInfo);
+
+            var t = Expression.Lambda<TDelegate>(body, hasInstanceType
+                ? new List<ParameterExpression> {instanceParameter!}.Concat(returnParameters)
+                : returnParameters).ToCSharpString();
+
+            if (@delegate is not null)
             {
-                return Expression.Lambda<TDelegate>(body, hasInstanceType
-                    ? new List<ParameterExpression> { instanceParameter! }.Concat(returnParameters)
-                    : returnParameters).Compile();
+                return @delegate;
             }
-            catch (Exception ex)
+            else
             {
-                Trace.TraceError($"AccessTools2.GetDelegate: Error while compiling lambds expression '{ex}'");
+                Trace.TraceError($"AccessTools2.GetDelegate<{typeof(TDelegate).FullName}>: Failed to compile the lambda expression");
                 return null;
             }
         }
