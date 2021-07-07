@@ -45,8 +45,10 @@
 namespace HarmonyLib.BUTR.Extensions
 {
     using global::System;
+    using global::System.Diagnostics.CodeAnalysis;
     using global::System.Reflection;
 
+    [ExcludeFromCodeCoverage]
     internal readonly struct AccessCacheHandle
     {
         internal enum MemberType { Any, Static, Instance }

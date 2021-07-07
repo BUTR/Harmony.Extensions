@@ -62,6 +62,7 @@ namespace HarmonyLib.BUTR.Extensions
 #endif
         static partial class AccessTools2
     {
+        [ExcludeFromCodeCoverage]
         private readonly struct DynamicMethodDefinitionHandle
         {
             public static DynamicMethodDefinitionHandle? Create(string name, Type returnType, Type[] parameterTypes) =>
@@ -76,6 +77,7 @@ namespace HarmonyLib.BUTR.Extensions
             public MethodInfo? Generate() => Helper.Generate is null ? null : Helper.Generate(_dynamicMethodDefinition);
         }
 
+        [ExcludeFromCodeCoverage]
         private readonly struct ILGeneratorHandle
         {
             private readonly object _ilGenerator;
@@ -87,6 +89,7 @@ namespace HarmonyLib.BUTR.Extensions
             public void Emit(OpCode opcode, Type type) => Helper.Emit3?.Invoke(_ilGenerator, opcode, type);
         }
 
+        [ExcludeFromCodeCoverage]
         private static class Helper
         {
             public delegate object DynamicMethodDefinitionCtorDelegate(string name, Type returnType, Type[] parameterTypes);
