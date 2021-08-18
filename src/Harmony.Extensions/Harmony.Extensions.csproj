@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <HarmonyVersion>2.0.4</HarmonyVersion>
+    <HarmonyVersion>2.1.1</HarmonyVersion>
     <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
