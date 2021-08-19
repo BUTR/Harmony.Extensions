@@ -26,7 +26,8 @@ env:
   # Disable sending .NET CLI telemetry to Microsoft.
   DOTNET_CLI_TELEMETRY_OPTOUT: true
   # NuGet won't extract the XML files
-  NUGET_XMLDOC_MODE: skip 
+  NUGET_XMLDOC_MODE: skip
+  TEST_FILTERS: '+[Harmony.Extensions*]* -[Harmony.Extensions*.Tests]* -[*]System.Diagnostics.CodeAnalysis*'
 
 jobs:
   test:
@@ -99,8 +100,8 @@ jobs:
     - name: Tests with Coverage
       if: matrix.os == 'windows-latest'
       run: >-
-          opencover/OpenCover.Console.exe -register -target:"dotnet.exe" -targetargs:"test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --no-build --configuration Debug --no-build" -filter:"+[Harmony.Extensions*]* -[Harmony.Extensions*.Tests]*" -output:coverage_debug.xml -mergebyhash;
-          opencover/OpenCover.Console.exe -register -target:"dotnet.exe" -targetargs:"test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --no-build --configuration Release --no-build" -filter:"+[Harmony.Extensions*]* -[Harmony.Extensions*.Tests]*" -output:coverage_release.xml -mergebyhash;
+          opencover/OpenCover.Console.exe -register -target:"dotnet.exe" -targetargs:"test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --no-build --configuration Debug --no-build" -filter:"${{env.TEST_FILTERS}}" -output:coverage_debug.xml -mergebyhash;
+          opencover/OpenCover.Console.exe -register -target:"dotnet.exe" -targetargs:"test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --no-build --configuration Release --no-build" -filter:"${{env.TEST_FILTERS}}" -output:coverage_release.xml -mergebyhash;
       shell: pwsh
 
     - name: ReportGenerator
