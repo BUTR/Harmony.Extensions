@@ -25,14 +25,13 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: DocFX Setup
-      uses: butr/actions-docfx-setup@v1.1
+      uses: butr/actions-docfx-setup@v2.3
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
 
-    - name: Build Harmony.Extensions and DocFx.Plugin.LastModified
+    - name: Build Harmony.Extensions
       run: >-
         dotnet build src/Harmony.Extensions/Harmony.Extensions.csproj;
-        #dotnet build build/DocFx.Plugin.LastModified/DocFx.Plugin.LastModified --configuration Release --output docs/_template/last-modified/plugins;
       shell: pwsh
 
     - name: Run DocFX
