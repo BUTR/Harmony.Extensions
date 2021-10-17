@@ -430,7 +430,7 @@ namespace HarmonyLib.BUTR.Extensions
 		/// <param name="action">The action receiving a <see cref="Traverse"/> instance for each field</param>
         public static void IterateFields(object source, Action<Traverse2> action)
 		{
-			if (action is null!)
+			if (action is null)
 				return;
 
 			var sourceTrv = Create(source);
@@ -443,7 +443,7 @@ namespace HarmonyLib.BUTR.Extensions
 		/// <param name="action">The action receiving a pair of <see cref="Traverse"/> instances for each field pair</param>
         public static void IterateFields(object source, object target, Action<Traverse2, Traverse2> action)
 		{
-            if (action is null!)
+            if (action is null)
                 return;
 
 			var sourceTrv = Create(source);
@@ -457,7 +457,7 @@ namespace HarmonyLib.BUTR.Extensions
 		/// <param name="action">The action receiving a dot path representing the field pair and the <see cref="Traverse"/> instances</param>
         public static void IterateFields(object source, object target, Action<string, Traverse2, Traverse2> action)
 		{
-            if (action is null!)
+            if (action is null)
                 return;
 
 			var sourceTrv = Create(source);
@@ -470,7 +470,7 @@ namespace HarmonyLib.BUTR.Extensions
 		/// <param name="action">The action receiving a <see cref="Traverse"/> instance for each property</param>
         public static void IterateProperties(object source, Action<Traverse2> action)
 		{
-            if (action is null!)
+            if (action is null)
                 return;
 
 			var sourceTrv = Create(source);
@@ -483,7 +483,7 @@ namespace HarmonyLib.BUTR.Extensions
 		/// <param name="action">The action receiving a pair of <see cref="Traverse"/> instances for each property pair</param>
         public static void IterateProperties(object source, object target, Action<Traverse2, Traverse2> action)
 		{
-            if (action is null!)
+            if (action is null)
                 return;
 
 			var sourceTrv = Create(source);
@@ -497,7 +497,7 @@ namespace HarmonyLib.BUTR.Extensions
 		/// <param name="action">The action receiving a dot path representing the property pair and the <see cref="Traverse"/> instances</param>
         public static void IterateProperties(object source, object target, Action<string, Traverse2, Traverse2> action)
 		{
-            if (action is null!)
+            if (action is null)
                 return;
 
 			var sourceTrv = Create(source);
