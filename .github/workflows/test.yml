@@ -100,8 +100,8 @@ jobs:
     - name: Tests with Coverage
       if: matrix.os == 'windows-latest'
       run: >-
-          opencover/OpenCover.Console.exe -register -target:"dotnet.exe" -targetargs:"test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --no-build --configuration Debug --no-build" -filter:"${{env.TEST_FILTERS}}" -output:coverage_debug.xml -mergebyhash;
-          opencover/OpenCover.Console.exe -register -target:"dotnet.exe" -targetargs:"test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --no-build --configuration Release --no-build" -filter:"${{env.TEST_FILTERS}}" -output:coverage_release.xml -mergebyhash;
+          opencover/OpenCover.Console.exe -register -target:"dotnet.exe" -targetargs:"test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --no-build --configuration Debug --no-build" -filter:"${{env.TEST_FILTERS}}" -excludebyattribute:"*.ExcludeFromCodeCoverage*" -output:coverage_debug.xml -mergebyhash;
+          opencover/OpenCover.Console.exe -register -target:"dotnet.exe" -targetargs:"test tests/Harmony.Extensions.Tests/Harmony.Extensions.Tests.csproj --no-build --configuration Release --no-build" -filter:"${{env.TEST_FILTERS}}" -excludebyattribute:"*.ExcludeFromCodeCoverage*" -output:coverage_release.xml -mergebyhash;
       shell: pwsh
 
     - name: ReportGenerator
