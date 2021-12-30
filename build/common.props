@@ -5,7 +5,6 @@
   <PropertyGroup>
     <GITHUB_RUN_NUMBER Condition="$(GITHUB_RUN_NUMBER) == ''">0</GITHUB_RUN_NUMBER>
     <Version>2.0.0.$(GITHUB_RUN_NUMBER)</Version>
-    <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
 
@@ -15,20 +14,6 @@
     <DefineConstants>$(DefineConstants);HARMONYEXTENSIONS_ENABLEWARNINGS;HARMONYEXTENSIONS_PUBLIC;</DefineConstants>
 
     <NoWarn>$(NoWarn);NU1701</NoWarn>
-  </PropertyGroup>
-
-  <!--NuGetizer-->
-  <PropertyGroup>
-    <BuildProjectReferences>false</BuildProjectReferences>
-    <BuildOnPack>false</BuildOnPack>
-    <PackOnBuild>false</PackOnBuild>
-    <PackBuildOutput>false</PackBuildOutput>
-    <PackCompile>true</PackCompile>
-    <PackEmbeddedResource>true</PackEmbeddedResource>
-    <EnablePackCleanup>false</EnablePackCleanup>
-    <EnablePackInference>false</EnablePackInference>
-
-    <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)' == ''">obj</BaseIntermediateOutputPath>
   </PropertyGroup>
 
   <!--GitHub Actions-->
@@ -44,8 +29,8 @@
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
   </ItemGroup>
   <!--CI Builds-->
-  <ItemGroup Condition="$(TargetFramework) == 'net45' AND $(OS) != 'Windows_NT'">
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0">
+  <ItemGroup Condition="$(TargetFramework) == 'net45' AND ($(OS) != 'Windows_NT' OR $(VisualStudioVersion) == '17.0')">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

@@ -1,10 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net35;net45;net472;net48;netcoreapp3.0;netcoreapp3.1;net5.0</TargetFrameworks>
     <TargetFrameworks>net45;net472;net48;netcoreapp3.0;netcoreapp3.1;net5.0</TargetFrameworks>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <LangVersion>9.0</LangVersion>
     <IsPackable>false</IsPackable>
     <RootNamespace>HarmonyLibTests</RootNamespace>
     <NoWarn>$(NoWarn);CS0169;CS0414;NETSDK1138</NoWarn>
@@ -22,12 +20,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <!-- Reference assemblies are needed for non-Windows .NET Framework targeting builds. -->
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
-    <PackageReference Include="jnm2.ReferenceAssemblies.net35" Version="1.0.1" PrivateAssets="all" Condition="'$(TargetFramework)'=='net35'" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFrameworkIdentifier)'=='.NETCoreApp'">
