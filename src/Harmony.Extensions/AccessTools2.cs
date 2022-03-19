@@ -192,6 +192,29 @@ namespace HarmonyLib.BUTR.Extensions
             }
         }
 
+        /// <summary>Gets all types from a given assembly if it has not any type loading related exceptions</summary>
+        /// <param name="assembly">The assembly</param>
+        /// <returns>An array of types</returns>
+        /// <remarks>
+        /// This calls and returns <see cref="Assembly.GetTypes"/>, while catching any thrown <see cref="ReflectionTypeLoadException"/>.
+        /// If such an exception is thrown, returns an empty array.
+        /// </remarks>
+        public static Type[] GetTypesFromAssemblyIfValid(Assembly assembly)
+        {
+            if (assembly is null)
+                return Type.EmptyTypes;
+
+            try
+            {
+                return assembly.GetTypes();
+            }
+            catch (ReflectionTypeLoadException ex)
+            {
+                Trace.TraceError($"AccessTools2.GetTypesFromAssemblyIfValid: assembly {assembly} => {ex}");
+                return Type.EmptyTypes;
+            }
+        }
+
         /// <summary>Gets a type by name. Prefers a full name with namespace but falls back to the first type matching the name otherwise</summary>
         /// <param name="name">The name</param>
         /// <returns>A type or null if not found</returns>

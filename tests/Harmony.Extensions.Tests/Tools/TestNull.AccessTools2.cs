@@ -246,6 +246,7 @@ namespace HarmonyLibTests.Tools
             Assert.IsNull(AccessTools2.FindIncludingBaseTypes<TestClass>(null!, null!));
             Assert.IsNull(AccessTools2.FindIncludingBaseTypes<TestClass>(typeof(TestClass), null!));
             Assert.IsEmpty(AccessTools2.GetTypesFromAssembly(null!));
+            Assert.IsEmpty(AccessTools2.GetTypesFromAssemblyIfValid(null!));
         }
     }
 }
