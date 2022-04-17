@@ -31,6 +31,16 @@ jobs:
         dotnet pack src/Harmony.Extensions.sln --configuration Release -o "./packages";
       shell: pwsh
 
+    - name: Run _build
+      run: >-
+        dotnet tool install -g Kuinox.NupkgDeterministicator;
+        $build_date = $(git show -s --date=iso-strict --format=%cd);
+        Get-ChildItem "./packages" -Filter *.nupkg | 
+        Foreach-Object {
+          NupkgDeterministicator $_.FullName $build_date
+        }
+      shell: pwsh
+
     - name: Push to NuGet
       run: dotnet nuget push "./packages/*.nupkg" -k ${{secrets.NUGET_API_KEY}} -s https://www.nuget.org
       shell: pwsh
