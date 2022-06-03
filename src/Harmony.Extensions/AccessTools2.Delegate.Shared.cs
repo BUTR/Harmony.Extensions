@@ -90,9 +90,7 @@ namespace HarmonyLib.BUTR.Extensions
                 .ToList();
 
             Expression @new = Expression.New(constructorInfo, inputParameters);
-            var body = @new.Type.Equals(delegateInvoke.ReturnType) 
-                ? @new 
-                : Expression.Convert(@new, delegateInvoke.ReturnType);
+            var body = Expression.Convert(@new, delegateInvoke.ReturnType);
 
             try
             {
@@ -175,9 +173,7 @@ namespace HarmonyLib.BUTR.Extensions
 
             if (call is null) return null;
 
-            var body = call.Type.Equals(methodInfo.ReturnType) 
-                ? (Expression) call
-                : (Expression) Expression.Convert(call, methodInfo.ReturnType);
+            var body = Expression.Convert(call, delegateInvoke.ReturnType);
 
             try
             {
