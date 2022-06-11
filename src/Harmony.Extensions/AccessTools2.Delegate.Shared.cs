@@ -198,18 +198,7 @@ namespace HarmonyLib.BUTR.Extensions
         public static TDelegate? GetDelegate<TDelegate>(MethodInfo methodInfo) where TDelegate : Delegate => GetDelegate<TDelegate>(null, methodInfo);
 
         public static TDelegate? GetDelegateObjectInstance<TDelegate>(MethodInfo methodInfo) where TDelegate : Delegate => GetDelegate<TDelegate>(methodInfo);
-
-
-        public static TDelegate? GetDelegate<TDelegate>(object? instance, string typeColonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate =>
-            Method(typeColonMethod, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo) : null;
-
-        public static TDelegate? GetDelegate<TDelegate>(string typeColonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate =>
-            GetDelegate<TDelegate>((object?) null, typeColonMethod, parameters, generics);
-
-        public static TDelegate? GetDelegateObjectInstance<TDelegate>(string typeColonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate =>
-            GetDelegate<TDelegate>(typeColonMethod, parameters, generics);
-
-
+        
         private static bool ParametersAreEqual(ParameterInfo[] delegateParameters, ParameterInfo[] methodParameters)
         {
             if (delegateParameters.Length - methodParameters.Length == 0)

@@ -92,9 +92,30 @@ namespace HarmonyLib.BUTR.Extensions
             var flags = searchForStatic ? AccessTools.all & ~BindingFlags.Instance : AccessTools.all & ~BindingFlags.Static;
             return FindIncludingBaseTypes(type, t => t.GetConstructor(flags, null, parameters, new ParameterModifier[0]));
         }
+        
+        //
+        
+        /// <summary>Gets the reflection information for a constructor by searching the type</summary>
+        /// <param name="typeString">The class/type full name where the constructor is declared</param>
+        /// <param name="parameters">Optional parameters to target a specific overload of the method</param>
+        /// <param name="searchForStatic">Optional parameters to only consider static constructors</param>
+        /// <returns>A constructor info or null when type is null or when the method cannot be found</returns>
+        public static ConstructorInfo? DeclaredConstructor(string typeString, Type[]? parameters = null, bool searchForStatic = false)
+        {
+            if (string.IsNullOrWhiteSpace(typeString))
+            {
+                Trace.TraceError("AccessTools2.Constructor: 'typeString' is null or whitespace/empty");
+                return null;
+            }
 
+            var type = TypeByName(typeString);
+            if (type is null)
+                return null;
 
-        /// <summary>Gets the reflection information for a constructor by searching the type and all its super types</summary>
+            return DeclaredConstructor(type, parameters, searchForStatic);
+        }
+        
+        /// <summary>Gets the reflection information for a constructor by searching the type</summary>
         /// <param name="typeString">The class/type full name where the constructor is declared</param>
         /// <param name="parameters">Optional parameters to target a specific overload of the method</param>
         /// <param name="searchForStatic">Optional parameters to only consider static constructors</param>
@@ -111,7 +132,7 @@ namespace HarmonyLib.BUTR.Extensions
             if (type is null)
                 return null;
 
-            return DeclaredConstructor(type, parameters, searchForStatic);
+            return Constructor(type, parameters, searchForStatic);
         }
     }
 }

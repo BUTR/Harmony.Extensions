@@ -76,19 +76,7 @@ namespace HarmonyLib.BUTR.Extensions
                 Trace.TraceError($"AccessTools2.DeclaredProperty: Could not find property for type '{type}' and name '{name}'");
             return property;
         }
-
-        /// <summary>Gets the reflection information for the getter method of a directly declared property</summary>
-        /// <param name="type">The class/type where the property is declared</param>
-        /// <param name="name">The name of the property (case sensitive)</param>
-        /// <returns>A method or null when type/name is null or when the property cannot be found</returns>
-        public static MethodInfo? DeclaredPropertyGetter(Type type, string name) => DeclaredProperty(type, name)?.GetGetMethod(true);
-
-        /// <summary>Gets the reflection information for the setter method of a directly declared property</summary>
-        /// <param name="type">The class/type where the property is declared</param>
-        /// <param name="name">The name of the property (case sensitive)</param>
-        /// <returns>A method or null when type/name is null or when the property cannot be found</returns>
-        public static MethodInfo? DeclaredPropertySetter(Type type, string name) => DeclaredProperty(type, name)?.GetSetMethod(true);
-
+        
         /// <summary>Gets the reflection information for a property by searching the type and all its super types</summary>
         /// <param name="type">The class/type</param>
         /// <param name="name">The name</param>
@@ -111,6 +99,20 @@ namespace HarmonyLib.BUTR.Extensions
             return property;
         }
 
+        //
+        
+        /// <summary>Gets the reflection information for the getter method of a directly declared property</summary>
+        /// <param name="type">The class/type where the property is declared</param>
+        /// <param name="name">The name of the property (case sensitive)</param>
+        /// <returns>A method or null when type/name is null or when the property cannot be found</returns>
+        public static MethodInfo? DeclaredPropertyGetter(Type type, string name) => DeclaredProperty(type, name)?.GetGetMethod(true);
+
+        /// <summary>Gets the reflection information for the setter method of a directly declared property</summary>
+        /// <param name="type">The class/type where the property is declared</param>
+        /// <param name="name">The name of the property (case sensitive)</param>
+        /// <returns>A method or null when type/name is null or when the property cannot be found</returns>
+        public static MethodInfo? DeclaredPropertySetter(Type type, string name) => DeclaredProperty(type, name)?.GetSetMethod(true);
+
         /// <summary>Gets the reflection information for the getter method of a property by searching the type and all its super types</summary>
         /// <param name="type">The class/type</param>
         /// <param name="name">The name</param>
@@ -123,7 +125,19 @@ namespace HarmonyLib.BUTR.Extensions
         /// <returns>A method or null when type/name is null or when the property cannot be found</returns>
         public static MethodInfo? PropertySetter(Type type, string name) => Property(type, name)?.GetSetMethod(true);
 
+        //
+        
+        public static PropertyInfo? DeclaredProperty(string typeColonPropertyName)
+        {
+            if (!TryGetComponents(typeColonPropertyName, out var type, out var name))
+            {
+                Trace.TraceError($"AccessTools2.DeclaredProperty: Could not find type or property for '{typeColonPropertyName}'");
+                return null;
+            }
 
+            return DeclaredProperty(type, name);
+        }
+        
         public static PropertyInfo? Property(string typeColonPropertyName)
         {
             if (!TryGetComponents(typeColonPropertyName, out var type, out var name))
@@ -132,9 +146,15 @@ namespace HarmonyLib.BUTR.Extensions
                 return null;
             }
 
-            return DeclaredProperty(type, name);
+            return Property(type, name);
         }
 
+        //
+        
+        public static MethodInfo? DeclaredPropertySetter(string typeColonPropertyName) => DeclaredProperty(typeColonPropertyName)?.GetSetMethod(true);
+        
+        public static MethodInfo? DeclaredPropertyGetter(string typeColonPropertyName) => DeclaredProperty(typeColonPropertyName)?.GetGetMethod(true);
+        
         public static MethodInfo? PropertyGetter(string typeColonPropertyName) => Property(typeColonPropertyName)?.GetGetMethod(true);
 
         public static MethodInfo? PropertySetter(string typeColonPropertyName) => Property(typeColonPropertyName)?.GetSetMethod(true);

@@ -54,12 +54,17 @@ namespace HarmonyLib.BUTR.Extensions
 #endif
         static partial class AccessTools2
     {
-        public static TDelegate? GetConstructorDelegate<TDelegate>(Type type, Type[]? parameters = null) where TDelegate : Delegate
-            => Constructor(type, parameters) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo) : null;
-
         public static TDelegate? GetDeclaredConstructorDelegate<TDelegate>(Type type, Type[]? parameters = null) where TDelegate : Delegate
             => DeclaredConstructor(type, parameters) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo) : null;
-
+        
+        public static TDelegate? GetConstructorDelegate<TDelegate>(Type type, Type[]? parameters = null) where TDelegate : Delegate
+            => Constructor(type, parameters) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo) : null;
+        
+        //
+        
+        public static TDelegate? GetDeclaredConstructorDelegate<TDelegate>(string typeString, Type[]? parameters = null) where TDelegate : Delegate
+            => DeclaredConstructor(typeString, parameters) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo) : null;
+        
         public static TDelegate? GetConstructorDelegate<TDelegate>(string typeString, Type[]? parameters = null) where TDelegate : Delegate
             => Constructor(typeString, parameters) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo) : null;
     }

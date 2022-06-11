@@ -56,18 +56,36 @@ namespace HarmonyLib.BUTR.Extensions
         static partial class AccessTools2
     {
         /// <summary>
-        /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/> or any of its base types,
-        /// and then bind it to an instance type of <see cref="object"/>.
+        /// Get a delegate for an instance method described by <paramref name="methodInfo"/> and bound to <paramref name="instance"/>.
         /// </summary>
-        /// <param name="type">The type where the method is declared.</param>
+        /// <param name="instance">The instance for which the method is defined.</param>
+        /// <param name="methodInfo">The method's <see cref="MethodInfo"/>.</param>
+        /// <returns>
+        /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="methodInfo"/>
+        /// is <see langword="null"/> or when the method cannot be found.
+        /// </returns>
+        public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, MethodInfo methodInfo) where TDelegate : Delegate
+            => GetDelegate<TDelegate>(instance, methodInfo);
+        
+        //
+        
+        /// <summary>
+        /// Get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>,
+        /// and then bind it to an instance type of <see cref="object"/>.
+        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
+        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
+        /// </summary>
+        /// <param name="type">The type from which to start searching for the method's definition.</param>
         /// <param name="method">The name of the method (case sensitive).</param>
+        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
+        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
         /// <returns>
         /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDelegateObjectInstance<TDelegate>(Type type, string method) where TDelegate : Delegate
-            => Method(type, method) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo) : null;
-
+        public static TDelegate? GetDeclaredDelegateObjectInstance<TDelegate>(Type type, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
+            => DeclaredMethod(type, method, parameters, generics) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo) : null;
+        
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/> or any of its base types,
         /// and then bind it to an instance type of <see cref="object"/>.
@@ -88,18 +106,22 @@ namespace HarmonyLib.BUTR.Extensions
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>,
         /// and then bind it to an instance type of <see cref="object"/>.
+        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
+        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
         /// </summary>
-        /// <param name="type">The type where the method is declared.</param>
+        /// <param name="type">The type from which to start searching for the method's definition.</param>
         /// <param name="method">The name of the method (case sensitive).</param>
+        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
+        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
         /// <returns>
         /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDeclaredDelegateObjectInstance<TDelegate>(Type type, string method) where TDelegate : Delegate
-            => DeclaredMethod(type, method) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo) : null;
-
+        public static TDelegate? GetDeclaredDelegateObjectInstance<TDelegate>(string typeSemicolonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
+            => DeclaredMethod(typeSemicolonMethod, parameters, generics) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo) : null;
+        
         /// <summary>
-        /// Get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>,
+        /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/> or any of its base types,
         /// and then bind it to an instance type of <see cref="object"/>.
         /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
         /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
@@ -112,20 +134,26 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDeclaredDelegateObjectInstance<TDelegate>(Type type, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
-            => DeclaredMethod(type, method, parameters, generics) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo) : null;
+        public static TDelegate? GetDelegateObjectInstance<TDelegate>(string typeSemicolonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
+            => Method(typeSemicolonMethod, parameters, generics) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo) : null;
+
+        //
 
         /// <summary>
-        /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/> or any of its base types.
+        /// Get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>.
+        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
+        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
         /// </summary>
-        /// <param name="type">The type from which to start searching for the method's definition.</param>
+        /// <param name="type">The type where the method is declared.</param>
         /// <param name="method">The name of the method (case sensitive).</param>
+        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
+        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
         /// <returns>
         /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDelegate<TDelegate>(Type type, string method) where TDelegate : Delegate
-            => Method(type, method) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo) : null;
+        public static TDelegate? GetDeclaredDelegate<TDelegate>(Type type, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
+            => DeclaredMethod(type, method, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo) : null;
 
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/>
@@ -146,18 +174,6 @@ namespace HarmonyLib.BUTR.Extensions
 
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>.
-        /// </summary>
-        /// <param name="type">The type where the method is declared.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDeclaredDelegate<TDelegate>(Type type, string method) where TDelegate : Delegate
-            => DeclaredMethod(type, method) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo) : null;
-
-        /// <summary>
-        /// Get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>.
         /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
         /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
         /// </summary>
@@ -169,20 +185,43 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDeclaredDelegate<TDelegate>(Type type, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
-            => DeclaredMethod(type, method, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo) : null;
+        public static TDelegate? GetDeclaredDelegate<TDelegate>(string typeSemicolonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
+            => DeclaredMethod(typeSemicolonMethod, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo) : null;
 
         /// <summary>
-        /// Get a delegate for an instance method declared by <paramref name="instance"/>'s type or any of its base types.
+        /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/>
+        /// or any of its base types.
+        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
+        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
+        /// </summary>
+        /// <param name="type">The type from which to start searching for the method's definition.</param>
+        /// <param name="method">The name of the method (case sensitive).</param>
+        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
+        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
+        /// <returns>
+        /// A delegate or <see langword="null"/> when <paramref name="type"/> or <paramref name="method"/>
+        /// is <see langword="null"/> or when the method cannot be found.
+        /// </returns>
+        public static TDelegate? GetDelegate<TDelegate>(string typeSemicolonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
+            => Method(typeSemicolonMethod, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo) : null;
+        
+        //
+        
+        /// <summary>
+        /// Get a delegate for an instance method named <paramref name="method"/>, directly declared by <paramref name="instance"/>'s type.
+        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
+        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
         /// </summary>
         /// <param name="instance">The instance for which the method is defined.</param>
         /// <param name="method">The name of the method (case sensitive).</param>
+        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
+        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
         /// <returns>
         /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="method"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, string method) where TDelegate : Delegate
-            => instance is not null && Method(instance.GetType(), method) is { } methodInfo ? GetDelegate<TDelegate, TInstance>(instance, methodInfo) : null;
+        public static TDelegate? GetDeclaredDelegate<TDelegate, TInstance>(TInstance instance, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
+            => instance is not null && DeclaredMethod(instance.GetType(), method, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate, TInstance>(instance, methodInfo) : null;
 
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="instance"/>'s type or any of its base types.
@@ -199,50 +238,22 @@ namespace HarmonyLib.BUTR.Extensions
         /// </returns>
         public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
             => instance is not null && Method(instance.GetType(), method, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate, TInstance>(instance, methodInfo) : null;
-
-        /// <summary>
-        /// Get a delegate for an instance method directly declared by <paramref name="instance"/>'s type.
-        /// </summary>
-        /// <param name="instance">The instance for which the method is defined.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDeclaredDelegate<TDelegate, TInstance>(TInstance instance, string method) where TDelegate : Delegate
-            => instance is not null && DeclaredMethod(instance.GetType(), method) is { } methodInfo ? GetDelegate<TDelegate, TInstance>(instance, methodInfo) : null;
-
-        /// <summary>
-        /// Get a delegate for an instance method named <paramref name="method"/>, directly declared by <paramref name="instance"/>'s type.
-        /// Choose the overload with the given <paramref name="parameters"/> if not <see langword="null"/>
-        /// and/or the generic arguments <paramref name="generics"/> if not <see langword="null"/>.
-        /// </summary>
-        /// <param name="instance">The instance for which the method is defined.</param>
-        /// <param name="method">The name of the method (case sensitive).</param>
-        /// <param name="parameters">The method's parameter types (when not <see langword="null"/>).</param>
-        /// <param name="generics">The generic arguments of the method (when not <see langword="null"/>).</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="method"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDeclaredDelegate<TDelegate, TInstance>(TInstance instance, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
-            => instance is not null && DeclaredMethod(instance.GetType(), method, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate, TInstance>(instance, methodInfo) : null ;
-
-        /// <summary>
-        /// Get a delegate for an instance method described by <paramref name="methodInfo"/> and bound to <paramref name="instance"/>.
-        /// </summary>
-        /// <param name="instance">The instance for which the method is defined.</param>
-        /// <param name="methodInfo">The method's <see cref="MethodInfo"/>.</param>
-        /// <returns>
-        /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="methodInfo"/>
-        /// is <see langword="null"/> or when the method cannot be found.
-        /// </returns>
-        public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, MethodInfo methodInfo) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(instance, methodInfo);
-
+        
+        //
+        
+        public static TDelegate? GetDeclaredDelegate<TDelegate>(object? instance, Type type, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
+            => DeclaredMethod(type, method, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo) : null;
 
         public static TDelegate? GetDelegate<TDelegate>(object? instance, Type type, string method, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
             => Method(type, method, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo) : null;
+        
+        //
+
+        public static TDelegate? GetDeclaredDelegate<TDelegate>(object? instance, string typeSemicolonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
+            => DeclaredMethod(typeSemicolonMethod, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo) : null;
+        
+        public static TDelegate? GetDelegate<TDelegate>(object? instance, string typeSemicolonMethod, Type[]? parameters = null, Type[]? generics = null) where TDelegate : Delegate
+            => Method(typeSemicolonMethod, parameters, generics) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo) : null;
     }
 }
 

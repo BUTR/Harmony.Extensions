@@ -106,7 +106,7 @@ namespace HarmonyLib.BUTR.Extensions
             if (generics is object) result = result.MakeGenericMethod(generics);
             return result;
         }
-
+        
         /// <summary>Gets the reflection information for a method by searching the type and all its super types</summary>
         /// <param name="type">The class/type where the method is declared</param>
         /// <param name="name">The name of the method (case sensitive)</param>
@@ -158,7 +158,24 @@ namespace HarmonyLib.BUTR.Extensions
             return result;
         }
 
-
+        //
+        
+        /// <summary>Gets the reflection information for a directly declared method</summary>
+        /// <param name="typeColonMethodname">The target method in the form <c>TypeFullName:MethodName</c>, where the type name matches a form recognized by <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type.gettype">Type.GetType</a> like <c>Some.Namespace.Type</c>.</param>
+        /// <param name="parameters">Optional parameters to target a specific overload of the method</param>
+        /// <param name="generics">Optional list of types that define the generic version of the method</param>
+        /// <returns>A method or null when type/name is null or when the method cannot be found</returns>
+        public static MethodInfo? DeclaredMethod(string typeColonMethodname, Type[]? parameters = null, Type[]? generics = null)
+        {
+            if (!TryGetComponents(typeColonMethodname, out var type, out var name))
+            {
+                Trace.TraceError($"AccessTools2.Method: Could not find type or property for '{typeColonMethodname}'");
+                return null;
+            }
+            
+            return DeclaredMethod(type, name, parameters, generics);
+        }
+        
         /// <summary>Gets the reflection information for a method by searching the type and all its super types</summary>
         /// <param name="typeColonMethodname">The target method in the form <c>TypeFullName:MethodName</c>, where the type name matches a form recognized by <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type.gettype">Type.GetType</a> like <c>Some.Namespace.Type</c>.</param>
         /// <param name="parameters">Optional parameters to target a specific overload of the method</param>
@@ -172,7 +189,7 @@ namespace HarmonyLib.BUTR.Extensions
                 return null;
             }
             
-            return DeclaredMethod(type, name, parameters, generics);
+            return Method(type, name, parameters, generics);
         }
     }
 }

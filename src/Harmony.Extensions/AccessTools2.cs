@@ -108,7 +108,7 @@ namespace HarmonyLib.BUTR.Extensions
 
             static Helper()
             {
-                DynamicMethodDefinitionCtor = AccessTools2.GetConstructorDelegate<DynamicMethodDefinitionCtorDelegate>("MonoMod.Utils.DynamicMethodDefinition", new[] { typeof(string), typeof(Type), typeof(Type[]) });
+                DynamicMethodDefinitionCtor = AccessTools2.GetDeclaredConstructorDelegate<DynamicMethodDefinitionCtorDelegate>("MonoMod.Utils.DynamicMethodDefinition", new[] { typeof(string), typeof(Type), typeof(Type[]) });
                 GetILGenerator = AccessTools2.GetDelegateObjectInstance<GetILGeneratorDelegate>("MonoMod.Utils.DynamicMethodDefinition:GetILGenerator", Type.EmptyTypes);
                 Emit1 = AccessTools2.GetDelegateObjectInstance<Emit1Delegate>("System.Reflection.Emit.ILGenerator:Emit", new[] { typeof(OpCode) });
                 Emit2 = AccessTools2.GetDelegateObjectInstance<Emit2Delegate>("System.Reflection.Emit.ILGenerator:Emit", new[] { typeof(OpCode), typeof(FieldInfo) });

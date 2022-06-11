@@ -65,7 +65,7 @@ namespace HarmonyLib.BUTR.Extensions
 
         static AccessCacheHandle()
         {
-            AccessCacheCtorMethod = AccessTools2.GetConstructorDelegate<AccessCacheCtorDelegate>("HarmonyLib.AccessCache");
+            AccessCacheCtorMethod = AccessTools2.GetDeclaredConstructorDelegate<AccessCacheCtorDelegate>("HarmonyLib.AccessCache");
             GetFieldInfoMethod = AccessTools2.GetDelegateObjectInstance<GetFieldInfoDelegate>("HarmonyLib.AccessCache:GetFieldInfo");
             GetPropertyInfoMethod = AccessTools2.GetDelegateObjectInstance<GetPropertyInfoDelegate>("HarmonyLib.AccessCache:GetPropertyInfo");
             GetMethodInfoMethod = AccessTools2.GetDelegateObjectInstance<GetMethodInfoDelegate>("HarmonyLib.AccessCache:GetMethodInfo");
