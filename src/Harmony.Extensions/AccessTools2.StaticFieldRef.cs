@@ -57,6 +57,17 @@ namespace HarmonyLib.BUTR.Extensions
 #endif
         static partial class AccessTools2
     {
+        public static AccessTools.FieldRef<TField>? StaticFieldRefAccess<TField>(string typeColonFieldname)
+        {
+            if (!TryGetComponents(typeColonFieldname, out var type, out var name))
+            {
+                Trace.TraceError($"AccessTools2.StaticFieldRefAccess: Could not find type or field for '{typeColonFieldname}'");
+                return null;
+            }
+
+            return StaticFieldRefAccess<TField>(type, name);
+        }
+        
         /// <summary>Creates a static field reference delegate</summary>
         /// <typeparam name="F">
         /// The type of the field; or if the field's type is a reference type (a class or interface, NOT a struct or other value type),
