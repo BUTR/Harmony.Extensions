@@ -55,15 +55,70 @@ namespace HarmonyLib.BUTR.Extensions
 #endif
         static partial class SymbolExtensions2
     {
-        public static ConstructorInfo? GetConstructorInfo<T>(Expression<Func<T>> expression)
+        public static ConstructorInfo? GetConstructorInfo<TResult>(Expression<Func<TResult>> expression)
         {
             if (expression is LambdaExpression lambdaExpression)
                 return GetConstructorInfo(lambdaExpression);
 
             return null;
         }
+        public static ConstructorInfo? GetConstructorInfo<T1, TResult>(Expression<Func<T1, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetConstructorInfo(lambdaExpression);
 
-        public static ConstructorInfo? GetConstructorInfo<T, TResult>(Expression<Func<T, TResult>> expression)
+            return null;
+        }
+        public static ConstructorInfo? GetConstructorInfo<T1, T2, TResult>(Expression<Func<T1, T2, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetConstructorInfo(lambdaExpression);
+
+            return null;
+        }
+        public static ConstructorInfo? GetConstructorInfo<T1, T2, T3, TResult>(Expression<Func<T1, T2, T3, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetConstructorInfo(lambdaExpression);
+
+            return null;
+        }
+        public static ConstructorInfo? GetConstructorInfo<T1, T2, T3, T4, TResult>(Expression<Func<T1, T2, T3, T4, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetConstructorInfo(lambdaExpression);
+
+            return null;
+        }
+        public static ConstructorInfo? GetConstructorInfo<T1, T2, T3, T4, T5, TResult>(Expression<Func<T1, T2, T3, T4, T5, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetConstructorInfo(lambdaExpression);
+
+            return null;
+        }
+        public static ConstructorInfo? GetConstructorInfo<T1, T2, T3, T4, T5, T6, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetConstructorInfo(lambdaExpression);
+
+            return null;
+        }
+        public static ConstructorInfo? GetConstructorInfo<T1, T2, T3, T4, T5, T6, T7, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, T7, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetConstructorInfo(lambdaExpression);
+
+            return null;
+        }
+        public static ConstructorInfo? GetConstructorInfo<T1, T2, T3, T4, T5, T6, T7, T8, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, T7, T8, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetConstructorInfo(lambdaExpression);
+
+            return null;
+        }
+        public static ConstructorInfo? GetConstructorInfo<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(Expression<Action<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>> expression)
         {
             if (expression is LambdaExpression lambdaExpression)
                 return GetConstructorInfo(lambdaExpression);

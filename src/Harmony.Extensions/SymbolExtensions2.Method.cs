@@ -70,7 +70,63 @@ namespace HarmonyLib.BUTR.Extensions
         /// <typeparam name="T">The generic type</typeparam>
         /// <param name="expression">The lambda expression using the method</param>
         /// <returns>The method in the lambda expression</returns>
-        public static MethodInfo? GetMethodInfo<T>(Expression<Action<T>> expression)
+        public static MethodInfo? GetMethodInfo<T1>(Expression<Action<T1>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+        }
+        public static MethodInfo? GetMethodInfo<T1, T2>(Expression<Action<T1, T2>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+        }
+        public static MethodInfo? GetMethodInfo<T1, T2, T3>(Expression<Action<T1, T2, T3>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+        }
+        public static MethodInfo? GetMethodInfo<T1, T2, T3, T4>(Expression<Action<T1, T2, T3, T4>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+        }
+        public static MethodInfo? GetMethodInfo<T1, T2, T3, T4, T5>(Expression<Action<T1, T2, T3, T4, T5>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+        }
+        public static MethodInfo? GetMethodInfo<T1, T2, T3, T4, T5, T6>(Expression<Action<T1, T2, T3, T4, T5, T6>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+        }
+        public static MethodInfo? GetMethodInfo<T1, T2, T3, T4, T5, T6, T7>(Expression<Action<T1, T2, T3, T4, T5, T6, T7>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+        }
+        public static MethodInfo? GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, T8>(Expression<Action<T1, T2, T3, T4, T5, T6, T7, T8>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+        }
+        public static MethodInfo? GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, T8, T9>(Expression<Action<T1, T2, T3, T4, T5, T6, T7, T8, T9>> expression)
         {
             if (expression is LambdaExpression lambdaExpression)
                 return GetMethodInfo(lambdaExpression);
@@ -83,7 +139,70 @@ namespace HarmonyLib.BUTR.Extensions
         /// <typeparam name="TResult">The generic result type</typeparam>
         /// <param name="expression">The lambda expression using the method</param>
         /// <returns>The method in the lambda expression</returns>
-        public static MethodInfo? GetMethodInfo<T, TResult>(Expression<Func<T, TResult>> expression)
+        public static MethodInfo? GetMethodInfo<TResult>(Expression<Func<TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+        }
+        public static MethodInfo? GetMethodInfo<T1, TResult>(Expression<Func<T1, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+        }
+        public static MethodInfo? GetMethodInfo<T1, T2, TResult>(Expression<Func<T1, T2, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+        }
+        public static MethodInfo? GetMethodInfo<T1, T2, T3, TResult>(Expression<Func<T1, T2, T3, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+        }
+        public static MethodInfo? GetMethodInfo<T1, T2, T3, T4, TResult>(Expression<Func<T1, T2, T3, T4, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+        }
+        public static MethodInfo? GetMethodInfo<T1, T2, T3, T4, T5, TResult>(Expression<Func<T1, T2, T3, T4, T5, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+        }
+        public static MethodInfo? GetMethodInfo<T1, T2, T3, T4, T5, T6, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+        }
+        public static MethodInfo? GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, T7, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+        }
+        public static MethodInfo? GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, T8, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, T7, T8, TResult>> expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+                return GetMethodInfo(lambdaExpression);
+
+            return null;
+        }
+        public static MethodInfo? GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(Expression<Action<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>> expression)
         {
             if (expression is LambdaExpression lambdaExpression)
                 return GetMethodInfo(lambdaExpression);
