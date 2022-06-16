@@ -53,26 +53,26 @@ namespace HarmonyLibTests.Tools
         [Test]
         public void Test_SymbolExtensions2_FieldRef()
         {
-            Assert.IsNull(SymbolExtensions2.FieldRefAccess<TestClass, TestDelegate>(((Expression<Func<TestClass, TestDelegate>>) null)!));
-            Assert.IsNull(SymbolExtensions2.FieldRefAccess<TestClass, TestDelegate>(((LambdaExpression) null)!));
-            Assert.IsNull(SymbolExtensions2.FieldRefAccess<TestClass>(((Expression<Func<TestClass>>) null)!));
-            Assert.IsNull(SymbolExtensions2.FieldRefAccess<TestClass>(((LambdaExpression) null)!));
-            Assert.IsNull(SymbolExtensions2.FieldRefAccess<TestDelegate>(((Expression<Func<TestDelegate>>) null)!));
-            Assert.IsNull(SymbolExtensions2.FieldRefAccess<TestDelegate>(((LambdaExpression) null)!));
+            Assert.IsNull(SymbolExtensions2.GetFieldRefAccess<TestClass, TestDelegate>(((Expression<Func<TestClass, TestDelegate>>) null)!));
+            Assert.IsNull(SymbolExtensions2.GetFieldRefAccess<TestClass, TestDelegate>(((LambdaExpression) null)!));
+            Assert.IsNull(SymbolExtensions2.GetFieldRefAccess<TestClass>(((Expression<Func<TestClass>>) null)!));
+            Assert.IsNull(SymbolExtensions2.GetFieldRefAccess<TestClass>(((LambdaExpression) null)!));
+            Assert.IsNull(SymbolExtensions2.GetFieldRefAccess<TestDelegate>(((Expression<Func<TestDelegate>>) null)!));
+            Assert.IsNull(SymbolExtensions2.GetFieldRefAccess<TestDelegate>(((LambdaExpression) null)!));
         }
 
         [Test]
         public void Test_SymbolExtensions2_StaticFieldRef()
         {
-            Assert.IsNull(SymbolExtensions2.StaticFieldRefAccess<object>(((Expression<Func<object>>) null)!));
-            Assert.IsNull(SymbolExtensions2.StaticFieldRefAccess<object>(((LambdaExpression) null)!));
+            Assert.IsNull(SymbolExtensions2.GetStaticFieldRefAccess<object>(((Expression<Func<object>>) null)!));
+            Assert.IsNull(SymbolExtensions2.GetStaticFieldRefAccess<object>(((LambdaExpression) null)!));
         }
 
         [Test]
         public void Test_SymbolExtensions2_StructFieldRef()
         {
-            Assert.IsNull(SymbolExtensions2.StructFieldRefAccess<TestStruct, TestDelegate>(((Expression<Func<TestDelegate>>) null)!));
-            Assert.IsNull(SymbolExtensions2.StructFieldRefAccess<TestStruct, TestDelegate>(((LambdaExpression) null)!));
+            Assert.IsNull(SymbolExtensions2.GetStructFieldRefAccess<TestStruct, TestDelegate>(((Expression<Func<TestDelegate>>) null)!));
+            Assert.IsNull(SymbolExtensions2.GetStructFieldRefAccess<TestStruct, TestDelegate>(((LambdaExpression) null)!));
         }
     }
 }
