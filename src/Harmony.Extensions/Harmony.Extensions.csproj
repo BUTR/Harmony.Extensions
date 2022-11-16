@@ -49,7 +49,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NuGetizer" Version="0.9.0" />
+    <PackageReference Include="NuGetizer" Version="0.9.1" />
   </ItemGroup>
 
   <ItemGroup>
