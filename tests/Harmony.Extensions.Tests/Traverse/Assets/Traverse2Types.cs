@@ -38,11 +38,11 @@ namespace HarmonyLibTests.Traverse.Assets
             set => throw new Exception();
         }
 
-        static readonly string staticField = "test1";
-        private readonly string baseField = "base-field";
+        static string staticField = "test1";
+        private string baseField = "base-field";
 
-        static string StaticProperty => "test1";
-        private string BaseProperty => "base-property";
+        private static string StaticProperty { get; set; } = "test1";
+        private string BaseProperty { get; set; } =  "base-property";
 
         private string BaseMethod() { return "base-method"; }
     }
@@ -84,7 +84,7 @@ namespace HarmonyLibTests.Traverse.Assets
             {
 #pragma warning disable IDE0052
 #pragma warning disable CS0414
-                private readonly string field;
+                private string field;
 #pragma warning restore CS0414
 #pragma warning restore IDE0052
 
@@ -109,7 +109,7 @@ namespace HarmonyLibTests.Traverse.Assets
             class InnerStaticFieldClass2
             {
 #pragma warning disable CS0414
-                static readonly string field = "helloStatic";
+                static string field = "helloStatic";
 #pragma warning restore CS0414
             }
 

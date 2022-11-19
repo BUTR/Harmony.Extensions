@@ -13,7 +13,7 @@ namespace HarmonyLibTests.Traverse.Assets
 
     public static class Traverse2Properties_Static
     {
-        static string StaticProperty => "test2";
+        private static string StaticProperty { get; set; } = "test2";
     }
 
     public class Traverse2Properties_AccessModifiers : Traverse2_BaseClass

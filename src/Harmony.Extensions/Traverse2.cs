@@ -128,6 +128,27 @@ namespace HarmonyLib.BUTR.Extensions
 		/// <returns>A <see cref="Traverse"/> instance</returns>
         public static Traverse2 CreateWithType(string name) => new(AccessTools2.TypeByName(name));
 
+#if NETCOREAPP3_1_OR_GREATER
+        /// <summary>
+        /// Determines if this property is marked as init-only.
+        /// </summary>
+        /// <param name="property">The property.</param>
+        /// <returns>True if the property is init-only, false otherwise.</returns>
+        private static bool IsInitOnly(PropertyInfo property)
+        {
+	        if (!property.CanWrite || property.SetMethod is null)
+	        {
+		        return false;
+	        }
+ 
+	        // Get the modifiers applied to the return parameter.
+	        var setMethodReturnParameterModifiers = property.SetMethod.ReturnParameter.GetRequiredCustomModifiers();
+ 
+	        // Init-only properties are marked with the IsExternalInit type.
+	        return System.Linq.Enumerable.Contains(setMethodReturnParameterModifiers, AccessTools2.TypeByName("System.Runtime.CompilerServices.IsExternalInit"));
+        }
+#endif
+        
         /// <summary>Creates a new and empty traverse instance</summary>
         private Traverse2() { }
 
@@ -226,14 +247,23 @@ namespace HarmonyLib.BUTR.Extensions
         [SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression", Justification = "For ReSharper plugin Exceptional")]
         public Traverse2 SetValue(object value)
         {
-            if (_root is null)
-                return this;
-
-			if (_info is FieldInfo fieldInfo)
+			if (_info is FieldInfo fieldInfo && ((_root is null && fieldInfo.IsStatic) || _root is not null))
+			{
+#if NETCOREAPP3_1_OR_GREATER
+				if (fieldInfo.IsInitOnly)
+					return this;
+#endif
 				fieldInfo.SetValue(_root, value, AccessTools.all, null, CultureInfo.CurrentCulture);
+			}
 
-			if (_info is PropertyInfo propertyInfo)
+			if (_info is PropertyInfo propertyInfo && propertyInfo.SetMethod is not null && ((_root is null && propertyInfo.SetMethod.IsStatic) || _root is not null))
+			{
+#if NETCOREAPP3_1_OR_GREATER
+				if (IsInitOnly(propertyInfo))
+					return this;
+#endif
 				propertyInfo.SetValue(_root, value, AccessTools.all, null, _params, CultureInfo.CurrentCulture);
+			}
 
 			return this;
 		}

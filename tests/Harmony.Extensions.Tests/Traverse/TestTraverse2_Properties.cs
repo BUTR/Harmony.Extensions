@@ -29,9 +29,15 @@ namespace HarmonyLibTests.Traverse
             var trv1 = Traverse2.Create(instance).Property("StaticProperty");
             Assert.AreEqual("test1", trv1.GetValue());
 
+            trv1.SetValue("test_1");
+            Assert.AreEqual("test_1", trv1.GetValue());
+
 
             var trv2 = Traverse2.Create(typeof(Traverse2Properties_Static)).Property("StaticProperty");
             Assert.AreEqual("test2", trv2.GetValue());
+
+            trv2.SetValue("test_2");
+            Assert.AreEqual("test_2", trv2.GetValue());
         }
 
         // Traverse2.GetValue() should return the value of a Traverse2d property

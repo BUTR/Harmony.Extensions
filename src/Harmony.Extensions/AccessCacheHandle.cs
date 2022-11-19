@@ -58,6 +58,7 @@ namespace HarmonyLib.BUTR.Extensions
         private delegate PropertyInfo GetPropertyInfoDelegate(object instance, Type type, string name, MemberType memberType = MemberType.Any, bool declaredOnly = false);
         private delegate MethodBase GetMethodInfoDelegate(object instance, Type type, string name, Type[] arguments, MemberType memberType = MemberType.Any, bool declaredOnly = false);
 
+        private static readonly Type Blank;
         private static readonly AccessCacheCtorDelegate? AccessCacheCtorMethod;
         private static readonly GetFieldInfoDelegate? GetFieldInfoMethod;
         private static readonly GetPropertyInfoDelegate? GetPropertyInfoMethod;
@@ -65,6 +66,7 @@ namespace HarmonyLib.BUTR.Extensions
 
         static AccessCacheHandle()
         {
+            Blank = typeof(HarmonyLib.Harmony); // Force load Harmony
             AccessCacheCtorMethod = AccessTools2.GetDeclaredConstructorDelegate<AccessCacheCtorDelegate>("HarmonyLib.AccessCache");
             GetFieldInfoMethod = AccessTools2.GetDelegateObjectInstance<GetFieldInfoDelegate>("HarmonyLib.AccessCache:GetFieldInfo");
             GetPropertyInfoMethod = AccessTools2.GetDelegateObjectInstance<GetPropertyInfoDelegate>("HarmonyLib.AccessCache:GetPropertyInfo");

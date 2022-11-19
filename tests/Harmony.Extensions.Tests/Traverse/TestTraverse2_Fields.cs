@@ -36,6 +36,9 @@ namespace HarmonyLibTests.Traverse
 
                 Assert.AreEqual(Traverse2Fields.testStrings[i], ftrv.GetValue());
                 Assert.AreEqual(Traverse2Fields.testStrings[i], ftrv.GetValue<string>());
+
+                ftrv.SetValue("test");
+                Assert.AreEqual("test", ftrv.GetValue());
             }
         }
 
@@ -49,9 +52,15 @@ namespace HarmonyLibTests.Traverse
             var trv1 = Traverse2.Create(instance).Field("staticField");
             Assert.AreEqual("test1", trv1.GetValue());
 
+            trv1.SetValue("test_1");
+            Assert.AreEqual("test_1", trv1.GetValue());
+
 
             var trv2 = Traverse2.Create(typeof(Traverse2Fields_Static)).Field("staticField");
             Assert.AreEqual("test2", trv2.GetValue());
+
+            trv2.SetValue("test_2");
+            Assert.AreEqual("test_2", trv2.GetValue());
         }
 
         // Traverse2.Field().Field() should continue the Traverse2 chain for static and non-static fields

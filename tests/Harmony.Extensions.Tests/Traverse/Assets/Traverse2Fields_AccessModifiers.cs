@@ -8,14 +8,14 @@
 
     public static class Traverse2Fields_Static
     {
-        static readonly string staticField = "test2";
+        static string staticField = "test2";
         public static readonly Traverse2_ExtraClass extraClassInstance = new Traverse2_ExtraClass("test2");
     }
 
     public class Traverse2Fields_AccessModifiers
     {
         public string publicField;
-        readonly string privateField;
+        private string privateField;
         protected string protectedField;
         internal string internalField;
 
