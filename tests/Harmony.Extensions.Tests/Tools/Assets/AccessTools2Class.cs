@@ -247,6 +247,14 @@ namespace HarmonyLibTests.Tools.Assets
         {
             return $"static test {n} {++f} {++x}";
         }
+
+        public enum TestEnum { }
+
+        public static void TestEnumParam(TestEnum n) { }
+        public static void TestEnumParam2(int n) { }
+
+        public static TestEnum TestEnumReturn() => 0;
+        public static int TestEnumReturn2() => 0;
     }
 
     public static class AccessTools2HarmonyDelegate

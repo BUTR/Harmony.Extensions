@@ -10,6 +10,12 @@ namespace HarmonyLibTests.Tools
 {
     public partial class Test_AccessTools2
     {
+        public enum TestEnum { }
+        delegate void TestEnumParamDel(TestEnum n);
+        delegate void TestEnumParam2Del(int n);
+        delegate TestEnum TestEnumReturnDel();
+        delegate int TestEnumReturn2Del();
+
         delegate string MethodDel(int n, ref float f);
         delegate string OpenMethodDel<T>(T instance, int n, ref float f);
         delegate string WithoutInstanceMethodDel(int n, ref float f);
@@ -19,6 +25,28 @@ namespace HarmonyLibTests.Tools
         static readonly MethodInfo derivedTest = typeof(AccessTools2MethodDelegate.Derived).GetMethod("Test");
         static readonly MethodInfo structTest = typeof(AccessTools2MethodDelegate.Struct).GetMethod("Test");
         static readonly MethodInfo staticTest = typeof(AccessTools2MethodDelegate).GetMethod("Test");
+
+        static readonly MethodInfo enumParam = typeof(AccessTools2MethodDelegate).GetMethod("TestEnumParam");
+        static readonly MethodInfo enumParam2 = typeof(AccessTools2MethodDelegate).GetMethod("TestEnumParam2");
+        static readonly MethodInfo enumReturn = typeof(AccessTools2MethodDelegate).GetMethod("TestEnumReturn");
+        static readonly MethodInfo enumReturn2 = typeof(AccessTools2MethodDelegate).GetMethod("TestEnumReturn2");
+
+        [Test]
+        public void Test_AccessTools2_GetDelegate_EnumParam()
+        {
+            Assert.IsNotNull(AccessTools2.GetDelegate<TestEnumParamDel>(enumParam));
+            Assert.IsNotNull(AccessTools2.GetDelegate<TestEnumParam2Del>(enumParam));
+            Assert.IsNotNull(AccessTools2.GetDelegate<TestEnumParamDel>(enumParam2));
+            Assert.IsNotNull(AccessTools2.GetDelegate<TestEnumParam2Del>(enumParam2));
+        }
+        [Test]
+        public void Test_AccessTools2_GetDelegate_EnumReturn()
+        {
+            Assert.IsNotNull(AccessTools2.GetDelegate<TestEnumReturnDel>(enumReturn));
+            Assert.IsNotNull(AccessTools2.GetDelegate<TestEnumReturn2Del>(enumReturn));
+            Assert.IsNotNull(AccessTools2.GetDelegate<TestEnumReturnDel>(enumReturn2));
+            Assert.IsNotNull(AccessTools2.GetDelegate<TestEnumReturn2Del>(enumReturn2));
+        }
 
         [Test]
         public void Test_AccessTools2_GetDelegate_InstanceMethodWithoutInstance()

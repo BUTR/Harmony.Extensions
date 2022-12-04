@@ -119,7 +119,9 @@ namespace HarmonyLib.BUTR.Extensions
 
             if (typeof(TDelegate).GetMethod("Invoke") is not { } delegateInvoke) return null;
 
-            if (!delegateInvoke.ReturnType.IsAssignableFrom(methodInfo.ReturnType)) return null;
+            var areEnums = delegateInvoke.ReturnType.IsEnum || methodInfo.ReturnType.IsEnum;
+            var areNumeric = delegateInvoke.ReturnType.IsNumeric() || methodInfo.ReturnType.IsNumeric();
+            if (!areEnums && !areNumeric &&!delegateInvoke.ReturnType.IsAssignableFrom(methodInfo.ReturnType)) return null;
             
             var delegateParameters = delegateInvoke.GetParameters();
             var methodParameters = methodInfo.GetParameters();
@@ -194,7 +196,16 @@ namespace HarmonyLib.BUTR.Extensions
         public static TDelegate? GetDelegate<TDelegate>(MethodInfo methodInfo) where TDelegate : Delegate => GetDelegate<TDelegate>(null, methodInfo);
 
         public static TDelegate? GetDelegateObjectInstance<TDelegate>(MethodInfo methodInfo) where TDelegate : Delegate => GetDelegate<TDelegate>(methodInfo);
-        
+
+        private static readonly HashSet<Type> NumericTypes = new HashSet<Type>
+        {
+            typeof(long), typeof(ulong),
+            typeof(int), typeof(uint),
+            typeof(short), typeof(ushort),
+            typeof(byte), typeof(sbyte),
+        };
+        public static bool IsNumeric(this Type myType) => NumericTypes.Contains(myType);
+
         private static bool ParametersAreEqual(ParameterInfo[] delegateParameters, ParameterInfo[] methodParameters)
         {
             if (delegateParameters.Length - methodParameters.Length == 0)
@@ -204,7 +215,10 @@ namespace HarmonyLib.BUTR.Extensions
                     if (delegateParameters[i].ParameterType.IsByRef != methodParameters[i].ParameterType.IsByRef)
                         return false;
 
-                    if (!delegateParameters[i].ParameterType.IsAssignableFrom(methodParameters[i].ParameterType))
+                    var areEnums = delegateParameters[i].ParameterType.IsEnum || methodParameters[i].ParameterType.IsEnum;
+                    var areNumeric = delegateParameters[i].ParameterType.IsNumeric() || methodParameters[i].ParameterType.IsNumeric();
+
+                    if (!areEnums && !areNumeric && !delegateParameters[i].ParameterType.IsAssignableFrom(methodParameters[i].ParameterType))
                         return false;
                 }
                 return true;
@@ -216,7 +230,10 @@ namespace HarmonyLib.BUTR.Extensions
                     if (delegateParameters[i + 1].ParameterType.IsByRef != methodParameters[i].ParameterType.IsByRef)
                         return false;
 
-                    if (!delegateParameters[i + 1].ParameterType.IsAssignableFrom(methodParameters[i].ParameterType))
+                    var areEnums = delegateParameters[i + 1].ParameterType.IsEnum || methodParameters[i].ParameterType.IsEnum;
+                    var areNumeric = delegateParameters[i + 1].ParameterType.IsNumeric() || methodParameters[i].ParameterType.IsNumeric();
+
+                    if (!areEnums && !areNumeric && !delegateParameters[i + 1].ParameterType.IsAssignableFrom(methodParameters[i].ParameterType))
                         return false;
                 }
                 return true;
