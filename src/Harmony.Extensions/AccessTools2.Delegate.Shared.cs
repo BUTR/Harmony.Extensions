@@ -61,7 +61,7 @@ namespace HarmonyLib.BUTR.Extensions
     {
         // Duplicate from BUTR.Shared
 
-        public static TDelegate? GetDelegate<TDelegate>(ConstructorInfo constructorInfo) where TDelegate : Delegate
+        public static TDelegate? GetDelegate<TDelegate>(ConstructorInfo constructorInfo, bool logErrorInTrace = true) where TDelegate : Delegate
         {
             if (constructorInfo is null) return null;
             
@@ -98,7 +98,8 @@ namespace HarmonyLib.BUTR.Extensions
             }
             catch (Exception ex)
             {
-                Trace.TraceError($"AccessTools2.GetDelegate<{typeof(TDelegate).FullName}>: Error while compiling lambds expression '{ex}'");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.GetDelegate<{typeof(TDelegate).FullName}>: Error while compiling lambds expression '{ex}'");
                 return null;
             }
         }
@@ -113,7 +114,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// A delegate or <see langword="null"/> when <paramref name="instance"/> or <paramref name="methodInfo"/>
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
-        public static TDelegate? GetDelegate<TDelegate>(object? instance, MethodInfo methodInfo) where TDelegate : Delegate
+        public static TDelegate? GetDelegate<TDelegate>(object? instance, MethodInfo methodInfo, bool logErrorInTrace = true) where TDelegate : Delegate
         {
             if (methodInfo is null) return null;
 
@@ -185,7 +186,8 @@ namespace HarmonyLib.BUTR.Extensions
             }
             catch (Exception ex)
             {
-                Trace.TraceError($"AccessTools2.GetDelegate<{typeof(TDelegate).FullName}>: Error while compiling lambds expression '{ex}'");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.GetDelegate<{typeof(TDelegate).FullName}>: Error while compiling lambds expression '{ex}'");
                 return null;
             }
         }
@@ -193,9 +195,9 @@ namespace HarmonyLib.BUTR.Extensions
         /// <summary>Get a delegate for a method described by <paramref name="methodInfo"/>.</summary>
         /// <param name="methodInfo">The method's <see cref="MethodInfo"/>.</param>
         /// <returns>A delegate or <see langword="null"/> when <paramref name="methodInfo"/> is <see langword="null"/>.</returns>
-        public static TDelegate? GetDelegate<TDelegate>(MethodInfo methodInfo) where TDelegate : Delegate => GetDelegate<TDelegate>(null, methodInfo);
+        public static TDelegate? GetDelegate<TDelegate>(MethodInfo methodInfo, bool logErrorInTrace = true) where TDelegate : Delegate => GetDelegate<TDelegate>(null, methodInfo, logErrorInTrace);
 
-        public static TDelegate? GetDelegateObjectInstance<TDelegate>(MethodInfo methodInfo) where TDelegate : Delegate => GetDelegate<TDelegate>(methodInfo);
+        public static TDelegate? GetDelegateObjectInstance<TDelegate>(MethodInfo methodInfo, bool logErrorInTrace = true) where TDelegate : Delegate => GetDelegate<TDelegate>(methodInfo, logErrorInTrace);
 
         private static readonly HashSet<Type> NumericTypes = new HashSet<Type>
         {

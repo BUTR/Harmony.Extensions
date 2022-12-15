@@ -57,15 +57,16 @@ namespace HarmonyLib.BUTR.Extensions
 #endif
         static partial class AccessTools2
     {
-        public static AccessTools.FieldRef<TField>? StaticFieldRefAccess<TField>(string typeColonFieldname)
+        public static AccessTools.FieldRef<TField>? StaticFieldRefAccess<TField>(string typeColonFieldname, bool logErrorInTrace = true)
         {
-            if (!TryGetComponents(typeColonFieldname, out var type, out var name))
+            if (!TryGetComponents(typeColonFieldname, out var type, out var name, logErrorInTrace))
             {
-                Trace.TraceError($"AccessTools2.StaticFieldRefAccess: Could not find type or field for '{typeColonFieldname}'");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.StaticFieldRefAccess: Could not find type or field for '{typeColonFieldname}'");
                 return null;
             }
 
-            return StaticFieldRefAccess<TField>(type, name);
+            return StaticFieldRefAccess<TField>(type, name, logErrorInTrace);
         }
         
         /// <summary>Creates a static field reference delegate</summary>
@@ -77,12 +78,12 @@ namespace HarmonyLib.BUTR.Extensions
         /// <param name="fieldInfo">The field</param>
         /// <returns>A readable/assignable <see cref="AccessTools.FieldRef{F}"/> delegate</returns>
         ///
-        public static AccessTools.FieldRef<F>? StaticFieldRefAccess<F>(FieldInfo fieldInfo)
+        public static AccessTools.FieldRef<F>? StaticFieldRefAccess<F>(FieldInfo fieldInfo, bool logErrorInTrace = true)
         {
             if (fieldInfo is null)
                 return null;
 
-            return StaticFieldRefAccessInternal<F>(fieldInfo);
+            return StaticFieldRefAccessInternal<F>(fieldInfo, logErrorInTrace);
         }
 
         /// <summary>Creates a static field reference delegate</summary>
@@ -90,30 +91,31 @@ namespace HarmonyLib.BUTR.Extensions
         /// <param name="type">The type holding the field field</param>
         /// <param name="fieldName">The field name</param>
         /// <returns>A read and writable <see cref="T:HarmonyLib.AccessTools.FieldRef`1" /> delegate</returns>
-        public static AccessTools.FieldRef<TField>? StaticFieldRefAccess<TField>(Type type, string fieldName)
+        public static AccessTools.FieldRef<TField>? StaticFieldRefAccess<TField>(Type type, string fieldName, bool logErrorInTrace = true)
         {
-            var fieldInfo = Field(type, fieldName);
+            var fieldInfo = Field(type, fieldName, logErrorInTrace);
             if (fieldInfo is null)
                 return null;
 
-            return StaticFieldRefAccess<TField>(fieldInfo);
+            return StaticFieldRefAccess<TField>(fieldInfo, logErrorInTrace);
         }
 
 
-        private static AccessTools.FieldRef<F>? StaticFieldRefAccessInternal<F>(FieldInfo fieldInfo)
+        private static AccessTools.FieldRef<F>? StaticFieldRefAccessInternal<F>(FieldInfo fieldInfo, bool logErrorInTrace = true)
         {
-            if (!Helper.IsValid())
+            if (!Helper.IsValid(logErrorInTrace))
             {
                 return null;
             }
 
             if (!fieldInfo.IsStatic)
             {
-                Trace.TraceError($"AccessTools2.StaticFieldRefAccessInternal<{typeof(F).FullName}>: Field must be static");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.StaticFieldRefAccessInternal<{typeof(F).FullName}>: Field must be static");
                 return null;
             }
 
-            if (!ValidateFieldType<F>(fieldInfo))
+            if (!ValidateFieldType<F>(fieldInfo, logErrorInTrace))
             {
                 return null;
             }

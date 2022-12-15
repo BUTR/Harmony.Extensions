@@ -57,15 +57,15 @@ namespace HarmonyLib.BUTR.Extensions
 #endif
         static partial class AccessTools2
     {
-        public static AccessTools.FieldRef<object, F>? FieldRefAccess<F>(string typeColonFieldname)
+        public static AccessTools.FieldRef<object, F>? FieldRefAccess<F>(string typeColonFieldname, bool logErrorInTrace = true)
         {
-            if (!TryGetComponents(typeColonFieldname, out var type, out var name))
+            if (!TryGetComponents(typeColonFieldname, out var type, out var name, logErrorInTrace))
             {
                 Trace.TraceError($"AccessTools2.FieldRefAccess: Could not find type or field for '{typeColonFieldname}'");
                 return null;
             }
 
-            return FieldRefAccess<F>(type, name);
+            return FieldRefAccess<F>(type, name, logErrorInTrace);
         }
     
         /// <summary>Creates a field reference delegate for an instance field of a class</summary>
@@ -77,16 +77,16 @@ namespace HarmonyLib.BUTR.Extensions
         /// </typeparam>
         /// <param name="fieldName">The name of the field</param>
         /// <returns>A readable/assignable <see cref="AccessTools.FieldRef{T,F}"/> delegate</returns>
-        public static AccessTools.FieldRef<T, F>? FieldRefAccess<T, F>(string fieldName) where T : class
+        public static AccessTools.FieldRef<T, F>? FieldRefAccess<T, F>(string fieldName, bool logErrorInTrace = true) where T : class
         {
             if (fieldName is null)
                 return null;
 
-            var field = GetInstanceField(typeof(T), fieldName);
+            var field = GetInstanceField(typeof(T), fieldName, logErrorInTrace);
             if (field is null)
                 return null;
 
-            return FieldRefAccessInternal<T, F>(field, needCastclass: false);
+            return FieldRefAccessInternal<T, F>(field, needCastclass: false, logErrorInTrace);
         }
 
         /// <summary>Creates a field reference delegate for an instance field of a class or static field (NOT an instance field of a struct)</summary>
@@ -109,7 +109,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// in e.g. <see cref="FieldRefAccess{T, F}(string)"/>.
         /// </para>
         /// </remarks>
-        public static AccessTools.FieldRef<object, F>? FieldRefAccess<F>(Type type, string fieldName)
+        public static AccessTools.FieldRef<object, F>? FieldRefAccess<F>(Type type, string fieldName, bool logErrorInTrace = true)
         {
             if (type is null)
                 return null;
@@ -117,7 +117,7 @@ namespace HarmonyLib.BUTR.Extensions
             if (fieldName is null)
                 return null;
 
-            var fieldInfo = Field(type, fieldName);
+            var fieldInfo = Field(type, fieldName, logErrorInTrace);
             if (fieldInfo is null)
                 return null;
 
@@ -127,12 +127,13 @@ namespace HarmonyLib.BUTR.Extensions
                 // the field is not a struct instance field, since T could be object, ValueType, or an interface that the struct implements.
                 if (declaringType.IsValueType)
                 {
-                    Trace.TraceError($"AccessTools2.FieldRefAccess<object, {typeof(F).FullName}>: FieldDeclaringType must be a class");
+                    if (logErrorInTrace)
+                        Trace.TraceError($"AccessTools2.FieldRefAccess<object, {typeof(F).FullName}>: FieldDeclaringType must be a class");
                     return null;
                 }
 
                 // Field's declaring type cannot be object, since object has no fields, so always need a castclass for T=object.
-                return FieldRefAccessInternal<object, F>(fieldInfo, needCastclass: true);
+                return FieldRefAccessInternal<object, F>(fieldInfo, needCastclass: true, logErrorInTrace);
             }
 
             return null;
@@ -156,7 +157,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// e.g. <see cref="FieldRefAccess{T, F}(string)"/>.
         /// </para>
         /// </remarks>
-        public static AccessTools.FieldRef<T, F>? FieldRefAccess<T, F>(FieldInfo fieldInfo) where T : class
+        public static AccessTools.FieldRef<T, F>? FieldRefAccess<T, F>(FieldInfo fieldInfo, bool logErrorInTrace = true) where T : class
         {
             if (fieldInfo is null)
                 return null;
@@ -167,35 +168,37 @@ namespace HarmonyLib.BUTR.Extensions
                 // the field is not a struct instance field, since T could be object, ValueType, or an interface that the struct implements.
                 if (declaringType.IsValueType)
                 {
-                    Trace.TraceError($"AccessTools2.FieldRefAccess<{typeof(T).FullName}, {typeof(F).FullName}>: FieldDeclaringType must be a class");
+                    if (logErrorInTrace)
+                        Trace.TraceError($"AccessTools2.FieldRefAccess<{typeof(T).FullName}, {typeof(F).FullName}>: FieldDeclaringType must be a class");
                     return null;
                 }
 
-                if (FieldRefNeedsClasscast(typeof(T), declaringType) is not { } needCastclass)
+                if (FieldRefNeedsClasscast(typeof(T), declaringType, logErrorInTrace) is not { } needCastclass)
                 {
                     return null;
                 }
 
-                return FieldRefAccessInternal<T, F>(fieldInfo, needCastclass);
+                return FieldRefAccessInternal<T, F>(fieldInfo, needCastclass, logErrorInTrace);
             }
 
             return null;
         }
 
-        private static AccessTools.FieldRef<T, F>? FieldRefAccessInternal<T, F>(FieldInfo fieldInfo, bool needCastclass) where T : class
+        private static AccessTools.FieldRef<T, F>? FieldRefAccessInternal<T, F>(FieldInfo fieldInfo, bool needCastclass, bool logErrorInTrace = true) where T : class
         {
-            if (!Helper.IsValid())
+            if (!Helper.IsValid(logErrorInTrace))
             {
                 return null;
             }
 
             if (fieldInfo.IsStatic)
             {
-                Trace.TraceError($"AccessTools2.FieldRefAccessInternal<{typeof(T).FullName}, {typeof(F).FullName}>: Field must not be static");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.FieldRefAccessInternal<{typeof(T).FullName}, {typeof(F).FullName}>: Field must not be static");
                 return null;
             }
 
-            if (!ValidateFieldType<F>(fieldInfo))
+            if (!ValidateFieldType<F>(fieldInfo, logErrorInTrace))
             {
                 return null;
             }
@@ -222,7 +225,7 @@ namespace HarmonyLib.BUTR.Extensions
             return dm?.Generate()?.CreateDelegate(typeof(AccessTools.FieldRef<T, F>)) as AccessTools.FieldRef<T, F>;
         }
 
-        private static bool? FieldRefNeedsClasscast(Type delegateInstanceType, Type declaringType)
+        private static bool? FieldRefNeedsClasscast(Type delegateInstanceType, Type declaringType, bool logErrorInTrace = true)
         {
             var needCastclass = false;
             if (delegateInstanceType != declaringType)
@@ -230,7 +233,8 @@ namespace HarmonyLib.BUTR.Extensions
                 needCastclass = delegateInstanceType.IsAssignableFrom(declaringType);
                 if (needCastclass is false && declaringType.IsAssignableFrom(delegateInstanceType) is false)
                 {
-                    Trace.TraceError($"AccessTools2.FieldRefNeedsClasscast: FieldDeclaringType must be assignable from or to T (FieldRefAccess instance type) - 'instanceOfT is FieldDeclaringType' must be possible, delegateInstanceType '{delegateInstanceType}', declaringType '{declaringType}'");
+                    if (logErrorInTrace)
+                        Trace.TraceError($"AccessTools2.FieldRefNeedsClasscast: FieldDeclaringType must be assignable from or to T (FieldRefAccess instance type) - 'instanceOfT is FieldDeclaringType' must be possible, delegateInstanceType '{delegateInstanceType}', declaringType '{declaringType}'");
                     return null;
                 }
             }

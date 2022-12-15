@@ -61,11 +61,12 @@ namespace HarmonyLib.BUTR.Extensions
         /// <param name="parameters">Optional parameters to target a specific overload of the constructor</param>
         /// <param name="searchForStatic">Optional parameters to only consider static constructors</param>
         /// <returns>A constructor info or null when type is null or when the constructor cannot be found</returns>
-        public static ConstructorInfo? DeclaredConstructor(Type type, Type[]? parameters = null, bool searchForStatic = false)
+        public static ConstructorInfo? DeclaredConstructor(Type type, Type[]? parameters = null, bool searchForStatic = false, bool logErrorInTrace = true)
         {
             if (type is null)
             {
-                Trace.TraceError("AccessTools2.DeclaredConstructor: 'type' is null");
+                if (logErrorInTrace)
+                    Trace.TraceError("AccessTools2.DeclaredConstructor: 'type' is null");
                 return null;
             }
 
@@ -80,11 +81,12 @@ namespace HarmonyLib.BUTR.Extensions
         /// <param name="searchForStatic">Optional parameters to only consider static constructors</param>
         /// <returns>A constructor info or null when type is null or when the method cannot be found</returns>
         ///
-        public static ConstructorInfo? Constructor(Type type, Type[]? parameters = null, bool searchForStatic = false)
+        public static ConstructorInfo? Constructor(Type type, Type[]? parameters = null, bool searchForStatic = false, bool logErrorInTrace = true)
         {
             if (type is null)
             {
-                Trace.TraceError("AccessTools2.ConstructorInfo: 'type' is null");
+                if (logErrorInTrace)
+                    Trace.TraceError("AccessTools2.ConstructorInfo: 'type' is null");
                 return null;
             }
 
@@ -100,19 +102,20 @@ namespace HarmonyLib.BUTR.Extensions
         /// <param name="parameters">Optional parameters to target a specific overload of the method</param>
         /// <param name="searchForStatic">Optional parameters to only consider static constructors</param>
         /// <returns>A constructor info or null when type is null or when the method cannot be found</returns>
-        public static ConstructorInfo? DeclaredConstructor(string typeString, Type[]? parameters = null, bool searchForStatic = false)
+        public static ConstructorInfo? DeclaredConstructor(string typeString, Type[]? parameters = null, bool searchForStatic = false, bool logErrorInTrace = true)
         {
             if (string.IsNullOrWhiteSpace(typeString))
             {
-                Trace.TraceError("AccessTools2.Constructor: 'typeString' is null or whitespace/empty");
+                if (logErrorInTrace)
+                    Trace.TraceError("AccessTools2.Constructor: 'typeString' is null or whitespace/empty");
                 return null;
             }
 
-            var type = TypeByName(typeString);
+            var type = TypeByName(typeString, logErrorInTrace);
             if (type is null)
                 return null;
 
-            return DeclaredConstructor(type, parameters, searchForStatic);
+            return DeclaredConstructor(type, parameters, searchForStatic, logErrorInTrace);
         }
         
         /// <summary>Gets the reflection information for a constructor by searching the type</summary>
@@ -120,19 +123,20 @@ namespace HarmonyLib.BUTR.Extensions
         /// <param name="parameters">Optional parameters to target a specific overload of the method</param>
         /// <param name="searchForStatic">Optional parameters to only consider static constructors</param>
         /// <returns>A constructor info or null when type is null or when the method cannot be found</returns>
-        public static ConstructorInfo? Constructor(string typeString, Type[]? parameters = null, bool searchForStatic = false)
+        public static ConstructorInfo? Constructor(string typeString, Type[]? parameters = null, bool searchForStatic = false, bool logErrorInTrace = true)
         {
             if (string.IsNullOrWhiteSpace(typeString))
             {
-                Trace.TraceError("AccessTools2.Constructor: 'typeString' is null or whitespace/empty");
+                if (logErrorInTrace)
+                    Trace.TraceError("AccessTools2.Constructor: 'typeString' is null or whitespace/empty");
                 return null;
             }
 
-            var type = TypeByName(typeString);
+            var type = TypeByName(typeString, logErrorInTrace);
             if (type is null)
                 return null;
 
-            return Constructor(type, parameters, searchForStatic);
+            return Constructor(type, parameters, searchForStatic, logErrorInTrace);
         }
     }
 }

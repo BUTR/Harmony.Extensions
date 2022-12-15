@@ -66,16 +66,16 @@ namespace HarmonyLib.BUTR.Extensions
         /// </typeparam>
         /// <param name="fieldName">The name of the field</param>
         /// <returns>A readable/assignable <see cref="AccessTools.StructFieldRef{T,F}"/> delegate</returns>
-        public static AccessTools.StructFieldRef<T, F>? StructFieldRefAccess<T, F>(string fieldName) where T : struct
+        public static AccessTools.StructFieldRef<T, F>? StructFieldRefAccess<T, F>(string fieldName, bool logErrorInTrace = true) where T : struct
         {
             if (string.IsNullOrEmpty(fieldName))
                 return null;
 
-            var field = GetInstanceField(typeof(T), fieldName);
+            var field = GetInstanceField(typeof(T), fieldName, logErrorInTrace);
             if (field is null)
                 return null;
 
-            return StructFieldRefAccessInternal<T, F>(field);
+            return StructFieldRefAccessInternal<T, F>(field, logErrorInTrace);
         }
 
         /// <summary>Creates a field reference delegate for an instance field of a struct</summary>
@@ -93,21 +93,21 @@ namespace HarmonyLib.BUTR.Extensions
         /// e.g. <see cref="StructFieldRefAccess{T, F}(string)"/>.
         /// </para>
         /// </remarks>
-        public static AccessTools.StructFieldRef<T, F>? StructFieldRefAccess<T, F>(FieldInfo? fieldInfo) where T : struct
+        public static AccessTools.StructFieldRef<T, F>? StructFieldRefAccess<T, F>(FieldInfo? fieldInfo, bool logErrorInTrace = true) where T : struct
         {
             if (fieldInfo is null)
                 return null;
 
-            if (!ValidateStructField<T, F>(fieldInfo))
+            if (!ValidateStructField<T, F>(fieldInfo, logErrorInTrace))
                 return null;
 
-            return StructFieldRefAccessInternal<T, F>(fieldInfo);
+            return StructFieldRefAccessInternal<T, F>(fieldInfo, logErrorInTrace);
         }
 
         
-        private static AccessTools.StructFieldRef<T, F>? StructFieldRefAccessInternal<T, F>(FieldInfo fieldInfo) where T : struct
+        private static AccessTools.StructFieldRef<T, F>? StructFieldRefAccessInternal<T, F>(FieldInfo fieldInfo, bool logErrorInTrace = true) where T : struct
         {
-            if (!ValidateFieldType<F>(fieldInfo))
+            if (!ValidateFieldType<F>(fieldInfo, logErrorInTrace))
                 return null;
 
             var dm = DynamicMethodDefinitionHandle.Create(

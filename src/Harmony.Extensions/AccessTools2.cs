@@ -116,41 +116,47 @@ namespace HarmonyLib.BUTR.Extensions
                 Generate = AccessTools2.GetDelegateObjectInstance<GenerateDelegate>("MonoMod.Utils.DynamicMethodDefinition:Generate", Type.EmptyTypes);
             }
 
-            public static bool IsValid()
+            public static bool IsValid(bool logErrorInTrace = true)
             {
                 if (DynamicMethodDefinitionCtor is null)
                 {
-                    Trace.TraceError("AccessTools2.Helper.IsValid: DynamicMethodDefinitionCtor is null");
+                    if (logErrorInTrace)
+                        Trace.TraceError("AccessTools2.Helper.IsValid: DynamicMethodDefinitionCtor is null");
                     return false;
                 }
 
                 if (GetILGenerator is null)
                 {
-                    Trace.TraceError("AccessTools2.Helper.IsValid: GetILGenerator is null");
+                    if (logErrorInTrace)
+                        Trace.TraceError("AccessTools2.Helper.IsValid: GetILGenerator is null");
                     return false;
                 }
 
                 if (Emit1 is null)
                 {
-                    Trace.TraceError("AccessTools2.Helper.IsValid: Emit1 is null");
+                    if (logErrorInTrace)
+                        Trace.TraceError("AccessTools2.Helper.IsValid: Emit1 is null");
                     return false;
                 }
 
                 if (Emit2 is null)
                 {
-                    Trace.TraceError("AccessTools2.Helper.IsValid: Emit2 is null");
+                    if (logErrorInTrace)
+                        Trace.TraceError("AccessTools2.Helper.IsValid: Emit2 is null");
                     return false;
                 }
 
                 if (Emit3 is null)
                 {
-                    Trace.TraceError("AccessTools2.Helper.IsValid: Emit3 is null");
+                    if (logErrorInTrace)
+                        Trace.TraceError("AccessTools2.Helper.IsValid: Emit3 is null");
                     return false;
                 }
 
                 if (Generate is null)
                 {
-                    Trace.TraceError("AccessTools2.Helper.IsValid: Generate is null");
+                    if (logErrorInTrace)
+                        Trace.TraceError("AccessTools2.Helper.IsValid: Generate is null");
                     return false;
                 }
 
@@ -176,7 +182,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// If such an exception is thrown, returns the successfully loaded types (<see cref="ReflectionTypeLoadException.Types"/>,
         /// filtered for non-null values).
         /// </remarks>
-        public static Type[] GetTypesFromAssembly(Assembly assembly)
+        public static Type[] GetTypesFromAssembly(Assembly assembly, bool logErrorInTrace = true)
         {
             if (assembly is null)
                 return Type.EmptyTypes;
@@ -187,7 +193,8 @@ namespace HarmonyLib.BUTR.Extensions
             }
             catch (ReflectionTypeLoadException ex)
             {
-                Trace.TraceError($"AccessTools2.GetTypesFromAssembly: assembly {assembly} => {ex}");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.GetTypesFromAssembly: assembly {assembly} => {ex}");
                 return ex.Types.Where(type => type is object).ToArray();
             }
         }
@@ -199,7 +206,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// This calls and returns <see cref="Assembly.GetTypes"/>, while catching any thrown <see cref="ReflectionTypeLoadException"/>.
         /// If such an exception is thrown, returns an empty array.
         /// </remarks>
-        public static Type[] GetTypesFromAssemblyIfValid(Assembly assembly)
+        public static Type[] GetTypesFromAssemblyIfValid(Assembly assembly, bool logErrorInTrace = true)
         {
             if (assembly is null)
                 return Type.EmptyTypes;
@@ -210,7 +217,8 @@ namespace HarmonyLib.BUTR.Extensions
             }
             catch (ReflectionTypeLoadException ex)
             {
-                Trace.TraceError($"AccessTools2.GetTypesFromAssemblyIfValid: assembly {assembly} => {ex}");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.GetTypesFromAssemblyIfValid: assembly {assembly} => {ex}");
                 return Type.EmptyTypes;
             }
         }
@@ -218,11 +226,12 @@ namespace HarmonyLib.BUTR.Extensions
         /// <summary>Gets a type by name. Prefers a full name with namespace but falls back to the first type matching the name otherwise</summary>
         /// <param name="name">The name</param>
         /// <returns>A type or null if not found</returns>
-        public static Type? TypeByName(string name)
+        public static Type? TypeByName(string name, bool logErrorInTrace = true)
         {
             if (string.IsNullOrEmpty(name))
             {
-                Trace.TraceError($"AccessTools2.TypeByName: 'name' is null or empty");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.TypeByName: 'name' is null or empty");
                 return null;
             }
 
@@ -231,7 +240,7 @@ namespace HarmonyLib.BUTR.Extensions
                 type = AllTypes().FirstOrDefault(t => t.FullName == name);
             if (type is null)
                 type = AllTypes().FirstOrDefault(t => t.Name == name);
-            if (type is null)
+            if (type is null && logErrorInTrace)
                 Trace.TraceError($"AccessTools2.TypeByName: Could not find type named '{name}'");
             return type;
         }
@@ -259,26 +268,28 @@ namespace HarmonyLib.BUTR.Extensions
             }
         }
 
-        private static FieldInfo? GetInstanceField(Type type, string fieldName)
+        private static FieldInfo? GetInstanceField(Type type, string fieldName, bool logErrorInTrace = true)
         {
-            var fieldInfo = Field(type, fieldName);
+            var fieldInfo = Field(type, fieldName, logErrorInTrace);
             if (fieldInfo is null)
                 return null;
 
             if (fieldInfo.IsStatic)
             {
-                Trace.TraceError($"AccessTools2.GetInstanceField: Field must not be static, type '{type}', fieldName '{fieldName}'");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.GetInstanceField: Field must not be static, type '{type}', fieldName '{fieldName}'");
                 return null;
             }
 
             return fieldInfo;
         }
 
-        private static bool ValidateFieldType<F>(FieldInfo? fieldInfo)
+        private static bool ValidateFieldType<F>(FieldInfo? fieldInfo, bool logErrorInTrace = true)
         {
             if (fieldInfo is null)
             {
-                Trace.TraceError($"AccessTools2.ValidateFieldType<{typeof(F).FullName}>: 'fieldInfo' is null");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.ValidateFieldType<{typeof(F).FullName}>: 'fieldInfo' is null");
                 return false;
             }
 
@@ -292,21 +303,24 @@ namespace HarmonyLib.BUTR.Extensions
                 var underlyingType = Enum.GetUnderlyingType(fieldType);
                 if (returnType != underlyingType)
                 {
-                    Trace.TraceError($"AccessTools2.ValidateFieldType<{typeof(F).FullName}>: FieldRefAccess return type must be the same as FieldType or FieldType's underlying integral type ({underlyingType}) for enum types, fieldInfo '{fieldInfo}'");
+                    if (logErrorInTrace)
+                        Trace.TraceError($"AccessTools2.ValidateFieldType<{typeof(F).FullName}>: FieldRefAccess return type must be the same as FieldType or FieldType's underlying integral type ({underlyingType}) for enum types, fieldInfo '{fieldInfo}'");
                     return false;
                 }
             }
             else if (fieldType.IsValueType)
             {
                 // Boxing/unboxing is not allowed for ref values of value types.
-                Trace.TraceError($"AccessTools2.ValidateFieldType<{typeof(F).FullName}>: FieldRefAccess return type must be the same as FieldType for value types, fieldInfo '{fieldInfo}'");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.ValidateFieldType<{typeof(F).FullName}>: FieldRefAccess return type must be the same as FieldType for value types, fieldInfo '{fieldInfo}'");
                 return false;
             }
             else
             {
                 if (returnType.IsAssignableFrom(fieldType) is false)
                 {
-                    Trace.TraceError($"AccessTools2.ValidateFieldType<{typeof(F).FullName}>: FieldRefAccess return type must be assignable from FieldType for reference types");
+                    if (logErrorInTrace)
+                        Trace.TraceError($"AccessTools2.ValidateFieldType<{typeof(F).FullName}>: FieldRefAccess return type must be assignable from FieldType for reference types");
                     return false;
                 }
             }
@@ -314,19 +328,21 @@ namespace HarmonyLib.BUTR.Extensions
             return true;
         }
 
-        private static bool ValidateStructField<T, F>(FieldInfo? fieldInfo) where T : struct
+        private static bool ValidateStructField<T, F>(FieldInfo? fieldInfo, bool logErrorInTrace = true) where T : struct
         {
             if (fieldInfo is null)
                 return false;
 
             if (fieldInfo.IsStatic)
             {
-                Trace.TraceError($"AccessTools2.ValidateStructField<{typeof(T).FullName}, {typeof(F).FullName}>: Field must not be static");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.ValidateStructField<{typeof(T).FullName}, {typeof(F).FullName}>: Field must not be static");
                 return false;
             }
             if (fieldInfo.DeclaringType != typeof(T))
             {
-                Trace.TraceError($"AccessTools2.ValidateStructField<{typeof(T).FullName}, {typeof(F).FullName}>: FieldDeclaringType must be T (StructFieldRefAccess instance type)");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.ValidateStructField<{typeof(T).FullName}, {typeof(F).FullName}>: FieldDeclaringType must be T (StructFieldRefAccess instance type)");
                 return false;
             }
 
@@ -334,14 +350,15 @@ namespace HarmonyLib.BUTR.Extensions
         }
 
 #if NETSTANDARD2_1 || NETCORE3_0
-        private static bool TryGetComponents(string typeColonName, [NotNullWhen(true)] out Type? type, [NotNullWhen(true)] out string? name)
+        private static bool TryGetComponents(string typeColonName, [NotNullWhen(true)] out Type? type, [NotNullWhen(true)] out string? name, bool logErrorInTrace = true)
 #else
-        private static bool TryGetComponents(string typeColonName, out Type? type, out string? name)
+        private static bool TryGetComponents(string typeColonName, out Type? type, out string? name, bool logErrorInTrace = true)
 #endif
         {
             if (string.IsNullOrWhiteSpace(typeColonName))
             {
-                Trace.TraceError("AccessTools2.TryGetComponents: 'typeColonName' is null or whitespace/empty");
+                if (logErrorInTrace)
+                    Trace.TraceError("AccessTools2.TryGetComponents: 'typeColonName' is null or whitespace/empty");
 
                 type = null;
                 name = null;
@@ -351,14 +368,15 @@ namespace HarmonyLib.BUTR.Extensions
             var parts = typeColonName!.Split(':');
             if (parts.Length != 2)
             {
-                Trace.TraceError($"AccessTools2.TryGetComponents: typeColonName '{typeColonName}', name must be specified as 'Namespace.Type1.Type2:Name");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.TryGetComponents: typeColonName '{typeColonName}', name must be specified as 'Namespace.Type1.Type2:Name");
 
                 type = null;
                 name = null;
                 return false;
             }
 
-            type = TypeByName(parts[0]);
+            type = TypeByName(parts[0], logErrorInTrace);
             name = parts[1];
             return type is not null;
         }

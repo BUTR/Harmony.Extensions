@@ -61,22 +61,25 @@ namespace HarmonyLib.BUTR.Extensions
         /// <param name="name">The name of the field</param>
         /// <returns>A field or null when type/name is null or when the field cannot be found</returns>
         ///
-        public static FieldInfo? DeclaredField(Type type, string name)
+        public static FieldInfo? DeclaredField(Type type, string name, bool logErrorInTrace = true)
         {
             if (type is null)
             {
-                Trace.TraceError("AccessTools2.DeclaredField: 'type' is null");
+                if (logErrorInTrace)
+                    Trace.TraceError("AccessTools2.DeclaredField: 'type' is null");
                 return null;
             }
             if (name is null)
             {
-                Trace.TraceError($"AccessTools2.DeclaredField: type '{type}', 'name' is null");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.DeclaredField: type '{type}', 'name' is null");
                 return null;
             }
             var fieldInfo = type.GetField(name, AccessTools.allDeclared);
             if (fieldInfo is null)
             {
-                Trace.TraceError($"AccessTools2.DeclaredField: Could not find field for type '{type}' and name '{name}'");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.DeclaredField: Could not find field for type '{type}' and name '{name}'");
                 return null;
             }
             return fieldInfo;
@@ -87,46 +90,50 @@ namespace HarmonyLib.BUTR.Extensions
         /// <param name="name">The name of the field (case sensitive)</param>
         /// <returns>A field or null when type/name is null or when the field cannot be found</returns>
         ///
-        public static FieldInfo? Field(Type type, string name)
+        public static FieldInfo? Field(Type type, string name, bool logErrorInTrace = true)
         {
             if (type is null)
             {
-                Trace.TraceError("AccessTools2.Field: 'type' is null");
+                if (logErrorInTrace)
+                    Trace.TraceError("AccessTools2.Field: 'type' is null");
                 return null;
             }
             if (name is null)
             {
-                Trace.TraceError($"AccessTools2.Field: type '{type}', 'name' is null");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.Field: type '{type}', 'name' is null");
                 return null;
             }
             var fieldInfo = FindIncludingBaseTypes(type, t => t.GetField(name, AccessTools.all));
-            if (fieldInfo is null)
+            if (fieldInfo is null && logErrorInTrace)
                 Trace.TraceError($"AccessTools2.Field: Could not find field for type '{type}' and name '{name}'");
             return fieldInfo;
         }
 
         //
 
-        public static FieldInfo? DeclaredField(string typeColonFieldname)
+        public static FieldInfo? DeclaredField(string typeColonFieldname, bool logErrorInTrace = true)
         {
-            if (!TryGetComponents(typeColonFieldname, out var type, out var name))
+            if (!TryGetComponents(typeColonFieldname, out var type, out var name, logErrorInTrace))
             {
-                Trace.TraceError($"AccessTools2.Field: Could not find type or field for '{typeColonFieldname}'");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.Field: Could not find type or field for '{typeColonFieldname}'");
                 return null;
             }
 
-            return DeclaredField(type, name);
+            return DeclaredField(type, name, logErrorInTrace);
         }
         
-        public static FieldInfo? Field(string typeColonFieldname)
+        public static FieldInfo? Field(string typeColonFieldname, bool logErrorInTrace = true)
         {
-            if (!TryGetComponents(typeColonFieldname, out var type, out var name))
+            if (!TryGetComponents(typeColonFieldname, out var type, out var name, logErrorInTrace))
             {
-                Trace.TraceError($"AccessTools2.Field: Could not find type or field for '{typeColonFieldname}'");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.Field: Could not find type or field for '{typeColonFieldname}'");
                 return null;
             }
 
-            return Field(type, name);
+            return Field(type, name, logErrorInTrace);
         }
     }
 }

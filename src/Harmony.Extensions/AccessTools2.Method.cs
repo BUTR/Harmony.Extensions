@@ -62,16 +62,18 @@ namespace HarmonyLib.BUTR.Extensions
         /// <param name="parameters">Optional parameters to target a specific overload of the method</param>
         /// <param name="generics">Optional list of types that define the generic version of the method</param>
         /// <returns>A method or null when type/name is null or when the method cannot be found</returns>
-        public static MethodInfo? DeclaredMethod(Type type, string name, Type[]? parameters = null, Type[]? generics = null)
+        public static MethodInfo? DeclaredMethod(Type type, string name, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true)
         {
             if (type is null)
             {
-                Trace.TraceError("AccessTools2.DeclaredMethod: 'type' is null");
+                if (logErrorInTrace)
+                    Trace.TraceError("AccessTools2.DeclaredMethod: 'type' is null");
                 return null;
             }
             if (name is null)
             {
-                Trace.TraceError($"AccessTools2.DeclaredMethod: type '{type}', 'name' is null");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.DeclaredMethod: type '{type}', 'name' is null");
                 return null;
             }
 
@@ -87,7 +89,8 @@ namespace HarmonyLib.BUTR.Extensions
                     result = type.GetMethod(name, AccessTools.allDeclared, null, Type.EmptyTypes, new ParameterModifier[0]);
                     if (result is null)
                     {
-                        Trace.TraceError($"AccessTools2.DeclaredMethod: Ambiguous match for type '{type}' and name '{name}' and parameters '{parameters?.Description()}', '{ex}'");
+                        if (logErrorInTrace)
+                            Trace.TraceError($"AccessTools2.DeclaredMethod: Ambiguous match for type '{type}' and name '{name}' and parameters '{parameters?.Description()}', '{ex}'");
                         return null;
                     }
                 }
@@ -99,7 +102,8 @@ namespace HarmonyLib.BUTR.Extensions
 
             if (result is null)
             {
-                Trace.TraceError($"AccessTools2.DeclaredMethod: Could not find method for type '{type}' and name '{name}' and parameters '{parameters?.Description()}'");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.DeclaredMethod: Could not find method for type '{type}' and name '{name}' and parameters '{parameters?.Description()}'");
                 return null;
             }
 
@@ -113,16 +117,18 @@ namespace HarmonyLib.BUTR.Extensions
         /// <param name="parameters">Optional parameters to target a specific overload of the method</param>
         /// <param name="generics">Optional list of types that define the generic version of the method</param>
         /// <returns>A method or null when type/name is null or when the method cannot be found</returns>
-        public static MethodInfo? Method(Type type, string name, Type[]? parameters = null, Type[]? generics = null)
+        public static MethodInfo? Method(Type type, string name, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true)
         {
             if (type is null)
             {
-                Trace.TraceError("AccessTools2.Method: 'type' is null");
+                if (logErrorInTrace)
+                    Trace.TraceError("AccessTools2.Method: 'type' is null");
                 return null;
             }
             if (name is null)
             {
-                Trace.TraceError($"AccessTools2.Method: type '{type}', 'name' is null");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.Method: type '{type}', 'name' is null");
                 return null;
             }
 
@@ -138,7 +144,8 @@ namespace HarmonyLib.BUTR.Extensions
                     result = FindIncludingBaseTypes(type, t => t.GetMethod(name, AccessTools.all, null, Type.EmptyTypes, new ParameterModifier[0]));
                     if (result is null)
                     {
-                        Trace.TraceError($"AccessTools2.Method: Ambiguous match for type '{type}' and name '{name}' and parameters '{parameters?.Description()}', '{ex}'");
+                        if (logErrorInTrace)
+                            Trace.TraceError($"AccessTools2.Method: Ambiguous match for type '{type}' and name '{name}' and parameters '{parameters?.Description()}', '{ex}'");
                         return null;
                     }
                 }
@@ -150,7 +157,8 @@ namespace HarmonyLib.BUTR.Extensions
 
             if (result is null)
             {
-                Trace.TraceError($"AccessTools2.Method: Could not find method for type '{type}' and name '{name}' and parameters '{parameters?.Description()}'");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.Method: Could not find method for type '{type}' and name '{name}' and parameters '{parameters?.Description()}'");
                 return null;
             }
 
@@ -165,15 +173,16 @@ namespace HarmonyLib.BUTR.Extensions
         /// <param name="parameters">Optional parameters to target a specific overload of the method</param>
         /// <param name="generics">Optional list of types that define the generic version of the method</param>
         /// <returns>A method or null when type/name is null or when the method cannot be found</returns>
-        public static MethodInfo? DeclaredMethod(string typeColonMethodname, Type[]? parameters = null, Type[]? generics = null)
+        public static MethodInfo? DeclaredMethod(string typeColonMethodname, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true)
         {
-            if (!TryGetComponents(typeColonMethodname, out var type, out var name))
+            if (!TryGetComponents(typeColonMethodname, out var type, out var name, logErrorInTrace))
             {
-                Trace.TraceError($"AccessTools2.Method: Could not find type or property for '{typeColonMethodname}'");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.Method: Could not find type or property for '{typeColonMethodname}'");
                 return null;
             }
             
-            return DeclaredMethod(type, name, parameters, generics);
+            return DeclaredMethod(type, name, parameters, generics, logErrorInTrace);
         }
         
         /// <summary>Gets the reflection information for a method by searching the type and all its super types</summary>
@@ -181,15 +190,16 @@ namespace HarmonyLib.BUTR.Extensions
         /// <param name="parameters">Optional parameters to target a specific overload of the method</param>
         /// <param name="generics">Optional list of types that define the generic version of the method</param>
         /// <returns>A method or null when type/name is null or when the method cannot be found</returns>
-        public static MethodInfo? Method(string typeColonMethodname, Type[]? parameters = null, Type[]? generics = null)
+        public static MethodInfo? Method(string typeColonMethodname, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true)
         {
-            if (!TryGetComponents(typeColonMethodname, out var type, out var name))
+            if (!TryGetComponents(typeColonMethodname, out var type, out var name, logErrorInTrace))
             {
-                Trace.TraceError($"AccessTools2.Method: Could not find type or property for '{typeColonMethodname}'");
+                if (logErrorInTrace)
+                    Trace.TraceError($"AccessTools2.Method: Could not find type or property for '{typeColonMethodname}'");
                 return null;
             }
             
-            return Method(type, name, parameters, generics);
+            return Method(type, name, parameters, generics, logErrorInTrace);
         }
     }
 }
