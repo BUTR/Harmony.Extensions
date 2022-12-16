@@ -59,14 +59,14 @@ namespace HarmonyLib.BUTR.Extensions
     {
         public static AccessTools.FieldRef<TField>? StaticFieldRefAccess<TField>(string typeColonFieldname, bool logErrorInTrace = true)
         {
-            if (!TryGetComponents(typeColonFieldname, out var type, out var name, logErrorInTrace))
+            if (!TryGetComponents(typeColonFieldname, out var type, out var name, logErrorInTrace: logErrorInTrace))
             {
                 if (logErrorInTrace)
                     Trace.TraceError($"AccessTools2.StaticFieldRefAccess: Could not find type or field for '{typeColonFieldname}'");
                 return null;
             }
 
-            return StaticFieldRefAccess<TField>(type, name, logErrorInTrace);
+            return StaticFieldRefAccess<TField>(type, name, logErrorInTrace: logErrorInTrace);
         }
         
         /// <summary>Creates a static field reference delegate</summary>
@@ -83,7 +83,7 @@ namespace HarmonyLib.BUTR.Extensions
             if (fieldInfo is null)
                 return null;
 
-            return StaticFieldRefAccessInternal<F>(fieldInfo, logErrorInTrace);
+            return StaticFieldRefAccessInternal<F>(fieldInfo, logErrorInTrace: logErrorInTrace);
         }
 
         /// <summary>Creates a static field reference delegate</summary>
@@ -93,11 +93,11 @@ namespace HarmonyLib.BUTR.Extensions
         /// <returns>A read and writable <see cref="T:HarmonyLib.AccessTools.FieldRef`1" /> delegate</returns>
         public static AccessTools.FieldRef<TField>? StaticFieldRefAccess<TField>(Type type, string fieldName, bool logErrorInTrace = true)
         {
-            var fieldInfo = Field(type, fieldName, logErrorInTrace);
+            var fieldInfo = Field(type, fieldName, logErrorInTrace: logErrorInTrace);
             if (fieldInfo is null)
                 return null;
 
-            return StaticFieldRefAccess<TField>(fieldInfo, logErrorInTrace);
+            return StaticFieldRefAccess<TField>(fieldInfo, logErrorInTrace: logErrorInTrace);
         }
 
 
@@ -115,7 +115,7 @@ namespace HarmonyLib.BUTR.Extensions
                 return null;
             }
 
-            if (!ValidateFieldType<F>(fieldInfo, logErrorInTrace))
+            if (!ValidateFieldType<F>(fieldInfo, logErrorInTrace: logErrorInTrace))
             {
                 return null;
             }

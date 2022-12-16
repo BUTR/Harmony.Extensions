@@ -195,9 +195,9 @@ namespace HarmonyLib.BUTR.Extensions
         /// <summary>Get a delegate for a method described by <paramref name="methodInfo"/>.</summary>
         /// <param name="methodInfo">The method's <see cref="MethodInfo"/>.</param>
         /// <returns>A delegate or <see langword="null"/> when <paramref name="methodInfo"/> is <see langword="null"/>.</returns>
-        public static TDelegate? GetDelegate<TDelegate>(MethodInfo methodInfo, bool logErrorInTrace = true) where TDelegate : Delegate => GetDelegate<TDelegate>(null, methodInfo, logErrorInTrace);
+        public static TDelegate? GetDelegate<TDelegate>(MethodInfo methodInfo, bool logErrorInTrace = true) where TDelegate : Delegate => GetDelegate<TDelegate>(null, methodInfo, logErrorInTrace: logErrorInTrace);
 
-        public static TDelegate? GetDelegateObjectInstance<TDelegate>(MethodInfo methodInfo, bool logErrorInTrace = true) where TDelegate : Delegate => GetDelegate<TDelegate>(methodInfo, logErrorInTrace);
+        public static TDelegate? GetDelegateObjectInstance<TDelegate>(MethodInfo methodInfo, bool logErrorInTrace = true) where TDelegate : Delegate => GetDelegate<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace);
 
         private static readonly HashSet<Type> NumericTypes = new HashSet<Type>
         {

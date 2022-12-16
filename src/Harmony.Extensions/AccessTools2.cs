@@ -270,7 +270,7 @@ namespace HarmonyLib.BUTR.Extensions
 
         private static FieldInfo? GetInstanceField(Type type, string fieldName, bool logErrorInTrace = true)
         {
-            var fieldInfo = Field(type, fieldName, logErrorInTrace);
+            var fieldInfo = Field(type, fieldName, logErrorInTrace: logErrorInTrace);
             if (fieldInfo is null)
                 return null;
 
@@ -376,7 +376,7 @@ namespace HarmonyLib.BUTR.Extensions
                 return false;
             }
 
-            type = TypeByName(parts[0], logErrorInTrace);
+            type = TypeByName(parts[0], logErrorInTrace: logErrorInTrace);
             name = parts[1];
             return type is not null;
         }

@@ -55,18 +55,18 @@ namespace HarmonyLib.BUTR.Extensions
         static partial class AccessTools2
     {
         public static TDelegate? GetDeclaredConstructorDelegate<TDelegate>(Type type, Type[]? parameters = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => DeclaredConstructor(type, parameters, logErrorInTrace) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo, logErrorInTrace) : null;
+            => DeclaredConstructor(type, parameters, logErrorInTrace: logErrorInTrace) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo, logErrorInTrace: logErrorInTrace) : null;
         
         public static TDelegate? GetConstructorDelegate<TDelegate>(Type type, Type[]? parameters = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => Constructor(type, parameters, logErrorInTrace) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo, logErrorInTrace) : null;
+            => Constructor(type, parameters, logErrorInTrace: logErrorInTrace) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo, logErrorInTrace: logErrorInTrace) : null;
         
         //
         
         public static TDelegate? GetDeclaredConstructorDelegate<TDelegate>(string typeString, Type[]? parameters = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => DeclaredConstructor(typeString, parameters, logErrorInTrace) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo, logErrorInTrace) : null;
+            => DeclaredConstructor(typeString, parameters, logErrorInTrace: logErrorInTrace) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo, logErrorInTrace: logErrorInTrace) : null;
         
         public static TDelegate? GetConstructorDelegate<TDelegate>(string typeString, Type[]? parameters = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => Constructor(typeString, parameters, logErrorInTrace) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo, logErrorInTrace) : null;
+            => Constructor(typeString, parameters, logErrorInTrace: logErrorInTrace) is { } constructorInfo ? GetDelegate<TDelegate>(constructorInfo, logErrorInTrace: logErrorInTrace) : null;
     }
 }
 

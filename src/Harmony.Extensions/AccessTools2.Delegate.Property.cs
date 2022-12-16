@@ -57,74 +57,74 @@ namespace HarmonyLib.BUTR.Extensions
         static partial class AccessTools2
     {
         public static TDelegate? GetPropertyGetterDelegate<TDelegate>(PropertyInfo propertyInfo, bool logErrorInTrace = true) where TDelegate : Delegate
-            => propertyInfo?.GetGetMethod(true) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => propertyInfo?.GetGetMethod(true) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         public static TDelegate? GetPropertySetterDelegate<TDelegate>(PropertyInfo propertyInfo, bool logErrorInTrace = true) where TDelegate : Delegate
-            => propertyInfo?.GetSetMethod(true) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => propertyInfo?.GetSetMethod(true) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         //
         
         public static TDelegate? GetPropertyGetterDelegate<TDelegate>(object? instance, PropertyInfo propertyInfo, bool logErrorInTrace = true) where TDelegate : Delegate
-            => propertyInfo?.GetGetMethod(true) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace) : null;
+            => propertyInfo?.GetGetMethod(true) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         public static TDelegate? GetPropertySetterDelegate<TDelegate>(object? instance, PropertyInfo propertyInfo, bool logErrorInTrace = true) where TDelegate : Delegate
-            => propertyInfo?.GetSetMethod(true) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace) : null;
+            => propertyInfo?.GetSetMethod(true) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         //
 
         public static TDelegate? GetDeclaredPropertyGetterDelegate<TDelegate>(Type type, string name, bool logErrorInTrace = true) where TDelegate : Delegate
-            => DeclaredPropertyGetter(type, name, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => DeclaredPropertyGetter(type, name, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         public static TDelegate? GetDeclaredPropertySetterDelegate<TDelegate>(Type type, string name, bool logErrorInTrace = true) where TDelegate : Delegate
-            => DeclaredPropertySetter(type, name, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => DeclaredPropertySetter(type, name, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
         
         public static TDelegate? GetPropertyGetterDelegate<TDelegate>(Type type, string name, bool logErrorInTrace = true) where TDelegate : Delegate
-            => PropertyGetter(type, name, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => PropertyGetter(type, name, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         public static TDelegate? GetPropertySetterDelegate<TDelegate>(Type type, string name, bool logErrorInTrace = true) where TDelegate : Delegate
-            => PropertySetter(type, name, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => PropertySetter(type, name, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         //
         
         public static TDelegate? GetDeclaredPropertyGetterDelegate<TDelegate>(object? instance, Type type, string method, bool logErrorInTrace = true) where TDelegate : Delegate
-            => DeclaredPropertyGetter(type, method, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace) : null;
+            => DeclaredPropertyGetter(type, method, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         public static TDelegate? GetDeclaredPropertySetterDelegate<TDelegate>(object? instance, Type type, string method, bool logErrorInTrace = true) where TDelegate : Delegate
-            => DeclaredPropertySetter(type, method, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace) : null;
+            => DeclaredPropertySetter(type, method, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace: logErrorInTrace) : null;
         
         public static TDelegate? GetPropertyGetterDelegate<TDelegate>(object? instance, Type type, string method, bool logErrorInTrace = true) where TDelegate : Delegate
-            => PropertyGetter(type, method, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace) : null;
+            => PropertyGetter(type, method, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         public static TDelegate? GetPropertySetterDelegate<TDelegate>(object? instance, Type type, string method, bool logErrorInTrace = true) where TDelegate : Delegate
-            => PropertySetter(type, method, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace) : null;
+            => PropertySetter(type, method, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace: logErrorInTrace) : null;
         
         //
         
         public static TDelegate? GetDeclaredPropertyGetterDelegate<TDelegate>(string typeColonPropertyName, bool logErrorInTrace = true) where TDelegate : Delegate
-            => DeclaredPropertyGetter(typeColonPropertyName, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => DeclaredPropertyGetter(typeColonPropertyName, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
         
         public static TDelegate? GetDeclaredPropertySetterDelegate<TDelegate>(string typeColonPropertyName, bool logErrorInTrace = true) where TDelegate : Delegate
-            => DeclaredPropertySetter(typeColonPropertyName, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => DeclaredPropertySetter(typeColonPropertyName, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
         
         public static TDelegate? GetPropertyGetterDelegate<TDelegate>(string typeColonPropertyName, bool logErrorInTrace = true) where TDelegate : Delegate
-            => PropertyGetter(typeColonPropertyName, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => PropertyGetter(typeColonPropertyName, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         public static TDelegate? GetPropertySetterDelegate<TDelegate>(string typeColonPropertyName, bool logErrorInTrace = true) where TDelegate : Delegate
-            => PropertySetter(typeColonPropertyName, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => PropertySetter(typeColonPropertyName, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         //
         
         public static TDelegate? GetDeclaredPropertyGetterDelegate<TDelegate>(object? instance, string typeColonPropertyName, bool logErrorInTrace = true) where TDelegate : Delegate
-            => DeclaredPropertyGetter(typeColonPropertyName, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace) : null;
+            => DeclaredPropertyGetter(typeColonPropertyName, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         public static TDelegate? GetDeclaredPropertySetterDelegate<TDelegate>(object? instance, string typeColonPropertyName, bool logErrorInTrace = true) where TDelegate : Delegate
-            => DeclaredPropertySetter(typeColonPropertyName, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace) : null;
+            => DeclaredPropertySetter(typeColonPropertyName, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace: logErrorInTrace) : null;
         
         public static TDelegate? GetPropertyGetterDelegate<TDelegate>(object? instance, string typeColonPropertyName, bool logErrorInTrace = true) where TDelegate : Delegate
-            => PropertyGetter(typeColonPropertyName, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace) : null;
+            => PropertyGetter(typeColonPropertyName, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         public static TDelegate? GetPropertySetterDelegate<TDelegate>(object? instance, string typeColonPropertyName, bool logErrorInTrace = true) where TDelegate : Delegate
-            => PropertySetter(typeColonPropertyName, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace) : null;
+            => PropertySetter(typeColonPropertyName, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace: logErrorInTrace) : null;
         
     }
 }

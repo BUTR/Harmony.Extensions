@@ -109,61 +109,61 @@ namespace HarmonyLib.BUTR.Extensions
         /// <param name="type">The class/type where the property is declared</param>
         /// <param name="name">The name of the property (case sensitive)</param>
         /// <returns>A method or null when type/name is null or when the property cannot be found</returns>
-        public static MethodInfo? DeclaredPropertyGetter(Type type, string name, bool logErrorInTrace = true) => DeclaredProperty(type, name, logErrorInTrace)?.GetGetMethod(true);
+        public static MethodInfo? DeclaredPropertyGetter(Type type, string name, bool logErrorInTrace = true) => DeclaredProperty(type, name, logErrorInTrace: logErrorInTrace)?.GetGetMethod(true);
 
         /// <summary>Gets the reflection information for the setter method of a directly declared property</summary>
         /// <param name="type">The class/type where the property is declared</param>
         /// <param name="name">The name of the property (case sensitive)</param>
         /// <returns>A method or null when type/name is null or when the property cannot be found</returns>
-        public static MethodInfo? DeclaredPropertySetter(Type type, string name, bool logErrorInTrace = true) => DeclaredProperty(type, name, logErrorInTrace)?.GetSetMethod(true);
+        public static MethodInfo? DeclaredPropertySetter(Type type, string name, bool logErrorInTrace = true) => DeclaredProperty(type, name, logErrorInTrace: logErrorInTrace)?.GetSetMethod(true);
 
         /// <summary>Gets the reflection information for the getter method of a property by searching the type and all its super types</summary>
         /// <param name="type">The class/type</param>
         /// <param name="name">The name</param>
         /// <returns>A method or null when type/name is null or when the property cannot be found</returns>
-        public static MethodInfo? PropertyGetter(Type type, string name, bool logErrorInTrace = true) => Property(type, name, logErrorInTrace)?.GetGetMethod(true);
+        public static MethodInfo? PropertyGetter(Type type, string name, bool logErrorInTrace = true) => Property(type, name, logErrorInTrace: logErrorInTrace)?.GetGetMethod(true);
 
         /// <summary>Gets the reflection information for the setter method of a property by searching the type and all its super types</summary>
         /// <param name="type">The class/type</param>
         /// <param name="name">The name</param>
         /// <returns>A method or null when type/name is null or when the property cannot be found</returns>
-        public static MethodInfo? PropertySetter(Type type, string name, bool logErrorInTrace = true) => Property(type, name, logErrorInTrace)?.GetSetMethod(true);
+        public static MethodInfo? PropertySetter(Type type, string name, bool logErrorInTrace = true) => Property(type, name, logErrorInTrace: logErrorInTrace)?.GetSetMethod(true);
 
         //
         
         public static PropertyInfo? DeclaredProperty(string typeColonPropertyName, bool logErrorInTrace = true)
         {
-            if (!TryGetComponents(typeColonPropertyName, out var type, out var name, logErrorInTrace))
+            if (!TryGetComponents(typeColonPropertyName, out var type, out var name, logErrorInTrace: logErrorInTrace))
             {
                 if (logErrorInTrace)
                     Trace.TraceError($"AccessTools2.DeclaredProperty: Could not find type or property for '{typeColonPropertyName}'");
                 return null;
             }
 
-            return DeclaredProperty(type, name, logErrorInTrace);
+            return DeclaredProperty(type, name, logErrorInTrace: logErrorInTrace);
         }
         
         public static PropertyInfo? Property(string typeColonPropertyName, bool logErrorInTrace = true)
         {
-            if (!TryGetComponents(typeColonPropertyName, out var type, out var name, logErrorInTrace))
+            if (!TryGetComponents(typeColonPropertyName, out var type, out var name, logErrorInTrace: logErrorInTrace))
             {
                 if (logErrorInTrace)
                     Trace.TraceError($"AccessTools2.Property: Could not find type or property for '{typeColonPropertyName}'");
                 return null;
             }
 
-            return Property(type, name, logErrorInTrace);
+            return Property(type, name, logErrorInTrace: logErrorInTrace);
         }
 
         //
         
-        public static MethodInfo? DeclaredPropertySetter(string typeColonPropertyName, bool logErrorInTrace = true) => DeclaredProperty(typeColonPropertyName, logErrorInTrace)?.GetSetMethod(true);
+        public static MethodInfo? DeclaredPropertySetter(string typeColonPropertyName, bool logErrorInTrace = true) => DeclaredProperty(typeColonPropertyName, logErrorInTrace: logErrorInTrace)?.GetSetMethod(true);
         
-        public static MethodInfo? DeclaredPropertyGetter(string typeColonPropertyName, bool logErrorInTrace = true) => DeclaredProperty(typeColonPropertyName, logErrorInTrace)?.GetGetMethod(true);
+        public static MethodInfo? DeclaredPropertyGetter(string typeColonPropertyName, bool logErrorInTrace = true) => DeclaredProperty(typeColonPropertyName, logErrorInTrace: logErrorInTrace)?.GetGetMethod(true);
         
-        public static MethodInfo? PropertyGetter(string typeColonPropertyName, bool logErrorInTrace = true) => Property(typeColonPropertyName, logErrorInTrace)?.GetGetMethod(true);
+        public static MethodInfo? PropertyGetter(string typeColonPropertyName, bool logErrorInTrace = true) => Property(typeColonPropertyName, logErrorInTrace: logErrorInTrace)?.GetGetMethod(true);
 
-        public static MethodInfo? PropertySetter(string typeColonPropertyName, bool logErrorInTrace = true) => Property(typeColonPropertyName, logErrorInTrace)?.GetSetMethod(true);
+        public static MethodInfo? PropertySetter(string typeColonPropertyName, bool logErrorInTrace = true) => Property(typeColonPropertyName, logErrorInTrace: logErrorInTrace)?.GetSetMethod(true);
     }
 }
 

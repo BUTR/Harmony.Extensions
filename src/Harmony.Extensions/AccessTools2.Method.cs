@@ -175,14 +175,14 @@ namespace HarmonyLib.BUTR.Extensions
         /// <returns>A method or null when type/name is null or when the method cannot be found</returns>
         public static MethodInfo? DeclaredMethod(string typeColonMethodname, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true)
         {
-            if (!TryGetComponents(typeColonMethodname, out var type, out var name, logErrorInTrace))
+            if (!TryGetComponents(typeColonMethodname, out var type, out var name, logErrorInTrace: logErrorInTrace))
             {
                 if (logErrorInTrace)
                     Trace.TraceError($"AccessTools2.Method: Could not find type or property for '{typeColonMethodname}'");
                 return null;
             }
             
-            return DeclaredMethod(type, name, parameters, generics, logErrorInTrace);
+            return DeclaredMethod(type, name, parameters, generics, logErrorInTrace: logErrorInTrace);
         }
         
         /// <summary>Gets the reflection information for a method by searching the type and all its super types</summary>
@@ -192,14 +192,14 @@ namespace HarmonyLib.BUTR.Extensions
         /// <returns>A method or null when type/name is null or when the method cannot be found</returns>
         public static MethodInfo? Method(string typeColonMethodname, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true)
         {
-            if (!TryGetComponents(typeColonMethodname, out var type, out var name, logErrorInTrace))
+            if (!TryGetComponents(typeColonMethodname, out var type, out var name, logErrorInTrace: logErrorInTrace))
             {
                 if (logErrorInTrace)
                     Trace.TraceError($"AccessTools2.Method: Could not find type or property for '{typeColonMethodname}'");
                 return null;
             }
             
-            return Method(type, name, parameters, generics, logErrorInTrace);
+            return Method(type, name, parameters, generics, logErrorInTrace: logErrorInTrace);
         }
     }
 }

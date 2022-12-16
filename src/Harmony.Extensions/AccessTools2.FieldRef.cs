@@ -59,13 +59,13 @@ namespace HarmonyLib.BUTR.Extensions
     {
         public static AccessTools.FieldRef<object, F>? FieldRefAccess<F>(string typeColonFieldname, bool logErrorInTrace = true)
         {
-            if (!TryGetComponents(typeColonFieldname, out var type, out var name, logErrorInTrace))
+            if (!TryGetComponents(typeColonFieldname, out var type, out var name, logErrorInTrace: logErrorInTrace))
             {
                 Trace.TraceError($"AccessTools2.FieldRefAccess: Could not find type or field for '{typeColonFieldname}'");
                 return null;
             }
 
-            return FieldRefAccess<F>(type, name, logErrorInTrace);
+            return FieldRefAccess<F>(type, name, logErrorInTrace: logErrorInTrace);
         }
     
         /// <summary>Creates a field reference delegate for an instance field of a class</summary>
@@ -82,11 +82,11 @@ namespace HarmonyLib.BUTR.Extensions
             if (fieldName is null)
                 return null;
 
-            var field = GetInstanceField(typeof(T), fieldName, logErrorInTrace);
+            var field = GetInstanceField(typeof(T), fieldName, logErrorInTrace: logErrorInTrace);
             if (field is null)
                 return null;
 
-            return FieldRefAccessInternal<T, F>(field, needCastclass: false, logErrorInTrace);
+            return FieldRefAccessInternal<T, F>(field, needCastclass: false, logErrorInTrace: logErrorInTrace);
         }
 
         /// <summary>Creates a field reference delegate for an instance field of a class or static field (NOT an instance field of a struct)</summary>
@@ -117,7 +117,7 @@ namespace HarmonyLib.BUTR.Extensions
             if (fieldName is null)
                 return null;
 
-            var fieldInfo = Field(type, fieldName, logErrorInTrace);
+            var fieldInfo = Field(type, fieldName, logErrorInTrace: logErrorInTrace);
             if (fieldInfo is null)
                 return null;
 
@@ -133,7 +133,7 @@ namespace HarmonyLib.BUTR.Extensions
                 }
 
                 // Field's declaring type cannot be object, since object has no fields, so always need a castclass for T=object.
-                return FieldRefAccessInternal<object, F>(fieldInfo, needCastclass: true, logErrorInTrace);
+                return FieldRefAccessInternal<object, F>(fieldInfo, needCastclass: true, logErrorInTrace: logErrorInTrace);
             }
 
             return null;
@@ -173,12 +173,12 @@ namespace HarmonyLib.BUTR.Extensions
                     return null;
                 }
 
-                if (FieldRefNeedsClasscast(typeof(T), declaringType, logErrorInTrace) is not { } needCastclass)
+                if (FieldRefNeedsClasscast(typeof(T), declaringType, logErrorInTrace: logErrorInTrace) is not { } needCastclass)
                 {
                     return null;
                 }
 
-                return FieldRefAccessInternal<T, F>(fieldInfo, needCastclass, logErrorInTrace);
+                return FieldRefAccessInternal<T, F>(fieldInfo, needCastclass, logErrorInTrace: logErrorInTrace);
             }
 
             return null;
@@ -198,7 +198,7 @@ namespace HarmonyLib.BUTR.Extensions
                 return null;
             }
 
-            if (!ValidateFieldType<F>(fieldInfo, logErrorInTrace))
+            if (!ValidateFieldType<F>(fieldInfo, logErrorInTrace: logErrorInTrace))
             {
                 return null;
             }

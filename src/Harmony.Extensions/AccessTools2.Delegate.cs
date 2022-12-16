@@ -65,7 +65,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, MethodInfo methodInfo, bool logErrorInTrace = true) where TDelegate : Delegate
-            => GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace);
+            => GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace: logErrorInTrace);
         
         //
         
@@ -84,7 +84,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDeclaredDelegateObjectInstance<TDelegate>(Type type, string method, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => DeclaredMethod(type, method, parameters, generics, logErrorInTrace) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => DeclaredMethod(type, method, parameters, generics, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
         
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/> or any of its base types,
@@ -101,7 +101,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDelegateObjectInstance<TDelegate>(Type type, string method, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => Method(type, method, parameters, generics, logErrorInTrace) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => Method(type, method, parameters, generics, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>,
@@ -118,7 +118,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDeclaredDelegateObjectInstance<TDelegate>(string typeSemicolonMethod, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => DeclaredMethod(typeSemicolonMethod, parameters, generics, logErrorInTrace) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => DeclaredMethod(typeSemicolonMethod, parameters, generics, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
         
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/> or any of its base types,
@@ -135,7 +135,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDelegateObjectInstance<TDelegate>(string typeSemicolonMethod, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => Method(typeSemicolonMethod, parameters, generics, logErrorInTrace) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => Method(typeSemicolonMethod, parameters, generics, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegateObjectInstance<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         //
 
@@ -153,7 +153,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDeclaredDelegate<TDelegate>(Type type, string method, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => DeclaredMethod(type, method, parameters, generics, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => DeclaredMethod(type, method, parameters, generics, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/>
@@ -170,7 +170,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDelegate<TDelegate>(Type type, string method, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => Method(type, method, parameters, generics, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => Method(type, method, parameters, generics, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, directly declared by <paramref name="type"/>.
@@ -186,7 +186,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDeclaredDelegate<TDelegate>(string typeSemicolonMethod, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => DeclaredMethod(typeSemicolonMethod, parameters, generics, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => DeclaredMethod(typeSemicolonMethod, parameters, generics, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="type"/>
@@ -203,7 +203,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDelegate<TDelegate>(string typeSemicolonMethod, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => Method(typeSemicolonMethod, parameters, generics, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace) : null;
+            => Method(typeSemicolonMethod, parameters, generics, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(methodInfo, logErrorInTrace: logErrorInTrace) : null;
         
         //
         
@@ -221,7 +221,7 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDeclaredDelegate<TDelegate, TInstance>(TInstance instance, string method, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => instance is not null && DeclaredMethod(instance.GetType(), method, parameters, generics, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate, TInstance>(instance, methodInfo, logErrorInTrace) : null;
+            => instance is not null && DeclaredMethod(instance.GetType(), method, parameters, generics, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate, TInstance>(instance, methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         /// <summary>
         /// Get a delegate for a method named <paramref name="method"/>, declared by <paramref name="instance"/>'s type or any of its base types.
@@ -237,23 +237,23 @@ namespace HarmonyLib.BUTR.Extensions
         /// is <see langword="null"/> or when the method cannot be found.
         /// </returns>
         public static TDelegate? GetDelegate<TDelegate, TInstance>(TInstance instance, string method, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => instance is not null && Method(instance.GetType(), method, parameters, generics, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate, TInstance>(instance, methodInfo, logErrorInTrace) : null;
+            => instance is not null && Method(instance.GetType(), method, parameters, generics, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate, TInstance>(instance, methodInfo, logErrorInTrace: logErrorInTrace) : null;
         
         //
         
         public static TDelegate? GetDeclaredDelegate<TDelegate>(object? instance, Type type, string method, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => DeclaredMethod(type, method, parameters, generics, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace) : null;
+            => DeclaredMethod(type, method, parameters, generics, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace: logErrorInTrace) : null;
 
         public static TDelegate? GetDelegate<TDelegate>(object? instance, Type type, string method, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => Method(type, method, parameters, generics, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace) : null;
+            => Method(type, method, parameters, generics, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace: logErrorInTrace) : null;
         
         //
 
         public static TDelegate? GetDeclaredDelegate<TDelegate>(object? instance, string typeSemicolonMethod, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => DeclaredMethod(typeSemicolonMethod, parameters, generics, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace) : null;
+            => DeclaredMethod(typeSemicolonMethod, parameters, generics, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace: logErrorInTrace) : null;
         
         public static TDelegate? GetDelegate<TDelegate>(object? instance, string typeSemicolonMethod, Type[]? parameters = null, Type[]? generics = null, bool logErrorInTrace = true) where TDelegate : Delegate
-            => Method(typeSemicolonMethod, parameters, generics, logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace) : null;
+            => Method(typeSemicolonMethod, parameters, generics, logErrorInTrace: logErrorInTrace) is { } methodInfo ? GetDelegate<TDelegate>(instance, methodInfo, logErrorInTrace: logErrorInTrace) : null;
     }
 }
 

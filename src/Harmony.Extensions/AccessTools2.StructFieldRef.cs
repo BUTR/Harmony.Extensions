@@ -71,11 +71,11 @@ namespace HarmonyLib.BUTR.Extensions
             if (string.IsNullOrEmpty(fieldName))
                 return null;
 
-            var field = GetInstanceField(typeof(T), fieldName, logErrorInTrace);
+            var field = GetInstanceField(typeof(T), fieldName, logErrorInTrace: logErrorInTrace);
             if (field is null)
                 return null;
 
-            return StructFieldRefAccessInternal<T, F>(field, logErrorInTrace);
+            return StructFieldRefAccessInternal<T, F>(field, logErrorInTrace: logErrorInTrace);
         }
 
         /// <summary>Creates a field reference delegate for an instance field of a struct</summary>
@@ -98,16 +98,16 @@ namespace HarmonyLib.BUTR.Extensions
             if (fieldInfo is null)
                 return null;
 
-            if (!ValidateStructField<T, F>(fieldInfo, logErrorInTrace))
+            if (!ValidateStructField<T, F>(fieldInfo, logErrorInTrace: logErrorInTrace))
                 return null;
 
-            return StructFieldRefAccessInternal<T, F>(fieldInfo, logErrorInTrace);
+            return StructFieldRefAccessInternal<T, F>(fieldInfo, logErrorInTrace: logErrorInTrace);
         }
 
         
         private static AccessTools.StructFieldRef<T, F>? StructFieldRefAccessInternal<T, F>(FieldInfo fieldInfo, bool logErrorInTrace = true) where T : struct
         {
-            if (!ValidateFieldType<F>(fieldInfo, logErrorInTrace))
+            if (!ValidateFieldType<F>(fieldInfo, logErrorInTrace: logErrorInTrace))
                 return null;
 
             var dm = DynamicMethodDefinitionHandle.Create(

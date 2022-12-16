@@ -111,11 +111,11 @@ namespace HarmonyLib.BUTR.Extensions
                 return null;
             }
 
-            var type = TypeByName(typeString, logErrorInTrace);
+            var type = TypeByName(typeString, logErrorInTrace: logErrorInTrace);
             if (type is null)
                 return null;
 
-            return DeclaredConstructor(type, parameters, searchForStatic, logErrorInTrace);
+            return DeclaredConstructor(type, parameters, searchForStatic, logErrorInTrace: logErrorInTrace);
         }
         
         /// <summary>Gets the reflection information for a constructor by searching the type</summary>
@@ -132,11 +132,11 @@ namespace HarmonyLib.BUTR.Extensions
                 return null;
             }
 
-            var type = TypeByName(typeString, logErrorInTrace);
+            var type = TypeByName(typeString, logErrorInTrace: logErrorInTrace);
             if (type is null)
                 return null;
 
-            return Constructor(type, parameters, searchForStatic, logErrorInTrace);
+            return Constructor(type, parameters, searchForStatic, logErrorInTrace: logErrorInTrace);
         }
     }
 }
