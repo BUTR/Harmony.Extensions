@@ -3,7 +3,7 @@
   <PropertyGroup>
     <HarmonyVersion>2.0.4</HarmonyVersion>
     <!-- https://stackoverflow.com/questions/70022194/open-net-framework-4-5-project-in-vs-2022-is-there-any-workaround -->
-    <TargetFrameworks>net45;netstandard2.0;netcoreapp3.1;net5.0</TargetFrameworks>
+    <TargetFrameworks>net45;netstandard2.0;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
     <RootNamespace>System.Diagnostics.CodeAnalysis</RootNamespace>
     <DefineConstants>$(DefineConstants);$(TargetFramework);HARMONYEXTENSIONS_ENABLEWARNINGS;HARMONYEXTENSIONS_PUBLIC;</DefineConstants>
     <DefineConstants Condition="$(HarmonyVersion) &lt; '2.0.4'">$(DefineConstants);HARMONYEXTENSIONS_DISABLE_2_0_4;</DefineConstants>
@@ -40,11 +40,12 @@
 
   <ItemGroup>
     <PackageFile Include="**/*.cs"
-                 PackagePath="content\cs\$(TargetFramework)\$(ProjectName)\%(RelativeDir)%(Filename).cs.pp"
+                 PackagePath="content\cs\$(TargetFramework)\$(ProjectName)\%(RelativeDir)%(Filename).cs"
                  Exclude="$(BaseIntermediateOutputPath)/**/*.cs" />
     <PackageFile Include="**/*.cs"
-                 PackagePath="contentFiles\cs\$(TargetFramework)\$(ProjectName)\%(RelativeDir)%(Filename).cs.pp"
+                 PackagePath="contentFiles\cs\$(TargetFramework)\$(ProjectName)\%(RelativeDir)%(Filename).cs"
                  Exclude="$(BaseIntermediateOutputPath)/**/*.cs" />
+    <PackageFile Include="../Harmony.Extensions.props" PackagePath="build/Harmony.Extensions.props" />
     <PackageFile Include="../../assets/Icon128x128.png" PackagePath="icon.png" />
   </ItemGroup>
 

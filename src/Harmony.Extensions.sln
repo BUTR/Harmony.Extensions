@@ -1,11 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29318.209
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33312.197
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harmony.Extensions", "Harmony.Extensions\Harmony.Extensions.csproj", "{AF81D675-8017-44AF-841F-74D4EC7C083B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BFAE8F5D-C97B-46F6-B4B3-EA9CF8DBB84F}"
+	ProjectSection(SolutionItems) = preProject
+		Harmony.Extensions.props = Harmony.Extensions.props
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{EACECBA3-74F1-4F6D-8010-DFE3A5CAE4D0}"
 EndProject

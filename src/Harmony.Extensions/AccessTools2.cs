@@ -349,7 +349,7 @@ namespace HarmonyLib.BUTR.Extensions
             return true;
         }
 
-#if NETSTANDARD2_1 || NETCORE3_0
+#if NETSTANDARD2_1 || NETCOREAPP1_0_OR_GREATER
         private static bool TryGetComponents(string typeColonName, [NotNullWhen(true)] out Type? type, [NotNullWhen(true)] out string? name, bool logErrorInTrace = true)
 #else
         private static bool TryGetComponents(string typeColonName, out Type? type, out string? name, bool logErrorInTrace = true)
