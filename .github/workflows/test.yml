@@ -105,7 +105,7 @@ jobs:
       shell: pwsh
 
     - name: ReportGenerator
-      uses: danielpalme/ReportGenerator-GitHub-Action@5.1.14
+      uses: danielpalme/ReportGenerator-GitHub-Action@5.1.16
       if: matrix.os == 'windows-latest'
       with:
         reports: 'coverage_debug.xml;coverage_release.xml'
