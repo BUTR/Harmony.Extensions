@@ -28,7 +28,7 @@ jobs:
 
     - name: Run _build
       run: >-
-        dotnet pack src/Harmony.Extensions.sln --configuration Release -o "./packages";
+        dotnet pack src/Harmony.Extensions/Harmony.Extensions.csproj --configuration Release -o "./packages";
       shell: pwsh
 
     - name: Run _build
