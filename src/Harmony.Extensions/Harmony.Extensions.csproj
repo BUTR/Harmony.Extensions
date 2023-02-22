@@ -54,7 +54,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lib.Harmony" Version="$(HarmonyVersion)" Pack="true" />
+    <PackageReference Include="Lib.Harmony" Version="$(HarmonyVersion)" Pack="false" />
   </ItemGroup>
 
 </Project>
