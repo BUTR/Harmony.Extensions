@@ -72,7 +72,11 @@ namespace HarmonyLib.BUTR.Extensions
 
             try
             {
+#if HARMONYEXTENSIONS_HARMONYX
+                harmony.Patch(original, prefixMethod, postfixMethod, transpilerMethod, finalizerMethod, null);
+#else
                 harmony.Patch(original, prefixMethod, postfixMethod, transpilerMethod, finalizerMethod);
+#endif
             }
             catch (Exception e)
             {
@@ -82,6 +86,35 @@ namespace HarmonyLib.BUTR.Extensions
 
             return true;
         }
+        
+#if HARMONYEXTENSIONS_HARMONYX
+        public static bool TryPatch(this Harmony harmony, MethodBase? original, MethodInfo? prefix = null, MethodInfo? postfix = null, MethodInfo? transpiler = null, MethodInfo? finalizer = null, MethodInfo? ilmanipulator = null)
+        {
+            if (original is null || (prefix is null && postfix is null && transpiler is null && finalizer is null && ilmanipulator is null))
+            {
+                Trace.TraceError($"HarmonyExtensions.TryPatch: 'original' or all methods are null");
+                return false;
+            }
+
+            var prefixMethod = prefix is null ? null : new HarmonyMethod(prefix);
+            var postfixMethod = postfix is null ? null : new HarmonyMethod(postfix);
+            var transpilerMethod = transpiler is null ? null : new HarmonyMethod(transpiler);
+            var finalizerMethod = finalizer is null ? null : new HarmonyMethod(finalizer);
+            var ilmanipulatorMethod = ilmanipulator is null ? null : new HarmonyMethod(ilmanipulator);
+
+            try
+            {
+                harmony.Patch(original, prefixMethod, postfixMethod, transpilerMethod, finalizerMethod, ilmanipulatorMethod);
+            }
+            catch (Exception e)
+            {
+                Trace.TraceError($"HarmonyExtensions.TryPatch: Exception occurred: {e}, original '{original}'");
+                return false;
+            }
+
+            return true;
+        }
+#endif
 
         public static ReversePatcher? TryCreateReversePatcher(this Harmony harmony, MethodBase? original, MethodInfo? standin)
         {
