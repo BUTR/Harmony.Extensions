@@ -1,0 +1,2058 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: HarmonyLib.BUTR.Extensions
+  name: HarmonyLib.BUTR.Extensions
+  href: api/HarmonyLib.BUTR.Extensions.html
+  commentId: N:HarmonyLib.BUTR.Extensions
+  fullName: HarmonyLib.BUTR.Extensions
+  nameWithType: HarmonyLib.BUTR.Extensions
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2
+  name: AccessTools2
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html
+  commentId: T:HarmonyLib.BUTR.Extensions.AccessTools2
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2
+  nameWithType: AccessTools2
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.AllAssemblies
+  name: AllAssemblies()
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_AllAssemblies
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.AllAssemblies
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.AllAssemblies()
+  nameWithType: AccessTools2.AllAssemblies()
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.AllAssemblies*
+  name: AllAssemblies
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_AllAssemblies_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.AllAssemblies
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.AllAssemblies
+  nameWithType: AccessTools2.AllAssemblies
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.AllTypes
+  name: AllTypes()
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_AllTypes
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.AllTypes
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.AllTypes()
+  nameWithType: AccessTools2.AllTypes()
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.AllTypes*
+  name: AllTypes
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_AllTypes_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.AllTypes
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.AllTypes
+  nameWithType: AccessTools2.AllTypes
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.AsyncMoveNext(System.Reflection.MethodBase)
+  name: AsyncMoveNext(MethodBase)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_AsyncMoveNext_System_Reflection_MethodBase_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.AsyncMoveNext(System.Reflection.MethodBase)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.AsyncMoveNext(System.Reflection.MethodBase)
+  nameWithType: AccessTools2.AsyncMoveNext(MethodBase)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.AsyncMoveNext*
+  name: AsyncMoveNext
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_AsyncMoveNext_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.AsyncMoveNext
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.AsyncMoveNext
+  nameWithType: AccessTools2.AsyncMoveNext
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.Constructor(System.String,System.Type[],System.Boolean,System.Boolean)
+  name: Constructor(String, Type[], Boolean, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_Constructor_System_String_System_Type___System_Boolean_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.Constructor(System.String,System.Type[],System.Boolean,System.Boolean)
+  name.vb: Constructor(String, Type(), Boolean, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.Constructor(System.String, System.Type[], System.Boolean, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.Constructor(System.String, System.Type(), System.Boolean, System.Boolean)
+  nameWithType: AccessTools2.Constructor(String, Type[], Boolean, Boolean)
+  nameWithType.vb: AccessTools2.Constructor(String, Type(), Boolean, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.Constructor(System.Type,System.Type[],System.Boolean,System.Boolean)
+  name: Constructor(Type, Type[], Boolean, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_Constructor_System_Type_System_Type___System_Boolean_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.Constructor(System.Type,System.Type[],System.Boolean,System.Boolean)
+  name.vb: Constructor(Type, Type(), Boolean, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.Constructor(System.Type, System.Type[], System.Boolean, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.Constructor(System.Type, System.Type(), System.Boolean, System.Boolean)
+  nameWithType: AccessTools2.Constructor(Type, Type[], Boolean, Boolean)
+  nameWithType.vb: AccessTools2.Constructor(Type, Type(), Boolean, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.Constructor*
+  name: Constructor
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_Constructor_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.Constructor
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.Constructor
+  nameWithType: AccessTools2.Constructor
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredConstructor(System.String,System.Type[],System.Boolean,System.Boolean)
+  name: DeclaredConstructor(String, Type[], Boolean, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredConstructor_System_String_System_Type___System_Boolean_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredConstructor(System.String,System.Type[],System.Boolean,System.Boolean)
+  name.vb: DeclaredConstructor(String, Type(), Boolean, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredConstructor(System.String, System.Type[], System.Boolean, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredConstructor(System.String, System.Type(), System.Boolean, System.Boolean)
+  nameWithType: AccessTools2.DeclaredConstructor(String, Type[], Boolean, Boolean)
+  nameWithType.vb: AccessTools2.DeclaredConstructor(String, Type(), Boolean, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredConstructor(System.Type,System.Type[],System.Boolean,System.Boolean)
+  name: DeclaredConstructor(Type, Type[], Boolean, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredConstructor_System_Type_System_Type___System_Boolean_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredConstructor(System.Type,System.Type[],System.Boolean,System.Boolean)
+  name.vb: DeclaredConstructor(Type, Type(), Boolean, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredConstructor(System.Type, System.Type[], System.Boolean, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredConstructor(System.Type, System.Type(), System.Boolean, System.Boolean)
+  nameWithType: AccessTools2.DeclaredConstructor(Type, Type[], Boolean, Boolean)
+  nameWithType.vb: AccessTools2.DeclaredConstructor(Type, Type(), Boolean, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredConstructor*
+  name: DeclaredConstructor
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredConstructor_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredConstructor
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredConstructor
+  nameWithType: AccessTools2.DeclaredConstructor
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredField(System.String,System.Boolean)
+  name: DeclaredField(String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredField_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredField(System.String,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredField(System.String, System.Boolean)
+  nameWithType: AccessTools2.DeclaredField(String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredField(System.Type,System.String,System.Boolean)
+  name: DeclaredField(Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredField_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredField(System.Type,System.String,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredField(System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.DeclaredField(Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredField*
+  name: DeclaredField
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredField_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredField
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredField
+  nameWithType: AccessTools2.DeclaredField
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexer(System.Type,System.Type[])
+  name: DeclaredIndexer(Type, Type[])
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredIndexer_System_Type_System_Type___
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexer(System.Type,System.Type[])
+  name.vb: DeclaredIndexer(Type, Type())
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexer(System.Type, System.Type[])
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexer(System.Type, System.Type())
+  nameWithType: AccessTools2.DeclaredIndexer(Type, Type[])
+  nameWithType.vb: AccessTools2.DeclaredIndexer(Type, Type())
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexer*
+  name: DeclaredIndexer
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredIndexer_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexer
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexer
+  nameWithType: AccessTools2.DeclaredIndexer
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexerGetter(System.Type,System.Type[])
+  name: DeclaredIndexerGetter(Type, Type[])
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredIndexerGetter_System_Type_System_Type___
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexerGetter(System.Type,System.Type[])
+  name.vb: DeclaredIndexerGetter(Type, Type())
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexerGetter(System.Type, System.Type[])
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexerGetter(System.Type, System.Type())
+  nameWithType: AccessTools2.DeclaredIndexerGetter(Type, Type[])
+  nameWithType.vb: AccessTools2.DeclaredIndexerGetter(Type, Type())
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexerGetter*
+  name: DeclaredIndexerGetter
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredIndexerGetter_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexerGetter
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexerGetter
+  nameWithType: AccessTools2.DeclaredIndexerGetter
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexerSetter(System.Type,System.Type[])
+  name: DeclaredIndexerSetter(Type, Type[])
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredIndexerSetter_System_Type_System_Type___
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexerSetter(System.Type,System.Type[])
+  name.vb: DeclaredIndexerSetter(Type, Type())
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexerSetter(System.Type, System.Type[])
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexerSetter(System.Type, System.Type())
+  nameWithType: AccessTools2.DeclaredIndexerSetter(Type, Type[])
+  nameWithType.vb: AccessTools2.DeclaredIndexerSetter(Type, Type())
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexerSetter*
+  name: DeclaredIndexerSetter
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredIndexerSetter_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexerSetter
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredIndexerSetter
+  nameWithType: AccessTools2.DeclaredIndexerSetter
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredMethod(System.String,System.Type[],System.Type[],System.Boolean)
+  name: DeclaredMethod(String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredMethod_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredMethod(System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: DeclaredMethod(String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredMethod(System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredMethod(System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.DeclaredMethod(String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.DeclaredMethod(String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredMethod(System.Type,System.String,System.Type[],System.Type[],System.Boolean)
+  name: DeclaredMethod(Type, String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredMethod_System_Type_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredMethod(System.Type,System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: DeclaredMethod(Type, String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredMethod(System.Type, System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredMethod(System.Type, System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.DeclaredMethod(Type, String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.DeclaredMethod(Type, String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredMethod*
+  name: DeclaredMethod
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredMethod_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredMethod
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredMethod
+  nameWithType: AccessTools2.DeclaredMethod
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredProperty(System.String,System.Boolean)
+  name: DeclaredProperty(String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredProperty_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredProperty(System.String,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredProperty(System.String, System.Boolean)
+  nameWithType: AccessTools2.DeclaredProperty(String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredProperty(System.Type,System.String,System.Boolean)
+  name: DeclaredProperty(Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredProperty_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredProperty(System.Type,System.String,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredProperty(System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.DeclaredProperty(Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredProperty*
+  name: DeclaredProperty
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredProperty_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredProperty
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredProperty
+  nameWithType: AccessTools2.DeclaredProperty
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertyGetter(System.String,System.Boolean)
+  name: DeclaredPropertyGetter(String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredPropertyGetter_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertyGetter(System.String,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertyGetter(System.String, System.Boolean)
+  nameWithType: AccessTools2.DeclaredPropertyGetter(String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertyGetter(System.Type,System.String,System.Boolean)
+  name: DeclaredPropertyGetter(Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredPropertyGetter_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertyGetter(System.Type,System.String,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertyGetter(System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.DeclaredPropertyGetter(Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertyGetter*
+  name: DeclaredPropertyGetter
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredPropertyGetter_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertyGetter
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertyGetter
+  nameWithType: AccessTools2.DeclaredPropertyGetter
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertySetter(System.String,System.Boolean)
+  name: DeclaredPropertySetter(String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredPropertySetter_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertySetter(System.String,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertySetter(System.String, System.Boolean)
+  nameWithType: AccessTools2.DeclaredPropertySetter(String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertySetter(System.Type,System.String,System.Boolean)
+  name: DeclaredPropertySetter(Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredPropertySetter_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertySetter(System.Type,System.String,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertySetter(System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.DeclaredPropertySetter(Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertySetter*
+  name: DeclaredPropertySetter
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_DeclaredPropertySetter_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertySetter
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.DeclaredPropertySetter
+  nameWithType: AccessTools2.DeclaredPropertySetter
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.Field(System.String,System.Boolean)
+  name: Field(String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_Field_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.Field(System.String,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.Field(System.String, System.Boolean)
+  nameWithType: AccessTools2.Field(String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.Field(System.Type,System.String,System.Boolean)
+  name: Field(Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_Field_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.Field(System.Type,System.String,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.Field(System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.Field(Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.Field*
+  name: Field
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_Field_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.Field
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.Field
+  nameWithType: AccessTools2.Field
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess*
+  name: FieldRefAccess
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_FieldRefAccess_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess
+  nameWithType: AccessTools2.FieldRefAccess
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess``1(System.Reflection.FieldInfo)
+  name: FieldRefAccess<TField>(FieldInfo)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_FieldRefAccess__1_System_Reflection_FieldInfo_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess``1(System.Reflection.FieldInfo)
+  name.vb: FieldRefAccess(Of TField)(FieldInfo)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess<TField>(System.Reflection.FieldInfo)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess(Of TField)(System.Reflection.FieldInfo)
+  nameWithType: AccessTools2.FieldRefAccess<TField>(FieldInfo)
+  nameWithType.vb: AccessTools2.FieldRefAccess(Of TField)(FieldInfo)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess``1(System.String,System.Boolean)
+  name: FieldRefAccess<F>(String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_FieldRefAccess__1_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess``1(System.String,System.Boolean)
+  name.vb: FieldRefAccess(Of F)(String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess<F>(System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess(Of F)(System.String, System.Boolean)
+  nameWithType: AccessTools2.FieldRefAccess<F>(String, Boolean)
+  nameWithType.vb: AccessTools2.FieldRefAccess(Of F)(String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess``1(System.Type,System.String,System.Boolean)
+  name: FieldRefAccess<F>(Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_FieldRefAccess__1_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess``1(System.Type,System.String,System.Boolean)
+  name.vb: FieldRefAccess(Of F)(Type, String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess<F>(System.Type, System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess(Of F)(System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.FieldRefAccess<F>(Type, String, Boolean)
+  nameWithType.vb: AccessTools2.FieldRefAccess(Of F)(Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess``2(System.Reflection.FieldInfo,System.Boolean)
+  name: FieldRefAccess<T, F>(FieldInfo, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_FieldRefAccess__2_System_Reflection_FieldInfo_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess``2(System.Reflection.FieldInfo,System.Boolean)
+  name.vb: FieldRefAccess(Of T, F)(FieldInfo, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess<T, F>(System.Reflection.FieldInfo, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess(Of T, F)(System.Reflection.FieldInfo, System.Boolean)
+  nameWithType: AccessTools2.FieldRefAccess<T, F>(FieldInfo, Boolean)
+  nameWithType.vb: AccessTools2.FieldRefAccess(Of T, F)(FieldInfo, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess``2(System.String,System.Boolean)
+  name: FieldRefAccess<T, F>(String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_FieldRefAccess__2_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess``2(System.String,System.Boolean)
+  name.vb: FieldRefAccess(Of T, F)(String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess<T, F>(System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.FieldRefAccess(Of T, F)(System.String, System.Boolean)
+  nameWithType: AccessTools2.FieldRefAccess<T, F>(String, Boolean)
+  nameWithType.vb: AccessTools2.FieldRefAccess(Of T, F)(String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.FindIncludingBaseTypes*
+  name: FindIncludingBaseTypes
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_FindIncludingBaseTypes_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.FindIncludingBaseTypes
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.FindIncludingBaseTypes
+  nameWithType: AccessTools2.FindIncludingBaseTypes
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.FindIncludingBaseTypes``1(System.Type,System.Func{System.Type,``0})
+  name: FindIncludingBaseTypes<T>(Type, Func<Type, T>)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_FindIncludingBaseTypes__1_System_Type_System_Func_System_Type___0__
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.FindIncludingBaseTypes``1(System.Type,System.Func{System.Type,``0})
+  name.vb: FindIncludingBaseTypes(Of T)(Type, Func(Of Type, T))
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.FindIncludingBaseTypes<T>(System.Type, System.Func<System.Type, T>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.FindIncludingBaseTypes(Of T)(System.Type, System.Func(Of System.Type, T))
+  nameWithType: AccessTools2.FindIncludingBaseTypes<T>(Type, Func<Type, T>)
+  nameWithType.vb: AccessTools2.FindIncludingBaseTypes(Of T)(Type, Func(Of Type, T))
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetConstructorDelegate*
+  name: GetConstructorDelegate
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetConstructorDelegate_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.GetConstructorDelegate
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetConstructorDelegate
+  nameWithType: AccessTools2.GetConstructorDelegate
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetConstructorDelegate``1(System.String,System.Type[],System.Boolean)
+  name: GetConstructorDelegate<TDelegate>(String, Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetConstructorDelegate__1_System_String_System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetConstructorDelegate``1(System.String,System.Type[],System.Boolean)
+  name.vb: GetConstructorDelegate(Of TDelegate)(String, Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetConstructorDelegate<TDelegate>(System.String, System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetConstructorDelegate(Of TDelegate)(System.String, System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetConstructorDelegate<TDelegate>(String, Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetConstructorDelegate(Of TDelegate)(String, Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetConstructorDelegate``1(System.Type,System.Type[],System.Boolean)
+  name: GetConstructorDelegate<TDelegate>(Type, Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetConstructorDelegate__1_System_Type_System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetConstructorDelegate``1(System.Type,System.Type[],System.Boolean)
+  name.vb: GetConstructorDelegate(Of TDelegate)(Type, Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetConstructorDelegate<TDelegate>(System.Type, System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetConstructorDelegate(Of TDelegate)(System.Type, System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetConstructorDelegate<TDelegate>(Type, Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetConstructorDelegate(Of TDelegate)(Type, Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredConstructorDelegate*
+  name: GetDeclaredConstructorDelegate
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredConstructorDelegate_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredConstructorDelegate
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredConstructorDelegate
+  nameWithType: AccessTools2.GetDeclaredConstructorDelegate
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredConstructorDelegate``1(System.String,System.Type[],System.Boolean)
+  name: GetDeclaredConstructorDelegate<TDelegate>(String, Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredConstructorDelegate__1_System_String_System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredConstructorDelegate``1(System.String,System.Type[],System.Boolean)
+  name.vb: GetDeclaredConstructorDelegate(Of TDelegate)(String, Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredConstructorDelegate<TDelegate>(System.String, System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredConstructorDelegate(Of TDelegate)(System.String, System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetDeclaredConstructorDelegate<TDelegate>(String, Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetDeclaredConstructorDelegate(Of TDelegate)(String, Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredConstructorDelegate``1(System.Type,System.Type[],System.Boolean)
+  name: GetDeclaredConstructorDelegate<TDelegate>(Type, Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredConstructorDelegate__1_System_Type_System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredConstructorDelegate``1(System.Type,System.Type[],System.Boolean)
+  name.vb: GetDeclaredConstructorDelegate(Of TDelegate)(Type, Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredConstructorDelegate<TDelegate>(System.Type, System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredConstructorDelegate(Of TDelegate)(System.Type, System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetDeclaredConstructorDelegate<TDelegate>(Type, Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetDeclaredConstructorDelegate(Of TDelegate)(Type, Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate*
+  name: GetDeclaredDelegate
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredDelegate_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate
+  nameWithType: AccessTools2.GetDeclaredDelegate
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate``1(System.Object,System.String,System.Type[],System.Type[],System.Boolean)
+  name: GetDeclaredDelegate<TDelegate>(Object, String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredDelegate__1_System_Object_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate``1(System.Object,System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: GetDeclaredDelegate(Of TDelegate)(Object, String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate<TDelegate>(System.Object, System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate(Of TDelegate)(System.Object, System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetDeclaredDelegate<TDelegate>(Object, String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetDeclaredDelegate(Of TDelegate)(Object, String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate``1(System.Object,System.Type,System.String,System.Type[],System.Type[],System.Boolean)
+  name: GetDeclaredDelegate<TDelegate>(Object, Type, String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredDelegate__1_System_Object_System_Type_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate``1(System.Object,System.Type,System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: GetDeclaredDelegate(Of TDelegate)(Object, Type, String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate<TDelegate>(System.Object, System.Type, System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate(Of TDelegate)(System.Object, System.Type, System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetDeclaredDelegate<TDelegate>(Object, Type, String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetDeclaredDelegate(Of TDelegate)(Object, Type, String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate``1(System.String,System.Type[],System.Type[],System.Boolean)
+  name: GetDeclaredDelegate<TDelegate>(String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredDelegate__1_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate``1(System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: GetDeclaredDelegate(Of TDelegate)(String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate<TDelegate>(System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate(Of TDelegate)(System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetDeclaredDelegate<TDelegate>(String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetDeclaredDelegate(Of TDelegate)(String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate``1(System.Type,System.String,System.Type[],System.Type[],System.Boolean)
+  name: GetDeclaredDelegate<TDelegate>(Type, String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredDelegate__1_System_Type_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate``1(System.Type,System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: GetDeclaredDelegate(Of TDelegate)(Type, String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate<TDelegate>(System.Type, System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate(Of TDelegate)(System.Type, System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetDeclaredDelegate<TDelegate>(Type, String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetDeclaredDelegate(Of TDelegate)(Type, String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate``2(``1,System.String,System.Type[],System.Type[],System.Boolean)
+  name: GetDeclaredDelegate<TDelegate, TInstance>(TInstance, String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredDelegate__2___1_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate``2(``1,System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: GetDeclaredDelegate(Of TDelegate, TInstance)(TInstance, String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate<TDelegate, TInstance>(TInstance, System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegate(Of TDelegate, TInstance)(TInstance, System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetDeclaredDelegate<TDelegate, TInstance>(TInstance, String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetDeclaredDelegate(Of TDelegate, TInstance)(TInstance, String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegateObjectInstance*
+  name: GetDeclaredDelegateObjectInstance
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredDelegateObjectInstance_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegateObjectInstance
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegateObjectInstance
+  nameWithType: AccessTools2.GetDeclaredDelegateObjectInstance
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegateObjectInstance``1(System.String,System.Type[],System.Type[],System.Boolean)
+  name: GetDeclaredDelegateObjectInstance<TDelegate>(String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredDelegateObjectInstance__1_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegateObjectInstance``1(System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: GetDeclaredDelegateObjectInstance(Of TDelegate)(String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegateObjectInstance<TDelegate>(System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegateObjectInstance(Of TDelegate)(System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetDeclaredDelegateObjectInstance<TDelegate>(String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetDeclaredDelegateObjectInstance(Of TDelegate)(String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegateObjectInstance``1(System.Type,System.String,System.Type[],System.Type[],System.Boolean)
+  name: GetDeclaredDelegateObjectInstance<TDelegate>(Type, String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredDelegateObjectInstance__1_System_Type_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegateObjectInstance``1(System.Type,System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: GetDeclaredDelegateObjectInstance(Of TDelegate)(Type, String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegateObjectInstance<TDelegate>(System.Type, System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredDelegateObjectInstance(Of TDelegate)(System.Type, System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetDeclaredDelegateObjectInstance<TDelegate>(Type, String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetDeclaredDelegateObjectInstance(Of TDelegate)(Type, String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate*
+  name: GetDeclaredPropertyGetterDelegate
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredPropertyGetterDelegate_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate
+  nameWithType: AccessTools2.GetDeclaredPropertyGetterDelegate
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate``1(System.Object,System.String,System.Boolean)
+  name: GetDeclaredPropertyGetterDelegate<TDelegate>(Object, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredPropertyGetterDelegate__1_System_Object_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate``1(System.Object,System.String,System.Boolean)
+  name.vb: GetDeclaredPropertyGetterDelegate(Of TDelegate)(Object, String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate<TDelegate>(System.Object, System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate(Of TDelegate)(System.Object, System.String, System.Boolean)
+  nameWithType: AccessTools2.GetDeclaredPropertyGetterDelegate<TDelegate>(Object, String, Boolean)
+  nameWithType.vb: AccessTools2.GetDeclaredPropertyGetterDelegate(Of TDelegate)(Object, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate``1(System.Object,System.Type,System.String,System.Boolean)
+  name: GetDeclaredPropertyGetterDelegate<TDelegate>(Object, Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredPropertyGetterDelegate__1_System_Object_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate``1(System.Object,System.Type,System.String,System.Boolean)
+  name.vb: GetDeclaredPropertyGetterDelegate(Of TDelegate)(Object, Type, String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate<TDelegate>(System.Object, System.Type, System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate(Of TDelegate)(System.Object, System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.GetDeclaredPropertyGetterDelegate<TDelegate>(Object, Type, String, Boolean)
+  nameWithType.vb: AccessTools2.GetDeclaredPropertyGetterDelegate(Of TDelegate)(Object, Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate``1(System.String,System.Boolean)
+  name: GetDeclaredPropertyGetterDelegate<TDelegate>(String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredPropertyGetterDelegate__1_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate``1(System.String,System.Boolean)
+  name.vb: GetDeclaredPropertyGetterDelegate(Of TDelegate)(String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate<TDelegate>(System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate(Of TDelegate)(System.String, System.Boolean)
+  nameWithType: AccessTools2.GetDeclaredPropertyGetterDelegate<TDelegate>(String, Boolean)
+  nameWithType.vb: AccessTools2.GetDeclaredPropertyGetterDelegate(Of TDelegate)(String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate``1(System.Type,System.String,System.Boolean)
+  name: GetDeclaredPropertyGetterDelegate<TDelegate>(Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredPropertyGetterDelegate__1_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate``1(System.Type,System.String,System.Boolean)
+  name.vb: GetDeclaredPropertyGetterDelegate(Of TDelegate)(Type, String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate<TDelegate>(System.Type, System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertyGetterDelegate(Of TDelegate)(System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.GetDeclaredPropertyGetterDelegate<TDelegate>(Type, String, Boolean)
+  nameWithType.vb: AccessTools2.GetDeclaredPropertyGetterDelegate(Of TDelegate)(Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate*
+  name: GetDeclaredPropertySetterDelegate
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredPropertySetterDelegate_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate
+  nameWithType: AccessTools2.GetDeclaredPropertySetterDelegate
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate``1(System.Object,System.String,System.Boolean)
+  name: GetDeclaredPropertySetterDelegate<TDelegate>(Object, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredPropertySetterDelegate__1_System_Object_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate``1(System.Object,System.String,System.Boolean)
+  name.vb: GetDeclaredPropertySetterDelegate(Of TDelegate)(Object, String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate<TDelegate>(System.Object, System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate(Of TDelegate)(System.Object, System.String, System.Boolean)
+  nameWithType: AccessTools2.GetDeclaredPropertySetterDelegate<TDelegate>(Object, String, Boolean)
+  nameWithType.vb: AccessTools2.GetDeclaredPropertySetterDelegate(Of TDelegate)(Object, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate``1(System.Object,System.Type,System.String,System.Boolean)
+  name: GetDeclaredPropertySetterDelegate<TDelegate>(Object, Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredPropertySetterDelegate__1_System_Object_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate``1(System.Object,System.Type,System.String,System.Boolean)
+  name.vb: GetDeclaredPropertySetterDelegate(Of TDelegate)(Object, Type, String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate<TDelegate>(System.Object, System.Type, System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate(Of TDelegate)(System.Object, System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.GetDeclaredPropertySetterDelegate<TDelegate>(Object, Type, String, Boolean)
+  nameWithType.vb: AccessTools2.GetDeclaredPropertySetterDelegate(Of TDelegate)(Object, Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate``1(System.String,System.Boolean)
+  name: GetDeclaredPropertySetterDelegate<TDelegate>(String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredPropertySetterDelegate__1_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate``1(System.String,System.Boolean)
+  name.vb: GetDeclaredPropertySetterDelegate(Of TDelegate)(String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate<TDelegate>(System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate(Of TDelegate)(System.String, System.Boolean)
+  nameWithType: AccessTools2.GetDeclaredPropertySetterDelegate<TDelegate>(String, Boolean)
+  nameWithType.vb: AccessTools2.GetDeclaredPropertySetterDelegate(Of TDelegate)(String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate``1(System.Type,System.String,System.Boolean)
+  name: GetDeclaredPropertySetterDelegate<TDelegate>(Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDeclaredPropertySetterDelegate__1_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate``1(System.Type,System.String,System.Boolean)
+  name.vb: GetDeclaredPropertySetterDelegate(Of TDelegate)(Type, String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate<TDelegate>(System.Type, System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDeclaredPropertySetterDelegate(Of TDelegate)(System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.GetDeclaredPropertySetterDelegate<TDelegate>(Type, String, Boolean)
+  nameWithType.vb: AccessTools2.GetDeclaredPropertySetterDelegate(Of TDelegate)(Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate*
+  name: GetDelegate
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDelegate_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate
+  nameWithType: AccessTools2.GetDelegate
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``1(System.Object,System.Reflection.MethodInfo,System.Boolean)
+  name: GetDelegate<TDelegate>(Object, MethodInfo, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDelegate__1_System_Object_System_Reflection_MethodInfo_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``1(System.Object,System.Reflection.MethodInfo,System.Boolean)
+  name.vb: GetDelegate(Of TDelegate)(Object, MethodInfo, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate<TDelegate>(System.Object, System.Reflection.MethodInfo, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate(Of TDelegate)(System.Object, System.Reflection.MethodInfo, System.Boolean)
+  nameWithType: AccessTools2.GetDelegate<TDelegate>(Object, MethodInfo, Boolean)
+  nameWithType.vb: AccessTools2.GetDelegate(Of TDelegate)(Object, MethodInfo, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``1(System.Object,System.String,System.Type[],System.Type[],System.Boolean)
+  name: GetDelegate<TDelegate>(Object, String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDelegate__1_System_Object_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``1(System.Object,System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: GetDelegate(Of TDelegate)(Object, String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate<TDelegate>(System.Object, System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate(Of TDelegate)(System.Object, System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetDelegate<TDelegate>(Object, String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetDelegate(Of TDelegate)(Object, String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``1(System.Object,System.Type,System.String,System.Type[],System.Type[],System.Boolean)
+  name: GetDelegate<TDelegate>(Object, Type, String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDelegate__1_System_Object_System_Type_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``1(System.Object,System.Type,System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: GetDelegate(Of TDelegate)(Object, Type, String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate<TDelegate>(System.Object, System.Type, System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate(Of TDelegate)(System.Object, System.Type, System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetDelegate<TDelegate>(Object, Type, String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetDelegate(Of TDelegate)(Object, Type, String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``1(System.Reflection.ConstructorInfo,System.Boolean)
+  name: GetDelegate<TDelegate>(ConstructorInfo, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDelegate__1_System_Reflection_ConstructorInfo_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``1(System.Reflection.ConstructorInfo,System.Boolean)
+  name.vb: GetDelegate(Of TDelegate)(ConstructorInfo, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate<TDelegate>(System.Reflection.ConstructorInfo, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate(Of TDelegate)(System.Reflection.ConstructorInfo, System.Boolean)
+  nameWithType: AccessTools2.GetDelegate<TDelegate>(ConstructorInfo, Boolean)
+  nameWithType.vb: AccessTools2.GetDelegate(Of TDelegate)(ConstructorInfo, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``1(System.Reflection.MethodInfo,System.Boolean)
+  name: GetDelegate<TDelegate>(MethodInfo, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDelegate__1_System_Reflection_MethodInfo_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``1(System.Reflection.MethodInfo,System.Boolean)
+  name.vb: GetDelegate(Of TDelegate)(MethodInfo, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate<TDelegate>(System.Reflection.MethodInfo, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate(Of TDelegate)(System.Reflection.MethodInfo, System.Boolean)
+  nameWithType: AccessTools2.GetDelegate<TDelegate>(MethodInfo, Boolean)
+  nameWithType.vb: AccessTools2.GetDelegate(Of TDelegate)(MethodInfo, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``1(System.String,System.Type[],System.Type[],System.Boolean)
+  name: GetDelegate<TDelegate>(String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDelegate__1_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``1(System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: GetDelegate(Of TDelegate)(String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate<TDelegate>(System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate(Of TDelegate)(System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetDelegate<TDelegate>(String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetDelegate(Of TDelegate)(String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``1(System.Type,System.String,System.Type[],System.Type[],System.Boolean)
+  name: GetDelegate<TDelegate>(Type, String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDelegate__1_System_Type_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``1(System.Type,System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: GetDelegate(Of TDelegate)(Type, String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate<TDelegate>(System.Type, System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate(Of TDelegate)(System.Type, System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetDelegate<TDelegate>(Type, String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetDelegate(Of TDelegate)(Type, String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``2(``1,System.Reflection.MethodInfo,System.Boolean)
+  name: GetDelegate<TDelegate, TInstance>(TInstance, MethodInfo, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDelegate__2___1_System_Reflection_MethodInfo_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``2(``1,System.Reflection.MethodInfo,System.Boolean)
+  name.vb: GetDelegate(Of TDelegate, TInstance)(TInstance, MethodInfo, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate<TDelegate, TInstance>(TInstance, System.Reflection.MethodInfo, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate(Of TDelegate, TInstance)(TInstance, System.Reflection.MethodInfo, System.Boolean)
+  nameWithType: AccessTools2.GetDelegate<TDelegate, TInstance>(TInstance, MethodInfo, Boolean)
+  nameWithType.vb: AccessTools2.GetDelegate(Of TDelegate, TInstance)(TInstance, MethodInfo, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``2(``1,System.String,System.Type[],System.Type[],System.Boolean)
+  name: GetDelegate<TDelegate, TInstance>(TInstance, String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDelegate__2___1_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate``2(``1,System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: GetDelegate(Of TDelegate, TInstance)(TInstance, String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate<TDelegate, TInstance>(TInstance, System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegate(Of TDelegate, TInstance)(TInstance, System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetDelegate<TDelegate, TInstance>(TInstance, String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetDelegate(Of TDelegate, TInstance)(TInstance, String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegateObjectInstance*
+  name: GetDelegateObjectInstance
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDelegateObjectInstance_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegateObjectInstance
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegateObjectInstance
+  nameWithType: AccessTools2.GetDelegateObjectInstance
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegateObjectInstance``1(System.Reflection.MethodInfo,System.Boolean)
+  name: GetDelegateObjectInstance<TDelegate>(MethodInfo, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDelegateObjectInstance__1_System_Reflection_MethodInfo_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegateObjectInstance``1(System.Reflection.MethodInfo,System.Boolean)
+  name.vb: GetDelegateObjectInstance(Of TDelegate)(MethodInfo, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegateObjectInstance<TDelegate>(System.Reflection.MethodInfo, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegateObjectInstance(Of TDelegate)(System.Reflection.MethodInfo, System.Boolean)
+  nameWithType: AccessTools2.GetDelegateObjectInstance<TDelegate>(MethodInfo, Boolean)
+  nameWithType.vb: AccessTools2.GetDelegateObjectInstance(Of TDelegate)(MethodInfo, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegateObjectInstance``1(System.String,System.Type[],System.Type[],System.Boolean)
+  name: GetDelegateObjectInstance<TDelegate>(String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDelegateObjectInstance__1_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegateObjectInstance``1(System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: GetDelegateObjectInstance(Of TDelegate)(String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegateObjectInstance<TDelegate>(System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegateObjectInstance(Of TDelegate)(System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetDelegateObjectInstance<TDelegate>(String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetDelegateObjectInstance(Of TDelegate)(String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegateObjectInstance``1(System.Type,System.String,System.Type[],System.Type[],System.Boolean)
+  name: GetDelegateObjectInstance<TDelegate>(Type, String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetDelegateObjectInstance__1_System_Type_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegateObjectInstance``1(System.Type,System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: GetDelegateObjectInstance(Of TDelegate)(Type, String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegateObjectInstance<TDelegate>(System.Type, System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetDelegateObjectInstance(Of TDelegate)(System.Type, System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.GetDelegateObjectInstance<TDelegate>(Type, String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.GetDelegateObjectInstance(Of TDelegate)(Type, String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate*
+  name: GetPropertyGetterDelegate
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetPropertyGetterDelegate_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate
+  nameWithType: AccessTools2.GetPropertyGetterDelegate
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate``1(System.Object,System.Reflection.PropertyInfo,System.Boolean)
+  name: GetPropertyGetterDelegate<TDelegate>(Object, PropertyInfo, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetPropertyGetterDelegate__1_System_Object_System_Reflection_PropertyInfo_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate``1(System.Object,System.Reflection.PropertyInfo,System.Boolean)
+  name.vb: GetPropertyGetterDelegate(Of TDelegate)(Object, PropertyInfo, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate<TDelegate>(System.Object, System.Reflection.PropertyInfo, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate(Of TDelegate)(System.Object, System.Reflection.PropertyInfo, System.Boolean)
+  nameWithType: AccessTools2.GetPropertyGetterDelegate<TDelegate>(Object, PropertyInfo, Boolean)
+  nameWithType.vb: AccessTools2.GetPropertyGetterDelegate(Of TDelegate)(Object, PropertyInfo, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate``1(System.Object,System.String,System.Boolean)
+  name: GetPropertyGetterDelegate<TDelegate>(Object, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetPropertyGetterDelegate__1_System_Object_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate``1(System.Object,System.String,System.Boolean)
+  name.vb: GetPropertyGetterDelegate(Of TDelegate)(Object, String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate<TDelegate>(System.Object, System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate(Of TDelegate)(System.Object, System.String, System.Boolean)
+  nameWithType: AccessTools2.GetPropertyGetterDelegate<TDelegate>(Object, String, Boolean)
+  nameWithType.vb: AccessTools2.GetPropertyGetterDelegate(Of TDelegate)(Object, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate``1(System.Object,System.Type,System.String,System.Boolean)
+  name: GetPropertyGetterDelegate<TDelegate>(Object, Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetPropertyGetterDelegate__1_System_Object_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate``1(System.Object,System.Type,System.String,System.Boolean)
+  name.vb: GetPropertyGetterDelegate(Of TDelegate)(Object, Type, String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate<TDelegate>(System.Object, System.Type, System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate(Of TDelegate)(System.Object, System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.GetPropertyGetterDelegate<TDelegate>(Object, Type, String, Boolean)
+  nameWithType.vb: AccessTools2.GetPropertyGetterDelegate(Of TDelegate)(Object, Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate``1(System.Reflection.PropertyInfo,System.Boolean)
+  name: GetPropertyGetterDelegate<TDelegate>(PropertyInfo, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetPropertyGetterDelegate__1_System_Reflection_PropertyInfo_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate``1(System.Reflection.PropertyInfo,System.Boolean)
+  name.vb: GetPropertyGetterDelegate(Of TDelegate)(PropertyInfo, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate<TDelegate>(System.Reflection.PropertyInfo, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate(Of TDelegate)(System.Reflection.PropertyInfo, System.Boolean)
+  nameWithType: AccessTools2.GetPropertyGetterDelegate<TDelegate>(PropertyInfo, Boolean)
+  nameWithType.vb: AccessTools2.GetPropertyGetterDelegate(Of TDelegate)(PropertyInfo, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate``1(System.String,System.Boolean)
+  name: GetPropertyGetterDelegate<TDelegate>(String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetPropertyGetterDelegate__1_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate``1(System.String,System.Boolean)
+  name.vb: GetPropertyGetterDelegate(Of TDelegate)(String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate<TDelegate>(System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate(Of TDelegate)(System.String, System.Boolean)
+  nameWithType: AccessTools2.GetPropertyGetterDelegate<TDelegate>(String, Boolean)
+  nameWithType.vb: AccessTools2.GetPropertyGetterDelegate(Of TDelegate)(String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate``1(System.Type,System.String,System.Boolean)
+  name: GetPropertyGetterDelegate<TDelegate>(Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetPropertyGetterDelegate__1_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate``1(System.Type,System.String,System.Boolean)
+  name.vb: GetPropertyGetterDelegate(Of TDelegate)(Type, String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate<TDelegate>(System.Type, System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertyGetterDelegate(Of TDelegate)(System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.GetPropertyGetterDelegate<TDelegate>(Type, String, Boolean)
+  nameWithType.vb: AccessTools2.GetPropertyGetterDelegate(Of TDelegate)(Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate*
+  name: GetPropertySetterDelegate
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetPropertySetterDelegate_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate
+  nameWithType: AccessTools2.GetPropertySetterDelegate
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate``1(System.Object,System.Reflection.PropertyInfo,System.Boolean)
+  name: GetPropertySetterDelegate<TDelegate>(Object, PropertyInfo, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetPropertySetterDelegate__1_System_Object_System_Reflection_PropertyInfo_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate``1(System.Object,System.Reflection.PropertyInfo,System.Boolean)
+  name.vb: GetPropertySetterDelegate(Of TDelegate)(Object, PropertyInfo, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate<TDelegate>(System.Object, System.Reflection.PropertyInfo, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate(Of TDelegate)(System.Object, System.Reflection.PropertyInfo, System.Boolean)
+  nameWithType: AccessTools2.GetPropertySetterDelegate<TDelegate>(Object, PropertyInfo, Boolean)
+  nameWithType.vb: AccessTools2.GetPropertySetterDelegate(Of TDelegate)(Object, PropertyInfo, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate``1(System.Object,System.String,System.Boolean)
+  name: GetPropertySetterDelegate<TDelegate>(Object, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetPropertySetterDelegate__1_System_Object_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate``1(System.Object,System.String,System.Boolean)
+  name.vb: GetPropertySetterDelegate(Of TDelegate)(Object, String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate<TDelegate>(System.Object, System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate(Of TDelegate)(System.Object, System.String, System.Boolean)
+  nameWithType: AccessTools2.GetPropertySetterDelegate<TDelegate>(Object, String, Boolean)
+  nameWithType.vb: AccessTools2.GetPropertySetterDelegate(Of TDelegate)(Object, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate``1(System.Object,System.Type,System.String,System.Boolean)
+  name: GetPropertySetterDelegate<TDelegate>(Object, Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetPropertySetterDelegate__1_System_Object_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate``1(System.Object,System.Type,System.String,System.Boolean)
+  name.vb: GetPropertySetterDelegate(Of TDelegate)(Object, Type, String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate<TDelegate>(System.Object, System.Type, System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate(Of TDelegate)(System.Object, System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.GetPropertySetterDelegate<TDelegate>(Object, Type, String, Boolean)
+  nameWithType.vb: AccessTools2.GetPropertySetterDelegate(Of TDelegate)(Object, Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate``1(System.Reflection.PropertyInfo,System.Boolean)
+  name: GetPropertySetterDelegate<TDelegate>(PropertyInfo, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetPropertySetterDelegate__1_System_Reflection_PropertyInfo_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate``1(System.Reflection.PropertyInfo,System.Boolean)
+  name.vb: GetPropertySetterDelegate(Of TDelegate)(PropertyInfo, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate<TDelegate>(System.Reflection.PropertyInfo, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate(Of TDelegate)(System.Reflection.PropertyInfo, System.Boolean)
+  nameWithType: AccessTools2.GetPropertySetterDelegate<TDelegate>(PropertyInfo, Boolean)
+  nameWithType.vb: AccessTools2.GetPropertySetterDelegate(Of TDelegate)(PropertyInfo, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate``1(System.String,System.Boolean)
+  name: GetPropertySetterDelegate<TDelegate>(String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetPropertySetterDelegate__1_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate``1(System.String,System.Boolean)
+  name.vb: GetPropertySetterDelegate(Of TDelegate)(String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate<TDelegate>(System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate(Of TDelegate)(System.String, System.Boolean)
+  nameWithType: AccessTools2.GetPropertySetterDelegate<TDelegate>(String, Boolean)
+  nameWithType.vb: AccessTools2.GetPropertySetterDelegate(Of TDelegate)(String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate``1(System.Type,System.String,System.Boolean)
+  name: GetPropertySetterDelegate<TDelegate>(Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetPropertySetterDelegate__1_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate``1(System.Type,System.String,System.Boolean)
+  name.vb: GetPropertySetterDelegate(Of TDelegate)(Type, String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate<TDelegate>(System.Type, System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.GetPropertySetterDelegate(Of TDelegate)(System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.GetPropertySetterDelegate<TDelegate>(Type, String, Boolean)
+  nameWithType.vb: AccessTools2.GetPropertySetterDelegate(Of TDelegate)(Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetTypesFromAssembly(System.Reflection.Assembly,System.Boolean)
+  name: GetTypesFromAssembly(Assembly, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetTypesFromAssembly_System_Reflection_Assembly_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetTypesFromAssembly(System.Reflection.Assembly,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetTypesFromAssembly(System.Reflection.Assembly, System.Boolean)
+  nameWithType: AccessTools2.GetTypesFromAssembly(Assembly, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetTypesFromAssembly*
+  name: GetTypesFromAssembly
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetTypesFromAssembly_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.GetTypesFromAssembly
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetTypesFromAssembly
+  nameWithType: AccessTools2.GetTypesFromAssembly
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetTypesFromAssemblyIfValid(System.Reflection.Assembly,System.Boolean)
+  name: GetTypesFromAssemblyIfValid(Assembly, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetTypesFromAssemblyIfValid_System_Reflection_Assembly_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.GetTypesFromAssemblyIfValid(System.Reflection.Assembly,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetTypesFromAssemblyIfValid(System.Reflection.Assembly, System.Boolean)
+  nameWithType: AccessTools2.GetTypesFromAssemblyIfValid(Assembly, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.GetTypesFromAssemblyIfValid*
+  name: GetTypesFromAssemblyIfValid
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_GetTypesFromAssemblyIfValid_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.GetTypesFromAssemblyIfValid
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.GetTypesFromAssemblyIfValid
+  nameWithType: AccessTools2.GetTypesFromAssemblyIfValid
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.Indexer(System.Type,System.Type[])
+  name: Indexer(Type, Type[])
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_Indexer_System_Type_System_Type___
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.Indexer(System.Type,System.Type[])
+  name.vb: Indexer(Type, Type())
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.Indexer(System.Type, System.Type[])
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.Indexer(System.Type, System.Type())
+  nameWithType: AccessTools2.Indexer(Type, Type[])
+  nameWithType.vb: AccessTools2.Indexer(Type, Type())
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.Indexer*
+  name: Indexer
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_Indexer_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.Indexer
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.Indexer
+  nameWithType: AccessTools2.Indexer
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.IndexerGetter(System.Type,System.Type[])
+  name: IndexerGetter(Type, Type[])
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_IndexerGetter_System_Type_System_Type___
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.IndexerGetter(System.Type,System.Type[])
+  name.vb: IndexerGetter(Type, Type())
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.IndexerGetter(System.Type, System.Type[])
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.IndexerGetter(System.Type, System.Type())
+  nameWithType: AccessTools2.IndexerGetter(Type, Type[])
+  nameWithType.vb: AccessTools2.IndexerGetter(Type, Type())
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.IndexerGetter*
+  name: IndexerGetter
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_IndexerGetter_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.IndexerGetter
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.IndexerGetter
+  nameWithType: AccessTools2.IndexerGetter
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.IndexerSetter(System.Type,System.Type[])
+  name: IndexerSetter(Type, Type[])
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_IndexerSetter_System_Type_System_Type___
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.IndexerSetter(System.Type,System.Type[])
+  name.vb: IndexerSetter(Type, Type())
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.IndexerSetter(System.Type, System.Type[])
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.IndexerSetter(System.Type, System.Type())
+  nameWithType: AccessTools2.IndexerSetter(Type, Type[])
+  nameWithType.vb: AccessTools2.IndexerSetter(Type, Type())
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.IndexerSetter*
+  name: IndexerSetter
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_IndexerSetter_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.IndexerSetter
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.IndexerSetter
+  nameWithType: AccessTools2.IndexerSetter
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.IsNumeric(System.Type)
+  name: IsNumeric(Type)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_IsNumeric_System_Type_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.IsNumeric(System.Type)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.IsNumeric(System.Type)
+  nameWithType: AccessTools2.IsNumeric(Type)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.IsNumeric*
+  name: IsNumeric
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_IsNumeric_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.IsNumeric
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.IsNumeric
+  nameWithType: AccessTools2.IsNumeric
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.Method(System.String,System.Type[],System.Type[],System.Boolean)
+  name: Method(String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_Method_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.Method(System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: Method(String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.Method(System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.Method(System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.Method(String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.Method(String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.Method(System.Type,System.String,System.Type[],System.Type[],System.Boolean)
+  name: Method(Type, String, Type[], Type[], Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_Method_System_Type_System_String_System_Type___System_Type___System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.Method(System.Type,System.String,System.Type[],System.Type[],System.Boolean)
+  name.vb: Method(Type, String, Type(), Type(), Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.Method(System.Type, System.String, System.Type[], System.Type[], System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.Method(System.Type, System.String, System.Type(), System.Type(), System.Boolean)
+  nameWithType: AccessTools2.Method(Type, String, Type[], Type[], Boolean)
+  nameWithType.vb: AccessTools2.Method(Type, String, Type(), Type(), Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.Method*
+  name: Method
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_Method_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.Method
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.Method
+  nameWithType: AccessTools2.Method
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.Property(System.String,System.Boolean)
+  name: Property(String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_Property_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.Property(System.String,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.Property(System.String, System.Boolean)
+  nameWithType: AccessTools2.Property(String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.Property(System.Type,System.String,System.Boolean)
+  name: Property(Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_Property_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.Property(System.Type,System.String,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.Property(System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.Property(Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.Property*
+  name: Property
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_Property_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.Property
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.Property
+  nameWithType: AccessTools2.Property
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.PropertyGetter(System.String,System.Boolean)
+  name: PropertyGetter(String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_PropertyGetter_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.PropertyGetter(System.String,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.PropertyGetter(System.String, System.Boolean)
+  nameWithType: AccessTools2.PropertyGetter(String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.PropertyGetter(System.Type,System.String,System.Boolean)
+  name: PropertyGetter(Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_PropertyGetter_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.PropertyGetter(System.Type,System.String,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.PropertyGetter(System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.PropertyGetter(Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.PropertyGetter*
+  name: PropertyGetter
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_PropertyGetter_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.PropertyGetter
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.PropertyGetter
+  nameWithType: AccessTools2.PropertyGetter
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.PropertySetter(System.String,System.Boolean)
+  name: PropertySetter(String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_PropertySetter_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.PropertySetter(System.String,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.PropertySetter(System.String, System.Boolean)
+  nameWithType: AccessTools2.PropertySetter(String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.PropertySetter(System.Type,System.String,System.Boolean)
+  name: PropertySetter(Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_PropertySetter_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.PropertySetter(System.Type,System.String,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.PropertySetter(System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.PropertySetter(Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.PropertySetter*
+  name: PropertySetter
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_PropertySetter_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.PropertySetter
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.PropertySetter
+  nameWithType: AccessTools2.PropertySetter
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.StaticFieldRefAccess*
+  name: StaticFieldRefAccess
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_StaticFieldRefAccess_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.StaticFieldRefAccess
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.StaticFieldRefAccess
+  nameWithType: AccessTools2.StaticFieldRefAccess
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.StaticFieldRefAccess``1(System.Reflection.FieldInfo,System.Boolean)
+  name: StaticFieldRefAccess<F>(FieldInfo, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_StaticFieldRefAccess__1_System_Reflection_FieldInfo_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.StaticFieldRefAccess``1(System.Reflection.FieldInfo,System.Boolean)
+  name.vb: StaticFieldRefAccess(Of F)(FieldInfo, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.StaticFieldRefAccess<F>(System.Reflection.FieldInfo, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.StaticFieldRefAccess(Of F)(System.Reflection.FieldInfo, System.Boolean)
+  nameWithType: AccessTools2.StaticFieldRefAccess<F>(FieldInfo, Boolean)
+  nameWithType.vb: AccessTools2.StaticFieldRefAccess(Of F)(FieldInfo, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.StaticFieldRefAccess``1(System.String,System.Boolean)
+  name: StaticFieldRefAccess<TField>(String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_StaticFieldRefAccess__1_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.StaticFieldRefAccess``1(System.String,System.Boolean)
+  name.vb: StaticFieldRefAccess(Of TField)(String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.StaticFieldRefAccess<TField>(System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.StaticFieldRefAccess(Of TField)(System.String, System.Boolean)
+  nameWithType: AccessTools2.StaticFieldRefAccess<TField>(String, Boolean)
+  nameWithType.vb: AccessTools2.StaticFieldRefAccess(Of TField)(String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.StaticFieldRefAccess``1(System.Type,System.String,System.Boolean)
+  name: StaticFieldRefAccess<TField>(Type, String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_StaticFieldRefAccess__1_System_Type_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.StaticFieldRefAccess``1(System.Type,System.String,System.Boolean)
+  name.vb: StaticFieldRefAccess(Of TField)(Type, String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.StaticFieldRefAccess<TField>(System.Type, System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.StaticFieldRefAccess(Of TField)(System.Type, System.String, System.Boolean)
+  nameWithType: AccessTools2.StaticFieldRefAccess<TField>(Type, String, Boolean)
+  nameWithType.vb: AccessTools2.StaticFieldRefAccess(Of TField)(Type, String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.StructFieldRefAccess*
+  name: StructFieldRefAccess
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_StructFieldRefAccess_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.StructFieldRefAccess
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.StructFieldRefAccess
+  nameWithType: AccessTools2.StructFieldRefAccess
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.StructFieldRefAccess``2(System.Reflection.FieldInfo,System.Boolean)
+  name: StructFieldRefAccess<T, F>(FieldInfo, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_StructFieldRefAccess__2_System_Reflection_FieldInfo_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.StructFieldRefAccess``2(System.Reflection.FieldInfo,System.Boolean)
+  name.vb: StructFieldRefAccess(Of T, F)(FieldInfo, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.StructFieldRefAccess<T, F>(System.Reflection.FieldInfo, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.StructFieldRefAccess(Of T, F)(System.Reflection.FieldInfo, System.Boolean)
+  nameWithType: AccessTools2.StructFieldRefAccess<T, F>(FieldInfo, Boolean)
+  nameWithType.vb: AccessTools2.StructFieldRefAccess(Of T, F)(FieldInfo, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.StructFieldRefAccess``2(System.String,System.Boolean)
+  name: StructFieldRefAccess<T, F>(String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_StructFieldRefAccess__2_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.StructFieldRefAccess``2(System.String,System.Boolean)
+  name.vb: StructFieldRefAccess(Of T, F)(String, Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.StructFieldRefAccess<T, F>(System.String, System.Boolean)
+  fullName.vb: HarmonyLib.BUTR.Extensions.AccessTools2.StructFieldRefAccess(Of T, F)(System.String, System.Boolean)
+  nameWithType: AccessTools2.StructFieldRefAccess<T, F>(String, Boolean)
+  nameWithType.vb: AccessTools2.StructFieldRefAccess(Of T, F)(String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.TypeByName(System.String,System.Boolean)
+  name: TypeByName(String, Boolean)
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_TypeByName_System_String_System_Boolean_
+  commentId: M:HarmonyLib.BUTR.Extensions.AccessTools2.TypeByName(System.String,System.Boolean)
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.TypeByName(System.String, System.Boolean)
+  nameWithType: AccessTools2.TypeByName(String, Boolean)
+- uid: HarmonyLib.BUTR.Extensions.AccessTools2.TypeByName*
+  name: TypeByName
+  href: api/HarmonyLib.BUTR.Extensions.AccessTools2.html#HarmonyLib_BUTR_Extensions_AccessTools2_TypeByName_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.AccessTools2.TypeByName
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.AccessTools2.TypeByName
+  nameWithType: AccessTools2.TypeByName
+- uid: HarmonyLib.BUTR.Extensions.HarmonyExtensions
+  name: HarmonyExtensions
+  href: api/HarmonyLib.BUTR.Extensions.HarmonyExtensions.html
+  commentId: T:HarmonyLib.BUTR.Extensions.HarmonyExtensions
+  fullName: HarmonyLib.BUTR.Extensions.HarmonyExtensions
+  nameWithType: HarmonyExtensions
+- uid: HarmonyLib.BUTR.Extensions.HarmonyExtensions.TryCreateReversePatcher(Harmony,System.Reflection.MethodBase,System.Reflection.MethodInfo)
+  name: TryCreateReversePatcher(Harmony, MethodBase, MethodInfo)
+  href: api/HarmonyLib.BUTR.Extensions.HarmonyExtensions.html#HarmonyLib_BUTR_Extensions_HarmonyExtensions_TryCreateReversePatcher_Harmony_System_Reflection_MethodBase_System_Reflection_MethodInfo_
+  commentId: M:HarmonyLib.BUTR.Extensions.HarmonyExtensions.TryCreateReversePatcher(Harmony,System.Reflection.MethodBase,System.Reflection.MethodInfo)
+  fullName: HarmonyLib.BUTR.Extensions.HarmonyExtensions.TryCreateReversePatcher(Harmony, System.Reflection.MethodBase, System.Reflection.MethodInfo)
+  nameWithType: HarmonyExtensions.TryCreateReversePatcher(Harmony, MethodBase, MethodInfo)
+- uid: HarmonyLib.BUTR.Extensions.HarmonyExtensions.TryCreateReversePatcher(Harmony,System.Reflection.MethodBase,System.Reflection.MethodInfo,System.Nullable{ReversePatcher}@)
+  name: TryCreateReversePatcher(Harmony, MethodBase, MethodInfo, out Nullable<ReversePatcher>)
+  href: api/HarmonyLib.BUTR.Extensions.HarmonyExtensions.html#HarmonyLib_BUTR_Extensions_HarmonyExtensions_TryCreateReversePatcher_Harmony_System_Reflection_MethodBase_System_Reflection_MethodInfo_System_Nullable_ReversePatcher___
+  commentId: M:HarmonyLib.BUTR.Extensions.HarmonyExtensions.TryCreateReversePatcher(Harmony,System.Reflection.MethodBase,System.Reflection.MethodInfo,System.Nullable{ReversePatcher}@)
+  name.vb: TryCreateReversePatcher(Harmony, MethodBase, MethodInfo, ByRef Nullable(Of ReversePatcher))
+  fullName: HarmonyLib.BUTR.Extensions.HarmonyExtensions.TryCreateReversePatcher(Harmony, System.Reflection.MethodBase, System.Reflection.MethodInfo, out System.Nullable<ReversePatcher>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.HarmonyExtensions.TryCreateReversePatcher(Harmony, System.Reflection.MethodBase, System.Reflection.MethodInfo, ByRef System.Nullable(Of ReversePatcher))
+  nameWithType: HarmonyExtensions.TryCreateReversePatcher(Harmony, MethodBase, MethodInfo, out Nullable<ReversePatcher>)
+  nameWithType.vb: HarmonyExtensions.TryCreateReversePatcher(Harmony, MethodBase, MethodInfo, ByRef Nullable(Of ReversePatcher))
+- uid: HarmonyLib.BUTR.Extensions.HarmonyExtensions.TryCreateReversePatcher*
+  name: TryCreateReversePatcher
+  href: api/HarmonyLib.BUTR.Extensions.HarmonyExtensions.html#HarmonyLib_BUTR_Extensions_HarmonyExtensions_TryCreateReversePatcher_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.HarmonyExtensions.TryCreateReversePatcher
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.HarmonyExtensions.TryCreateReversePatcher
+  nameWithType: HarmonyExtensions.TryCreateReversePatcher
+- uid: HarmonyLib.BUTR.Extensions.HarmonyExtensions.TryPatch(Harmony,System.Reflection.MethodBase,System.Reflection.MethodInfo,System.Reflection.MethodInfo,System.Reflection.MethodInfo,System.Reflection.MethodInfo)
+  name: TryPatch(Harmony, MethodBase, MethodInfo, MethodInfo, MethodInfo, MethodInfo)
+  href: api/HarmonyLib.BUTR.Extensions.HarmonyExtensions.html#HarmonyLib_BUTR_Extensions_HarmonyExtensions_TryPatch_Harmony_System_Reflection_MethodBase_System_Reflection_MethodInfo_System_Reflection_MethodInfo_System_Reflection_MethodInfo_System_Reflection_MethodInfo_
+  commentId: M:HarmonyLib.BUTR.Extensions.HarmonyExtensions.TryPatch(Harmony,System.Reflection.MethodBase,System.Reflection.MethodInfo,System.Reflection.MethodInfo,System.Reflection.MethodInfo,System.Reflection.MethodInfo)
+  fullName: HarmonyLib.BUTR.Extensions.HarmonyExtensions.TryPatch(Harmony, System.Reflection.MethodBase, System.Reflection.MethodInfo, System.Reflection.MethodInfo, System.Reflection.MethodInfo, System.Reflection.MethodInfo)
+  nameWithType: HarmonyExtensions.TryPatch(Harmony, MethodBase, MethodInfo, MethodInfo, MethodInfo, MethodInfo)
+- uid: HarmonyLib.BUTR.Extensions.HarmonyExtensions.TryPatch*
+  name: TryPatch
+  href: api/HarmonyLib.BUTR.Extensions.HarmonyExtensions.html#HarmonyLib_BUTR_Extensions_HarmonyExtensions_TryPatch_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.HarmonyExtensions.TryPatch
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.HarmonyExtensions.TryPatch
+  nameWithType: HarmonyExtensions.TryPatch
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2
+  name: SymbolExtensions2
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html
+  commentId: T:HarmonyLib.BUTR.Extensions.SymbolExtensions2
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2
+  nameWithType: SymbolExtensions2
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo(System.Linq.Expressions.LambdaExpression)
+  name: GetConstructorInfo(LambdaExpression)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetConstructorInfo_System_Linq_Expressions_LambdaExpression_
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo(System.Linq.Expressions.LambdaExpression)
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo(System.Linq.Expressions.LambdaExpression)
+  nameWithType: SymbolExtensions2.GetConstructorInfo(LambdaExpression)
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo*
+  name: GetConstructorInfo
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetConstructorInfo_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo
+  nameWithType: SymbolExtensions2.GetConstructorInfo
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  name: GetConstructorInfo<TResult>(Expression<Func<TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetConstructorInfo__1_System_Linq_Expressions_Expression_System_Func___0___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  name.vb: GetConstructorInfo(Of TResult)(Expression(Of Func(Of TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo<TResult>(System.Linq.Expressions.Expression<System.Func<TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo(Of TResult)(System.Linq.Expressions.Expression(Of System.Func(Of TResult)))
+  nameWithType: SymbolExtensions2.GetConstructorInfo<TResult>(Expression<Func<TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetConstructorInfo(Of TResult)(Expression(Of Func(Of TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``10(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9}})
+  name: GetConstructorInfo<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(Expression<Action<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetConstructorInfo__10_System_Linq_Expressions_Expression_System_Action___0___1___2___3___4___5___6___7___8___9___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``10(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9}})
+  name.vb: GetConstructorInfo(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult)(Expression(Of Action(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(System.Linq.Expressions.Expression<System.Action<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult)(System.Linq.Expressions.Expression(Of System.Action(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult)))
+  nameWithType: SymbolExtensions2.GetConstructorInfo<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(Expression<Action<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetConstructorInfo(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult)(Expression(Of Action(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name: GetConstructorInfo<T1, TResult>(Expression<Func<T1, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetConstructorInfo__2_System_Linq_Expressions_Expression_System_Func___0___1___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name.vb: GetConstructorInfo(Of T1, TResult)(Expression(Of Func(Of T1, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo<T1, TResult>(System.Linq.Expressions.Expression<System.Func<T1, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo(Of T1, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T1, TResult)))
+  nameWithType: SymbolExtensions2.GetConstructorInfo<T1, TResult>(Expression<Func<T1, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetConstructorInfo(Of T1, TResult)(Expression(Of Func(Of T1, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``3(System.Linq.Expressions.Expression{System.Func{``0,``1,``2}})
+  name: GetConstructorInfo<T1, T2, TResult>(Expression<Func<T1, T2, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetConstructorInfo__3_System_Linq_Expressions_Expression_System_Func___0___1___2___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``3(System.Linq.Expressions.Expression{System.Func{``0,``1,``2}})
+  name.vb: GetConstructorInfo(Of T1, T2, TResult)(Expression(Of Func(Of T1, T2, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo<T1, T2, TResult>(System.Linq.Expressions.Expression<System.Func<T1, T2, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo(Of T1, T2, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T1, T2, TResult)))
+  nameWithType: SymbolExtensions2.GetConstructorInfo<T1, T2, TResult>(Expression<Func<T1, T2, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetConstructorInfo(Of T1, T2, TResult)(Expression(Of Func(Of T1, T2, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``4(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3}})
+  name: GetConstructorInfo<T1, T2, T3, TResult>(Expression<Func<T1, T2, T3, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetConstructorInfo__4_System_Linq_Expressions_Expression_System_Func___0___1___2___3___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``4(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3}})
+  name.vb: GetConstructorInfo(Of T1, T2, T3, TResult)(Expression(Of Func(Of T1, T2, T3, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo<T1, T2, T3, TResult>(System.Linq.Expressions.Expression<System.Func<T1, T2, T3, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo(Of T1, T2, T3, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T1, T2, T3, TResult)))
+  nameWithType: SymbolExtensions2.GetConstructorInfo<T1, T2, T3, TResult>(Expression<Func<T1, T2, T3, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetConstructorInfo(Of T1, T2, T3, TResult)(Expression(Of Func(Of T1, T2, T3, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``5(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4}})
+  name: GetConstructorInfo<T1, T2, T3, T4, TResult>(Expression<Func<T1, T2, T3, T4, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetConstructorInfo__5_System_Linq_Expressions_Expression_System_Func___0___1___2___3___4___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``5(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4}})
+  name.vb: GetConstructorInfo(Of T1, T2, T3, T4, TResult)(Expression(Of Func(Of T1, T2, T3, T4, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo<T1, T2, T3, T4, TResult>(System.Linq.Expressions.Expression<System.Func<T1, T2, T3, T4, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo(Of T1, T2, T3, T4, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T1, T2, T3, T4, TResult)))
+  nameWithType: SymbolExtensions2.GetConstructorInfo<T1, T2, T3, T4, TResult>(Expression<Func<T1, T2, T3, T4, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetConstructorInfo(Of T1, T2, T3, T4, TResult)(Expression(Of Func(Of T1, T2, T3, T4, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``6(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5}})
+  name: GetConstructorInfo<T1, T2, T3, T4, T5, TResult>(Expression<Func<T1, T2, T3, T4, T5, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetConstructorInfo__6_System_Linq_Expressions_Expression_System_Func___0___1___2___3___4___5___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``6(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5}})
+  name.vb: GetConstructorInfo(Of T1, T2, T3, T4, T5, TResult)(Expression(Of Func(Of T1, T2, T3, T4, T5, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo<T1, T2, T3, T4, T5, TResult>(System.Linq.Expressions.Expression<System.Func<T1, T2, T3, T4, T5, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo(Of T1, T2, T3, T4, T5, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T1, T2, T3, T4, T5, TResult)))
+  nameWithType: SymbolExtensions2.GetConstructorInfo<T1, T2, T3, T4, T5, TResult>(Expression<Func<T1, T2, T3, T4, T5, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetConstructorInfo(Of T1, T2, T3, T4, T5, TResult)(Expression(Of Func(Of T1, T2, T3, T4, T5, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``7(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6}})
+  name: GetConstructorInfo<T1, T2, T3, T4, T5, T6, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetConstructorInfo__7_System_Linq_Expressions_Expression_System_Func___0___1___2___3___4___5___6___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``7(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6}})
+  name.vb: GetConstructorInfo(Of T1, T2, T3, T4, T5, T6, TResult)(Expression(Of Func(Of T1, T2, T3, T4, T5, T6, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo<T1, T2, T3, T4, T5, T6, TResult>(System.Linq.Expressions.Expression<System.Func<T1, T2, T3, T4, T5, T6, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo(Of T1, T2, T3, T4, T5, T6, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T1, T2, T3, T4, T5, T6, TResult)))
+  nameWithType: SymbolExtensions2.GetConstructorInfo<T1, T2, T3, T4, T5, T6, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetConstructorInfo(Of T1, T2, T3, T4, T5, T6, TResult)(Expression(Of Func(Of T1, T2, T3, T4, T5, T6, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``8(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6,``7}})
+  name: GetConstructorInfo<T1, T2, T3, T4, T5, T6, T7, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, T7, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetConstructorInfo__8_System_Linq_Expressions_Expression_System_Func___0___1___2___3___4___5___6___7___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``8(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6,``7}})
+  name.vb: GetConstructorInfo(Of T1, T2, T3, T4, T5, T6, T7, TResult)(Expression(Of Func(Of T1, T2, T3, T4, T5, T6, T7, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo<T1, T2, T3, T4, T5, T6, T7, TResult>(System.Linq.Expressions.Expression<System.Func<T1, T2, T3, T4, T5, T6, T7, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo(Of T1, T2, T3, T4, T5, T6, T7, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T1, T2, T3, T4, T5, T6, T7, TResult)))
+  nameWithType: SymbolExtensions2.GetConstructorInfo<T1, T2, T3, T4, T5, T6, T7, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, T7, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetConstructorInfo(Of T1, T2, T3, T4, T5, T6, T7, TResult)(Expression(Of Func(Of T1, T2, T3, T4, T5, T6, T7, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``9(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8}})
+  name: GetConstructorInfo<T1, T2, T3, T4, T5, T6, T7, T8, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, T7, T8, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetConstructorInfo__9_System_Linq_Expressions_Expression_System_Func___0___1___2___3___4___5___6___7___8___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo``9(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8}})
+  name.vb: GetConstructorInfo(Of T1, T2, T3, T4, T5, T6, T7, T8, TResult)(Expression(Of Func(Of T1, T2, T3, T4, T5, T6, T7, T8, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo<T1, T2, T3, T4, T5, T6, T7, T8, TResult>(System.Linq.Expressions.Expression<System.Func<T1, T2, T3, T4, T5, T6, T7, T8, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetConstructorInfo(Of T1, T2, T3, T4, T5, T6, T7, T8, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T1, T2, T3, T4, T5, T6, T7, T8, TResult)))
+  nameWithType: SymbolExtensions2.GetConstructorInfo<T1, T2, T3, T4, T5, T6, T7, T8, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, T7, T8, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetConstructorInfo(Of T1, T2, T3, T4, T5, T6, T7, T8, TResult)(Expression(Of Func(Of T1, T2, T3, T4, T5, T6, T7, T8, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldInfo(System.Linq.Expressions.LambdaExpression)
+  name: GetFieldInfo(LambdaExpression)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetFieldInfo_System_Linq_Expressions_LambdaExpression_
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldInfo(System.Linq.Expressions.LambdaExpression)
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldInfo(System.Linq.Expressions.LambdaExpression)
+  nameWithType: SymbolExtensions2.GetFieldInfo(LambdaExpression)
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldInfo*
+  name: GetFieldInfo
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetFieldInfo_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldInfo
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldInfo
+  nameWithType: SymbolExtensions2.GetFieldInfo
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldInfo``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  name: GetFieldInfo<T>(Expression<Func<T>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetFieldInfo__1_System_Linq_Expressions_Expression_System_Func___0___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldInfo``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  name.vb: GetFieldInfo(Of T)(Expression(Of Func(Of T)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldInfo<T>(System.Linq.Expressions.Expression<System.Func<T>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldInfo(Of T)(System.Linq.Expressions.Expression(Of System.Func(Of T)))
+  nameWithType: SymbolExtensions2.GetFieldInfo<T>(Expression<Func<T>>)
+  nameWithType.vb: SymbolExtensions2.GetFieldInfo(Of T)(Expression(Of Func(Of T)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldInfo``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name: GetFieldInfo<T, TResult>(Expression<Func<T, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetFieldInfo__2_System_Linq_Expressions_Expression_System_Func___0___1___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldInfo``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name.vb: GetFieldInfo(Of T, TResult)(Expression(Of Func(Of T, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldInfo<T, TResult>(System.Linq.Expressions.Expression<System.Func<T, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldInfo(Of T, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T, TResult)))
+  nameWithType: SymbolExtensions2.GetFieldInfo<T, TResult>(Expression<Func<T, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetFieldInfo(Of T, TResult)(Expression(Of Func(Of T, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess*
+  name: GetFieldRefAccess
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetFieldRefAccess_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess
+  nameWithType: SymbolExtensions2.GetFieldRefAccess
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  name: GetFieldRefAccess<TField>(Expression<Func<TField>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetFieldRefAccess__1_System_Linq_Expressions_Expression_System_Func___0___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  name.vb: GetFieldRefAccess(Of TField)(Expression(Of Func(Of TField)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess<TField>(System.Linq.Expressions.Expression<System.Func<TField>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess(Of TField)(System.Linq.Expressions.Expression(Of System.Func(Of TField)))
+  nameWithType: SymbolExtensions2.GetFieldRefAccess<TField>(Expression<Func<TField>>)
+  nameWithType.vb: SymbolExtensions2.GetFieldRefAccess(Of TField)(Expression(Of Func(Of TField)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess``1(System.Linq.Expressions.LambdaExpression)
+  name: GetFieldRefAccess<TField>(LambdaExpression)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetFieldRefAccess__1_System_Linq_Expressions_LambdaExpression_
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess``1(System.Linq.Expressions.LambdaExpression)
+  name.vb: GetFieldRefAccess(Of TField)(LambdaExpression)
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess<TField>(System.Linq.Expressions.LambdaExpression)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess(Of TField)(System.Linq.Expressions.LambdaExpression)
+  nameWithType: SymbolExtensions2.GetFieldRefAccess<TField>(LambdaExpression)
+  nameWithType.vb: SymbolExtensions2.GetFieldRefAccess(Of TField)(LambdaExpression)
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name: GetFieldRefAccess<TObject, TField>(Expression<Func<TObject, TField>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetFieldRefAccess__2_System_Linq_Expressions_Expression_System_Func___0___1___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name.vb: GetFieldRefAccess(Of TObject, TField)(Expression(Of Func(Of TObject, TField)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess<TObject, TField>(System.Linq.Expressions.Expression<System.Func<TObject, TField>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess(Of TObject, TField)(System.Linq.Expressions.Expression(Of System.Func(Of TObject, TField)))
+  nameWithType: SymbolExtensions2.GetFieldRefAccess<TObject, TField>(Expression<Func<TObject, TField>>)
+  nameWithType.vb: SymbolExtensions2.GetFieldRefAccess(Of TObject, TField)(Expression(Of Func(Of TObject, TField)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess``2(System.Linq.Expressions.LambdaExpression)
+  name: GetFieldRefAccess<TObject, TField>(LambdaExpression)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetFieldRefAccess__2_System_Linq_Expressions_LambdaExpression_
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess``2(System.Linq.Expressions.LambdaExpression)
+  name.vb: GetFieldRefAccess(Of TObject, TField)(LambdaExpression)
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess<TObject, TField>(System.Linq.Expressions.LambdaExpression)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetFieldRefAccess(Of TObject, TField)(System.Linq.Expressions.LambdaExpression)
+  nameWithType: SymbolExtensions2.GetFieldRefAccess<TObject, TField>(LambdaExpression)
+  nameWithType.vb: SymbolExtensions2.GetFieldRefAccess(Of TObject, TField)(LambdaExpression)
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetIndexer(System.Linq.Expressions.LambdaExpression)
+  name: GetIndexer(LambdaExpression)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetIndexer_System_Linq_Expressions_LambdaExpression_
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetIndexer(System.Linq.Expressions.LambdaExpression)
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetIndexer(System.Linq.Expressions.LambdaExpression)
+  nameWithType: SymbolExtensions2.GetIndexer(LambdaExpression)
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetIndexer*
+  name: GetIndexer
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetIndexer_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetIndexer
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetIndexer
+  nameWithType: SymbolExtensions2.GetIndexer
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetIndexer``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name: GetIndexer<T, TResult>(Expression<Func<T, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetIndexer__2_System_Linq_Expressions_Expression_System_Func___0___1___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetIndexer``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name.vb: GetIndexer(Of T, TResult)(Expression(Of Func(Of T, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetIndexer<T, TResult>(System.Linq.Expressions.Expression<System.Func<T, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetIndexer(Of T, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T, TResult)))
+  nameWithType: SymbolExtensions2.GetIndexer<T, TResult>(Expression<Func<T, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetIndexer(Of T, TResult)(Expression(Of Func(Of T, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(System.Linq.Expressions.Expression{System.Action})
+  name: GetMethodInfo(Expression<Action>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo_System_Linq_Expressions_Expression_System_Action__
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(System.Linq.Expressions.Expression{System.Action})
+  name.vb: GetMethodInfo(Expression(Of Action))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(System.Linq.Expressions.Expression<System.Action>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(System.Linq.Expressions.Expression(Of System.Action))
+  nameWithType: SymbolExtensions2.GetMethodInfo(Expression<Action>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Expression(Of Action))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(System.Linq.Expressions.LambdaExpression)
+  name: GetMethodInfo(LambdaExpression)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo_System_Linq_Expressions_LambdaExpression_
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(System.Linq.Expressions.LambdaExpression)
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(System.Linq.Expressions.LambdaExpression)
+  nameWithType: SymbolExtensions2.GetMethodInfo(LambdaExpression)
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo*
+  name: GetMethodInfo
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo
+  nameWithType: SymbolExtensions2.GetMethodInfo
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``1(System.Linq.Expressions.Expression{System.Action{``0}})
+  name: GetMethodInfo<T1>(Expression<Action<T1>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__1_System_Linq_Expressions_Expression_System_Action___0___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``1(System.Linq.Expressions.Expression{System.Action{``0}})
+  name.vb: GetMethodInfo(Of T1)(Expression(Of Action(Of T1)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1>(System.Linq.Expressions.Expression<System.Action<T1>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1)(System.Linq.Expressions.Expression(Of System.Action(Of T1)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1>(Expression<Action<T1>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1)(Expression(Of Action(Of T1)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  name: GetMethodInfo<TResult>(Expression<Func<TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__1_System_Linq_Expressions_Expression_System_Func___0___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  name.vb: GetMethodInfo(Of TResult)(Expression(Of Func(Of TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<TResult>(System.Linq.Expressions.Expression<System.Func<TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of TResult)(System.Linq.Expressions.Expression(Of System.Func(Of TResult)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<TResult>(Expression<Func<TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of TResult)(Expression(Of Func(Of TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``10(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9}})
+  name: GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(Expression<Action<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__10_System_Linq_Expressions_Expression_System_Action___0___1___2___3___4___5___6___7___8___9___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``10(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9}})
+  name.vb: GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult)(Expression(Of Action(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(System.Linq.Expressions.Expression<System.Action<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult)(System.Linq.Expressions.Expression(Of System.Action(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(Expression<Action<T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult)(Expression(Of Action(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``2(System.Linq.Expressions.Expression{System.Action{``0,``1}})
+  name: GetMethodInfo<T1, T2>(Expression<Action<T1, T2>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__2_System_Linq_Expressions_Expression_System_Action___0___1___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``2(System.Linq.Expressions.Expression{System.Action{``0,``1}})
+  name.vb: GetMethodInfo(Of T1, T2)(Expression(Of Action(Of T1, T2)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1, T2>(System.Linq.Expressions.Expression<System.Action<T1, T2>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1, T2)(System.Linq.Expressions.Expression(Of System.Action(Of T1, T2)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1, T2>(Expression<Action<T1, T2>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1, T2)(Expression(Of Action(Of T1, T2)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name: GetMethodInfo<T1, TResult>(Expression<Func<T1, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__2_System_Linq_Expressions_Expression_System_Func___0___1___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name.vb: GetMethodInfo(Of T1, TResult)(Expression(Of Func(Of T1, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1, TResult>(System.Linq.Expressions.Expression<System.Func<T1, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T1, TResult)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1, TResult>(Expression<Func<T1, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1, TResult)(Expression(Of Func(Of T1, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``3(System.Linq.Expressions.Expression{System.Action{``0,``1,``2}})
+  name: GetMethodInfo<T1, T2, T3>(Expression<Action<T1, T2, T3>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__3_System_Linq_Expressions_Expression_System_Action___0___1___2___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``3(System.Linq.Expressions.Expression{System.Action{``0,``1,``2}})
+  name.vb: GetMethodInfo(Of T1, T2, T3)(Expression(Of Action(Of T1, T2, T3)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1, T2, T3>(System.Linq.Expressions.Expression<System.Action<T1, T2, T3>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1, T2, T3)(System.Linq.Expressions.Expression(Of System.Action(Of T1, T2, T3)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1, T2, T3>(Expression<Action<T1, T2, T3>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1, T2, T3)(Expression(Of Action(Of T1, T2, T3)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``3(System.Linq.Expressions.Expression{System.Func{``0,``1,``2}})
+  name: GetMethodInfo<T1, T2, TResult>(Expression<Func<T1, T2, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__3_System_Linq_Expressions_Expression_System_Func___0___1___2___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``3(System.Linq.Expressions.Expression{System.Func{``0,``1,``2}})
+  name.vb: GetMethodInfo(Of T1, T2, TResult)(Expression(Of Func(Of T1, T2, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1, T2, TResult>(System.Linq.Expressions.Expression<System.Func<T1, T2, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1, T2, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T1, T2, TResult)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1, T2, TResult>(Expression<Func<T1, T2, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1, T2, TResult)(Expression(Of Func(Of T1, T2, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``4(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3}})
+  name: GetMethodInfo<T1, T2, T3, T4>(Expression<Action<T1, T2, T3, T4>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__4_System_Linq_Expressions_Expression_System_Action___0___1___2___3___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``4(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3}})
+  name.vb: GetMethodInfo(Of T1, T2, T3, T4)(Expression(Of Action(Of T1, T2, T3, T4)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4>(System.Linq.Expressions.Expression<System.Action<T1, T2, T3, T4>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4)(System.Linq.Expressions.Expression(Of System.Action(Of T1, T2, T3, T4)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4>(Expression<Action<T1, T2, T3, T4>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4)(Expression(Of Action(Of T1, T2, T3, T4)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``4(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3}})
+  name: GetMethodInfo<T1, T2, T3, TResult>(Expression<Func<T1, T2, T3, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__4_System_Linq_Expressions_Expression_System_Func___0___1___2___3___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``4(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3}})
+  name.vb: GetMethodInfo(Of T1, T2, T3, TResult)(Expression(Of Func(Of T1, T2, T3, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1, T2, T3, TResult>(System.Linq.Expressions.Expression<System.Func<T1, T2, T3, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T1, T2, T3, TResult)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1, T2, T3, TResult>(Expression<Func<T1, T2, T3, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, TResult)(Expression(Of Func(Of T1, T2, T3, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``5(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3,``4}})
+  name: GetMethodInfo<T1, T2, T3, T4, T5>(Expression<Action<T1, T2, T3, T4, T5>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__5_System_Linq_Expressions_Expression_System_Action___0___1___2___3___4___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``5(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3,``4}})
+  name.vb: GetMethodInfo(Of T1, T2, T3, T4, T5)(Expression(Of Action(Of T1, T2, T3, T4, T5)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5>(System.Linq.Expressions.Expression<System.Action<T1, T2, T3, T4, T5>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5)(System.Linq.Expressions.Expression(Of System.Action(Of T1, T2, T3, T4, T5)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5>(Expression<Action<T1, T2, T3, T4, T5>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5)(Expression(Of Action(Of T1, T2, T3, T4, T5)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``5(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4}})
+  name: GetMethodInfo<T1, T2, T3, T4, TResult>(Expression<Func<T1, T2, T3, T4, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__5_System_Linq_Expressions_Expression_System_Func___0___1___2___3___4___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``5(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4}})
+  name.vb: GetMethodInfo(Of T1, T2, T3, T4, TResult)(Expression(Of Func(Of T1, T2, T3, T4, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, TResult>(System.Linq.Expressions.Expression<System.Func<T1, T2, T3, T4, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T1, T2, T3, T4, TResult)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, TResult>(Expression<Func<T1, T2, T3, T4, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, TResult)(Expression(Of Func(Of T1, T2, T3, T4, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``6(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3,``4,``5}})
+  name: GetMethodInfo<T1, T2, T3, T4, T5, T6>(Expression<Action<T1, T2, T3, T4, T5, T6>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__6_System_Linq_Expressions_Expression_System_Action___0___1___2___3___4___5___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``6(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3,``4,``5}})
+  name.vb: GetMethodInfo(Of T1, T2, T3, T4, T5, T6)(Expression(Of Action(Of T1, T2, T3, T4, T5, T6)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, T6>(System.Linq.Expressions.Expression<System.Action<T1, T2, T3, T4, T5, T6>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, T6)(System.Linq.Expressions.Expression(Of System.Action(Of T1, T2, T3, T4, T5, T6)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, T6>(Expression<Action<T1, T2, T3, T4, T5, T6>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, T6)(Expression(Of Action(Of T1, T2, T3, T4, T5, T6)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``6(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5}})
+  name: GetMethodInfo<T1, T2, T3, T4, T5, TResult>(Expression<Func<T1, T2, T3, T4, T5, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__6_System_Linq_Expressions_Expression_System_Func___0___1___2___3___4___5___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``6(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5}})
+  name.vb: GetMethodInfo(Of T1, T2, T3, T4, T5, TResult)(Expression(Of Func(Of T1, T2, T3, T4, T5, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, TResult>(System.Linq.Expressions.Expression<System.Func<T1, T2, T3, T4, T5, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T1, T2, T3, T4, T5, TResult)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, TResult>(Expression<Func<T1, T2, T3, T4, T5, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, TResult)(Expression(Of Func(Of T1, T2, T3, T4, T5, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``7(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3,``4,``5,``6}})
+  name: GetMethodInfo<T1, T2, T3, T4, T5, T6, T7>(Expression<Action<T1, T2, T3, T4, T5, T6, T7>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__7_System_Linq_Expressions_Expression_System_Action___0___1___2___3___4___5___6___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``7(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3,``4,``5,``6}})
+  name.vb: GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7)(Expression(Of Action(Of T1, T2, T3, T4, T5, T6, T7)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, T6, T7>(System.Linq.Expressions.Expression<System.Action<T1, T2, T3, T4, T5, T6, T7>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7)(System.Linq.Expressions.Expression(Of System.Action(Of T1, T2, T3, T4, T5, T6, T7)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, T6, T7>(Expression<Action<T1, T2, T3, T4, T5, T6, T7>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7)(Expression(Of Action(Of T1, T2, T3, T4, T5, T6, T7)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``7(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6}})
+  name: GetMethodInfo<T1, T2, T3, T4, T5, T6, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__7_System_Linq_Expressions_Expression_System_Func___0___1___2___3___4___5___6___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``7(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6}})
+  name.vb: GetMethodInfo(Of T1, T2, T3, T4, T5, T6, TResult)(Expression(Of Func(Of T1, T2, T3, T4, T5, T6, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, T6, TResult>(System.Linq.Expressions.Expression<System.Func<T1, T2, T3, T4, T5, T6, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, T6, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T1, T2, T3, T4, T5, T6, TResult)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, T6, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, T6, TResult)(Expression(Of Func(Of T1, T2, T3, T4, T5, T6, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``8(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3,``4,``5,``6,``7}})
+  name: GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, T8>(Expression<Action<T1, T2, T3, T4, T5, T6, T7, T8>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__8_System_Linq_Expressions_Expression_System_Action___0___1___2___3___4___5___6___7___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``8(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3,``4,``5,``6,``7}})
+  name.vb: GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7, T8)(Expression(Of Action(Of T1, T2, T3, T4, T5, T6, T7, T8)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, T8>(System.Linq.Expressions.Expression<System.Action<T1, T2, T3, T4, T5, T6, T7, T8>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7, T8)(System.Linq.Expressions.Expression(Of System.Action(Of T1, T2, T3, T4, T5, T6, T7, T8)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, T8>(Expression<Action<T1, T2, T3, T4, T5, T6, T7, T8>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7, T8)(Expression(Of Action(Of T1, T2, T3, T4, T5, T6, T7, T8)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``8(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6,``7}})
+  name: GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, T7, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__8_System_Linq_Expressions_Expression_System_Func___0___1___2___3___4___5___6___7___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``8(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6,``7}})
+  name.vb: GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7, TResult)(Expression(Of Func(Of T1, T2, T3, T4, T5, T6, T7, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, TResult>(System.Linq.Expressions.Expression<System.Func<T1, T2, T3, T4, T5, T6, T7, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T1, T2, T3, T4, T5, T6, T7, TResult)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, T7, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7, TResult)(Expression(Of Func(Of T1, T2, T3, T4, T5, T6, T7, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``9(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8}})
+  name: GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, T8, T9>(Expression<Action<T1, T2, T3, T4, T5, T6, T7, T8, T9>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__9_System_Linq_Expressions_Expression_System_Action___0___1___2___3___4___5___6___7___8___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``9(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3,``4,``5,``6,``7,``8}})
+  name.vb: GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)(Expression(Of Action(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, T8, T9>(System.Linq.Expressions.Expression<System.Action<T1, T2, T3, T4, T5, T6, T7, T8, T9>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)(System.Linq.Expressions.Expression(Of System.Action(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, T8, T9>(Expression<Action<T1, T2, T3, T4, T5, T6, T7, T8, T9>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)(Expression(Of Action(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``9(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8}})
+  name: GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, T8, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, T7, T8, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetMethodInfo__9_System_Linq_Expressions_Expression_System_Func___0___1___2___3___4___5___6___7___8___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo``9(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8}})
+  name.vb: GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7, T8, TResult)(Expression(Of Func(Of T1, T2, T3, T4, T5, T6, T7, T8, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, T8, TResult>(System.Linq.Expressions.Expression<System.Func<T1, T2, T3, T4, T5, T6, T7, T8, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7, T8, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T1, T2, T3, T4, T5, T6, T7, T8, TResult)))
+  nameWithType: SymbolExtensions2.GetMethodInfo<T1, T2, T3, T4, T5, T6, T7, T8, TResult>(Expression<Func<T1, T2, T3, T4, T5, T6, T7, T8, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetMethodInfo(Of T1, T2, T3, T4, T5, T6, T7, T8, TResult)(Expression(Of Func(Of T1, T2, T3, T4, T5, T6, T7, T8, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyGetter(System.Linq.Expressions.LambdaExpression)
+  name: GetPropertyGetter(LambdaExpression)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetPropertyGetter_System_Linq_Expressions_LambdaExpression_
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyGetter(System.Linq.Expressions.LambdaExpression)
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyGetter(System.Linq.Expressions.LambdaExpression)
+  nameWithType: SymbolExtensions2.GetPropertyGetter(LambdaExpression)
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyGetter*
+  name: GetPropertyGetter
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetPropertyGetter_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyGetter
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyGetter
+  nameWithType: SymbolExtensions2.GetPropertyGetter
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyGetter``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  name: GetPropertyGetter<T>(Expression<Func<T>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetPropertyGetter__1_System_Linq_Expressions_Expression_System_Func___0___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyGetter``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  name.vb: GetPropertyGetter(Of T)(Expression(Of Func(Of T)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyGetter<T>(System.Linq.Expressions.Expression<System.Func<T>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyGetter(Of T)(System.Linq.Expressions.Expression(Of System.Func(Of T)))
+  nameWithType: SymbolExtensions2.GetPropertyGetter<T>(Expression<Func<T>>)
+  nameWithType.vb: SymbolExtensions2.GetPropertyGetter(Of T)(Expression(Of Func(Of T)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyGetter``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name: GetPropertyGetter<T, TResult>(Expression<Func<T, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetPropertyGetter__2_System_Linq_Expressions_Expression_System_Func___0___1___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyGetter``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name.vb: GetPropertyGetter(Of T, TResult)(Expression(Of Func(Of T, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyGetter<T, TResult>(System.Linq.Expressions.Expression<System.Func<T, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyGetter(Of T, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T, TResult)))
+  nameWithType: SymbolExtensions2.GetPropertyGetter<T, TResult>(Expression<Func<T, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetPropertyGetter(Of T, TResult)(Expression(Of Func(Of T, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyInfo(System.Linq.Expressions.LambdaExpression)
+  name: GetPropertyInfo(LambdaExpression)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetPropertyInfo_System_Linq_Expressions_LambdaExpression_
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyInfo(System.Linq.Expressions.LambdaExpression)
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyInfo(System.Linq.Expressions.LambdaExpression)
+  nameWithType: SymbolExtensions2.GetPropertyInfo(LambdaExpression)
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyInfo*
+  name: GetPropertyInfo
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetPropertyInfo_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyInfo
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyInfo
+  nameWithType: SymbolExtensions2.GetPropertyInfo
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyInfo``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  name: GetPropertyInfo<T>(Expression<Func<T>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetPropertyInfo__1_System_Linq_Expressions_Expression_System_Func___0___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyInfo``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  name.vb: GetPropertyInfo(Of T)(Expression(Of Func(Of T)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyInfo<T>(System.Linq.Expressions.Expression<System.Func<T>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyInfo(Of T)(System.Linq.Expressions.Expression(Of System.Func(Of T)))
+  nameWithType: SymbolExtensions2.GetPropertyInfo<T>(Expression<Func<T>>)
+  nameWithType.vb: SymbolExtensions2.GetPropertyInfo(Of T)(Expression(Of Func(Of T)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyInfo``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name: GetPropertyInfo<T, TResult>(Expression<Func<T, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetPropertyInfo__2_System_Linq_Expressions_Expression_System_Func___0___1___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyInfo``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name.vb: GetPropertyInfo(Of T, TResult)(Expression(Of Func(Of T, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyInfo<T, TResult>(System.Linq.Expressions.Expression<System.Func<T, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertyInfo(Of T, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T, TResult)))
+  nameWithType: SymbolExtensions2.GetPropertyInfo<T, TResult>(Expression<Func<T, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetPropertyInfo(Of T, TResult)(Expression(Of Func(Of T, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertySetter(System.Linq.Expressions.LambdaExpression)
+  name: GetPropertySetter(LambdaExpression)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetPropertySetter_System_Linq_Expressions_LambdaExpression_
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertySetter(System.Linq.Expressions.LambdaExpression)
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertySetter(System.Linq.Expressions.LambdaExpression)
+  nameWithType: SymbolExtensions2.GetPropertySetter(LambdaExpression)
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertySetter*
+  name: GetPropertySetter
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetPropertySetter_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertySetter
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertySetter
+  nameWithType: SymbolExtensions2.GetPropertySetter
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertySetter``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  name: GetPropertySetter<T>(Expression<Func<T>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetPropertySetter__1_System_Linq_Expressions_Expression_System_Func___0___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertySetter``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  name.vb: GetPropertySetter(Of T)(Expression(Of Func(Of T)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertySetter<T>(System.Linq.Expressions.Expression<System.Func<T>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertySetter(Of T)(System.Linq.Expressions.Expression(Of System.Func(Of T)))
+  nameWithType: SymbolExtensions2.GetPropertySetter<T>(Expression<Func<T>>)
+  nameWithType.vb: SymbolExtensions2.GetPropertySetter(Of T)(Expression(Of Func(Of T)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertySetter``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name: GetPropertySetter<T, TResult>(Expression<Func<T, TResult>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetPropertySetter__2_System_Linq_Expressions_Expression_System_Func___0___1___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertySetter``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  name.vb: GetPropertySetter(Of T, TResult)(Expression(Of Func(Of T, TResult)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertySetter<T, TResult>(System.Linq.Expressions.Expression<System.Func<T, TResult>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetPropertySetter(Of T, TResult)(System.Linq.Expressions.Expression(Of System.Func(Of T, TResult)))
+  nameWithType: SymbolExtensions2.GetPropertySetter<T, TResult>(Expression<Func<T, TResult>>)
+  nameWithType.vb: SymbolExtensions2.GetPropertySetter(Of T, TResult)(Expression(Of Func(Of T, TResult)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStaticFieldRefAccess*
+  name: GetStaticFieldRefAccess
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetStaticFieldRefAccess_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStaticFieldRefAccess
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStaticFieldRefAccess
+  nameWithType: SymbolExtensions2.GetStaticFieldRefAccess
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStaticFieldRefAccess``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  name: GetStaticFieldRefAccess<TField>(Expression<Func<TField>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetStaticFieldRefAccess__1_System_Linq_Expressions_Expression_System_Func___0___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStaticFieldRefAccess``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  name.vb: GetStaticFieldRefAccess(Of TField)(Expression(Of Func(Of TField)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStaticFieldRefAccess<TField>(System.Linq.Expressions.Expression<System.Func<TField>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStaticFieldRefAccess(Of TField)(System.Linq.Expressions.Expression(Of System.Func(Of TField)))
+  nameWithType: SymbolExtensions2.GetStaticFieldRefAccess<TField>(Expression<Func<TField>>)
+  nameWithType.vb: SymbolExtensions2.GetStaticFieldRefAccess(Of TField)(Expression(Of Func(Of TField)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStaticFieldRefAccess``1(System.Linq.Expressions.LambdaExpression)
+  name: GetStaticFieldRefAccess<TField>(LambdaExpression)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetStaticFieldRefAccess__1_System_Linq_Expressions_LambdaExpression_
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStaticFieldRefAccess``1(System.Linq.Expressions.LambdaExpression)
+  name.vb: GetStaticFieldRefAccess(Of TField)(LambdaExpression)
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStaticFieldRefAccess<TField>(System.Linq.Expressions.LambdaExpression)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStaticFieldRefAccess(Of TField)(System.Linq.Expressions.LambdaExpression)
+  nameWithType: SymbolExtensions2.GetStaticFieldRefAccess<TField>(LambdaExpression)
+  nameWithType.vb: SymbolExtensions2.GetStaticFieldRefAccess(Of TField)(LambdaExpression)
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStructFieldRefAccess*
+  name: GetStructFieldRefAccess
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetStructFieldRefAccess_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStructFieldRefAccess
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStructFieldRefAccess
+  nameWithType: SymbolExtensions2.GetStructFieldRefAccess
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStructFieldRefAccess``2(System.Linq.Expressions.Expression{System.Func{``1}})
+  name: GetStructFieldRefAccess<TObject, TField>(Expression<Func<TField>>)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetStructFieldRefAccess__2_System_Linq_Expressions_Expression_System_Func___1___
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStructFieldRefAccess``2(System.Linq.Expressions.Expression{System.Func{``1}})
+  name.vb: GetStructFieldRefAccess(Of TObject, TField)(Expression(Of Func(Of TField)))
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStructFieldRefAccess<TObject, TField>(System.Linq.Expressions.Expression<System.Func<TField>>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStructFieldRefAccess(Of TObject, TField)(System.Linq.Expressions.Expression(Of System.Func(Of TField)))
+  nameWithType: SymbolExtensions2.GetStructFieldRefAccess<TObject, TField>(Expression<Func<TField>>)
+  nameWithType.vb: SymbolExtensions2.GetStructFieldRefAccess(Of TObject, TField)(Expression(Of Func(Of TField)))
+- uid: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStructFieldRefAccess``2(System.Linq.Expressions.LambdaExpression)
+  name: GetStructFieldRefAccess<TObject, TField>(LambdaExpression)
+  href: api/HarmonyLib.BUTR.Extensions.SymbolExtensions2.html#HarmonyLib_BUTR_Extensions_SymbolExtensions2_GetStructFieldRefAccess__2_System_Linq_Expressions_LambdaExpression_
+  commentId: M:HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStructFieldRefAccess``2(System.Linq.Expressions.LambdaExpression)
+  name.vb: GetStructFieldRefAccess(Of TObject, TField)(LambdaExpression)
+  fullName: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStructFieldRefAccess<TObject, TField>(System.Linq.Expressions.LambdaExpression)
+  fullName.vb: HarmonyLib.BUTR.Extensions.SymbolExtensions2.GetStructFieldRefAccess(Of TObject, TField)(System.Linq.Expressions.LambdaExpression)
+  nameWithType: SymbolExtensions2.GetStructFieldRefAccess<TObject, TField>(LambdaExpression)
+  nameWithType.vb: SymbolExtensions2.GetStructFieldRefAccess(Of TObject, TField)(LambdaExpression)
+- uid: HarmonyLib.BUTR.Extensions.Traverse2
+  name: Traverse2
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html
+  commentId: T:HarmonyLib.BUTR.Extensions.Traverse2
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2
+  nameWithType: Traverse2
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.#ctor(System.Object)
+  name: Traverse2(Object)
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2__ctor_System_Object_
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.#ctor(System.Object)
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Traverse2(System.Object)
+  nameWithType: Traverse2.Traverse2(Object)
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.#ctor(System.Type)
+  name: Traverse2(Type)
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2__ctor_System_Type_
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.#ctor(System.Type)
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Traverse2(System.Type)
+  nameWithType: Traverse2.Traverse2(Type)
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.#ctor*
+  name: Traverse2
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2__ctor_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.#ctor
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Traverse2
+  nameWithType: Traverse2.Traverse2
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.CopyFields
+  name: CopyFields
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_CopyFields
+  commentId: F:HarmonyLib.BUTR.Extensions.Traverse2.CopyFields
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.CopyFields
+  nameWithType: Traverse2.CopyFields
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Create(System.Object)
+  name: Create(Object)
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Create_System_Object_
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.Create(System.Object)
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Create(System.Object)
+  nameWithType: Traverse2.Create(Object)
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Create(System.Type)
+  name: Create(Type)
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Create_System_Type_
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.Create(System.Type)
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Create(System.Type)
+  nameWithType: Traverse2.Create(Type)
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Create*
+  name: Create
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Create_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.Create
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Create
+  nameWithType: Traverse2.Create
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Create``1
+  name: Create<T>()
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Create__1
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.Create``1
+  name.vb: Create(Of T)()
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Create<T>()
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2.Create(Of T)()
+  nameWithType: Traverse2.Create<T>()
+  nameWithType.vb: Traverse2.Create(Of T)()
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.CreateWithType(System.String)
+  name: CreateWithType(String)
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_CreateWithType_System_String_
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.CreateWithType(System.String)
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.CreateWithType(System.String)
+  nameWithType: Traverse2.CreateWithType(String)
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.CreateWithType*
+  name: CreateWithType
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_CreateWithType_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.CreateWithType
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.CreateWithType
+  nameWithType: Traverse2.CreateWithType
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Field(System.String)
+  name: Field(String)
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Field_System_String_
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.Field(System.String)
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Field(System.String)
+  nameWithType: Traverse2.Field(String)
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Field*
+  name: Field
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Field_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.Field
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Field
+  nameWithType: Traverse2.Field
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Field``1(System.String)
+  name: Field<T>(String)
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Field__1_System_String_
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.Field``1(System.String)
+  name.vb: Field(Of T)(String)
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Field<T>(System.String)
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2.Field(Of T)(System.String)
+  nameWithType: Traverse2.Field<T>(String)
+  nameWithType.vb: Traverse2.Field(Of T)(String)
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.FieldExists
+  name: FieldExists()
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_FieldExists
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.FieldExists
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.FieldExists()
+  nameWithType: Traverse2.FieldExists()
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.FieldExists*
+  name: FieldExists
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_FieldExists_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.FieldExists
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.FieldExists
+  nameWithType: Traverse2.FieldExists
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Fields
+  name: Fields()
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Fields
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.Fields
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Fields()
+  nameWithType: Traverse2.Fields()
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Fields*
+  name: Fields
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Fields_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.Fields
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Fields
+  nameWithType: Traverse2.Fields
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.GetValue
+  name: GetValue()
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_GetValue
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.GetValue
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.GetValue()
+  nameWithType: Traverse2.GetValue()
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.GetValue(System.Object[])
+  name: GetValue(Object[])
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_GetValue_System_Object___
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.GetValue(System.Object[])
+  name.vb: GetValue(Object())
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.GetValue(System.Object[])
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2.GetValue(System.Object())
+  nameWithType: Traverse2.GetValue(Object[])
+  nameWithType.vb: Traverse2.GetValue(Object())
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.GetValue*
+  name: GetValue
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_GetValue_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.GetValue
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.GetValue
+  nameWithType: Traverse2.GetValue
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.GetValue``1
+  name: GetValue<T>()
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_GetValue__1
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.GetValue``1
+  name.vb: GetValue(Of T)()
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.GetValue<T>()
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2.GetValue(Of T)()
+  nameWithType: Traverse2.GetValue<T>()
+  nameWithType.vb: Traverse2.GetValue(Of T)()
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.GetValue``1(System.Object[])
+  name: GetValue<T>(Object[])
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_GetValue__1_System_Object___
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.GetValue``1(System.Object[])
+  name.vb: GetValue(Of T)(Object())
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.GetValue<T>(System.Object[])
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2.GetValue(Of T)(System.Object())
+  nameWithType: Traverse2.GetValue<T>(Object[])
+  nameWithType.vb: Traverse2.GetValue(Of T)(Object())
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.GetValueType
+  name: GetValueType()
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_GetValueType
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.GetValueType
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.GetValueType()
+  nameWithType: Traverse2.GetValueType()
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.GetValueType*
+  name: GetValueType
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_GetValueType_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.GetValueType
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.GetValueType
+  nameWithType: Traverse2.GetValueType
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.IterateFields(System.Object,System.Action{HarmonyLib.BUTR.Extensions.Traverse2})
+  name: IterateFields(Object, Action<Traverse2>)
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_IterateFields_System_Object_System_Action_HarmonyLib_BUTR_Extensions_Traverse2__
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.IterateFields(System.Object,System.Action{HarmonyLib.BUTR.Extensions.Traverse2})
+  name.vb: IterateFields(Object, Action(Of Traverse2))
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.IterateFields(System.Object, System.Action<HarmonyLib.BUTR.Extensions.Traverse2>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2.IterateFields(System.Object, System.Action(Of HarmonyLib.BUTR.Extensions.Traverse2))
+  nameWithType: Traverse2.IterateFields(Object, Action<Traverse2>)
+  nameWithType.vb: Traverse2.IterateFields(Object, Action(Of Traverse2))
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.IterateFields(System.Object,System.Object,System.Action{HarmonyLib.BUTR.Extensions.Traverse2,HarmonyLib.BUTR.Extensions.Traverse2})
+  name: IterateFields(Object, Object, Action<Traverse2, Traverse2>)
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_IterateFields_System_Object_System_Object_System_Action_HarmonyLib_BUTR_Extensions_Traverse2_HarmonyLib_BUTR_Extensions_Traverse2__
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.IterateFields(System.Object,System.Object,System.Action{HarmonyLib.BUTR.Extensions.Traverse2,HarmonyLib.BUTR.Extensions.Traverse2})
+  name.vb: IterateFields(Object, Object, Action(Of Traverse2, Traverse2))
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.IterateFields(System.Object, System.Object, System.Action<HarmonyLib.BUTR.Extensions.Traverse2, HarmonyLib.BUTR.Extensions.Traverse2>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2.IterateFields(System.Object, System.Object, System.Action(Of HarmonyLib.BUTR.Extensions.Traverse2, HarmonyLib.BUTR.Extensions.Traverse2))
+  nameWithType: Traverse2.IterateFields(Object, Object, Action<Traverse2, Traverse2>)
+  nameWithType.vb: Traverse2.IterateFields(Object, Object, Action(Of Traverse2, Traverse2))
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.IterateFields(System.Object,System.Object,System.Action{System.String,HarmonyLib.BUTR.Extensions.Traverse2,HarmonyLib.BUTR.Extensions.Traverse2})
+  name: IterateFields(Object, Object, Action<String, Traverse2, Traverse2>)
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_IterateFields_System_Object_System_Object_System_Action_System_String_HarmonyLib_BUTR_Extensions_Traverse2_HarmonyLib_BUTR_Extensions_Traverse2__
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.IterateFields(System.Object,System.Object,System.Action{System.String,HarmonyLib.BUTR.Extensions.Traverse2,HarmonyLib.BUTR.Extensions.Traverse2})
+  name.vb: IterateFields(Object, Object, Action(Of String, Traverse2, Traverse2))
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.IterateFields(System.Object, System.Object, System.Action<System.String, HarmonyLib.BUTR.Extensions.Traverse2, HarmonyLib.BUTR.Extensions.Traverse2>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2.IterateFields(System.Object, System.Object, System.Action(Of System.String, HarmonyLib.BUTR.Extensions.Traverse2, HarmonyLib.BUTR.Extensions.Traverse2))
+  nameWithType: Traverse2.IterateFields(Object, Object, Action<String, Traverse2, Traverse2>)
+  nameWithType.vb: Traverse2.IterateFields(Object, Object, Action(Of String, Traverse2, Traverse2))
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.IterateFields*
+  name: IterateFields
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_IterateFields_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.IterateFields
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.IterateFields
+  nameWithType: Traverse2.IterateFields
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.IterateProperties(System.Object,System.Action{HarmonyLib.BUTR.Extensions.Traverse2})
+  name: IterateProperties(Object, Action<Traverse2>)
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_IterateProperties_System_Object_System_Action_HarmonyLib_BUTR_Extensions_Traverse2__
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.IterateProperties(System.Object,System.Action{HarmonyLib.BUTR.Extensions.Traverse2})
+  name.vb: IterateProperties(Object, Action(Of Traverse2))
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.IterateProperties(System.Object, System.Action<HarmonyLib.BUTR.Extensions.Traverse2>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2.IterateProperties(System.Object, System.Action(Of HarmonyLib.BUTR.Extensions.Traverse2))
+  nameWithType: Traverse2.IterateProperties(Object, Action<Traverse2>)
+  nameWithType.vb: Traverse2.IterateProperties(Object, Action(Of Traverse2))
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.IterateProperties(System.Object,System.Object,System.Action{HarmonyLib.BUTR.Extensions.Traverse2,HarmonyLib.BUTR.Extensions.Traverse2})
+  name: IterateProperties(Object, Object, Action<Traverse2, Traverse2>)
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_IterateProperties_System_Object_System_Object_System_Action_HarmonyLib_BUTR_Extensions_Traverse2_HarmonyLib_BUTR_Extensions_Traverse2__
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.IterateProperties(System.Object,System.Object,System.Action{HarmonyLib.BUTR.Extensions.Traverse2,HarmonyLib.BUTR.Extensions.Traverse2})
+  name.vb: IterateProperties(Object, Object, Action(Of Traverse2, Traverse2))
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.IterateProperties(System.Object, System.Object, System.Action<HarmonyLib.BUTR.Extensions.Traverse2, HarmonyLib.BUTR.Extensions.Traverse2>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2.IterateProperties(System.Object, System.Object, System.Action(Of HarmonyLib.BUTR.Extensions.Traverse2, HarmonyLib.BUTR.Extensions.Traverse2))
+  nameWithType: Traverse2.IterateProperties(Object, Object, Action<Traverse2, Traverse2>)
+  nameWithType.vb: Traverse2.IterateProperties(Object, Object, Action(Of Traverse2, Traverse2))
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.IterateProperties(System.Object,System.Object,System.Action{System.String,HarmonyLib.BUTR.Extensions.Traverse2,HarmonyLib.BUTR.Extensions.Traverse2})
+  name: IterateProperties(Object, Object, Action<String, Traverse2, Traverse2>)
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_IterateProperties_System_Object_System_Object_System_Action_System_String_HarmonyLib_BUTR_Extensions_Traverse2_HarmonyLib_BUTR_Extensions_Traverse2__
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.IterateProperties(System.Object,System.Object,System.Action{System.String,HarmonyLib.BUTR.Extensions.Traverse2,HarmonyLib.BUTR.Extensions.Traverse2})
+  name.vb: IterateProperties(Object, Object, Action(Of String, Traverse2, Traverse2))
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.IterateProperties(System.Object, System.Object, System.Action<System.String, HarmonyLib.BUTR.Extensions.Traverse2, HarmonyLib.BUTR.Extensions.Traverse2>)
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2.IterateProperties(System.Object, System.Object, System.Action(Of System.String, HarmonyLib.BUTR.Extensions.Traverse2, HarmonyLib.BUTR.Extensions.Traverse2))
+  nameWithType: Traverse2.IterateProperties(Object, Object, Action<String, Traverse2, Traverse2>)
+  nameWithType.vb: Traverse2.IterateProperties(Object, Object, Action(Of String, Traverse2, Traverse2))
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.IterateProperties*
+  name: IterateProperties
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_IterateProperties_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.IterateProperties
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.IterateProperties
+  nameWithType: Traverse2.IterateProperties
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Method(System.String,System.Object[])
+  name: Method(String, Object[])
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Method_System_String_System_Object___
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.Method(System.String,System.Object[])
+  name.vb: Method(String, Object())
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Method(System.String, System.Object[])
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2.Method(System.String, System.Object())
+  nameWithType: Traverse2.Method(String, Object[])
+  nameWithType.vb: Traverse2.Method(String, Object())
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Method(System.String,System.Type[],System.Object[])
+  name: Method(String, Type[], Object[])
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Method_System_String_System_Type___System_Object___
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.Method(System.String,System.Type[],System.Object[])
+  name.vb: Method(String, Type(), Object())
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Method(System.String, System.Type[], System.Object[])
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2.Method(System.String, System.Type(), System.Object())
+  nameWithType: Traverse2.Method(String, Type[], Object[])
+  nameWithType.vb: Traverse2.Method(String, Type(), Object())
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Method*
+  name: Method
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Method_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.Method
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Method
+  nameWithType: Traverse2.Method
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.MethodExists
+  name: MethodExists()
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_MethodExists
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.MethodExists
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.MethodExists()
+  nameWithType: Traverse2.MethodExists()
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.MethodExists*
+  name: MethodExists
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_MethodExists_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.MethodExists
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.MethodExists
+  nameWithType: Traverse2.MethodExists
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Methods
+  name: Methods()
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Methods
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.Methods
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Methods()
+  nameWithType: Traverse2.Methods()
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Methods*
+  name: Methods
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Methods_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.Methods
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Methods
+  nameWithType: Traverse2.Methods
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Properties
+  name: Properties()
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Properties
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.Properties
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Properties()
+  nameWithType: Traverse2.Properties()
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Properties*
+  name: Properties
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Properties_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.Properties
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Properties
+  nameWithType: Traverse2.Properties
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Property(System.String,System.Object[])
+  name: Property(String, Object[])
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Property_System_String_System_Object___
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.Property(System.String,System.Object[])
+  name.vb: Property(String, Object())
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Property(System.String, System.Object[])
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2.Property(System.String, System.Object())
+  nameWithType: Traverse2.Property(String, Object[])
+  nameWithType.vb: Traverse2.Property(String, Object())
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Property*
+  name: Property
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Property_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.Property
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Property
+  nameWithType: Traverse2.Property
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Property``1(System.String,System.Object[])
+  name: Property<T>(String, Object[])
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Property__1_System_String_System_Object___
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.Property``1(System.String,System.Object[])
+  name.vb: Property(Of T)(String, Object())
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Property<T>(System.String, System.Object[])
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2.Property(Of T)(System.String, System.Object())
+  nameWithType: Traverse2.Property<T>(String, Object[])
+  nameWithType.vb: Traverse2.Property(Of T)(String, Object())
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.PropertyExists
+  name: PropertyExists()
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_PropertyExists
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.PropertyExists
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.PropertyExists()
+  nameWithType: Traverse2.PropertyExists()
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.PropertyExists*
+  name: PropertyExists
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_PropertyExists_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.PropertyExists
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.PropertyExists
+  nameWithType: Traverse2.PropertyExists
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.SetValue(System.Object)
+  name: SetValue(Object)
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_SetValue_System_Object_
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.SetValue(System.Object)
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.SetValue(System.Object)
+  nameWithType: Traverse2.SetValue(Object)
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.SetValue*
+  name: SetValue
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_SetValue_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.SetValue
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.SetValue
+  nameWithType: Traverse2.SetValue
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.ToString
+  name: ToString()
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_ToString
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.ToString
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.ToString()
+  nameWithType: Traverse2.ToString()
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.ToString*
+  name: ToString
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_ToString_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.ToString
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.ToString
+  nameWithType: Traverse2.ToString
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Type(System.String)
+  name: Type(String)
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Type_System_String_
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.Type(System.String)
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Type(System.String)
+  nameWithType: Traverse2.Type(String)
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.Type*
+  name: Type
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_Type_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.Type
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.Type
+  nameWithType: Traverse2.Type
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.TypeExists
+  name: TypeExists()
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_TypeExists
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2.TypeExists
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.TypeExists()
+  nameWithType: Traverse2.TypeExists()
+- uid: HarmonyLib.BUTR.Extensions.Traverse2.TypeExists*
+  name: TypeExists
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2.html#HarmonyLib_BUTR_Extensions_Traverse2_TypeExists_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2.TypeExists
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2.TypeExists
+  nameWithType: Traverse2.TypeExists
+- uid: HarmonyLib.BUTR.Extensions.Traverse2`1
+  name: Traverse2<T>
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2-1.html
+  commentId: T:HarmonyLib.BUTR.Extensions.Traverse2`1
+  name.vb: Traverse2(Of T)
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2<T>
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2(Of T)
+  nameWithType: Traverse2<T>
+  nameWithType.vb: Traverse2(Of T)
+- uid: HarmonyLib.BUTR.Extensions.Traverse2`1.#ctor(HarmonyLib.BUTR.Extensions.Traverse2)
+  name: Traverse2(Traverse2)
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2-1.html#HarmonyLib_BUTR_Extensions_Traverse2_1__ctor_HarmonyLib_BUTR_Extensions_Traverse2_
+  commentId: M:HarmonyLib.BUTR.Extensions.Traverse2`1.#ctor(HarmonyLib.BUTR.Extensions.Traverse2)
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2<T>.Traverse2(HarmonyLib.BUTR.Extensions.Traverse2)
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2(Of T).Traverse2(HarmonyLib.BUTR.Extensions.Traverse2)
+  nameWithType: Traverse2<T>.Traverse2(Traverse2)
+  nameWithType.vb: Traverse2(Of T).Traverse2(Traverse2)
+- uid: HarmonyLib.BUTR.Extensions.Traverse2`1.#ctor*
+  name: Traverse2
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2-1.html#HarmonyLib_BUTR_Extensions_Traverse2_1__ctor_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2`1.#ctor
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2<T>.Traverse2
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2(Of T).Traverse2
+  nameWithType: Traverse2<T>.Traverse2
+  nameWithType.vb: Traverse2(Of T).Traverse2
+- uid: HarmonyLib.BUTR.Extensions.Traverse2`1.Value
+  name: Value
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2-1.html#HarmonyLib_BUTR_Extensions_Traverse2_1_Value
+  commentId: P:HarmonyLib.BUTR.Extensions.Traverse2`1.Value
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2<T>.Value
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2(Of T).Value
+  nameWithType: Traverse2<T>.Value
+  nameWithType.vb: Traverse2(Of T).Value
+- uid: HarmonyLib.BUTR.Extensions.Traverse2`1.Value*
+  name: Value
+  href: api/HarmonyLib.BUTR.Extensions.Traverse2-1.html#HarmonyLib_BUTR_Extensions_Traverse2_1_Value_
+  commentId: Overload:HarmonyLib.BUTR.Extensions.Traverse2`1.Value
+  isSpec: "True"
+  fullName: HarmonyLib.BUTR.Extensions.Traverse2<T>.Value
+  fullName.vb: HarmonyLib.BUTR.Extensions.Traverse2(Of T).Value
+  nameWithType: Traverse2<T>.Value
+  nameWithType.vb: Traverse2(Of T).Value
