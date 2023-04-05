@@ -201,6 +201,39 @@ namespace HarmonyLib.BUTR.Extensions
             
             return Method(type, name, parameters, generics, logErrorInTrace: logErrorInTrace);
         }
+        
+        //
+        
+#if NET45_OR_GREATER
+        /// <summary>Gets the <see cref="System.Runtime.CompilerServices.IAsyncStateMachine.MoveNext"/> method of an async method's state machine</summary>
+        /// <param name="method">Async method that creates the state machine internally</param>
+        /// <returns>The internal <see cref="System.Runtime.CompilerServices.IAsyncStateMachine.MoveNext"/> method of the async state machine or <b>null</b> if no valid async method is detected</returns>
+        public static MethodInfo? AsyncMoveNext(MethodBase method)
+        {
+            if (method is null)
+            {
+                Trace.TraceError("AccessTools2.AsyncMoveNext: method is null");
+                return null;
+            }
+
+            var asyncAttribute = method.GetCustomAttribute<System.Runtime.CompilerServices.AsyncStateMachineAttribute>();
+            if (asyncAttribute is null)
+            {
+                Trace.TraceError($"AccessTools2.AsyncMoveNext: Could not find AsyncStateMachine for {method.FullDescription()}");
+                return null;
+            }
+
+            var asyncStateMachineType = asyncAttribute.StateMachineType;
+            var asyncMethodBody = DeclaredMethod(asyncStateMachineType, nameof(System.Runtime.CompilerServices.IAsyncStateMachine.MoveNext));
+            if (asyncMethodBody is null)
+            {
+                Trace.TraceError($"AccessTools2.AsyncMoveNext: Could not find async method body for {method.FullDescription()}");
+                return null;
+            }
+
+            return asyncMethodBody;
+        }
+#endif
     }
 }
 

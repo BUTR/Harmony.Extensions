@@ -44,7 +44,7 @@
 
 namespace HarmonyLib.BUTR.Extensions
 {
-#if false
+#if HARMONYEXTENSIONS_REFLECT
     using global::System;
     using global::System.Linq;
     using global::System.Reflection;
